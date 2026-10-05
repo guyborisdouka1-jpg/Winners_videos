@@ -79,6 +79,7 @@ def cta(line1, line2):
     return im
 
 def humour(text, bg, name):
+    text = text.replace(" »", "\u00a0»").replace("« ", "«\u00a0").replace(" :", "\u00a0:")
     im = Image.new("RGB", (W, H), bg); d = ImageDraw.Draw(im)
     font = f("Bold", 66 if len(text) < 120 else 56)
     lines = wrap(d, text, font, 900); lh = int(font.size * 1.3)
@@ -129,3 +130,50 @@ if __name__ == "__main__":
         for k, s in enumerate(slides, 1): s().save(os.path.join(OUT, f"{name}_{k}.png"))
     for name, text, bg in HUMOUR: humour(text, bg, name)
     print(sorted(os.listdir(OUT)))
+
+CAROUSELS2 = {
+ "C4_restaurant": [
+   lambda: cover("Au restaurant en anglais", "Les phrases pour commander et payer", 1, 6),
+   lambda: cards("Pour commander", [("Can I see the menu, please?", "Je peux voir le menu ?"), ("I'd like the chicken, please.", "Je voudrais le poulet."), ("Can I have some water?", "Je peux avoir de l'eau ?")], 2, 6),
+   lambda: cards("Pour payer", [("Can I have the bill, please?", "L'addition, s'il vous plaît."), ("Can I pay by card?", "Je peux payer par carte ?"), ("Keep the change!", "Gardez la monnaie !")], 3, 6),
+   lambda: cards("À toi : comment dire…", [("« Je voudrais du riz. »", None), ("A. I want rice.", None), ("B. I'd like some rice.", None), ("C. I like rice.", None)], 4, 6,
+                 note="Réponds A, B ou C en commentaire !"),
+   lambda: cards("Réponse : B", [("I'd like some rice.", "I'd like = je voudrais (poli)"), ("I like rice.", "= j'aime le riz (autre sens !)")], 5, 6),
+   lambda: cta("Tu avais trouvé ?", "Dis-le en commentaire\net tag ton ami gourmand !"),
+ ],
+ "C5_in_on_at": [
+   lambda: cover("IN, ON ou AT ?", "Les prépositions de temps et de lieu", 1, 6),
+   lambda: cards("Pour le temps", [("AT 8 o'clock", "à 8 heures (une heure précise)"), ("ON Monday", "lundi (un jour)"), ("IN October / IN 2026", "en octobre / en 2026")], 2, 6),
+   lambda: cards("Pour les lieux", [("AT home / AT school", "à la maison / à l'école"), ("IN Cocody", "à Cocody (une ville, un quartier)"), ("ON the bus", "dans le bus")], 3, 6),
+   lambda: cards("À toi : IN, ON ou AT ?", [("1. ___ Friday", None), ("2. ___ night", None), ("3. ___ the morning", None), ("4. ___ the weekend", None)], 4, 6,
+                 note="Écris tes réponses en commentaire avant de glisser !"),
+   lambda: cards("Réponses", [("1. ON Friday", None), ("2. AT night", None), ("3. IN the morning", None), ("4. AT the weekend", "(en anglais américain : ON the weekend)")], 5, 6),
+   lambda: cta("Combien sur 4 ?", "Écris ton score\nen commentaire !"),
+ ],
+ "C6_travail": [
+   lambda: cover("L'anglais au travail", "6 phrases pour faire pro", 1, 6),
+   lambda: cards("Par e-mail ou message", [("Could you send me the file?", "Tu peux m'envoyer le fichier ?"), ("Sorry for the delay.", "Désolé pour le retard."), ("I'll get back to you.", "Je reviens vers toi.")], 2, 6),
+   lambda: cards("En réunion", [("Let's schedule a meeting.", "Organisons une réunion."), ("Could you repeat, please?", "Tu peux répéter, s'il te plaît ?"), ("I'm on it!", "Je m'en occupe !")], 3, 6),
+   lambda: cards("À éviter", [("« I am agree »", "On dit : I agree"), ("« Discuss about »", "On dit : discuss the project")], 4, 6),
+   lambda: cards("Ta phrase préférée ?", [("1. I'll get back to you.", None), ("2. I'm on it!", None), ("3. Sorry for the delay.", None)], 5, 6,
+                 note="Réponds 1, 2 ou 3 en commentaire !"),
+   lambda: cta("Tu vas l'utiliser demain ?", "Partage à un collègue\nqui en a besoin !"),
+ ],
+ "C7_test_niveau": [
+   lambda: cover("Mini-test : quel est ton niveau ?", "3 questions • Note tes réponses", 1, 6),
+   lambda: cards("1. She ___ to school every day.", [("A. go", None), ("B. goes", None), ("C. going", None)], 2, 6),
+   lambda: cards("2. I've lived here ___ 2020.", [("A. for", None), ("B. from", None), ("C. since", None)], 3, 6),
+   lambda: cards("3. If I ___ rich, I would travel.", [("A. were", None), ("B. am", None), ("C. will be", None)], 4, 6),
+   lambda: cards("Réponses : 1B • 2C • 3A", [("0 ou 1 bonne réponse", "Débutant : on commence ensemble !"), ("2 bonnes réponses", "Intermédiaire : continue !"), ("3 bonnes réponses", "Avancé : bravo !")], 5, 6),
+   lambda: cta("Quel est ton niveau ?", "Écris-le en commentaire,\non te conseille !"),
+ ],
+}
+HUMOUR2 = [
+ ("H5_repeat", "Le prof : « Repeat after me. »\n\nMoi : « Repeat after me. »", BLACK),
+ ("H6_cv", "Quand tu sais dire « Yes », « No » et « Thank you »…\n\net tu écris « Anglais : courant » sur ton CV.", NAVY2),
+ ("H7_chanson", "Moi qui chante cette chanson en anglais depuis 5 ans :\n\nToujours aucune idée de ce qu'elle raconte.", RED),
+]
+if __name__ == "__main__":
+    for name, slides in CAROUSELS2.items():
+        for k, s in enumerate(slides, 1): s().save(os.path.join(OUT, f"{name}_{k}.png"))
+    for name, text, bg in HUMOUR2: humour(text, bg, name)
