@@ -1,0 +1,42 @@
+SPECS = {
+ "08_quiz3": dict(kind="quiz", music="energie", title="QUIZ TIME !", sub="5 questions • Compte tes points",
+   outro1="Combien sur 5 ?", outro2="Écris ton score\nen commentaire", items=[
+   dict(q="« Je suis en train de manger. »", opts=["I eat now", "I am eat", "I am eating"], ok=2, note="Action en cours = am + verbe-ing"),
+   dict(q="« Il y a beaucoup de monde. »", opts=["It has many people", "There are many people", "There is many people"], ok=1, note="Il y a (pluriel) = there are"),
+   dict(q="« Il fait froid. »", opts=["It is cold", "He makes cold", "It does cold"], ok=0, note="La météo = It is…"),
+   dict(q="« J'ai froid. »", opts=["I have cold", "I am cold", "I make cold"], ok=1, note="Avoir froid = to be cold"),
+   dict(q="« Je vous écoute. »", opts=["I listen you", "I'm listening to you", "I hear you listen"], ok=1, note="Listen + TO"),
+ ]),
+ "09_nedis2": dict(kind="nedis", music="mystere", title="NE DIS PLUS…\nDIS PLUTÔT !", sub="5 fautes que tout le monde fait",
+   outro1="Tu faisais laquelle ?", outro2="Dis-le en\ncommentaire", items=[
+   dict(wrong="I am agree", right="I agree", note="Agree est déjà un verbe"),
+   dict(wrong="Explain me", right="Explain to me", note="Explain something TO someone"),
+   dict(wrong="I have 30 years", right="I am 30 years old", note="L'âge se dit avec « to be »"),
+   dict(wrong="I'm boring in class", right="I'm bored in class", note="Bored = je m'ennuie • Boring = ennuyeux"),
+   dict(wrong="Let's discuss about it", right="Let's discuss it", note="Discuss sans « about »"),
+ ]),
+ "10_vraifaux2": dict(kind="vf", music="suspense", title="VRAI OU FAUX ?", sub="5 phrases • Compte tes points",
+   outro1="Combien sur 5 ?", outro2="Écris ton score\nen commentaire", items=[
+   dict(s="She can speaks English.", vrai=False, fix="She can speak English", note="Après can : verbe sans -s"),
+   dict(s="I have lived here for two years.", vrai=True, fix="", note="For + durée"),
+   dict(s="Did you went to school?", vrai=False, fix="Did you go to school?", note="Après did : verbe de base"),
+   dict(s="I am interested in music.", vrai=True, fix="", note="Interested + IN"),
+   dict(s="I didn't saw him.", vrai=False, fix="I didn't see him", note="Après didn't : verbe de base"),
+ ]),
+ "11_devine2": dict(kind="quiz", music="classique", title="DEVINE LE SENS !", sub="5 expressions anglaises",
+   outro1="Combien sur 5 ?", outro2="Écris ton score\nen commentaire", items=[
+   dict(q="« It costs an arm and a leg »", opts=["Ça coûte très cher", "Ça fait mal", "C'est gratuit"], ok=0, note="An arm and a leg = très cher"),
+   dict(q="« Once in a blue moon »", opts=["Chaque nuit", "Très rarement", "Pendant la pleine lune"], ok=1, note="Once in a blue moon = très rarement"),
+   dict(q="« Call it a day »", opts=["Appeler quelqu'un", "Arrêter pour aujourd'hui", "Commencer la journée"], ok=1, note="Call it a day = on s'arrête là"),
+   dict(q="« Spill the beans »", opts=["Renverser à manger", "Faire la cuisine", "Révéler un secret"], ok=2, note="Spill the beans = vendre la mèche"),
+   dict(q="« Hit the road »", opts=["Partir, prendre la route", "Frapper la route", "Avoir un accident"], ok=0, note="Hit the road = se mettre en route"),
+ ]),
+ "12_ordre2": dict(kind="order", music="energie", title="REMETS DANS\nL'ORDRE !", sub="5 phrases • Compte tes points",
+   outro1="Combien sur 5 ?", outro2="Écris ton score\nen commentaire", items=[
+   dict(words=["old", "how", "you", "are"], answer="How old are you?", fr="Quel âge as-tu ?"),
+   dict(words=["live", "where", "you", "do"], answer="Where do you live?", fr="Où habites-tu ?"),
+   dict(words=["English", "speak", "I", "can"], answer="I can speak English.", fr="Je sais parler anglais."),
+   dict(words=["me", "help", "you", "can"], answer="Can you help me?", fr="Peux-tu m'aider ?"),
+   dict(words=["tired", "very", "I'm", "today"], answer="I'm very tired today.", fr="Je suis très fatigué aujourd'hui."),
+ ]),
+}
