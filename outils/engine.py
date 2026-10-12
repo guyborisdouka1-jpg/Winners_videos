@@ -29,7 +29,7 @@ def build_timeline(spec):
     tl = []; t = 2.5
     for it in spec["items"]:
         tm = item_timing(spec["kind"], it, t); tl.append(tm); t = tm["end"]
-    return tl, t, t + 4.5
+    return tl, t, t + (6.5 if spec.get("levels") else 4.5)
 
 # ------------------------------------------------------------ audio
 MUSIC = {
@@ -300,6 +300,23 @@ def render(name, spec, outdir):
         elif t < outro_t:
             i = next(k for k, tm in enumerate(tl) if t < tm["end"])
             draw_item(d, spec["kind"], spec["items"][i], tl[i], t, i, n)
+        elif spec.get("levels"):
+            p = ease((t - outro_t) / .6)
+            centered(d, 345, "TON NIVEAU", f("Bold", 30 + 22 * p), GOLD)
+            rows = [(f"{n}/{n}", "Avancé 🔥".replace(" 🔥", ""), GREEN), (f"{n-2}-{n-1}/{n}", "Intermédiaire", GOLD), (f"0-{n-3}/{n}", "Débutant", RED)]
+            for k, (sc, lab, col) in enumerate(rows):
+                q = ease((t - outro_t - .3 - k * .35) / .4)
+                if q <= 0: continue
+                y = 420 + k * 100; x = 60 + int((1 - q) * 600)
+                d.rounded_rectangle(P(x, y, x + 600, y + 82), 24, fill=WHITE)
+                d.rounded_rectangle(P(x, y, x + 190, y + 82), 24, fill=col)
+                d.text(P(x + 95, y + 41), sc, font=f("Bold", 30), fill=WHITE, anchor="mm")
+                d.text(P(x + 220, y + 41), lab, font=f("Bold", 32), fill=NAVY, anchor="lm")
+            if t > outro_t + 1.6:
+                d.rounded_rectangle(P(60, 745, 660, 975), 30, fill=RED)
+                centered(d, 795, "Pas encore 100 % ?", f("Bold", 30), WHITE)
+                centered(d, 852, "ENGLISH SPRINT", f("Bold", 46), GOLD)
+                centered(d, 920, "2 mois pour parler • 0767037284", f("Bold", 26), WHITE)
         else:
             p = ease((t - outro_t) / .6)
             centered(d, 400, spec["outro1"], f("Bold", 34 + 24 * p), GOLD)
@@ -317,6 +334,6 @@ def render(name, spec, outdir):
     print(name, round(TOTAL, 1), "s")
 
 if __name__ == "__main__":
-    import specs
+    import importlib; specs = importlib.import_module(os.environ.get("SPECS", "specs"))
     outdir = os.path.join(HERE, "videos"); os.makedirs(outdir, exist_ok=True)
     for nm in sys.argv[1:]: render(nm, specs.SPECS[nm], outdir)
