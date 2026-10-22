@@ -314,9 +314,17 @@ def render(name, spec, outdir):
                 d.text(P(x + 220, y + 41), lab, font=f("Bold", 32), fill=NAVY, anchor="lm")
             if t > outro_t + 1.6:
                 d.rounded_rectangle(P(60, 745, 660, 975), 30, fill=RED)
-                centered(d, 795, "Pas encore 100 % ?", f("Bold", 30), WHITE)
-                centered(d, 852, "ENGLISH SPRINT", f("Bold", 46), GOLD)
-                centered(d, 920, "2 mois pour parler • 0767037284", f("Bold", 26), WHITE)
+                O = os.environ.get("OUTRO", "sprint")
+                if O == "noel":
+                    centered(d, 790, "PROMO ANGLAIS NOËL", f("Bold", 40), GOLD)
+                    centered(d, 850, "65 000 F au lieu de 95 000 F", f("Bold", 28), WHITE)
+                    fo = f("Bold", 28); sw = d.textlength("95 000 F", font=fo); tw = d.textlength("65 000 F au lieu de 95 000 F", font=fo)
+                    xe = W // 2 + tw / 2; d.line([(int(xe - sw), int(850 * S)), (int(xe), int(850 * S))], fill=NAVY, width=max(3, int(5 * S)))
+                    centered(d, 915, "Cours du 9 nov. au 24 déc. • 0767037284", f("Bold", 24), WHITE)
+                else:
+                    centered(d, 795, "Pas encore 100 % ?", f("Bold", 30), WHITE)
+                    centered(d, 852, "ENGLISH SPRINT", f("Bold", 46), GOLD)
+                    centered(d, 920, "2 mois pour parler • 0767037284", f("Bold", 26), WHITE)
         else:
             p = ease((t - outro_t) / .6)
             centered(d, 400, spec["outro1"], f("Bold", 34 + 24 * p), GOLD)
