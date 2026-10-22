@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Winners English App</title>
+<meta name="description" content="L'application de Winners' English Center : test de niveau gratuit, Promo Anglais Noël, inscription, phrase du jour et vidéos de nos apprenants.">
+<meta name="theme-color" content="#2F3480">
+<style>
+:root{
+  --red:#B83A35;--blue:#2F3480;--gold:#F2B33D;--wa:#25D366;
+  --bg:#F5F5FA;--card:#FFFFFF;--ink:#1B1C33;--muted:#5E6080;--line:#DFE0EC;--soft:#ECEDF8;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#11132B;--card:#1C1F40;--ink:#EEF0FF;--muted:#A9ACCB;--line:#30345F;--soft:#262A55}}
+:root[data-theme="dark"]{--bg:#11132B;--card:#1C1F40;--ink:#EEF0FF;--muted:#A9ACCB;--line:#30345F;--soft:#262A55}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.45;padding-bottom:78px}
+a{color:inherit}
+.top{background:var(--blue);color:#fff;padding:14px 16px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:5;box-shadow:0 2px 10px rgba(0,0,0,.15)}
+.top img{width:44px;height:44px;border-radius:50%;background:#fff}
+.top b{display:block;font-size:16px;letter-spacing:.3px}
+.top span{font-size:12.5px;opacity:.85}
+main{max-width:580px;margin:0 auto;padding:16px}
+.view{display:none;animation:f .25s ease}
+.view.on{display:block}
+@keyframes f{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.card{background:var(--card);border-radius:16px;padding:18px;margin-bottom:14px;border:1px solid var(--line)}
+h2{font-size:20px;margin:0 0 8px}
+h3{font-size:16px;margin:0 0 6px}
+p{margin:6px 0}
+.muted{color:var(--muted);font-size:14px}
+.hero{background:linear-gradient(150deg,var(--blue) 0%,#23276A 60%,var(--red) 140%);color:#fff;border:0;text-align:center;padding:22px 18px}
+.hero img{width:96px;height:96px;border-radius:50%;background:#fff;box-shadow:0 4px 16px rgba(0,0,0,.3)}
+.hero h1{font-size:24px;margin:10px 0 2px}
+.hero .slogan{font-style:italic;color:var(--gold);font-weight:600}
+.promo{background:var(--red);color:#fff;border:0;position:relative;overflow:hidden}
+.promo:after{content:"★";position:absolute;right:14px;top:6px;font-size:44px;color:var(--gold);opacity:.55}
+.price{font-size:32px;font-weight:800;color:var(--gold);line-height:1.1}
+.price s{font-size:18px;color:#F6D3D0;font-weight:600;margin-left:6px}
+.count{display:flex;gap:8px;margin:12px 0 4px}
+.count div{flex:1;background:rgba(255,255,255,.14);border-radius:10px;padding:8px 0;text-align:center}
+.count b{display:block;font-size:22px}
+.count span{font-size:11.5px;opacity:.9}
+.btn{display:block;width:100%;border:0;border-radius:12px;padding:14px;font-size:16.5px;font-weight:700;cursor:pointer;margin-top:12px;text-align:center;text-decoration:none;font-family:inherit}
+.b-red{background:var(--red);color:#fff}
+.b-blue{background:var(--blue);color:#fff}
+.b-gold{background:var(--gold);color:#1B1C33}
+.b-wa{background:var(--wa);color:#fff}
+.b-ghost{background:var(--soft);color:var(--ink)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;text-align:left;cursor:pointer;font-family:inherit;color:var(--ink);font-size:14px}
+.tile i{font-style:normal;font-size:24px;display:block;margin-bottom:4px}
+.tile b{display:block;font-size:15px}
+ul.list{padding-left:0;list-style:none;margin:8px 0 0}
+ul.list li{padding:7px 0;border-bottom:1px dashed var(--line);display:flex;gap:10px}
+ul.list li:last-child{border:0}
+label{display:block;font-weight:600;margin:12px 0 6px;font-size:14.5px}
+input,select,textarea{width:100%;padding:12px;border:1.5px solid var(--line);border-radius:10px;font-size:16px;background:var(--card);color:var(--ink);font-family:inherit}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--blue)}
+.progress{height:8px;background:var(--soft);border-radius:6px;overflow:hidden;margin-bottom:12px}
+.progress div{height:100%;background:var(--red);width:0;transition:width .3s}
+.q{font-size:18.5px;font-weight:700;margin:6px 0 14px}
+.opt{display:block;width:100%;text-align:left;padding:13px;border:1.5px solid var(--line);border-radius:12px;background:var(--card);font-size:16px;margin-bottom:9px;cursor:pointer;color:var(--ink);font-family:inherit}
+.opt.sel{border-color:var(--blue);background:var(--soft);font-weight:600}
+.score{font-size:52px;font-weight:800;color:var(--blue);text-align:center}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .score{color:var(--gold)}}
+.level{text-align:center;font-size:19px;font-weight:700;color:var(--red)}
+.pill{display:inline-block;background:var(--soft);border-radius:20px;padding:3px 10px;font-size:12.5px;font-weight:600;margin:2px 4px 2px 0}
+.phrase{font-size:21px;font-weight:700;color:var(--blue);margin:6px 0}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .phrase{color:var(--gold)}}
+:root[data-theme="dark"] .phrase,:root[data-theme="dark"] .score{color:var(--gold)}
+video{width:100%;border-radius:12px;background:#000;max-height:70vh}
+details{border-bottom:1px solid var(--line);padding:10px 0}
+details:last-child{border:0}
+summary{font-weight:600;cursor:pointer}
+.err{color:var(--red);font-size:14px;margin-top:8px}
+.hidden{display:none}
+nav{position:fixed;bottom:0;left:0;right:0;background:var(--card);border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:6px 4px calc(6px + env(safe-area-inset-bottom));z-index:10}
+nav button{flex:1;background:none;border:0;color:var(--muted);font-size:11.5px;font-family:inherit;cursor:pointer;padding:4px 0}
+nav button i{display:block;font-style:normal;font-size:21px}
+nav button.on{color:var(--red);font-weight:700}
+.vtabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:8px}
+.vtabs button{flex:0 0 auto;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:20px;padding:7px 12px;font-size:14px;cursor:pointer;font-family:inherit}
+.vtabs button.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+footer{text-align:center;color:var(--muted);font-size:12.5px;padding:8px 0 16px}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <img src="logo.png" alt="Logo Winners' English Center">
+  <div><b>WINNERS' ENGLISH CENTER</b><span>I speak English, and you? 🇬🇧</span></div>
+</div>
+
+<main>
+
+<!-- ================= ACCUEIL ================= -->
+<section class="view on" id="v-home">
+  <div class="card promo">
+    <h2 style="margin-bottom:4px">🎄 PROMO ANGLAIS NOËL</h2>
+    <div class="price">65 000 F <s>95 000 F</s></div>
+    <p>Dès <b>35 000 F</b> pour commencer • Cours du <b>9 nov. au 24 déc.</b></p>
+    <div class="count" id="count"></div>
+    <div style="font-size:13px;opacity:.9" id="countLbl">avant la fin des inscriptions (8 novembre)</div>
+    <button class="btn b-gold" onclick="go('promo')">Voir le programme et m'inscrire →</button>
+  </div>
+
+  <div class="grid">
+    <button class="tile" onclick="go('test')"><i>📝</i><b>Test de niveau</b>Gratuit • 5 min</button>
+    <button class="tile" onclick="go('promo')"><i>🎓</i><b>S'inscrire</b>Réserve ta place</button>
+    <button class="tile" onclick="go('learn')"><i>💡</i><b>Phrase du jour</b>Apprends chaque jour</button>
+    <button class="tile" onclick="go('videos')"><i>🎬</i><b>Nos apprenants</b>Ils parlent anglais</button>
+  </div>
+
+  <div class="card" style="margin-top:14px">
+    <h3>Pourquoi Winners' English Center ?</h3>
+    <ul class="list">
+      <li>🗣️ <span><b>On parle dès la 1re séance</b> : dialogues, mises en situation, shadowing</span></li>
+      <li>👥 <span><b>Petits groupes</b> pour que chacun pratique</span></li>
+      <li>📍 <span><b>Présentiel</b> à Cocody Riviera Palmeraie ou <b>en ligne</b> partout</span></li>
+      <li>🎓 <span><b>Attestation</b> de fin de formation</span></li>
+      <li>🌴 <span><b>Sorties en anglais</b> : on apprend aussi en s'amusant</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>👫 Viens avec un ami</h3>
+    <p class="muted">Inscris-toi avec un ami : <b>5 000 F de réduction chacun</b>. Envoie-lui l'invitation en un clic.</p>
+    <a class="btn b-wa" id="shareFriend" target="_blank" rel="noopener">Inviter un ami sur WhatsApp</a>
+  </div>
+</section>
+
+<!-- ================= TEST ================= -->
+<section class="view" id="v-test">
+  <div id="t1" class="card">
+    <h2>📝 Test de niveau gratuit</h2>
+    <p class="muted">20 questions, du niveau débutant au niveau avancé. Réponds sans dictionnaire : le but est de te placer dans le bon groupe.</p>
+    <label for="nom">Ton nom et prénom</label>
+    <input id="nom" autocomplete="name" placeholder="Ex : Kouassi Aya">
+    <label for="tel">Ton numéro WhatsApp</label>
+    <input id="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="Ex : 07 00 00 00 00">
+    <label for="mode">Tu préfères les cours…</label>
+    <select id="mode">
+      <option>En présentiel (Cocody Riviera Palmeraie)</option>
+      <option>En ligne</option>
+      <option>Je ne sais pas encore</option>
+    </select>
+    <div id="err1" class="err hidden">Merci d'indiquer ton nom et ton numéro WhatsApp.</div>
+    <button class="btn b-red" id="start">Commencer le test →</button>
+  </div>
+
+  <div id="t2" class="card hidden">
+    <div class="progress"><div id="bar"></div></div>
+    <div class="muted" id="qnum"></div>
+    <div class="q" id="qtext"></div>
+    <div id="opts"></div>
+    <button class="btn b-red" id="next" disabled>Suivant →</button>
+  </div>
+
+  <div id="t3" class="hidden">
+    <div class="card">
+      <div class="muted" style="text-align:center">Ton score</div>
+      <div class="score" id="score"></div>
+      <div class="level" id="level"></div>
+      <p id="advice" style="text-align:center"></p>
+    </div>
+    <div class="card promo">
+      <h3>🎄 Ta place dans la Promo Anglais Noël</h3>
+      <div class="price">65 000 F <s>95 000 F</s></div>
+      <p>Dès 35 000 F pour commencer • Inscriptions jusqu'au 8 novembre</p>
+    </div>
+    <a class="btn b-wa" id="waTest" target="_blank" rel="noopener">📲 Envoyer mon résultat et réserver ma place</a>
+    <p class="muted" style="text-align:center">WhatsApp s'ouvre avec ton résultat déjà écrit : appuie simplement sur <b>Envoyer</b>.</p>
+    <button class="btn b-ghost" onclick="resetTest()">Refaire le test</button>
+  </div>
+</section>
+
+<!-- ================= PROMO / INSCRIPTION ================= -->
+<section class="view" id="v-promo">
+  <div class="card promo">
+    <h2>🎄 PROMO ANGLAIS NOËL</h2>
+    <div class="price">65 000 F <s>95 000 F</s></div>
+    <p>6 semaines pour <b>oser enfin parler anglais</b></p>
+  </div>
+  <div class="card">
+    <h3>📋 Le programme</h3>
+    <ul class="list">
+      <li>📅 <span>Du <b>lundi 9 novembre au jeudi 24 décembre 2026</b></span></li>
+      <li>🕑 <span><b>2 cours de 2 h</b> par semaine</span></li>
+      <li>📍 <span><b>Présentiel</b> (Cocody Riviera Palmeraie) ou <b>en ligne</b></span></li>
+      <li>💳 <span><b>35 000 F</b> à l'inscription, puis <b>30 000 F</b> début décembre</span></li>
+      <li>⏳ <span>Inscriptions du <b>26 octobre au 8 novembre</b></span></li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>🎁 Tes bonus</h3>
+    <ul class="list">
+      <li>📝 <span>Test de niveau gratuit</span></li>
+      <li>📘 <span>Livre <b>English Starter</b> offert aux 10 premiers inscrits</span></li>
+      <li>👫 <span><b>5 000 F de réduction</b> chacun si tu viens avec un ami</span></li>
+      <li>🎉 <span><b>Christmas English Party</b> + attestation de fin de formation</span></li>
+      <li>🌴 <span>Sortie de groupe + T-shirt après le programme <span class="muted">(petite participation, détails pendant la formation)</span></span></li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>✍️ Je réserve ma place</h3>
+    <label for="iNom">Nom et prénom</label>
+    <input id="iNom" autocomplete="name">
+    <label for="iTel">Numéro WhatsApp</label>
+    <input id="iTel" type="tel" inputmode="tel" autocomplete="tel">
+    <label for="iMode">Formule</label>
+    <select id="iMode"><option>En présentiel (Cocody Riviera Palmeraie)</option><option>En ligne</option></select>
+    <label for="iNiv">Mon niveau actuel</label>
+    <select id="iNiv"><option>Je ne sais pas (je veux faire le test)</option><option>Débutant complet</option><option>Je comprends un peu</option><option>Je me débrouille</option><option>Bon niveau, je veux être fluide</option></select>
+    <label for="iAmi">Je viens avec un ami (facultatif)</label>
+    <input id="iAmi" placeholder="Nom de ton ami">
+    <label for="iBut">Pourquoi tu veux apprendre l'anglais ?</label>
+    <select id="iBut"><option>Pour le travail / un entretien</option><option>Pour mes études / une bourse</option><option>Pour voyager</option><option>Pour mon business</option><option>Pour le plaisir / la culture</option></select>
+    <div id="err2" class="err hidden">Merci d'indiquer ton nom et ton numéro WhatsApp.</div>
+    <button class="btn b-wa" id="inscrire">📲 Envoyer ma pré-inscription sur WhatsApp</button>
+    <p class="muted" style="text-align:center">Coach Winner te répond personnellement pour confirmer ta place et le paiement.</p>
+  </div>
+  <div class="card">
+    <h3>❓ Questions fréquentes</h3>
+    <details><summary>Je suis débutant complet, je peux venir ?</summary><p>Oui ! Le test de niveau nous permet de te placer dans le groupe qui te correspond.</p></details>
+    <details><summary>Comment se passent les cours en ligne ?</summary><p>En direct avec Coach Winner, avec les mêmes exercices oraux qu'en présentiel. Il te faut juste un téléphone et une connexion.</p></details>
+    <details><summary>Je peux payer en deux fois ?</summary><p>Oui : 35 000 F à l'inscription, puis 30 000 F début décembre.</p></details>
+    <details><summary>Quels jours ont lieu les cours ?</summary><p>2 séances de 2 h par semaine. Les jours et horaires des groupes te sont communiqués à l'inscription.</p></details>
+    <details><summary>Je suis déjà élève de Winners' English Center…</summary><p>Écris à Coach Winner sur WhatsApp, il te dira comment continuer.</p></details>
+  </div>
+</section>
+
+<!-- ================= APPRENDRE ================= -->
+<section class="view" id="v-learn">
+  <div class="card">
+    <span class="pill" id="pDate"></span>
+    <h2 style="margin-top:6px">💡 Phrase du jour</h2>
+    <div class="phrase" id="pEn"></div>
+    <p id="pFr" class="muted"></p>
+    <button class="btn b-blue" id="pSpeak">🔊 Écouter la prononciation</button>
+    <div class="grid" style="margin-top:10px">
+      <button class="btn b-ghost" style="margin:0" id="pPrev">← Précédente</button>
+      <button class="btn b-ghost" style="margin:0" id="pNext">Suivante →</button>
+    </div>
+  </div>
+  <div class="card">
+    <h3>🎯 Mini-défi du jour</h3>
+    <p class="q" id="dQ" style="font-size:17px"></p>
+    <div id="dOpts"></div>
+    <p id="dRes" style="font-weight:600"></p>
+  </div>
+  <div class="card">
+    <h3>📘 Envie d'aller plus loin ?</h3>
+    <p class="muted">Avec la Promo Anglais Noël, tu pratiques ces phrases à l'oral avec Coach Winner, 2 fois par semaine.</p>
+    <button class="btn b-red" onclick="go('promo')">Je m'inscris</button>
+  </div>
+</section>
+
+<!-- ================= VIDEOS ================= -->
+<section class="view" id="v-videos">
+  <div class="card">
+    <h2>🎬 Nos apprenants en action</h2>
+    <p class="muted">De vraies séances à Winners' English Center.</p>
+    <div class="vtabs" id="vtabs"></div>
+    <video id="vid" controls playsinline preload="metadata"></video>
+    <p id="vcap" style="font-weight:600;margin-top:8px"></p>
+  </div>
+  <div class="card">
+    <h3>📲 Suis-nous</h3>
+    <a class="btn b-blue" href="https://www.facebook.com/108178682182393" target="_blank" rel="noopener">Page Facebook</a>
+    <a class="btn b-ghost" href="https://www.tiktok.com/@winnersenglish" target="_blank" rel="noopener">TikTok @winnersenglish</a>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="view" id="v-contact">
+  <div class="card hero">
+    <img src="logo.png" alt="">
+    <h1>Coach Winner</h1>
+    <div class="slogan">I speak English, and you?</div>
+    <p style="opacity:.9">Formateur en anglais • Winners' English Center</p>
+  </div>
+  <div class="card">
+    <ul class="list">
+      <li>📱 <span><b>WhatsApp / Appel</b> : 07 67 03 72 84</span></li>
+      <li>📍 <span><b>Cocody Riviera Palmeraie</b>, non loin de Chez Samer</span></li>
+      <li>💻 <span>Cours <b>en ligne</b> disponibles partout</span></li>
+    </ul>
+    <a class="btn b-wa" href="https://wa.me/2250767037284?text=Bonjour%20Coach%20Winner%20%F0%9F%91%8B%20J%27ai%20une%20question%20sur%20vos%20cours%20d%27anglais." target="_blank" rel="noopener">💬 Écrire sur WhatsApp</a>
+    <a class="btn b-ghost" href="tel:+2250767037284">📞 Appeler</a>
+    <a class="btn b-ghost" href="https://www.google.com/maps/search/?api=1&query=Riviera+Palmeraie+Cocody" target="_blank" rel="noopener">🗺️ Voir sur la carte</a>
+  </div>
+  <div class="card">
+    <h3>📤 Partager l'application</h3>
+    <p class="muted">Un ami veut apprendre l'anglais ? Envoie-lui le lien.</p>
+    <button class="btn b-blue" id="shareApp">Partager</button>
+  </div>
+  <footer>— Coach Winner • Winners' English Center</footer>
+</section>
+
+</main>
+
+<nav>
+  <button class="on" data-v="home"><i>🏠</i>Accueil</button>
+  <button data-v="test"><i>📝</i>Test</button>
+  <button data-v="promo"><i>🎓</i>Inscription</button>
+  <button data-v="learn"><i>💡</i>Apprendre</button>
+  <button data-v="videos"><i>🎬</i>Vidéos</button>
+  <button data-v="contact"><i>📞</i>Contact</button>
+</nav>
+
+<script>
+const WA="2250767037284";
+const $=id=>document.getElementById(id);
+const wa=t=>"https://wa.me/"+WA+"?text="+encodeURIComponent(t);
+function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+
+/* ---------- navigation ---------- */
+function go(v){
+  document.querySelectorAll('.view').forEach(s=>s.classList.toggle('on',s.id==='v-'+v));
+  document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.v===v));
+  window.scrollTo({top:0});
+  if(v==='videos'&&!$('vid').src)loadVid(0);
+}
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>go(b.dataset.v));
+
+/* ---------- compte à rebours ---------- */
+function tick(){
+  const now=new Date(), open=new Date('2026-10-26T00:00:00Z'), end=new Date('2026-11-08T23:59:59Z');
+  let target=end, lbl="avant la fin des inscriptions (8 novembre)";
+  if(now<open){target=open;lbl="avant l'ouverture des inscriptions (26 octobre) — réserve dès maintenant !"}
+  let d=Math.max(0,target-now);
+  if(now>end){$('count').innerHTML='';$('countLbl').textContent="Inscriptions closes — écris-nous pour le prochain programme.";return}
+  const D=Math.floor(d/864e5),H=Math.floor(d%864e5/36e5),M=Math.floor(d%36e5/6e4),S=Math.floor(d%6e4/1e3);
+  $('count').innerHTML=[[D,'jours'],[H,'heures'],[M,'min'],[S,'sec']].map(x=>'<div><b>'+x[0]+'</b><span>'+x[1]+'</span></div>').join('');
+  $('countLbl').textContent=lbl;
+}
+tick();setInterval(tick,1000);
+
+/* ---------- invitation ami / partage ---------- */
+const appUrl=location.href.split('#')[0];
+$('shareFriend').href="https://wa.me/?text="+encodeURIComponent("🎄 Viens apprendre l'anglais avec moi chez Winners' English Center ! Promo Anglais Noël : 65 000 F au lieu de 95 000 F, et si on s'inscrit ensemble on a 5 000 F de réduction chacun 👫 Cours du 9 nov. au 24 déc. Infos : wa.me/"+WA);
+$('shareApp').onclick=async()=>{
+  const data={title:"Winners' English Center",text:"Test d'anglais gratuit + Promo Anglais Noël de Coach Winner 🎄",url:appUrl};
+  try{ if(navigator.share){await navigator.share(data);return} }catch(e){}
+  window.open("https://wa.me/?text="+encodeURIComponent(data.text+" "+appUrl),"_blank");
+};
+
+/* ---------- test de niveau ---------- */
+const Q=[
+ ["Hello! What ___ your name?",["is","are","am","be"],0],
+ ["I ___ from Côte d'Ivoire.",["is","are","am","be"],2],
+ ["She ___ two brothers.",["have","has","having","is"],1],
+ ["Traduis : « Il fait chaud aujourd'hui. »",["He is hot today.","It is hot today.","It makes hot today.","There is hot today."],1],
+ ["___ you speak English?",["Do","Does","Are","Is"],0],
+ ["We usually go to church ___ Sunday.",["in","at","on","to"],2],
+ ["Yesterday, I ___ to the market.",["go","goes","went","going"],2],
+ ["Look! The children ___ football now.",["play","are playing","plays","played"],1],
+ ["How ___ does this shirt cost?",["many","much","long","often"],1],
+ ["Abidjan is ___ than Yamoussoukro.",["big","bigger","more big","biggest"],1],
+ ["Que veut dire « I'm looking for a job » ?",["J'ai trouvé un travail","Je cherche un travail","Je regarde mon travail","Je quitte mon travail"],1],
+ ["If it rains tomorrow, I ___ at home.",["stay","will stay","stayed","would stayed"],1],
+ ["I have lived here ___ 2019.",["for","since","from","during"],1],
+ ["There isn't ___ milk in the fridge.",["some","any","many","a"],1],
+ ["She asked me where I ___.",["live","lived","am living","do live"],1],
+ ["This letter ___ by my manager yesterday.",["wrote","was written","is writing","has wrote"],1],
+ ["Have you ever ___ to Ghana?",["go","went","been","be"],2],
+ ["Meilleure réponse à « Would you mind closing the door? »",["Yes, I close.","Not at all.","No, I mind.","I would mind."],1],
+ ["If I ___ rich, I would travel around the world.",["am","were","will be","have been"],1],
+ ["By the time we arrived, the meeting ___.",["already started","has already started","had already started","was already start"],2]
+];
+let qi=0,ans=[],pick=null;
+$('start').onclick=()=>{
+  if($('nom').value.trim().length<2||$('tel').value.replace(/\D/g,'').length<8){$('err1').classList.remove('hidden');return}
+  $('err1').classList.add('hidden');
+  $('iNom').value=$('nom').value;$('iTel').value=$('tel').value;
+  $('t1').classList.add('hidden');$('t2').classList.remove('hidden');showQ();
+};
+function showQ(){
+  pick=null;$('next').disabled=true;
+  $('bar').style.width=(qi/Q.length*100)+'%';
+  $('qnum').textContent='Question '+(qi+1)+' / '+Q.length;
+  $('qtext').textContent=Q[qi][0];
+  const box=$('opts');box.innerHTML='';
+  Q[qi][1].forEach((t,k)=>{const b=document.createElement('button');b.className='opt';b.textContent=t;
+    b.onclick=()=>{pick=k;[...box.children].forEach(c=>c.classList.remove('sel'));b.classList.add('sel');$('next').disabled=false};box.appendChild(b)});
+  $('next').textContent=qi===Q.length-1?'Voir mon résultat →':'Suivant →';
+}
+$('next').onclick=()=>{if(pick===null)return;ans.push(pick);qi++;qi<Q.length?showQ():finish()};
+function finish(){
+  const s=ans.reduce((a,v,k)=>a+(v===Q[k][2]?1:0),0);
+  let lvl,adv;
+  if(s<=5){lvl='Débutant (A1)';adv="Tu as déjà des bases : le programme va te faire parler dès les premières séances. 💪"}
+  else if(s<=10){lvl='Élémentaire (A2)';adv="Tu comprends pas mal de choses. On va surtout travailler l'oral pour que tu oses parler."}
+  else if(s<=15){lvl='Intermédiaire (B1)';adv="Bon niveau ! On va renforcer ta fluidité et ta confiance à l'oral."}
+  else{lvl='Avancé (B2)';adv="Excellent ! On va perfectionner ton anglais pour le travail et les entretiens."}
+  $('t2').classList.add('hidden');$('t3').classList.remove('hidden');
+  $('score').textContent=s+' / 20';$('level').textContent='Niveau : '+lvl;$('advice').textContent=adv;
+  store('wec_level',lvl);
+  $('waTest').href=wa("Bonjour Coach Winner 👋\nJ'ai fait le test de niveau sur l'application.\n\n👤 Nom : "+$('nom').value.trim()+"\n📱 WhatsApp : "+$('tel').value.trim()+"\n📊 Score : "+s+"/20 – "+lvl+"\n📍 Cours : "+$('mode').value+"\n\nJe veux m'inscrire à la PROMO ANGLAIS NOËL 🎄");
+  window.scrollTo({top:0});
+}
+function resetTest(){qi=0;ans=[];$('t3').classList.add('hidden');$('t1').classList.remove('hidden')}
+
+/* ---------- pré-inscription ---------- */
+$('inscrire').onclick=()=>{
+  const n=$('iNom').value.trim(),t=$('iTel').value.trim();
+  if(n.length<2||t.replace(/\D/g,'').length<8){$('err2').classList.remove('hidden');return}
+  $('err2').classList.add('hidden');
+  const lv=store('wec_level');
+  let m="Bonjour Coach Winner 👋\nJe veux réserver ma place pour la PROMO ANGLAIS NOËL 🎄\n\n👤 Nom : "+n+"\n📱 WhatsApp : "+t+"\n📍 Formule : "+$('iMode').value+"\n📊 Niveau : "+(lv?lv+" (test fait sur l'appli)":$('iNiv').value)+"\n🎯 Objectif : "+$('iBut').value;
+  if($('iAmi').value.trim())m+="\n👫 Je viens avec : "+$('iAmi').value.trim();
+  window.open(wa(m),'_blank');
+};
+
+/* ---------- phrase du jour ---------- */
+const P=[
+ ["Nice to meet you!","Enchanté(e) de te rencontrer !"],
+ ["Could you repeat, please?","Tu peux répéter, s'il te plaît ?"],
+ ["I'm on my way.","Je suis en route."],
+ ["How much is it?","Ça coûte combien ?"],
+ ["Can you speak more slowly?","Tu peux parler plus lentement ?"],
+ ["I'm looking forward to it.","J'ai hâte."],
+ ["What do you do for a living?","Qu'est-ce que tu fais dans la vie ?"],
+ ["Let me think about it.","Laisse-moi y réfléchir."],
+ ["It's up to you.","C'est toi qui décides."],
+ ["I'm used to it.","J'en ai l'habitude."],
+ ["Take your time.","Prends ton temps."],
+ ["I didn't get that.","Je n'ai pas compris."],
+ ["Never mind.","Ce n'est pas grave / Laisse tomber."],
+ ["I'm running late.","Je suis en retard."],
+ ["Tell me about yourself.","Parle-moi de toi."],
+ ["What's your strength?","Quel est ton point fort ?"],
+ ["I can't wait!","J'ai trop hâte !"],
+ ["Keep the change.","Gardez la monnaie."],
+ ["It doesn't matter.","Ça n'a pas d'importance."],
+ ["See you later!","À plus tard !"],
+ ["I'm fed up.","J'en ai marre."],
+ ["Merry Christmas and Happy New Year!","Joyeux Noël et bonne année !"],
+ ["Practice makes perfect.","C'est en forgeant qu'on devient forgeron."],
+ ["Break a leg!","Bonne chance ! (avant un examen, un spectacle…)"],
+ ["I'm all ears.","Je suis tout ouïe."],
+ ["That makes sense.","Ça a du sens / Je comprends."],
+ ["Better late than never.","Mieux vaut tard que jamais."],
+ ["Could you help me, please?","Tu peux m'aider, s'il te plaît ?"],
+ ["Where are you from?","Tu viens d'où ?"],
+ ["I speak English, and you?","Je parle anglais, et toi ?"]
+];
+const day=Math.floor(Date.now()/864e5);let pi=day%P.length;
+function showP(){
+  $('pEn').textContent='« '+P[pi][0]+' »';$('pFr').textContent=P[pi][1];
+  $('pDate').textContent=new Date().toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'});
+}
+$('pPrev').onclick=()=>{pi=(pi-1+P.length)%P.length;showP()};
+$('pNext').onclick=()=>{pi=(pi+1)%P.length;showP()};
+$('pSpeak').onclick=()=>{try{const u=new SpeechSynthesisUtterance(P[pi][0]);u.lang='en-GB';u.rate=.85;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}};
+showP();
+
+/* ---------- mini-défi ---------- */
+const D=[
+ ["Comment dit-on « Je suis en retard » ?",["I'm late.","I'm later.","I have late."],0],
+ ["« I have 25 years » est…",["Correct","Incorrect : on dit « I am 25 »"],1],
+ ["Complète : « She ___ in Abidjan. »",["live","lives","living"],1],
+ ["Que veut dire « actually » ?",["Actuellement","En fait / en réalité"],1],
+ ["« Je suis d'accord » se dit…",["I am agree.","I agree."],1],
+ ["Complète : « I'm good ___ English. »",["in","at","on"],1],
+ ["Que veut dire « library » ?",["Librairie","Bibliothèque"],1]
+];
+const di=day%D.length;
+$('dQ').textContent=D[di][0];
+D[di][1].forEach((t,k)=>{const b=document.createElement('button');b.className='opt';b.textContent=t;
+  b.onclick=()=>{$('dRes').textContent=k===D[di][2]?'✅ Bravo, c\'est juste !':'❌ Pas tout à fait : la bonne réponse est « '+D[di][1][D[di][2]]+' »';$('dRes').style.color=k===D[di][2]?'#1f9d55':'var(--red)'};
+  $('dOpts').appendChild(b)});
+
+/* ---------- vidéos ---------- */
+const RAW="v/";
+const V=[
+ ["Shadowing","t1_shadowing_v_story.mp4","🎧 Séance de shadowing : on écoute, on répète, on imite."],
+ ["Pratique à deux","t2_practice.mp4","🗺️ Deux apprenants jouent une vraie situation."],
+ ["Présentation","t4_presentation1_story.mp4","🎤 Un apprenant se présente en anglais."],
+ ["Lecture","t3_reading.mp4","📖 Lecture en groupe et correction de la prononciation."],
+ ["Sortie au Banco","t7_banco_story.mp4","🌳 Cours en pleine nature au Parc National du Banco."]
+];
+V.forEach((v,k)=>{const b=document.createElement('button');b.textContent=v[0];b.onclick=()=>loadVid(k);$('vtabs').appendChild(b)});
+function loadVid(k){
+  [...$('vtabs').children].forEach((b,j)=>b.classList.toggle('on',j===k));
+  $('vid').src=RAW+V[k][1];$('vcap').textContent=V[k][2];
+}
+</script>
+</body>
+</html>
