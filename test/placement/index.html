@@ -62,6 +62,7 @@ ul.rules{padding-left:20px;margin:8px 0}
 <main id="app"></main>
 <div class="nav hidden" id="nav"><div class="in"><span class="muted" id="step"></span><button class="btn btn-main" id="next">Suivant</button></div></div>
 <script src="../programmes.js"></script>
+<script src="../pub.js"></script>
 <script src="../placement.js"></script>
 <script>
 (function(){
@@ -128,6 +129,7 @@ var DESC={"Pré-A1 (grand débutant)":"Tu démarres l'anglais : on reprend les b
 function result(stop){
   nav.classList.add('hidden'); setProg(100); document.getElementById('hsub').textContent='Ton résultat';
   var lvl=levelOf(stop), tot=0, n=0, lines=[];
+  setTimeout(function(){ if(window.wecTrack) wecTrack('CompleteRegistration',{content_name:'Test de placement',status:levelOf(stop)}); },0);
   var parts=T.parts.map(function(p,pi){ if(pi>stop) return '<div class="part"><span>'+esc(p.titre)+'</span><span class="muted">non passée</span></div>'; var sc=partScore(pi); tot+=sc.ok; n+=sc.n; lines.push(p.level+' : '+sc.ok+'/'+sc.n); return '<div class="part"><span>'+esc(p.titre)+'</span><b class="'+(sc.pct>=60?'ok':'ko')+'">'+sc.ok+' / '+sc.n+'</b></div>'; }).join('');
   var errs=''; T.parts.forEach(function(p,pi){ if(pi>stop) return; p.exercises.forEach(function(ex,ei){ ex.items.forEach(function(it,qi){ var v=S.ans[key(pi,ei,qi)]; if(isRight(ex,it,v)) return; var given=ex.type==="choice"?(v===undefined?"(pas de réponse)":it.options[v]):(v&&v.trim()?v:"(pas de réponse)"); var good=ex.type==="choice"?it.options[it.a]:it.a[0]; errs+='<div class="err">'+esc(it.q)+'<br><span class="bad">'+esc(given)+'</span> → <span class="good">'+esc(good)+'</span></div>'; }); }); });
   var msg="Bonjour Coach Winner, j'ai fait le test de placement.\nNom : "+S.name+(S.tel?"\nWhatsApp : "+S.tel:"")+"\nNiveau : "+lvl+"\nScore : "+tot+"/"+n+" ("+lines.join(", ")+")\nJe voudrais savoir quel groupe me correspond.";
