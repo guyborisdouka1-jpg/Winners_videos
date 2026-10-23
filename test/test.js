@@ -1,9 +1,9 @@
-/* Test de niveau commun à l'application et au site : [question, [réponses], index de la bonne réponse] */
+/* Test de niveau commun à l'application et au site : [question, [réponses], index de la bonne réponse, audio facultatif] */
 window.TEST_Q=[
  ["Hello! What ___ your name?",["is","are","am","be"],0],
  ["I ___ from Canada.",["is","are","am","be"],2],
  ["She ___ two brothers.",["have","has","having","is"],1],
- ["Traduis : « Il fait chaud aujourd'hui. »",["He is hot today.","It is hot today.","It makes hot today.","There is hot today."],1],
+ ["🎧 Écoute l'audio : quel est le métier de Daniel ?",["He's a teacher.","He's a taxi driver.","He's a doctor.","He's a cook."],1,"placement/audio1.mp3"],
  ["___ you speak English?",["Do","Does","Are","Is"],0],
  ["We usually go to church ___ Sunday.",["in","at","on","to"],2],
  ["Yesterday, I ___ to the market.",["go","goes","went","going"],2],

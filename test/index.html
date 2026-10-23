@@ -189,7 +189,7 @@ footer{text-align:center;color:var(--muted);font-size:12.5px;padding:8px 0 16px}
 
 <!-- ======================= TEST ======================= -->
 <section class="view" id="v-test">
-  <a class="card" href="placement/" style="display:block;text-decoration:none;color:inherit;border:2px solid var(--accent,#F2B33D)"><h2>🎯 Test de placement complet</h2><p class="muted">74 questions en 4 parties (A1 à B2), avec exercices d'écoute, corrigé tout seul avec tes erreurs. 30 à 40 min. C'est le test qui sert à te placer dans ton groupe.</p><b style="color:#B83A35">Commencer le test de placement →</b></a>
+  <a class="card" href="placement/" style="display:block;text-decoration:none;color:inherit;border:2px solid var(--accent,#F2B33D)"><h2>🎯 Test de placement complet</h2><p class="muted">74 questions en 4 parties (A1 à B2), avec exercices d'écoute, corrigé tout seul avec tes erreurs. Environ 45 min. C'est le test qui sert à te placer dans ton groupe.</p><b style="color:#B83A35">Commencer le test de placement →</b></a>
   <div id="t1" class="card">
     <h2>📝 Test rapide (5 min)</h2>
     <p class="muted">20 questions, du niveau débutant au niveau avancé. Réponds sans dictionnaire : le but est de te placer dans le bon groupe.</p>
@@ -629,6 +629,7 @@ function showQ(){
   $('qnum').textContent='Question '+(qi+1)+' / '+Q.length;
   $('qtext').textContent=Q[qi][0];
   const box=$('opts');box.innerHTML='';
+  let qa=$('qaudio'); if(!qa){qa=document.createElement('div');qa.id='qaudio';box.parentNode.insertBefore(qa,box);} qa.innerHTML=Q[qi][3]?'<audio controls preload="auto" src="'+Q[qi][3]+'" style="width:100%;margin:4px 0 12px"></audio>':'';
   Q[qi][1].forEach((t,k)=>{const b=document.createElement('button');b.className='opt';b.textContent=t;
     b.onclick=()=>{pick=k;[...box.children].forEach(c=>c.classList.remove('sel'));b.classList.add('sel');$('next').disabled=false};box.appendChild(b)});
   $('next').textContent=qi===Q.length-1?'Voir mon résultat →':'Suivant →';
