@@ -139,7 +139,7 @@ function result(stop){
   '<a class="btn btn-wa" target="_blank" rel="noopener" href="https://wa.me/'+WA+'?text='+encodeURIComponent(msg)+'">Envoyer sur WhatsApp</a>'+
   '<a class="btn btn-ghost" href="mailto:'+MAIL+'?subject='+encodeURIComponent('Test de placement : '+S.name+' ('+lvl.split(' ')[0]+')')+'&body='+encodeURIComponent(msg)+'">Envoyer par email</a></div></div>'+
   (errs?'<div class="card"><b>Tes corrections</b>'+errs+'</div>':'<div class="card"><b>Aucune erreur, impressionnant !</b></div>')+
-  '<div class="row"><a class="btn btn-ghost" href="../site/">Retour au site</a><a class="btn btn-ghost" href="../">Ouvrir l\'appli gratuite</a><button class="btn btn-ghost" id="again">Refaire le test</button></div>';
+  '<div class="row"><a class="btn btn-ghost" href="../">Retour au site</a><a class="btn btn-ghost" href="../appli/">Ouvrir l\'appli gratuite</a><button class="btn btn-ghost" id="again">Refaire le test</button></div>';
   document.getElementById('again').onclick=function(){S.ans={};S.plays={};intro();};
   window.scrollTo(0,0);
 }

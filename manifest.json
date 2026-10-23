@@ -2,7 +2,7 @@
   "name": "Winners' English Center",
   "short_name": "Winners English",
   "description": "Test de niveau, leçons d'anglais, flashcards et programmes de Coach Winner.",
-  "start_url": "./",
+  "start_url": "./appli/",
   "scope": "./",
   "display": "standalone",
   "background_color": "#F5F5FA",
