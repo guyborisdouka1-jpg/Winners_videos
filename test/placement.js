@@ -44,6 +44,12 @@ window.PLACEMENT = {
       { q: "___ a book on the table.", options: ["There is", "There are"], a: 0 },
       { q: "___ ten students in the class.", options: ["There is", "There are"], a: 1 },
       { q: "___ some water in the bottle.", options: ["There is", "There are"], a: 0 }
+    ]},
+    { titre: "Écoute : Daniel se présente", type: "choice", audio: "audio1.mp3", consigne: "Écoute l'audio (2 écoutes maximum), puis réponds.", items: [
+      { q: "What is Daniel's job?", options: ["He's a teacher.", "He's a taxi driver.", "He's a doctor."], a: 1 },
+      { q: "How many children does he have?", options: ["One", "Two", "Three"], a: 1 },
+      { q: "What time does he get up?", options: ["At five o'clock", "At seven o'clock", "At nine o'clock"], a: 0 },
+      { q: "What does he do on Sundays?", options: ["He goes shopping.", "He works.", "He plays football."], a: 2 }
     ]}
   ]},
   { level: "A2", titre: "Partie 2 : Élémentaire (A2)", exercises: [
@@ -92,6 +98,12 @@ window.PLACEMENT = {
       { q: "His company works only with British clients.", options: ["Vrai", "Faux"], a: 1 },
       { q: "Speaking is easy for him.", options: ["Vrai", "Faux"], a: 1 },
       { q: "He practises with a friend.", options: ["Vrai", "Faux"], a: 0 }
+    ]},
+    { titre: "Écoute : le message de Marc", type: "choice", audio: "audio3.mp3", consigne: "Écoute le message vocal (2 écoutes maximum), puis réponds.", items: [
+      { q: "Why can't Marc come to the meeting?", options: ["He is ill.", "His flight was cancelled.", "He is on holiday."], a: 1 },
+      { q: "When will he be back?", options: ["Tomorrow morning", "On Friday morning", "On Thursday evening"], a: 2 },
+      { q: "What does he ask Sarah to do?", options: ["Move the meeting to Friday", "Cancel the meeting", "Book a hotel room"], a: 0 },
+      { q: "What is the problem if he joins online?", options: ["He has no computer.", "The hotel internet isn't very good.", "He has no time."], a: 1 }
     ]}
   ]},
   { level: "B2", titre: "Partie 4 : Avancé (B2)", exercises: [

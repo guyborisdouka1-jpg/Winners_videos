@@ -80,7 +80,7 @@ function intro(){
   nav.classList.add('hidden'); setProg(0);
   app.innerHTML='<span class="tag">Gratuit · '+esc(T.duree)+'</span><h1>Test de placement</h1>'+
   '<p class="muted">Ce test nous permet de te placer dans le groupe qui correspond vraiment à ton niveau, du débutant (A1) à l\'avancé (B2).</p>'+
-  '<div class="card"><b>Comment ça marche</b><ul class="rules"><li>'+qn+' questions en 4 parties, de plus en plus difficiles.</li><li>Réponds seul, sans dictionnaire ni traducteur : on veut ton vrai niveau.</li><li>Si tu ne sais pas, laisse vide et passe à la suite.</li><li>Si une partie est trop difficile, le test s\'arrête tout seul : c\'est normal.</li></ul></div>'+
+  '<div class="card"><b>Comment ça marche</b><ul class="rules"><li>'+qn+' questions en 4 parties, de plus en plus difficiles.</li><li>Réponds seul, sans dictionnaire ni traducteur : on veut ton vrai niveau.</li><li>Il y a aussi des exercices d\'écoute : mets des écouteurs ou monte le son. Chaque audio s\'écoute 2 fois maximum.</li><li>Si tu ne sais pas, laisse vide et passe à la suite.</li><li>Si une partie est trop difficile, le test s\'arrête tout seul : c\'est normal.</li></ul></div>'+
   '<div class="card"><label class="f" for="nm">Ton nom et prénom</label><input type="text" id="nm" autocomplete="name" placeholder="Ex. : Emma Smith">'+
   '<label class="f" for="tl">Ton numéro WhatsApp (facultatif)</label><input type="tel" id="tl" autocomplete="tel" placeholder="07 00 00 00 00">'+
   '<div class="row"><button class="btn btn-main" id="go">Commencer le test</button></div></div>';
@@ -94,6 +94,9 @@ function show(){
   var h='<span class="tag">'+esc(p.titre)+'</span><h2>'+esc(ex.titre)+'</h2>';
   if(ex.banque) h+='<div class="banque">'+esc(ex.banque)+'</div>';
   if(ex.texte) h+='<div class="texte">'+esc(ex.texte)+'</div>';
+  if(ex.consigne) h+='<p class="muted" style="margin:6px 0">'+esc(ex.consigne)+'</p>';
+  if(ex.audio){ var ak='a'+s.pi+'-'+s.ei; S.plays=S.plays||{}; var left=2-(S.plays[ak]||0);
+    h+='<div class="card" style="display:flex;align-items:center;gap:14px"><button class="btn btn-main" id="play" data-k="'+ak+'"'+(left<=0?' disabled style="opacity:.5"':'')+'>▶ Écouter</button><span class="muted" id="left">'+(left>0?left+' écoute'+(left>1?'s':'')+' restante'+(left>1?'s':''):'Plus d\'écoute disponible')+'</span><audio id="aud" preload="auto" src="'+esc(ex.audio)+'"></audio></div>'; }
   h+='<div class="card">';
   ex.items.forEach(function(it,qi){
     var k=key(s.pi,s.ei,qi), v=S.ans[k];
@@ -104,6 +107,7 @@ function show(){
   });
   h+='</div>';
   app.innerHTML=h; window.scrollTo(0,0);
+  var pb=document.getElementById('play'); if(pb){ var au=document.getElementById('aud'); pb.onclick=function(){ var k=pb.getAttribute('data-k'); if((S.plays[k]||0)>=2||!au.paused) return; S.plays[k]=(S.plays[k]||0)+1; au.currentTime=0; au.play(); pb.textContent='🔊 Lecture…'; pb.disabled=true; var l=2-S.plays[k]; document.getElementById('left').textContent=l>0?l+' écoute restante':'Plus d\'écoute disponible'; au.onended=function(){ pb.textContent='▶ Réécouter'; if(S.plays[k]<2){pb.disabled=false;} else {pb.style.opacity=.5;} }; }; }
   nav.classList.remove('hidden');
   document.getElementById('step').textContent='Étape '+(S.i+1)+' / '+screens.length;
   var last=S.i===screens.length-1; nextBtn.textContent=last?'Voir mon résultat':'Suivant';
@@ -134,7 +138,7 @@ function result(stop){
   '<a class="btn btn-ghost" href="mailto:'+MAIL+'?subject='+encodeURIComponent('Test de placement : '+S.name+' ('+lvl.split(' ')[0]+')')+'&body='+encodeURIComponent(msg)+'">Envoyer par email</a></div></div>'+
   (errs?'<div class="card"><b>Tes corrections</b>'+errs+'</div>':'<div class="card"><b>Aucune erreur, impressionnant !</b></div>')+
   '<div class="row"><a class="btn btn-ghost" href="../site/">Retour au site</a><a class="btn btn-ghost" href="../">Ouvrir l\'appli gratuite</a><button class="btn btn-ghost" id="again">Refaire le test</button></div>';
-  document.getElementById('again').onclick=function(){S.ans={};intro();};
+  document.getElementById('again').onclick=function(){S.ans={};S.plays={};intro();};
   window.scrollTo(0,0);
 }
 intro();
