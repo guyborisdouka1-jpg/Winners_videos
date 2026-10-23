@@ -21,7 +21,9 @@ window.CENTRE = {
   // Numéros de paiement mobile (laisser la liste vide [] pour que les gens demandent sur WhatsApp)
   paiement: {
     numeros: ["07 67 03 72 84", "01 41 81 70 78"],
-    titulaire: ""
+    titulaire: "",
+    // Virement bancaire (laisser rib vide "" pour le masquer)
+    banque: { nom: "", rib: "CI201 01001 111607555481 35" }
   }
 };
 
