@@ -76,6 +76,13 @@ window.PLACEMENT = {
       { q: "I usually ___ tea in the morning.", options: ["drink", "am drinking", "drinks"], a: 0 },
       { q: "What ___ right now?", options: ["do you do", "are you doing", "you doing"], a: 1 },
       { q: "He ___ to work every day.", options: ["go", "goes", "is go"], a: 1 }
+    ]},
+    { titre: "Écoute : le message de Lucy", type: "choice", audio: "audio2.mp3", consigne: "Écoute le message (2 écoutes maximum), puis réponds.", items: [
+      { q: "Where is Lucy?", options: ["At home", "At the shopping centre", "At work"], a: 1 },
+      { q: "Why does she need a shirt?", options: ["For a job interview", "For a wedding", "For school"], a: 0 },
+      { q: "How much is the white shirt?", options: ["Twenty-five dollars", "Forty dollars", "Fourteen dollars"], a: 1 },
+      { q: "How is she going to pay?", options: ["In cash", "By phone", "By card"], a: 2 },
+      { q: "When will she see Tom?", options: ["Tonight at seven", "On Monday", "Tomorrow morning"], a: 0 }
     ]}
   ]},
   { level: "B1", titre: "Partie 3 : Intermédiaire (B1)", exercises: [
