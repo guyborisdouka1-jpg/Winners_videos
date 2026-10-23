@@ -335,10 +335,8 @@ footer{text-align:center;color:var(--muted);font-size:12.5px;padding:8px 0 16px}
 <section class="view" id="v-plus">
   <button class="menu" onclick="go('videos')"><i>🎬</i><span>Vidéos<small>Nos apprenants en action</small></span></button>
   <button class="menu" onclick="go('galerie')"><i>🖼️</i><span>Galerie<small>Cours, sorties, remises d'attestations</small></span></button>
-  <button class="menu" onclick="go('avis')"><i>⭐</i><span>Avis des apprenants<small>Ils nous font confiance</small></span></button>
   <button class="menu" onclick="go('agenda')"><i>📅</i><span>Agenda<small>Les dates à retenir</small></span></button>
   <button class="menu" onclick="go('parrain')"><i>👫</i><span>Parrainage<small>Invite un ami, gagnez tous les deux</small></span></button>
-  <button class="menu" onclick="go('certif')"><i>🎓</i><span>Vérifier une attestation<small>Pour les employeurs et les écoles</small></span></button>
   <button class="menu" onclick="go('services')"><i>🤝</i><span>Nos autres services<small>Cours à domicile, interprétariat, salle</small></span></button>
   <button class="menu" onclick="go('contact')"><i>📞</i><span>Contact<small>WhatsApp, appel, adresse</small></span></button>
   <button class="menu" onclick="go('installer')"><i>📲</i><span>Installer l'application<small>Sur ton écran d'accueil</small></span></button>
@@ -584,8 +582,8 @@ function rendreProgramme(){
   const faq=(P&&OUVERT&&P.faq&&P.faq.length)?P.faq:[["Je suis débutant complet, je peux venir ?","Oui ! Le test de niveau nous permet de te placer dans le groupe qui te correspond."],["Les cours existent en ligne ?","Oui, en direct avec Coach Winner. Il te faut juste un téléphone et une connexion."]];
   $('faqCard').innerHTML='<h3>❓ Questions fréquentes</h3>'+faq.map(x=>'<details><summary>'+x[0]+'</summary><p>'+x[1]+'</p></details>').join('');
   // paiement
-  const pm=C.paiement||{}, nums=[['Wave',pm.wave],['Orange Money',pm.orangeMoney],['MTN Money',pm.mtnMoney],['Moov Money',pm.moovMoney]].filter(x=>x[1]);
-  $('payNums').innerHTML=nums.length?'<ul class="list">'+nums.map(x=>'<li>📱 <span><b>'+x[0]+'</b> : '+esc(x[1])+'</span></li>').join('')+'</ul>'+(pm.titulaire?'<p class="muted">Au nom de : <b>'+esc(pm.titulaire)+'</b></p>':'')
+  const pm=C.paiement||{}, nums=(pm.numeros||[]).filter(Boolean);
+  $('payNums').innerHTML=nums.length?'<p class="muted">Envoie ton paiement par Mobile Money sur l\'un de ces numéros :</p><ul class="list">'+nums.map(x=>'<li>📱 <span><b style="font-size:18px">'+esc(x)+'</b></span></li>').join('')+'</ul>'+(pm.titulaire?'<p class="muted">Au nom de : <b>'+esc(pm.titulaire)+'</b></p>':'')
     :'<p class="muted">Demande le numéro de paiement à Coach Winner sur WhatsApp, puis reviens ici pour le prévenir une fois que tu as payé.</p><a class="btn b-ghost" target="_blank" rel="noopener" href="'+wa("Bonjour Coach Winner 👋 Je veux payer mon inscription"+(P?" à la "+P.nom:"")+". Sur quel numéro dois-je envoyer ?")+'">Demander le numéro de paiement</a>';
 }
 rendreProgramme();

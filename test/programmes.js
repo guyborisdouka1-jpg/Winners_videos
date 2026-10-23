@@ -18,12 +18,9 @@ window.CENTRE = {
   tiktok: "https://www.tiktok.com/@winnersenglish",
   // Couleurs par défaut (celles du logo), utilisées quand aucun programme n'est en cours
   couleurs: { sombre: "#2F3480", principal: "#B83A35", accent: "#F2B33D" },
-  // Paiement mobile : laisser vide "" pour que les gens demandent le numéro sur WhatsApp
+  // Numéros de paiement mobile (laisser la liste vide [] pour que les gens demandent sur WhatsApp)
   paiement: {
-    wave: "",
-    orangeMoney: "",
-    mtnMoney: "",
-    moovMoney: "",
+    numeros: ["07 67 03 72 84", "01 41 81 70 78"],
     titulaire: ""
   }
 };
