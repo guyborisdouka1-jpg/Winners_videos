@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Test de placement · Winners' English Center</title>
+<link rel="icon" href="../img/icon-192.png">
+<meta name="description" content="Test de placement gratuit de Winners' English Center : découvre ton niveau d'anglais (A1 à B2) en 30 minutes.">
+<style>
+:root{--sombre:#2F3480;--rouge:#B83A35;--or:#F2B33D;--fond:#F7F5F0;--txt:#1d2333;--muted:#5b6275;--ok:#1f8a4c;--ko:#B83A35;--card:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fond);color:var(--txt);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{background:var(--sombre);color:#fff;padding:14px 16px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:5}
+header img{width:40px;height:40px;border-radius:50%;background:#fff}
+header b{display:block;font-size:1rem}
+header small{opacity:.8}
+.bar{height:6px;background:rgba(255,255,255,.25);position:absolute;left:0;right:0;bottom:0}
+.bar i{display:block;height:100%;width:0;background:var(--or);transition:width .3s}
+main{max-width:680px;margin:0 auto;padding:20px 16px 120px}
+h1{font-size:1.7rem;line-height:1.2;margin:.2em 0 .4em;color:var(--sombre)}
+h2{font-size:1.25rem;margin:0 0 4px;color:var(--sombre)}
+.tag{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--rouge)}
+.card{background:var(--card);border-radius:14px;padding:18px;box-shadow:0 2px 10px rgba(20,30,60,.07);margin:14px 0}
+.muted{color:var(--muted)}
+label.f{display:block;font-weight:600;margin:12px 0 4px}
+input[type=text],input[type=tel]{width:100%;font:inherit;padding:12px;border:1.5px solid #cfd3de;border-radius:10px;background:#fff}
+input[type=text]:focus,input[type=tel]:focus{outline:none;border-color:var(--sombre)}
+.q{padding:14px 0;border-top:1px solid #eceef3}
+.q:first-of-type{border-top:0}
+.q p{margin:0 0 8px;font-weight:600}
+.q p .n{color:var(--rouge);margin-right:6px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts label{flex:1 1 auto;min-width:120px;border:1.5px solid #cfd3de;border-radius:10px;padding:10px 12px;cursor:pointer;background:#fff}
+.opts input{position:absolute;opacity:0}
+.opts label:has(input:checked){border-color:var(--sombre);background:#eef0fb;font-weight:600}
+.texte{background:#fff8e6;border-left:4px solid var(--or);padding:12px 14px;border-radius:8px;margin:8px 0 4px}
+.banque{display:inline-block;background:#eef0fb;color:var(--sombre);border-radius:8px;padding:4px 10px;font-weight:700;margin:4px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:inherit;font-weight:700;border:0;border-radius:999px;padding:13px 22px;cursor:pointer;text-decoration:none}
+.btn-main{background:var(--rouge);color:#fff}
+.btn-wa{background:#1f9d55;color:#fff}
+.btn-ghost{background:#fff;color:var(--sombre);border:1.5px solid var(--sombre)}
+.nav{position:fixed;left:0;right:0;bottom:0;background:#fff;box-shadow:0 -2px 12px rgba(0,0,0,.08);padding:12px 16px calc(12px + env(safe-area-inset-bottom))}
+.nav .in{max-width:680px;margin:0 auto;display:flex;gap:10px;justify-content:space-between;align-items:center}
+.row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.lvl{font-size:3rem;font-weight:800;color:var(--rouge);line-height:1}
+.parts{display:grid;gap:8px;margin-top:10px}
+.part{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-radius:10px;background:#f3f4f8}
+.part b.ok{color:var(--ok)} .part b.ko{color:var(--ko)}
+.err{padding:10px 0;border-top:1px solid #eceef3;font-size:.95rem}
+.err .bad{color:var(--ko);text-decoration:line-through}
+.err .good{color:var(--ok);font-weight:700}
+ul.rules{padding-left:20px;margin:8px 0}
+.hidden{display:none!important}
+</style>
+</head>
+<body>
+<header>
+  <img src="../logo.png" alt="">
+  <div><b>Winners' English Center</b><small id="hsub">Test de placement</small></div>
+  <div class="bar"><i id="prog"></i></div>
+</header>
+<main id="app"></main>
+<div class="nav hidden" id="nav"><div class="in"><span class="muted" id="step"></span><button class="btn btn-main" id="next">Suivant</button></div></div>
+<script src="../programmes.js"></script>
+<script src="../placement.js"></script>
+<script>
+(function(){
+var T=window.PLACEMENT, C=window.CENTRE||{}, WA=(C.whatsapp||"2250767037284"), MAIL="winnersenglish04@gmail.com";
+var app=document.getElementById('app'), nav=document.getElementById('nav'), nextBtn=document.getElementById('next');
+var screens=[]; T.parts.forEach(function(p,pi){p.exercises.forEach(function(ex,ei){screens.push({pi:pi,ei:ei});});});
+var S={name:"",tel:"",i:0,ans:{}};
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
+function norm(s){return String(s||"").toLowerCase().replace(/[’`]/g,"'").replace(/[.!?]+$/,"").replace(/\s+/g," ").trim();}
+function key(pi,ei,qi){return pi+"-"+ei+"-"+qi;}
+function isRight(ex,it,v){ if(ex.type==="choice") return v!==undefined && +v===it.a; return it.a.some(function(x){return norm(x)===norm(v);}); }
+function partScore(pi){var p=T.parts[pi],ok=0,n=0; p.exercises.forEach(function(ex,ei){ex.items.forEach(function(it,qi){n++; if(isRight(ex,it,S.ans[key(pi,ei,qi)])) ok++;});}); return {ok:ok,n:n,pct:n?Math.round(ok*100/n):0};}
+var qn=0, numStart=[]; screens.forEach(function(s){numStart.push(qn); qn+=T.parts[s.pi].exercises[s.ei].items.length;});
+
+function intro(){
+  nav.classList.add('hidden'); setProg(0);
+  app.innerHTML='<span class="tag">Gratuit · '+esc(T.duree)+'</span><h1>Test de placement</h1>'+
+  '<p class="muted">Ce test nous permet de te placer dans le groupe qui correspond vraiment à ton niveau, du débutant (A1) à l\'avancé (B2).</p>'+
+  '<div class="card"><b>Comment ça marche</b><ul class="rules"><li>'+qn+' questions en 4 parties, de plus en plus difficiles.</li><li>Réponds seul, sans dictionnaire ni traducteur : on veut ton vrai niveau.</li><li>Si tu ne sais pas, laisse vide et passe à la suite.</li><li>Si une partie est trop difficile, le test s\'arrête tout seul : c\'est normal.</li></ul></div>'+
+  '<div class="card"><label class="f" for="nm">Ton nom et prénom</label><input type="text" id="nm" autocomplete="name" placeholder="Ex. : Kouassi Awa">'+
+  '<label class="f" for="tl">Ton numéro WhatsApp (facultatif)</label><input type="tel" id="tl" autocomplete="tel" placeholder="07 00 00 00 00">'+
+  '<div class="row"><button class="btn btn-main" id="go">Commencer le test</button></div></div>';
+  document.getElementById('go').onclick=function(){ S.name=document.getElementById('nm').value.trim(); S.tel=document.getElementById('tl').value.trim(); if(!S.name){document.getElementById('nm').focus(); document.getElementById('nm').placeholder="Écris ton nom pour commencer"; return;} S.i=0; show(); };
+}
+function setProg(p){document.getElementById('prog').style.width=p+'%';}
+function show(){
+  var s=screens[S.i], p=T.parts[s.pi], ex=p.exercises[s.ei], n=numStart[S.i];
+  setProg(Math.round(S.i*100/screens.length));
+  document.getElementById('hsub').textContent=p.titre;
+  var h='<span class="tag">'+esc(p.titre)+'</span><h2>'+esc(ex.titre)+'</h2>';
+  if(ex.banque) h+='<div class="banque">'+esc(ex.banque)+'</div>';
+  if(ex.texte) h+='<div class="texte">'+esc(ex.texte)+'</div>';
+  h+='<div class="card">';
+  ex.items.forEach(function(it,qi){
+    var k=key(s.pi,s.ei,qi), v=S.ans[k];
+    h+='<div class="q"><p><span class="n">'+(n+qi+1)+'.</span>'+esc(it.q)+'</p>';
+    if(ex.type==="choice"){ h+='<div class="opts">'+it.options.map(function(o,oi){return '<label><input type="radio" name="'+k+'" value="'+oi+'"'+(String(v)===String(oi)?' checked':'')+'>'+esc(o)+'</label>';}).join('')+'</div>'; }
+    else h+='<input type="text" data-k="'+k+'" value="'+esc(v||"")+'" autocapitalize="off" autocomplete="off" spellcheck="false" placeholder="Ta réponse">';
+    h+='</div>';
+  });
+  h+='</div>';
+  app.innerHTML=h; window.scrollTo(0,0);
+  nav.classList.remove('hidden');
+  document.getElementById('step').textContent='Étape '+(S.i+1)+' / '+screens.length;
+  var last=S.i===screens.length-1; nextBtn.textContent=last?'Voir mon résultat':'Suivant';
+}
+function save(){
+  app.querySelectorAll('input[type=radio]:checked').forEach(function(r){S.ans[r.name]=r.value;});
+  app.querySelectorAll('input[data-k]').forEach(function(t){S.ans[t.getAttribute('data-k')]=t.value;});
+}
+nextBtn.onclick=function(){
+  save();
+  var s=screens[S.i], nx=screens[S.i+1];
+  if(!nx){ return result(T.parts.length-1); }
+  if(nx.pi!==s.pi){ var sc=partScore(s.pi); if(sc.pct<50) return result(s.pi); }
+  S.i++; show();
+};
+function levelOf(stop){ var lvl="Pré-A1 (grand débutant)"; for(var pi=0;pi<=stop;pi++){ if(partScore(pi).pct>=60) lvl=T.parts[pi].level; else break; } return lvl; }
+var DESC={"Pré-A1 (grand débutant)":"Tu démarres l'anglais : on reprend les bases ensemble, pas à pas.","A1":"Tu as les bases. Objectif : parler de toi et du quotidien avec confiance.","A2":"Tu te débrouilles sur des sujets simples. Objectif : des conversations plus longues et plus fluides.","B1":"Tu es autonome dans la plupart des situations. Objectif : parler avec aisance au travail et en voyage.","B2":"Très bon niveau ! Objectif : affiner, gagner en naturel et préparer un examen si tu veux (IELTS, TOEFL, TOEIC)."};
+function result(stop){
+  nav.classList.add('hidden'); setProg(100); document.getElementById('hsub').textContent='Ton résultat';
+  var lvl=levelOf(stop), tot=0, n=0, lines=[];
+  var parts=T.parts.map(function(p,pi){ if(pi>stop) return '<div class="part"><span>'+esc(p.titre)+'</span><span class="muted">non passée</span></div>'; var sc=partScore(pi); tot+=sc.ok; n+=sc.n; lines.push(p.level+' : '+sc.ok+'/'+sc.n); return '<div class="part"><span>'+esc(p.titre)+'</span><b class="'+(sc.pct>=60?'ok':'ko')+'">'+sc.ok+' / '+sc.n+'</b></div>'; }).join('');
+  var errs=''; T.parts.forEach(function(p,pi){ if(pi>stop) return; p.exercises.forEach(function(ex,ei){ ex.items.forEach(function(it,qi){ var v=S.ans[key(pi,ei,qi)]; if(isRight(ex,it,v)) return; var given=ex.type==="choice"?(v===undefined?"(pas de réponse)":it.options[v]):(v&&v.trim()?v:"(pas de réponse)"); var good=ex.type==="choice"?it.options[it.a]:it.a[0]; errs+='<div class="err">'+esc(it.q)+'<br><span class="bad">'+esc(given)+'</span> → <span class="good">'+esc(good)+'</span></div>'; }); }); });
+  var msg="Bonjour Coach Winner, j'ai fait le test de placement.\nNom : "+S.name+(S.tel?"\nWhatsApp : "+S.tel:"")+"\nNiveau : "+lvl+"\nScore : "+tot+"/"+n+" ("+lines.join(", ")+")\nJe voudrais savoir quel groupe me correspond.";
+  app.innerHTML='<span class="tag">Test terminé</span><h1>Bravo '+esc(S.name.split(' ')[0])+' !</h1>'+
+  '<div class="card"><span class="muted">Ton niveau estimé</span><div class="lvl">'+esc(lvl.split(' ')[0])+'</div><p>'+esc(DESC[lvl])+'</p><p class="muted">Score : '+tot+' / '+n+'</p><div class="parts">'+parts+'</div></div>'+
+  '<div class="card"><b>Envoie ton résultat à Coach Winner</b><p class="muted">Il te dira quel groupe te correspond et comment démarrer.</p><div class="row">'+
+  '<a class="btn btn-wa" target="_blank" rel="noopener" href="https://wa.me/'+WA+'?text='+encodeURIComponent(msg)+'">Envoyer sur WhatsApp</a>'+
+  '<a class="btn btn-ghost" href="mailto:'+MAIL+'?subject='+encodeURIComponent('Test de placement : '+S.name+' ('+lvl.split(' ')[0]+')')+'&body='+encodeURIComponent(msg)+'">Envoyer par email</a></div></div>'+
+  (errs?'<div class="card"><b>Tes corrections</b>'+errs+'</div>':'<div class="card"><b>Aucune erreur, impressionnant !</b></div>')+
+  '<div class="row"><a class="btn btn-ghost" href="../site/">Retour au site</a><a class="btn btn-ghost" href="../">Ouvrir l\'appli gratuite</a><button class="btn btn-ghost" id="again">Refaire le test</button></div>';
+  document.getElementById('again').onclick=function(){S.ans={};intro();};
+  window.scrollTo(0,0);
+}
+intro();
+})();
+</script>
+</body>
+</html>
