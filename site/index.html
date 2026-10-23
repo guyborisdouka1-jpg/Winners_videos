@@ -347,7 +347,7 @@ function renderTest(){
   } else if(t.step==='q'){
     var q = QUESTIONS[t.i];
     el.innerHTML = '<div class="q-meta"><span class="label">Question '+(t.i+1)+' / '+QUESTIONS.length+'</span><div class="progress"><i style="width:'+(t.i/QUESTIONS.length*100)+'%"></i></div></div>'+
-      '<p class="q-text">'+esc(q[0])+'</p><div class="opts">'+q[1].map(function(o,k){return '<button class="opt" data-k="'+k+'">'+esc(o)+'</button>';}).join('')+'</div>';
+      '<p class="q-text">'+esc(q[0])+'</p>'+(q[3]?'<audio controls preload="auto" src="../'+esc(q[3])+'" style="width:100%;margin:4px 0 14px"></audio>':'')+'<div class="opts">'+q[1].map(function(o,k){return '<button class="opt" data-k="'+k+'">'+esc(o)+'</button>';}).join('')+'</div>';
     el.querySelectorAll('.opt').forEach(function(b){ b.addEventListener('click',function(){ if(+b.dataset.k===q[2]) t.score++; t.i++; t.step = t.i>=QUESTIONS.length?'done':'q'; renderTest(); }); });
   } else {
     var lv = levelOf(t.score);

@@ -6,7 +6,7 @@
    ===================================================================== */
 window.PLACEMENT = {
   titre: "Test de placement",
-  duree: "30 à 40 minutes",
+  duree: "environ 45 minutes",
   parts: [
   { level: "A1", titre: "Partie 1 : Débutant (A1)", exercises: [
     { titre: "Choisis la bonne réponse", type: "choice", items: [
