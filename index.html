@@ -4,21 +4,26 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Winners English App</title>
-<meta name="description" content="L'application de Winners' English Center : test de niveau gratuit, Promo Anglais Noël, inscription, phrase du jour et vidéos de nos apprenants.">
+<meta name="description" content="L'application de Winners' English Center : test de niveau gratuit, leçons d'anglais, flashcards, programme du moment, inscription et contact de Coach Winner.">
 <meta name="theme-color" content="#2F3480">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="img/icon-192.png">
+<link rel="apple-touch-icon" href="img/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Winners English">
 <style>
 :root{
-  --red:#B83A35;--blue:#2F3480;--gold:#F2B33D;--wa:#25D366;
+  --d:#2F3480;--p:#B83A35;--a:#F2B33D;--wa:#25D366;--ok:#1f9d55;
   --bg:#F5F5FA;--card:#FFFFFF;--ink:#1B1C33;--muted:#5E6080;--line:#DFE0EC;--soft:#ECEDF8;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#11132B;--card:#1C1F40;--ink:#EEF0FF;--muted:#A9ACCB;--line:#30345F;--soft:#262A55}}
-:root[data-theme="dark"]{--bg:#11132B;--card:#1C1F40;--ink:#EEF0FF;--muted:#A9ACCB;--line:#30345F;--soft:#262A55}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#11132B;--card:#1C1F40;--ink:#EEF0FF;--muted:#A9ACCB;--line:#30345F;--soft:#262A55;--ok:#3ccf7d}}
+:root[data-theme="dark"]{--bg:#11132B;--card:#1C1F40;--ink:#EEF0FF;--muted:#A9ACCB;--line:#30345F;--soft:#262A55;--ok:#3ccf7d}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0}
-body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.45;padding-bottom:78px}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.45;padding-bottom:80px}
 a{color:inherit}
-.top{background:var(--blue);color:#fff;padding:14px 16px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:5;box-shadow:0 2px 10px rgba(0,0,0,.15)}
-.top img{width:44px;height:44px;border-radius:50%;background:#fff}
+.top{background:var(--d);color:#fff;padding:12px 16px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:5;box-shadow:0 2px 10px rgba(0,0,0,.15)}
+.top img{width:42px;height:42px;border-radius:50%;background:#fff}
 .top b{display:block;font-size:16px;letter-spacing:.3px}
 .top span{font-size:12.5px;opacity:.85}
 main{max-width:580px;margin:0 auto;padding:16px}
@@ -27,65 +32,123 @@ main{max-width:580px;margin:0 auto;padding:16px}
 @keyframes f{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 .card{background:var(--card);border-radius:16px;padding:18px;margin-bottom:14px;border:1px solid var(--line)}
 h2{font-size:20px;margin:0 0 8px}
-h3{font-size:16px;margin:0 0 6px}
+h3{font-size:16.5px;margin:0 0 6px}
 p{margin:6px 0}
 .muted{color:var(--muted);font-size:14px}
-.hero{background:linear-gradient(150deg,var(--blue) 0%,#23276A 60%,var(--red) 140%);color:#fff;border:0;text-align:center;padding:22px 18px}
-.hero img{width:96px;height:96px;border-radius:50%;background:#fff;box-shadow:0 4px 16px rgba(0,0,0,.3)}
+.hero{background:linear-gradient(150deg,var(--d) 0%,var(--d) 55%,var(--p) 140%);color:#fff;border:0;text-align:center;padding:22px 18px}
+.hero img{width:92px;height:92px;border-radius:50%;background:#fff;box-shadow:0 4px 16px rgba(0,0,0,.3)}
 .hero h1{font-size:24px;margin:10px 0 2px}
-.hero .slogan{font-style:italic;color:var(--gold);font-weight:600}
-.promo{background:var(--red);color:#fff;border:0;position:relative;overflow:hidden}
-.promo:after{content:"★";position:absolute;right:14px;top:6px;font-size:44px;color:var(--gold);opacity:.55}
-.price{font-size:32px;font-weight:800;color:var(--gold);line-height:1.1}
-.price s{font-size:18px;color:#F6D3D0;font-weight:600;margin-left:6px}
+.hero .slogan{font-style:italic;color:var(--a);font-weight:600}
+.promo{background:var(--p);color:#fff;border:0;position:relative;overflow:hidden}
+.promo .muted{color:#fff;opacity:.85}
+.price{font-size:32px;font-weight:800;color:var(--a);line-height:1.1}
+.price s{font-size:18px;color:#fff;opacity:.7;font-weight:600;margin-left:6px}
 .count{display:flex;gap:8px;margin:12px 0 4px}
-.count div{flex:1;background:rgba(255,255,255,.14);border-radius:10px;padding:8px 0;text-align:center}
+.count div{flex:1;background:rgba(255,255,255,.16);border-radius:10px;padding:8px 0;text-align:center}
 .count b{display:block;font-size:22px}
 .count span{font-size:11.5px;opacity:.9}
+.visuel{width:100%;border-radius:16px;display:block;margin-bottom:14px}
 .btn{display:block;width:100%;border:0;border-radius:12px;padding:14px;font-size:16.5px;font-weight:700;cursor:pointer;margin-top:12px;text-align:center;text-decoration:none;font-family:inherit}
-.b-red{background:var(--red);color:#fff}
-.b-blue{background:var(--blue);color:#fff}
-.b-gold{background:var(--gold);color:#1B1C33}
+.b-p{background:var(--p);color:#fff}
+.b-d{background:var(--d);color:#fff}
+.b-a{background:var(--a);color:#1B1C33}
 .b-wa{background:var(--wa);color:#fff}
 .b-ghost{background:var(--soft);color:var(--ink)}
 .btn:disabled{opacity:.45;cursor:not-allowed}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.tile{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;text-align:left;cursor:pointer;font-family:inherit;color:var(--ink);font-size:14px}
-.tile i{font-style:normal;font-size:24px;display:block;margin-bottom:4px}
-.tile b{display:block;font-size:15px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.row .btn{margin:0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;text-align:left;cursor:pointer;font-family:inherit;color:var(--ink);font-size:13.5px;line-height:1.3}
+.tile i{font-style:normal;font-size:26px;display:block;margin-bottom:4px}
+.tile b{display:block;font-size:15px;margin-bottom:2px}
 ul.list{padding-left:0;list-style:none;margin:8px 0 0}
-ul.list li{padding:7px 0;border-bottom:1px dashed var(--line);display:flex;gap:10px}
+ul.list li{padding:8px 0;border-bottom:1px dashed var(--line);display:flex;gap:10px}
 ul.list li:last-child{border:0}
 label{display:block;font-weight:600;margin:12px 0 6px;font-size:14.5px}
 input,select,textarea{width:100%;padding:12px;border:1.5px solid var(--line);border-radius:10px;font-size:16px;background:var(--card);color:var(--ink);font-family:inherit}
-input:focus,select:focus,textarea:focus{outline:none;border-color:var(--blue)}
-.progress{height:8px;background:var(--soft);border-radius:6px;overflow:hidden;margin-bottom:12px}
-.progress div{height:100%;background:var(--red);width:0;transition:width .3s}
-.q{font-size:18.5px;font-weight:700;margin:6px 0 14px}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--d)}
+.progress{height:8px;background:var(--soft);border-radius:6px;overflow:hidden;margin:8px 0 12px}
+.progress div{height:100%;background:var(--p);width:0;transition:width .3s}
+.q{font-size:18px;font-weight:700;margin:6px 0 14px}
 .opt{display:block;width:100%;text-align:left;padding:13px;border:1.5px solid var(--line);border-radius:12px;background:var(--card);font-size:16px;margin-bottom:9px;cursor:pointer;color:var(--ink);font-family:inherit}
-.opt.sel{border-color:var(--blue);background:var(--soft);font-weight:600}
-.score{font-size:52px;font-weight:800;color:var(--blue);text-align:center}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .score{color:var(--gold)}}
-.level{text-align:center;font-size:19px;font-weight:700;color:var(--red)}
+.opt.sel{border-color:var(--d);background:var(--soft);font-weight:600}
+.opt.good{border-color:var(--ok);background:rgba(31,157,85,.12);font-weight:600}
+.opt.bad{border-color:var(--p);background:rgba(184,58,53,.10)}
+.fb{font-size:14.5px;margin:4px 0 12px;font-weight:600}
+.score{font-size:52px;font-weight:800;color:var(--d);text-align:center}
+.level{text-align:center;font-size:19px;font-weight:700;color:var(--p)}
 .pill{display:inline-block;background:var(--soft);border-radius:20px;padding:3px 10px;font-size:12.5px;font-weight:600;margin:2px 4px 2px 0}
-.phrase{font-size:21px;font-weight:700;color:var(--blue);margin:6px 0}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .phrase{color:var(--gold)}}
-:root[data-theme="dark"] .phrase,:root[data-theme="dark"] .score{color:var(--gold)}
+.phrase{font-size:21px;font-weight:700;color:var(--d);margin:6px 0}
+.pron{display:inline-block;font-size:14px;color:var(--p);font-weight:600;background:var(--soft);border-radius:8px;padding:2px 8px;margin-top:2px}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .score,:root:not([data-theme="light"]) .phrase,:root:not([data-theme="light"]) .ex b{color:var(--a)}}
+:root[data-theme="dark"] .phrase,:root[data-theme="dark"] .score,:root[data-theme="dark"] .ex b{color:var(--a)}
+.ex{padding:10px 0;border-bottom:1px dashed var(--line)}
+.ex:last-child{border:0}
+.ex b{display:block;font-size:17px;color:var(--d)}
+.ex span{display:block;font-size:14.5px;color:var(--muted)}
+.tip{background:var(--soft);border-left:4px solid var(--a);border-radius:10px;padding:12px;font-size:14.5px;margin-top:10px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:10px;scrollbar-width:none}
+.chips button{flex:0 0 auto;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:20px;padding:8px 13px;font-size:14px;cursor:pointer;font-family:inherit}
+.chips button.on{background:var(--d);color:#fff;border-color:var(--d)}
+.lvl{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:10px;cursor:pointer;font-family:inherit;color:var(--ink)}
+.lvl i{font-style:normal;font-size:28px}
+.lvl b{display:block;font-size:16px}
+.lvl small{color:var(--muted);font-size:13px}
+.lvl .bar{height:6px;background:var(--soft);border-radius:4px;margin-top:6px;overflow:hidden}
+.lvl .bar div{height:100%;background:var(--ok)}
+.lvl .done{margin-left:auto;font-size:13px;font-weight:700;color:var(--ok);white-space:nowrap}
+.flash{perspective:900px;height:230px;margin:6px 0 12px;cursor:pointer}
+.flash-in{position:relative;width:100%;height:100%;transition:transform .45s;transform-style:preserve-3d}
+.flash.flip .flash-in{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px;text-align:center}
+.face.front{background:var(--d);color:#fff}
+.face.back{background:var(--a);color:#1B1C33;transform:rotateY(180deg)}
+.face .big{font-size:25px;font-weight:800;line-height:1.25}
+.face small{margin-top:10px;font-size:13px;opacity:.8}
+.face .pr{margin-top:8px;font-size:15px;font-weight:700;background:rgba(255,255,255,.35);border-radius:8px;padding:3px 10px}
 video{width:100%;border-radius:12px;background:#000;max-height:70vh}
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.gal figure{margin:0}
+.gal img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:12px;display:block;cursor:pointer}
+.gal figcaption{font-size:12.5px;color:var(--muted);margin-top:3px}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;z-index:30;padding:16px;flex-direction:column}
+.lightbox.on{display:flex}
+.lightbox img{max-width:100%;max-height:80vh;border-radius:12px}
+.lightbox p{color:#fff;text-align:center}
+.menu{display:flex;align-items:center;gap:12px;width:100%;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 14px;margin-bottom:9px;cursor:pointer;font-family:inherit;color:var(--ink);text-align:left;font-size:15px}
+.menu i{font-style:normal;font-size:24px;width:30px;text-align:center}
+.menu small{display:block;color:var(--muted);font-size:13px}
+.menu:after{content:"›";margin-left:auto;font-size:22px;color:var(--muted)}
+.back{background:none;border:0;color:var(--d);font-weight:700;font-size:15px;padding:0 0 10px;cursor:pointer;font-family:inherit}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .back{color:var(--a)}}
+:root[data-theme="dark"] .back{color:var(--a)}
+.ag{display:flex;gap:12px;padding:10px 0;border-bottom:1px dashed var(--line)}
+.ag:last-child{border:0}
+.ag .d{flex:0 0 58px;text-align:center;background:var(--soft);border-radius:10px;padding:6px 0;font-weight:800;line-height:1.1}
+.ag .d small{display:block;font-weight:600;font-size:11.5px;color:var(--muted)}
+.ag.past{opacity:.5}
+.ag.next .d{background:var(--p);color:#fff}
+.ag.next .d small{color:#fff}
 details{border-bottom:1px solid var(--line);padding:10px 0}
 details:last-child{border:0}
 summary{font-weight:600;cursor:pointer}
-.err{color:var(--red);font-size:14px;margin-top:8px}
-.hidden{display:none}
+.err{color:var(--p);font-size:14px;margin-top:8px}
+.okmsg{color:var(--ok);font-weight:700}
+.hidden{display:none!important}
+.install{display:flex;align-items:center;gap:12px;background:var(--a);color:#1B1C33;border-radius:14px;padding:12px 14px;margin-bottom:14px}
+.install b{display:block}
+.install button{margin-left:auto;background:var(--d);color:#fff;border:0;border-radius:10px;padding:9px 12px;font-weight:700;font-family:inherit;cursor:pointer}
 nav{position:fixed;bottom:0;left:0;right:0;background:var(--card);border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:6px 4px calc(6px + env(safe-area-inset-bottom));z-index:10}
 nav button{flex:1;background:none;border:0;color:var(--muted);font-size:11.5px;font-family:inherit;cursor:pointer;padding:4px 0}
 nav button i{display:block;font-style:normal;font-size:21px}
-nav button.on{color:var(--red);font-weight:700}
-.vtabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:8px}
-.vtabs button{flex:0 0 auto;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:20px;padding:7px 12px;font-size:14px;cursor:pointer;font-family:inherit}
-.vtabs button.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+nav button.on{color:var(--p);font-weight:700}
 footer{text-align:center;color:var(--muted);font-size:12.5px;padding:8px 0 16px}
 </style>
+<script src="programmes.js"></script>
+<script src="lecons.js"></script>
+<script src="actu.js"></script>
+<script src="certificats.js"></script>
+<script src="avis.js"></script>
 </head>
 <body>
 
@@ -96,26 +159,17 @@ footer{text-align:center;color:var(--muted);font-size:12.5px;padding:8px 0 16px}
 
 <main>
 
-<!-- ================= ACCUEIL ================= -->
+<!-- ======================= ACCUEIL ======================= -->
 <section class="view on" id="v-home">
-  <img src="promo_noel.jpg" alt="Promo Anglais Noël : 65 000 F au lieu de 95 000 F" style="width:100%;border-radius:16px;display:block;margin-bottom:14px">
-  <div class="card promo">
-    <h2 style="margin-bottom:4px">🎄 PROMO ANGLAIS NOËL</h2>
-    <div class="price">65 000 F <s>95 000 F</s></div>
-    <p>Dès <b>35 000 F</b> pour commencer • Cours du <b>9 nov. au 24 déc.</b></p>
-    <div class="count" id="count"></div>
-    <div style="font-size:13px;opacity:.9" id="countLbl">avant la fin des inscriptions (8 novembre)</div>
-    <button class="btn b-gold" onclick="go('promo')">Voir le programme et m'inscrire →</button>
-  </div>
-
+  <div class="install hidden" id="installBar"><span style="font-size:26px">📲</span><div><b>Installe l'appli</b><span style="font-size:13px">Sur ton écran d'accueil, en 1 clic</span></div><button onclick="installer()">Installer</button></div>
+  <div id="homeProg"></div>
   <div class="grid">
     <button class="tile" onclick="go('test')"><i>📝</i><b>Test de niveau</b>Gratuit • 5 min</button>
-    <button class="tile" onclick="go('promo')"><i>🎓</i><b>S'inscrire</b>Réserve ta place</button>
-    <button class="tile" onclick="go('learn')"><i>💡</i><b>Phrase du jour</b>Apprends chaque jour</button>
-    <button class="tile" onclick="go('videos')"><i>🎬</i><b>Nos apprenants</b>Ils parlent anglais</button>
+    <button class="tile" onclick="go('learn');learnTab('lecons')"><i>📚</i><b>Leçons</b>Débutant à avancé</button>
+    <button class="tile" onclick="go('learn');learnTab('flash')"><i>🃏</i><b>Flashcards</b>Le vocabulaire par thème</button>
+    <button class="tile" onclick="go('learn');learnTab('actu')"><i>📰</i><b>L'actu en anglais</b>Quiz de la semaine</button>
   </div>
-
-  <div class="card" style="margin-top:14px">
+  <div class="card">
     <h3>Pourquoi Winners' English Center ?</h3>
     <ul class="list">
       <li>🗣️ <span><b>On parle dès la 1re séance</b> : dialogues, mises en situation, shadowing</span></li>
@@ -125,15 +179,14 @@ footer{text-align:center;color:var(--muted);font-size:12.5px;padding:8px 0 16px}
       <li>🌴 <span><b>Sorties en anglais</b> : on apprend aussi en s'amusant</span></li>
     </ul>
   </div>
-
   <div class="card">
-    <h3>👫 Viens avec un ami</h3>
-    <p class="muted">Inscris-toi avec un ami : <b>5 000 F de réduction chacun</b>. Envoie-lui l'invitation en un clic.</p>
-    <a class="btn b-wa" id="shareFriend" target="_blank" rel="noopener">Inviter un ami sur WhatsApp</a>
+    <h3>👫 Parraine un ami</h3>
+    <p class="muted" id="homeParrainTxt">Partage ton lien personnel : quand ton ami s'inscrit, vous êtes récompensés tous les deux.</p>
+    <button class="btn b-d" onclick="go('parrain')">Obtenir mon lien de parrainage</button>
   </div>
 </section>
 
-<!-- ================= TEST ================= -->
+<!-- ======================= TEST ======================= -->
 <section class="view" id="v-test">
   <div id="t1" class="card">
     <h2>📝 Test de niveau gratuit</h2>
@@ -149,17 +202,15 @@ footer{text-align:center;color:var(--muted);font-size:12.5px;padding:8px 0 16px}
       <option>Je ne sais pas encore</option>
     </select>
     <div id="err1" class="err hidden">Merci d'indiquer ton nom et ton numéro WhatsApp.</div>
-    <button class="btn b-red" id="start">Commencer le test →</button>
+    <button class="btn b-p" id="start">Commencer le test →</button>
   </div>
-
   <div id="t2" class="card hidden">
-    <div class="progress"><div id="bar"></div></div>
     <div class="muted" id="qnum"></div>
+    <div class="progress"><div id="bar"></div></div>
     <div class="q" id="qtext"></div>
     <div id="opts"></div>
-    <button class="btn b-red" id="next" disabled>Suivant →</button>
+    <button class="btn b-p" id="next" disabled>Suivant →</button>
   </div>
-
   <div id="t3" class="hidden">
     <div class="card">
       <div class="muted" style="text-align:center">Ton score</div>
@@ -167,46 +218,85 @@ footer{text-align:center;color:var(--muted);font-size:12.5px;padding:8px 0 16px}
       <div class="level" id="level"></div>
       <p id="advice" style="text-align:center"></p>
     </div>
-    <div class="card promo">
-      <h3>🎄 Ta place dans la Promo Anglais Noël</h3>
-      <div class="price">65 000 F <s>95 000 F</s></div>
-      <p>Dès 35 000 F pour commencer • Inscriptions jusqu'au 8 novembre</p>
-    </div>
-    <a class="btn b-wa" id="waTest" target="_blank" rel="noopener">📲 Envoyer mon résultat et réserver ma place</a>
+    <div id="testProg"></div>
+    <a class="btn b-wa" id="waTest" target="_blank" rel="noopener">📲 Envoyer mon résultat à Coach Winner</a>
     <p class="muted" style="text-align:center">WhatsApp s'ouvre avec ton résultat déjà écrit : appuie simplement sur <b>Envoyer</b>.</p>
+    <button class="btn b-ghost" onclick="go('learn');learnTab('lecons')">📚 Voir les leçons de mon niveau</button>
     <button class="btn b-ghost" onclick="resetTest()">Refaire le test</button>
   </div>
 </section>
 
-<!-- ================= PROMO / INSCRIPTION ================= -->
+<!-- ======================= APPRENDRE ======================= -->
+<section class="view" id="v-learn">
+  <div class="chips" id="learnChips">
+    <button data-t="lecons" class="on">📚 Leçons</button>
+    <button data-t="flash">🃏 Flashcards</button>
+    <button data-t="jour">💡 Phrase du jour</button>
+    <button data-t="actu">📰 Actu</button>
+  </div>
+
+  <!-- Leçons -->
+  <div id="l-lecons">
+    <div id="lecNiveaux"></div>
+    <div id="lecListe" class="hidden"></div>
+    <div id="lecVue" class="hidden"></div>
+  </div>
+
+  <!-- Flashcards -->
+  <div id="l-flash" class="hidden">
+    <div class="chips" id="flashThemes"></div>
+    <div class="card">
+      <div class="muted" id="flashNum"></div>
+      <div class="flash" id="flash" onclick="this.classList.toggle('flip')">
+        <div class="flash-in">
+          <div class="face front"><div class="big" id="fEn"></div><div class="pr" id="fPr"></div><small>Touche pour voir la traduction</small></div>
+          <div class="face back"><div class="big" id="fFr"></div><small>Touche pour revenir</small></div>
+        </div>
+      </div>
+      <div class="row">
+        <button class="btn b-ghost" id="fPrev">← Précédente</button>
+        <button class="btn b-d" id="fNext">Suivante →</button>
+      </div>
+      <p class="muted" style="text-align:center;margin-top:10px">Lis l'anglais, essaie de deviner le sens, puis touche la carte.</p>
+    </div>
+  </div>
+
+  <!-- Phrase du jour -->
+  <div id="l-jour" class="hidden">
+    <div class="card">
+      <span class="pill" id="pDate"></span>
+      <h2 style="margin-top:6px">💡 Phrase du jour</h2>
+      <div class="phrase" id="pEn"></div>
+      <div class="pron" id="pPr"></div>
+      <p id="pFr" class="muted" style="margin-top:8px"></p>
+      <div class="row" style="margin-top:12px">
+        <button class="btn b-ghost" id="pPrev">← Précédente</button>
+        <button class="btn b-ghost" id="pNext">Suivante →</button>
+      </div>
+    </div>
+    <div class="card">
+      <h3>🎯 Mini-défi du jour</h3>
+      <p class="q" id="dQ" style="font-size:17px"></p>
+      <div id="dOpts"></div>
+      <p id="dRes" class="fb"></p>
+    </div>
+  </div>
+
+  <!-- Actu -->
+  <div id="l-actu" class="hidden"></div>
+
+  <div class="card">
+    <h3>🗣️ Envie de pratiquer à l'oral ?</h3>
+    <p class="muted">Ici tu révises. En cours avec Coach Winner, tu <b>parles</b> : dialogues, jeux de rôle, prononciation corrigée en direct.</p>
+    <button class="btn b-p" onclick="go('promo')">Voir le programme du moment</button>
+  </div>
+</section>
+
+<!-- ======================= INSCRIPTION ======================= -->
 <section class="view" id="v-promo">
-  <div class="card promo">
-    <h2>🎄 PROMO ANGLAIS NOËL</h2>
-    <div class="price">65 000 F <s>95 000 F</s></div>
-    <p>6 semaines pour <b>oser enfin parler anglais</b></p>
-  </div>
-  <div class="card">
-    <h3>📋 Le programme</h3>
-    <ul class="list">
-      <li>📅 <span>Du <b>lundi 9 novembre au jeudi 24 décembre 2026</b></span></li>
-      <li>🕑 <span><b>2 cours de 2 h</b> par semaine</span></li>
-      <li>📍 <span><b>Présentiel</b> (Cocody Riviera Palmeraie) ou <b>en ligne</b></span></li>
-      <li>💳 <span><b>35 000 F</b> à l'inscription, puis <b>30 000 F</b> début décembre</span></li>
-      <li>⏳ <span>Inscriptions du <b>26 octobre au 8 novembre</b></span></li>
-    </ul>
-  </div>
-  <div class="card">
-    <h3>🎁 Tes bonus</h3>
-    <ul class="list">
-      <li>📝 <span>Test de niveau gratuit</span></li>
-      <li>📘 <span>Livre <b>English Starter</b> offert aux 10 premiers inscrits</span></li>
-      <li>👫 <span><b>5 000 F de réduction</b> chacun si tu viens avec un ami</span></li>
-      <li>🎉 <span><b>Christmas English Party</b> + attestation de fin de formation</span></li>
-      <li>🌴 <span>Sortie de groupe + T-shirt après le programme <span class="muted">(petite participation, détails pendant la formation)</span></span></li>
-    </ul>
-  </div>
-  <div class="card">
-    <h3>✍️ Je réserve ma place</h3>
+  <div id="promoProg"></div>
+  <div class="card" id="formCard">
+    <h3 id="formTitre">✍️ Je réserve ma place</h3>
     <label for="iNom">Nom et prénom</label>
     <input id="iNom" autocomplete="name">
     <label for="iTel">Numéro WhatsApp</label>
@@ -220,63 +310,157 @@ footer{text-align:center;color:var(--muted);font-size:12.5px;padding:8px 0 16px}
     <label for="iBut">Pourquoi tu veux apprendre l'anglais ?</label>
     <select id="iBut"><option>Pour le travail / un entretien</option><option>Pour mes études / une bourse</option><option>Pour voyager</option><option>Pour mon business</option><option>Pour le plaisir / la culture</option></select>
     <div id="err2" class="err hidden">Merci d'indiquer ton nom et ton numéro WhatsApp.</div>
-    <button class="btn b-wa" id="inscrire">📲 Envoyer ma pré-inscription sur WhatsApp</button>
-    <p class="muted" style="text-align:center">Coach Winner te répond personnellement pour confirmer ta place et le paiement.</p>
+    <button class="btn b-wa" id="inscrire">📲 Envoyer sur WhatsApp</button>
+    <p class="muted" style="text-align:center">Coach Winner te répond personnellement pour confirmer ta place.</p>
   </div>
-  <div class="card">
-    <h3>❓ Questions fréquentes</h3>
-    <details><summary>Je suis débutant complet, je peux venir ?</summary><p>Oui ! Le test de niveau nous permet de te placer dans le groupe qui te correspond.</p></details>
-    <details><summary>Comment se passent les cours en ligne ?</summary><p>En direct avec Coach Winner, avec les mêmes exercices oraux qu'en présentiel. Il te faut juste un téléphone et une connexion.</p></details>
-    <details><summary>Je peux payer en deux fois ?</summary><p>Oui : 35 000 F à l'inscription, puis 30 000 F début décembre.</p></details>
-    <details><summary>Quels jours ont lieu les cours ?</summary><p>2 séances de 2 h par semaine. Les jours et horaires des groupes te sont communiqués à l'inscription.</p></details>
-    <details><summary>Je suis déjà élève de Winners' English Center…</summary><p>Écris à Coach Winner sur WhatsApp, il te dira comment continuer.</p></details>
+  <div class="card" id="payCard">
+    <h3>💳 Payer mon inscription</h3>
+    <div id="payNums"></div>
+    <label for="pNom">Nom et prénom</label>
+    <input id="pNom" autocomplete="name">
+    <label for="pMontant">Montant payé</label>
+    <select id="pMontant"></select>
+    <label for="pMoyen">Moyen de paiement</label>
+    <select id="pMoyen"><option>Wave</option><option>Orange Money</option><option>MTN Mobile Money</option><option>Moov Money</option><option>Espèces au centre</option></select>
+    <label for="pRef">Référence de la transaction (facultatif)</label>
+    <input id="pRef" placeholder="Ex : le code reçu par SMS">
+    <div id="err3" class="err hidden">Merci d'indiquer ton nom.</div>
+    <button class="btn b-wa" id="payer">✅ J'ai payé : prévenir Coach Winner</button>
+    <p class="muted" style="text-align:center">Dans WhatsApp, joins aussi la <b>capture d'écran</b> du paiement.</p>
   </div>
+  <div class="card" id="faqCard"></div>
 </section>
 
-<!-- ================= APPRENDRE ================= -->
-<section class="view" id="v-learn">
-  <div class="card">
-    <span class="pill" id="pDate"></span>
-    <h2 style="margin-top:6px">💡 Phrase du jour</h2>
-    <div class="phrase" id="pEn"></div>
-    <p id="pFr" class="muted"></p>
-    <button class="btn b-blue" id="pSpeak">🔊 Écouter la prononciation</button>
-    <div class="grid" style="margin-top:10px">
-      <button class="btn b-ghost" style="margin:0" id="pPrev">← Précédente</button>
-      <button class="btn b-ghost" style="margin:0" id="pNext">Suivante →</button>
-    </div>
-  </div>
-  <div class="card">
-    <h3>🎯 Mini-défi du jour</h3>
-    <p class="q" id="dQ" style="font-size:17px"></p>
-    <div id="dOpts"></div>
-    <p id="dRes" style="font-weight:600"></p>
-  </div>
-  <div class="card">
-    <h3>📘 Envie d'aller plus loin ?</h3>
-    <p class="muted">Avec la Promo Anglais Noël, tu pratiques ces phrases à l'oral avec Coach Winner, 2 fois par semaine.</p>
-    <button class="btn b-red" onclick="go('promo')">Je m'inscris</button>
-  </div>
+<!-- ======================= PLUS ======================= -->
+<section class="view" id="v-plus">
+  <button class="menu" onclick="go('videos')"><i>🎬</i><span>Vidéos<small>Nos apprenants en action</small></span></button>
+  <button class="menu" onclick="go('galerie')"><i>🖼️</i><span>Galerie<small>Cours, sorties, remises d'attestations</small></span></button>
+  <button class="menu" onclick="go('avis')"><i>⭐</i><span>Avis des apprenants<small>Ils nous font confiance</small></span></button>
+  <button class="menu" onclick="go('agenda')"><i>📅</i><span>Agenda<small>Les dates à retenir</small></span></button>
+  <button class="menu" onclick="go('parrain')"><i>👫</i><span>Parrainage<small>Invite un ami, gagnez tous les deux</small></span></button>
+  <button class="menu" onclick="go('certif')"><i>🎓</i><span>Vérifier une attestation<small>Pour les employeurs et les écoles</small></span></button>
+  <button class="menu" onclick="go('services')"><i>🤝</i><span>Nos autres services<small>Cours à domicile, interprétariat, salle</small></span></button>
+  <button class="menu" onclick="go('contact')"><i>📞</i><span>Contact<small>WhatsApp, appel, adresse</small></span></button>
+  <button class="menu" onclick="go('installer')"><i>📲</i><span>Installer l'application<small>Sur ton écran d'accueil</small></span></button>
+  <footer>— Coach Winner • Winners' English Center</footer>
 </section>
 
-<!-- ================= VIDEOS ================= -->
+<!-- Vidéos -->
 <section class="view" id="v-videos">
+  <button class="back" onclick="go('plus')">‹ Retour</button>
   <div class="card">
     <h2>🎬 Nos apprenants en action</h2>
     <p class="muted">De vraies séances à Winners' English Center.</p>
-    <div class="vtabs" id="vtabs"></div>
+    <div class="chips" id="vtabs"></div>
     <video id="vid" controls playsinline preload="metadata"></video>
     <p id="vcap" style="font-weight:600;margin-top:8px"></p>
   </div>
   <div class="card">
     <h3>📲 Suis-nous</h3>
-    <a class="btn b-blue" href="https://www.facebook.com/108178682182393" target="_blank" rel="noopener">Page Facebook</a>
-    <a class="btn b-ghost" href="https://www.tiktok.com/@winnersenglish" target="_blank" rel="noopener">TikTok @winnersenglish</a>
+    <a class="btn b-d" id="lnkFb" target="_blank" rel="noopener">Page Facebook</a>
+    <a class="btn b-ghost" id="lnkTt" target="_blank" rel="noopener">TikTok @winnersenglish</a>
   </div>
 </section>
 
-<!-- ================= CONTACT ================= -->
+<!-- Galerie -->
+<section class="view" id="v-galerie">
+  <button class="back" onclick="go('plus')">‹ Retour</button>
+  <div class="card"><h2>🖼️ Galerie</h2><p class="muted">La vie au centre. Touche une photo pour l'agrandir.</p><div class="gal" id="gal"></div></div>
+</section>
+
+<!-- Avis -->
+<section class="view" id="v-avis">
+  <button class="back" onclick="go('plus')">‹ Retour</button>
+  <div class="card"><h2>⭐ Avis des apprenants</h2><div id="avisList"></div></div>
+  <div class="card">
+    <h3>✍️ Tu as suivi nos cours ? Donne ton avis</h3>
+    <label for="aNom">Ton prénom</label><input id="aNom" autocomplete="given-name">
+    <label for="aProg">Programme suivi</label><input id="aProg" placeholder="Ex : English Sprint">
+    <label for="aTxt">Ton avis</label><textarea id="aTxt" rows="4" placeholder="Ce que tu as aimé, ce que tu as appris…"></textarea>
+    <div id="err4" class="err hidden">Merci d'écrire ton prénom et ton avis.</div>
+    <button class="btn b-wa" id="aSend">Envoyer mon avis à Coach Winner</button>
+    <p class="muted" style="text-align:center">Ton avis sera publié ici avec ton accord.</p>
+  </div>
+</section>
+
+<!-- Agenda -->
+<section class="view" id="v-agenda">
+  <button class="back" onclick="go('plus')">‹ Retour</button>
+  <div class="card"><h2>📅 Agenda</h2><div id="agList"></div></div>
+</section>
+
+<!-- Parrainage -->
+<section class="view" id="v-parrain">
+  <button class="back" onclick="go('plus')">‹ Retour</button>
+  <div class="card">
+    <h2>👫 Parrainage</h2>
+    <p id="parrainTxt"></p>
+    <label for="parNom">Ton nom et prénom</label>
+    <input id="parNom" autocomplete="name" placeholder="Ex : Kouassi Aya">
+    <button class="btn b-d" id="parGen">Créer mon lien</button>
+    <div id="parOut" class="hidden">
+      <p class="muted" style="margin-top:14px">Ton lien personnel :</p>
+      <input id="parLien" readonly onclick="this.select()">
+      <a class="btn b-wa" id="parWa" target="_blank" rel="noopener">Partager sur WhatsApp</a>
+      <button class="btn b-ghost" id="parCopy">Copier le lien</button>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Comment ça marche ?</h3>
+    <ul class="list">
+      <li>1️⃣ <span>Tu crées ton lien et tu l'envoies à tes amis.</span></li>
+      <li>2️⃣ <span>Ton ami ouvre l'appli avec ton lien et s'inscrit : ton nom est ajouté automatiquement à son message.</span></li>
+      <li>3️⃣ <span>Coach Winner applique la réduction <b>à vous deux</b>.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- Attestation -->
+<section class="view" id="v-certif">
+  <button class="back" onclick="go('plus')">‹ Retour</button>
+  <div class="card">
+    <h2>🎓 Vérifier une attestation</h2>
+    <p class="muted">Entre le numéro inscrit sur l'attestation (ex : WEC-2026-001).</p>
+    <input id="cNum" placeholder="WEC-2026-001" autocapitalize="characters">
+    <button class="btn b-d" id="cGo">Vérifier</button>
+    <div id="cRes" style="margin-top:14px"></div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="view" id="v-services">
+  <button class="back" onclick="go('plus')">‹ Retour</button>
+  <div class="card">
+    <h2>🏠 WIN Cours à domicile</h2>
+    <p><i>« Confiez-nous vos enfants et gardez le sourire »</i></p>
+    <ul class="list">
+      <li>📚 <span><b>Toutes les matières</b>, du primaire à la Terminale</span></li>
+      <li>📍 <span>Un répétiteur sérieux <b>chez vous</b>, partout à Abidjan</span></li>
+      <li>💳 <span>Tarif <b>au mois</b></span></li>
+      <li>🔄 <span><b>Remplacement garanti</b> si le répétiteur ne vous convient pas</span></li>
+    </ul>
+    <a class="btn b-wa" id="sWin" target="_blank" rel="noopener">Demander un répétiteur</a>
+  </div>
+  <div class="card">
+    <h2>🌍 Interprétariat & traduction</h2>
+    <p class="muted">Coach Winner vous accompagne en anglais : rendez-vous d'affaires, missions et voyages professionnels, traduction de documents.</p>
+    <a class="btn b-wa" id="sInt" target="_blank" rel="noopener">Demander un devis</a>
+  </div>
+  <div class="card">
+    <h2>🏢 CHIC SALLE</h2>
+    <p class="muted">Salle de 20 places à Cocody Riviera Palmeraie pour formations, masterclass et réunions. Wi-Fi, télé, bureau, cuisine.</p>
+    <ul class="list">
+      <li>⏱️ <span><b>7 000 F</b> l'heure</span></li>
+      <li>🌤️ <span><b>35 000 F</b> la demi-journée (5 h)</span></li>
+      <li>☀️ <span><b>60 000 F</b> la journée (10 h)</span></li>
+    </ul>
+    <a class="btn b-wa" id="sSalle" target="_blank" rel="noopener">Réserver la salle</a>
+  </div>
+</section>
+
+<!-- Contact -->
 <section class="view" id="v-contact">
+  <button class="back" onclick="go('plus')">‹ Retour</button>
   <div class="card hero">
     <img src="logo.png" alt="">
     <h1>Coach Winner</h1>
@@ -285,69 +469,149 @@ footer{text-align:center;color:var(--muted);font-size:12.5px;padding:8px 0 16px}
   </div>
   <div class="card">
     <ul class="list">
-      <li>📱 <span><b>WhatsApp / Appel</b> : 07 67 03 72 84</span></li>
-      <li>📍 <span><b>Cocody Riviera Palmeraie</b>, non loin de Chez Samer</span></li>
+      <li>📱 <span><b>WhatsApp / Appel</b> : <span id="cTel"></span></span></li>
+      <li>📍 <span id="cAdr"></span></li>
       <li>💻 <span>Cours <b>en ligne</b> disponibles partout</span></li>
     </ul>
-    <a class="btn b-wa" href="https://wa.me/2250767037284?text=Bonjour%20Coach%20Winner%20%F0%9F%91%8B%20J%27ai%20une%20question%20sur%20vos%20cours%20d%27anglais." target="_blank" rel="noopener">💬 Écrire sur WhatsApp</a>
-    <a class="btn b-ghost" href="tel:+2250767037284">📞 Appeler</a>
+    <a class="btn b-wa" id="cWa" target="_blank" rel="noopener">💬 Écrire sur WhatsApp</a>
+    <a class="btn b-ghost" id="cCall">📞 Appeler</a>
     <a class="btn b-ghost" href="https://www.google.com/maps/search/?api=1&query=Riviera+Palmeraie+Cocody" target="_blank" rel="noopener">🗺️ Voir sur la carte</a>
   </div>
   <div class="card">
     <h3>📤 Partager l'application</h3>
     <p class="muted">Un ami veut apprendre l'anglais ? Envoie-lui le lien.</p>
-    <button class="btn b-blue" id="shareApp">Partager</button>
+    <button class="btn b-d" id="shareApp">Partager</button>
   </div>
-  <footer>— Coach Winner • Winners' English Center</footer>
+</section>
+
+<!-- Installer -->
+<section class="view" id="v-installer">
+  <button class="back" onclick="go('plus')">‹ Retour</button>
+  <div class="card">
+    <h2>📲 Installer l'application</h2>
+    <p class="muted">L'appli s'installe sur ton écran d'accueil, avec le logo du centre. Pas besoin de Play Store, et ça ne prend presque pas de place.</p>
+    <button class="btn b-p hidden" id="instBtn" onclick="installer()">Installer maintenant</button>
+    <div id="instDone" class="okmsg hidden" style="margin-top:12px">✅ L'application est déjà installée.</div>
+    <h3 style="margin-top:16px">Sur Android (Chrome)</h3>
+    <p class="muted">Touche les <b>⋮</b> en haut à droite, puis <b>« Ajouter à l'écran d'accueil »</b> ou <b>« Installer l'application »</b>.</p>
+    <h3 style="margin-top:12px">Sur iPhone (Safari)</h3>
+    <p class="muted">Touche le bouton <b>Partager</b> (carré avec une flèche), puis <b>« Sur l'écran d'accueil »</b>.</p>
+    <p class="muted">Si tu as ouvert le lien depuis Facebook ou TikTok, ouvre-le d'abord dans Chrome ou Safari (menu ⋮ → « Ouvrir dans le navigateur »).</p>
+  </div>
 </section>
 
 </main>
 
+<div class="lightbox" id="lb" onclick="this.classList.remove('on')"><img id="lbImg" alt=""><p id="lbCap"></p></div>
+
 <nav>
   <button class="on" data-v="home"><i>🏠</i>Accueil</button>
   <button data-v="test"><i>📝</i>Test</button>
-  <button data-v="promo"><i>🎓</i>Inscription</button>
-  <button data-v="learn"><i>💡</i>Apprendre</button>
-  <button data-v="videos"><i>🎬</i>Vidéos</button>
-  <button data-v="contact"><i>📞</i>Contact</button>
+  <button data-v="learn"><i>📚</i>Apprendre</button>
+  <button data-v="promo"><i>🎓</i>S'inscrire</button>
+  <button data-v="plus"><i>☰</i>Plus</button>
 </nav>
 
 <script>
-const WA="2250767037284";
+const C=window.CENTRE, WA=C.whatsapp;
 const $=id=>document.getElementById(id);
 const wa=t=>"https://wa.me/"+WA+"?text="+encodeURIComponent(t);
+const fmt=n=>n.toLocaleString('fr-FR').replace(/ | /g,' ')+' F';
 function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+const MOIS=['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'];
+const D0=s=>new Date(s+'T00:00:00Z'), D1=s=>new Date(s+'T23:59:59Z');
+const jourTxt=s=>{const d=D0(s);return d.getUTCDate()+' '+MOIS[d.getUTCMonth()]};
+const today=()=>new Date().toISOString().slice(0,10);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
-/* ---------- navigation ---------- */
-function go(v){
-  document.querySelectorAll('.view').forEach(s=>s.classList.toggle('on',s.id==='v-'+v));
-  document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.v===v));
-  window.scrollTo({top:0});
-  if(v==='videos'&&!$('vid').src)loadVid(0);
+/* ---------- parrainage reçu par lien ---------- */
+const params=new URLSearchParams(location.search);
+if(params.get('ami'))store('wec_parrain',params.get('ami').slice(0,60));
+const parrain=()=>store('wec_parrain');
+const appUrl=location.origin+location.pathname;
+
+/* ---------- programme du moment ---------- */
+function programmeDuMoment(){
+  const now=new Date(), L=window.PROGRAMMES||[];
+  const ouverts=L.filter(p=>D0(p.afficherDes)<=now&&now<=D1(p.inscriptions[1])).sort((a,b)=>D0(a.cours[0])-D0(b.cours[0]));
+  if(ouverts.length){const p=ouverts[0];return {p,phase:now<D0(p.inscriptions[0])?'bientot':'inscriptions'}}
+  const enCours=L.filter(p=>D1(p.inscriptions[1])<now&&now<=D1(p.cours[1]));
+  if(enCours.length)return {p:enCours[0],phase:'encours'};
+  return {p:null,phase:'aucun'};
 }
-document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>go(b.dataset.v));
+const PM=programmeDuMoment(), P=PM.p, OUVERT=PM.phase==='bientot'||PM.phase==='inscriptions';
 
-/* ---------- compte à rebours ---------- */
+function appliquerCouleurs(){
+  const c=(P&&P.couleurs)||C.couleurs, r=document.documentElement.style;
+  r.setProperty('--d',c.sombre);r.setProperty('--p',c.principal);r.setProperty('--a',c.accent);
+  document.querySelector('meta[name=theme-color]').content=c.sombre;
+}
+appliquerCouleurs();
+
+function carteProg(compteur){
+  if(!P||!OUVERT){
+    const enc=PM.phase==='encours';
+    return '<div class="card promo"><h2 style="margin-bottom:4px">'+(enc?(P.emoji||'🎓')+' '+esc(P.nom)+' : en cours':'🎓 Prochaine session bientôt')+'</h2>'+
+      '<p>'+(enc?'Les inscriptions sont closes pour ce programme.':'Un nouveau programme arrive.')+' Laisse ton numéro : tu seras <b>prévenu(e) en premier</b> de la prochaine session.</p>'+
+      '<button class="btn b-a" onclick="go(\'promo\')">Me prévenir de la prochaine session →</button></div>';
+  }
+  return '<div class="card promo"><h2 style="margin-bottom:4px">'+(P.emoji||'')+' '+esc(P.nom)+'</h2>'+
+    (P.prix?'<div class="price">'+fmt(P.prix)+(P.prixBarre?' <s>'+fmt(P.prixBarre)+'</s>':'')+'</div>':'')+
+    '<p>'+(P.acompte?'Dès <b>'+fmt(P.acompte)+'</b> pour commencer • ':'')+'Cours du <b>'+jourTxt(P.cours[0])+' au '+jourTxt(P.cours[1])+'</b></p>'+
+    (compteur?'<div class="count" id="count"></div><div style="font-size:13px;opacity:.9" id="countLbl"></div>':'')+
+    (compteur?'<button class="btn b-a" onclick="go(\'promo\')">Voir le programme et m\'inscrire →</button>':'')+'</div>';
+}
+function rendreProgramme(){
+  $('homeProg').innerHTML=(P&&OUVERT&&P.visuel?'<img class="visuel" src="'+P.visuel+'" alt="'+esc(P.nom)+'">':'')+carteProg(true);
+  $('testProg').innerHTML=carteProg(false);
+  let h='';
+  if(P&&OUVERT){
+    h+=(P.visuel?'<img class="visuel" src="'+P.visuel+'" alt="">':'')+
+      '<div class="card promo"><h2>'+(P.emoji||'')+' '+esc(P.nom)+'</h2>'+(P.prix?'<div class="price">'+fmt(P.prix)+(P.prixBarre?' <s>'+fmt(P.prixBarre)+'</s>':'')+'</div>':'')+'<p>'+esc(P.accroche||'')+'</p></div>';
+    if(P.details&&P.details.length)h+='<div class="card"><h3>📋 Le programme</h3><ul class="list">'+P.details.map(x=>'<li>'+x[0]+' <span>'+x[1]+'</span></li>').join('')+'</ul></div>';
+    if(P.bonus&&P.bonus.length)h+='<div class="card"><h3>🎁 Tes bonus</h3><ul class="list">'+P.bonus.map(x=>'<li>'+x[0]+' <span>'+x[1]+'</span></li>').join('')+'</ul></div>';
+    $('formTitre').textContent='✍️ Je réserve ma place';
+    $('inscrire').textContent='📲 Envoyer ma pré-inscription sur WhatsApp';
+    const opts=[];if(P.acompte)opts.push('Acompte : '+fmt(P.acompte));if(P.prix&&P.acompte)opts.push('Solde : '+fmt(P.prix-P.acompte));if(P.prix)opts.push('Totalité : '+fmt(P.prix));opts.push('Autre montant');
+    $('pMontant').innerHTML=opts.map(o=>'<option>'+o+'</option>').join('');
+  }else{
+    h+=carteProg(false).replace(/<button[\s\S]*?<\/button>/,'');
+    $('formTitre').textContent='🔔 Préviens-moi de la prochaine session';
+    $('inscrire').textContent='📲 M\'inscrire sur la liste d\'attente';
+    $('payCard').classList.add('hidden');
+  }
+  $('promoProg').innerHTML=h;
+  const faq=(P&&OUVERT&&P.faq&&P.faq.length)?P.faq:[["Je suis débutant complet, je peux venir ?","Oui ! Le test de niveau nous permet de te placer dans le groupe qui te correspond."],["Les cours existent en ligne ?","Oui, en direct avec Coach Winner. Il te faut juste un téléphone et une connexion."]];
+  $('faqCard').innerHTML='<h3>❓ Questions fréquentes</h3>'+faq.map(x=>'<details><summary>'+x[0]+'</summary><p>'+x[1]+'</p></details>').join('');
+  // paiement
+  const pm=C.paiement||{}, nums=[['Wave',pm.wave],['Orange Money',pm.orangeMoney],['MTN Money',pm.mtnMoney],['Moov Money',pm.moovMoney]].filter(x=>x[1]);
+  $('payNums').innerHTML=nums.length?'<ul class="list">'+nums.map(x=>'<li>📱 <span><b>'+x[0]+'</b> : '+esc(x[1])+'</span></li>').join('')+'</ul>'+(pm.titulaire?'<p class="muted">Au nom de : <b>'+esc(pm.titulaire)+'</b></p>':'')
+    :'<p class="muted">Demande le numéro de paiement à Coach Winner sur WhatsApp, puis reviens ici pour le prévenir une fois que tu as payé.</p><a class="btn b-ghost" target="_blank" rel="noopener" href="'+wa("Bonjour Coach Winner 👋 Je veux payer mon inscription"+(P?" à la "+P.nom:"")+". Sur quel numéro dois-je envoyer ?")+'">Demander le numéro de paiement</a>';
+}
+rendreProgramme();
+
 function tick(){
-  const now=new Date(), open=new Date('2026-10-26T00:00:00Z'), end=new Date('2026-11-08T23:59:59Z');
-  let target=end, lbl="avant la fin des inscriptions (8 novembre)";
-  if(now<open){target=open;lbl="avant l'ouverture des inscriptions (26 octobre) — réserve dès maintenant !"}
-  let d=Math.max(0,target-now);
-  if(now>end){$('count').innerHTML='';$('countLbl').textContent="Inscriptions closes — écris-nous pour le prochain programme.";return}
-  const D=Math.floor(d/864e5),H=Math.floor(d%864e5/36e5),M=Math.floor(d%36e5/6e4),S=Math.floor(d%6e4/1e3);
-  $('count').innerHTML=[[D,'jours'],[H,'heures'],[M,'min'],[S,'sec']].map(x=>'<div><b>'+x[0]+'</b><span>'+x[1]+'</span></div>').join('');
+  if(!P||!OUVERT||!$('count'))return;
+  const now=new Date();let target,lbl;
+  if(PM.phase==='bientot'&&now<D0(P.inscriptions[0])){target=D0(P.inscriptions[0]);lbl="avant l'ouverture des inscriptions ("+jourTxt(P.inscriptions[0])+") : réserve dès maintenant !"}
+  else{target=D1(P.inscriptions[1]);lbl="avant la fin des inscriptions ("+jourTxt(P.inscriptions[1])+")"}
+  const d=Math.max(0,target-now);
+  const Dd=Math.floor(d/864e5),H=Math.floor(d%864e5/36e5),M=Math.floor(d%36e5/6e4),S=Math.floor(d%6e4/1e3);
+  $('count').innerHTML=[[Dd,'jours'],[H,'heures'],[M,'min'],[S,'sec']].map(x=>'<div><b>'+x[0]+'</b><span>'+x[1]+'</span></div>').join('');
   $('countLbl').textContent=lbl;
 }
 tick();setInterval(tick,1000);
 
-/* ---------- invitation ami / partage ---------- */
-const appUrl=location.href.split('#')[0];
-$('shareFriend').href="https://wa.me/?text="+encodeURIComponent("🎄 Viens apprendre l'anglais avec moi chez Winners' English Center ! Promo Anglais Noël : 65 000 F au lieu de 95 000 F, et si on s'inscrit ensemble on a 5 000 F de réduction chacun 👫 Cours du 9 nov. au 24 déc. Infos : wa.me/"+WA);
-$('shareApp').onclick=async()=>{
-  const data={title:"Winners' English Center",text:"Test d'anglais gratuit + Promo Anglais Noël de Coach Winner 🎄",url:appUrl};
-  try{ if(navigator.share){await navigator.share(data);return} }catch(e){}
-  window.open("https://wa.me/?text="+encodeURIComponent(data.text+" "+appUrl),"_blank");
-};
+/* ---------- navigation ---------- */
+const NAVMAP={videos:'plus',galerie:'plus',avis:'plus',agenda:'plus',parrain:'plus',certif:'plus',services:'plus',contact:'plus',installer:'plus'};
+function go(v){
+  document.querySelectorAll('.view').forEach(s=>s.classList.toggle('on',s.id==='v-'+v));
+  const nv=NAVMAP[v]||v;
+  document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.v===nv));
+  window.scrollTo({top:0});
+  if(v==='videos'&&!$('vid').src)loadVid(0);
+}
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>go(b.dataset.v));
 
 /* ---------- test de niveau ---------- */
 const Q=[
@@ -376,7 +640,7 @@ let qi=0,ans=[],pick=null;
 $('start').onclick=()=>{
   if($('nom').value.trim().length<2||$('tel').value.replace(/\D/g,'').length<8){$('err1').classList.remove('hidden');return}
   $('err1').classList.add('hidden');
-  $('iNom').value=$('nom').value;$('iTel').value=$('tel').value;
+  $('iNom').value=$('nom').value;$('iTel').value=$('tel').value;$('pNom').value=$('nom').value;
   $('t1').classList.add('hidden');$('t2').classList.remove('hidden');showQ();
 };
 function showQ(){
@@ -392,103 +656,243 @@ function showQ(){
 $('next').onclick=()=>{if(pick===null)return;ans.push(pick);qi++;qi<Q.length?showQ():finish()};
 function finish(){
   const s=ans.reduce((a,v,k)=>a+(v===Q[k][2]?1:0),0);
-  let lvl,adv;
-  if(s<=5){lvl='Débutant (A1)';adv="Tu as déjà des bases : le programme va te faire parler dès les premières séances. 💪"}
-  else if(s<=10){lvl='Élémentaire (A2)';adv="Tu comprends pas mal de choses. On va surtout travailler l'oral pour que tu oses parler."}
-  else if(s<=15){lvl='Intermédiaire (B1)';adv="Bon niveau ! On va renforcer ta fluidité et ta confiance à l'oral."}
-  else{lvl='Avancé (B2)';adv="Excellent ! On va perfectionner ton anglais pour le travail et les entretiens."}
+  let lvl,adv,niv;
+  if(s<=5){lvl='Débutant (A1)';niv='debutant';adv="Tu as déjà des bases : les cours vont te faire parler dès les premières séances. 💪"}
+  else if(s<=10){lvl='Élémentaire (A2)';niv='intermediaire';adv="Tu comprends pas mal de choses. On va surtout travailler l'oral pour que tu oses parler."}
+  else if(s<=15){lvl='Intermédiaire (B1)';niv='intermediaire';adv="Bon niveau ! On va renforcer ta fluidité et ta confiance à l'oral."}
+  else{lvl='Avancé (B2)';niv='avance';adv="Excellent ! On va perfectionner ton anglais pour le travail et les entretiens."}
   $('t2').classList.add('hidden');$('t3').classList.remove('hidden');
   $('score').textContent=s+' / 20';$('level').textContent='Niveau : '+lvl;$('advice').textContent=adv;
-  store('wec_level',lvl);
-  $('waTest').href=wa("Bonjour Coach Winner 👋\nJ'ai fait le test de niveau sur l'application.\n\n👤 Nom : "+$('nom').value.trim()+"\n📱 WhatsApp : "+$('tel').value.trim()+"\n📊 Score : "+s+"/20 – "+lvl+"\n📍 Cours : "+$('mode').value+"\n\nJe veux m'inscrire à la PROMO ANGLAIS NOËL 🎄");
+  store('wec_level',lvl);store('wec_niv',niv);
+  let m="Bonjour Coach Winner 👋\nJ'ai fait le test de niveau sur l'application.\n\n👤 Nom : "+$('nom').value.trim()+"\n📱 WhatsApp : "+$('tel').value.trim()+"\n📊 Score : "+s+"/20 – "+lvl+"\n📍 Cours : "+$('mode').value;
+  if(parrain())m+="\n👫 Parrainé(e) par : "+parrain();
+  m+=(P&&OUVERT)?"\n\nJe veux m'inscrire à la "+P.nom+" "+(P.emoji||""):"\n\nJe veux être prévenu(e) de la prochaine session.";
+  $('waTest').href=wa(m);
   window.scrollTo({top:0});
 }
 function resetTest(){qi=0;ans=[];$('t3').classList.add('hidden');$('t1').classList.remove('hidden')}
 
-/* ---------- pré-inscription ---------- */
+/* ---------- pré-inscription / liste d'attente ---------- */
 $('inscrire').onclick=()=>{
   const n=$('iNom').value.trim(),t=$('iTel').value.trim();
   if(n.length<2||t.replace(/\D/g,'').length<8){$('err2').classList.remove('hidden');return}
   $('err2').classList.add('hidden');
   const lv=store('wec_level');
-  let m="Bonjour Coach Winner 👋\nJe veux réserver ma place pour la PROMO ANGLAIS NOËL 🎄\n\n👤 Nom : "+n+"\n📱 WhatsApp : "+t+"\n📍 Formule : "+$('iMode').value+"\n📊 Niveau : "+(lv?lv+" (test fait sur l'appli)":$('iNiv').value)+"\n🎯 Objectif : "+$('iBut').value;
+  let m="Bonjour Coach Winner 👋\n"+((P&&OUVERT)?"Je veux réserver ma place pour la "+P.nom+" "+(P.emoji||""):"Je veux être prévenu(e) de la prochaine session de cours d'anglais 🔔")+
+    "\n\n👤 Nom : "+n+"\n📱 WhatsApp : "+t+"\n📍 Formule : "+$('iMode').value+"\n📊 Niveau : "+(lv?lv+" (test fait sur l'appli)":$('iNiv').value)+"\n🎯 Objectif : "+$('iBut').value;
   if($('iAmi').value.trim())m+="\n👫 Je viens avec : "+$('iAmi').value.trim();
+  if(parrain())m+="\n🤝 Parrainé(e) par : "+parrain();
+  window.open(wa(m),'_blank');
+};
+$('payer').onclick=()=>{
+  const n=$('pNom').value.trim()||$('iNom').value.trim();
+  if(n.length<2){$('err3').classList.remove('hidden');return}
+  $('err3').classList.add('hidden');
+  let m="Bonjour Coach Winner 👋\n✅ J'ai payé mon inscription"+(P?" à la "+P.nom:"")+".\n\n👤 Nom : "+n+"\n💰 "+$('pMontant').value+"\n📱 Moyen : "+$('pMoyen').value;
+  if($('pRef').value.trim())m+="\n🔢 Référence : "+$('pRef').value.trim();
+  m+="\n\n(Je joins la capture d'écran du paiement.)";
   window.open(wa(m),'_blank');
 };
 
-/* ---------- phrase du jour ---------- */
-const P=[
- ["Nice to meet you!","Enchanté(e) de te rencontrer !"],
- ["Could you repeat, please?","Tu peux répéter, s'il te plaît ?"],
- ["I'm on my way.","Je suis en route."],
- ["How much is it?","Ça coûte combien ?"],
- ["Can you speak more slowly?","Tu peux parler plus lentement ?"],
- ["I'm looking forward to it.","J'ai hâte."],
- ["What do you do for a living?","Qu'est-ce que tu fais dans la vie ?"],
- ["Let me think about it.","Laisse-moi y réfléchir."],
- ["It's up to you.","C'est toi qui décides."],
- ["I'm used to it.","J'en ai l'habitude."],
- ["Take your time.","Prends ton temps."],
- ["I didn't get that.","Je n'ai pas compris."],
- ["Never mind.","Ce n'est pas grave / Laisse tomber."],
- ["I'm running late.","Je suis en retard."],
- ["Tell me about yourself.","Parle-moi de toi."],
- ["What's your strength?","Quel est ton point fort ?"],
- ["I can't wait!","J'ai trop hâte !"],
- ["Keep the change.","Gardez la monnaie."],
- ["It doesn't matter.","Ça n'a pas d'importance."],
- ["See you later!","À plus tard !"],
- ["I'm fed up.","J'en ai marre."],
- ["Merry Christmas and Happy New Year!","Joyeux Noël et bonne année !"],
- ["Practice makes perfect.","C'est en forgeant qu'on devient forgeron."],
- ["Break a leg!","Bonne chance ! (avant un examen, un spectacle…)"],
- ["I'm all ears.","Je suis tout ouïe."],
- ["That makes sense.","Ça a du sens / Je comprends."],
- ["Better late than never.","Mieux vaut tard que jamais."],
- ["Could you help me, please?","Tu peux m'aider, s'il te plaît ?"],
- ["Where are you from?","Tu viens d'où ?"],
- ["I speak English, and you?","Je parle anglais, et toi ?"]
-];
-const day=Math.floor(Date.now()/864e5);let pi=day%P.length;
+/* ---------- APPRENDRE : onglets ---------- */
+function learnTab(t){
+  ['lecons','flash','jour','actu'].forEach(x=>$('l-'+x).classList.toggle('hidden',x!==t));
+  document.querySelectorAll('#learnChips button').forEach(b=>b.classList.toggle('on',b.dataset.t===t));
+  if(t==='lecons')showNiveaux();
+}
+document.querySelectorAll('#learnChips button').forEach(b=>b.onclick=()=>learnTab(b.dataset.t));
+
+/* ---------- Leçons ---------- */
+const prog=()=>{try{return JSON.parse(store('wec_lecons')||'{}')}catch(e){return {}}};
+function saveProg(id,sc){const p=prog();p[id]=Math.max(p[id]||0,sc);store('wec_lecons',JSON.stringify(p))}
+function showNiveaux(){
+  $('lecListe').classList.add('hidden');$('lecVue').classList.add('hidden');$('lecNiveaux').classList.remove('hidden');
+  const p=prog(), mine=store('wec_niv');
+  $('lecNiveaux').innerHTML='<div class="card"><h2>📚 Leçons d\'anglais</h2><p class="muted">Choisis ton niveau. Chaque leçon finit par un petit quiz : réussis-le pour la valider ✅.'+(mine?'':' Pas sûr de ton niveau ? <a href="#" onclick="go(\'test\');return false">Fais le test</a>.')+'</p></div>'+
+    NIVEAUX.map(n=>{const L=LECONS.filter(l=>l.niveau===n.id),ok=L.filter(l=>(p[l.id]||0)>=3).length;
+      return '<button class="lvl" onclick="showListe(\''+n.id+'\')"><i>'+n.emoji+'</i><span style="flex:1"><b>'+n.nom+(mine===n.id?' <span class="pill">Ton niveau</span>':'')+'</b><small>'+n.sous+' • '+L.length+' leçons</small><div class="bar"><div style="width:'+(L.length?ok/L.length*100:0)+'%"></div></div></span><span class="done">'+ok+'/'+L.length+'</span></button>'}).join('');
+}
+function showListe(nid){
+  const n=NIVEAUX.find(x=>x.id===nid),p=prog();
+  $('lecNiveaux').classList.add('hidden');$('lecVue').classList.add('hidden');$('lecListe').classList.remove('hidden');
+  $('lecListe').innerHTML='<button class="back" onclick="showNiveaux()">‹ Niveaux</button><div class="card"><h2>'+n.emoji+' '+n.nom+'</h2><p class="muted">'+n.sous+'</p></div>'+
+    LECONS.filter(l=>l.niveau===nid).map((l,k)=>{const s=p[l.id];
+      return '<button class="lvl" onclick="showLecon(\''+l.id+'\')"><i>'+l.emoji+'</i><span style="flex:1"><b>'+(k+1)+'. '+esc(l.titre)+'</b><small>'+l.points.length+' expressions • quiz de '+l.quiz.length+' questions</small></span><span class="done">'+(s>=3?'✅ '+s+'/'+l.quiz.length:(s!=null?s+'/'+l.quiz.length:''))+'</span></button>'}).join('');
+  window.scrollTo({top:0});
+}
+let curL=null,lq=0,lsc=0;
+function showLecon(id){
+  curL=LECONS.find(l=>l.id===id);lq=0;lsc=0;
+  $('lecListe').classList.add('hidden');$('lecVue').classList.remove('hidden');
+  $('lecVue').innerHTML='<button class="back" onclick="showListe(\''+curL.niveau+'\')">‹ Leçons</button>'+
+    '<div class="card"><h2>'+curL.emoji+' '+esc(curL.titre)+'</h2><p class="muted">'+esc(curL.intro)+'</p>'+
+    curL.points.map(x=>'<div class="ex"><b>'+esc(x[0])+'</b>'+(x[2]?'<div class="pron">🗣️ ['+esc(x[2])+']</div>':'')+'<span>'+esc(x[1])+'</span></div>').join('')+
+    '<p class="muted" style="font-size:12.5px;margin-top:10px">🗣️ Prononciation écrite à la française : appuie sur la partie en MAJUSCULES.</p>'+
+    '<div class="tip">💡 <b>Astuce de Coach Winner</b><br>'+esc(curL.astuce)+'</div></div>'+
+    '<div class="card" id="lqBox"></div>';
+  showLQ();window.scrollTo({top:0});
+}
+function showLQ(){
+  const box=$('lqBox');
+  if(lq>=curL.quiz.length){
+    saveProg(curL.id,lsc);const ok=lsc>=3;
+    box.innerHTML='<h3>🏁 Résultat</h3><div class="score">'+lsc+' / '+curL.quiz.length+'</div><p style="text-align:center" class="'+(ok?'okmsg':'')+'">'+(ok?'✅ Leçon validée, bravo !':'Encore un petit effort : relis la leçon et réessaie.')+'</p>'+
+      '<button class="btn b-ghost" onclick="showLecon(\''+curL.id+'\')">Recommencer</button>'+nextBtn();
+    return;
+  }
+  const q=curL.quiz[lq];
+  box.innerHTML='<h3>🎯 Quiz • question '+(lq+1)+'/'+curL.quiz.length+'</h3><p class="q">'+esc(q[0])+'</p><div id="lqOpts"></div><p class="fb" id="lqFb"></p><button class="btn b-p hidden" id="lqNext">Suivant →</button>';
+  q[1].forEach((t,k)=>{const b=document.createElement('button');b.className='opt';b.textContent=t;
+    b.onclick=()=>{if($('lqOpts').dataset.done)return;$('lqOpts').dataset.done=1;
+      const good=k===q[2];if(good)lsc++;
+      b.classList.add(good?'good':'bad');if(!good)$('lqOpts').children[q[2]].classList.add('good');
+      $('lqFb').innerHTML=(good?'<span class="okmsg">✅ Bravo !</span> ':'<span style="color:var(--p)">❌ Pas tout à fait.</span> ')+esc(q[3]||'');
+      $('lqNext').classList.remove('hidden');};
+    $('lqOpts').appendChild(b)});
+  $('lqNext').onclick=()=>{lq++;showLQ()};
+}
+function nextBtn(){
+  const L=LECONS.filter(l=>l.niveau===curL.niveau),i=L.indexOf(curL);
+  return i<L.length-1?'<button class="btn b-p" onclick="showLecon(\''+L[i+1].id+'\')">Leçon suivante →</button>':'<button class="btn b-p" onclick="go(\'promo\')">Passer à l\'oral avec Coach Winner →</button>';
+}
+
+/* ---------- Flashcards ---------- */
+let ft=0,fi=0;
+FLASHCARDS.forEach((t,k)=>{const b=document.createElement('button');b.textContent=t.emoji+' '+t.theme;b.onclick=()=>{ft=k;fi=0;showF()};$('flashThemes').appendChild(b)});
+function showF(){
+  const T=FLASHCARDS[ft],c=T.cartes[fi];
+  [...$('flashThemes').children].forEach((b,j)=>b.classList.toggle('on',j===ft));
+  $('flash').classList.remove('flip');
+  setTimeout(()=>{$('fEn').textContent=c[0];$('fFr').textContent=c[1];$('fPr').textContent=c[2]?'🗣️ ['+c[2]+']':'';$('fPr').style.display=c[2]?'':'none'},120);
+  $('flashNum').textContent=T.emoji+' '+T.theme+' • carte '+(fi+1)+' / '+T.cartes.length;
+}
+$('fPrev').onclick=()=>{const n=FLASHCARDS[ft].cartes.length;fi=(fi-1+n)%n;showF()};
+$('fNext').onclick=()=>{const n=FLASHCARDS[ft].cartes.length;fi=(fi+1)%n;showF()};
+showF();
+
+/* ---------- Phrase du jour + défi ---------- */
+const day=Math.floor(Date.now()/864e5);let pi=day%PHRASES.length;
 function showP(){
-  $('pEn').textContent='« '+P[pi][0]+' »';$('pFr').textContent=P[pi][1];
+  $('pEn').textContent='« '+PHRASES[pi][0]+' »';$('pFr').textContent=PHRASES[pi][1];$('pPr').textContent='🗣️ ['+PHRASES[pi][2]+']';
   $('pDate').textContent=new Date().toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'});
 }
-$('pPrev').onclick=()=>{pi=(pi-1+P.length)%P.length;showP()};
-$('pNext').onclick=()=>{pi=(pi+1)%P.length;showP()};
-$('pSpeak').onclick=()=>{try{const u=new SpeechSynthesisUtterance(P[pi][0]);u.lang='en-GB';u.rate=.85;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}};
+$('pPrev').onclick=()=>{pi=(pi-1+PHRASES.length)%PHRASES.length;showP()};
+$('pNext').onclick=()=>{pi=(pi+1)%PHRASES.length;showP()};
 showP();
-
-/* ---------- mini-défi ---------- */
-const D=[
- ["Comment dit-on « Je suis en retard » ?",["I'm late.","I'm later.","I have late."],0],
- ["« I have 25 years » est…",["Correct","Incorrect : on dit « I am 25 »"],1],
- ["Complète : « She ___ in Abidjan. »",["live","lives","living"],1],
- ["Que veut dire « actually » ?",["Actuellement","En fait / en réalité"],1],
- ["« Je suis d'accord » se dit…",["I am agree.","I agree."],1],
- ["Complète : « I'm good ___ English. »",["in","at","on"],1],
- ["Que veut dire « library » ?",["Librairie","Bibliothèque"],1]
-];
-const di=day%D.length;
-$('dQ').textContent=D[di][0];
-D[di][1].forEach((t,k)=>{const b=document.createElement('button');b.className='opt';b.textContent=t;
-  b.onclick=()=>{$('dRes').textContent=k===D[di][2]?'✅ Bravo, c\'est juste !':'❌ Pas tout à fait : la bonne réponse est « '+D[di][1][D[di][2]]+' »';$('dRes').style.color=k===D[di][2]?'#1f9d55':'var(--red)'};
+const di=day%DEFIS.length,DF=DEFIS[di];
+$('dQ').textContent=DF[0];
+DF[1].forEach((t,k)=>{const b=document.createElement('button');b.className='opt';b.textContent=t;
+  b.onclick=()=>{const g=k===DF[2];$('dRes').textContent=g?'✅ Bravo, c\'est juste !':'❌ Pas tout à fait : la bonne réponse est « '+DF[1][DF[2]]+' »';$('dRes').style.color=g?'var(--ok)':'var(--p)'};
   $('dOpts').appendChild(b)});
 
-/* ---------- vidéos ---------- */
-const RAW="v/";
+/* ---------- Actu ---------- */
+function showActu(){
+  const t=today(),L=(window.ACTU||[]).filter(a=>a.publie<=t);
+  if(!L.length){$('l-actu').innerHTML='<div class="card"><h2>📰 L\'actu en anglais</h2><p class="muted">Les premiers sujets arrivent très bientôt !</p></div>';return}
+  $('l-actu').innerHTML='<div class="card"><h2>📰 L\'actu en anglais</h2><p class="muted">Les sujets qui font parler, et les mots pour en parler en anglais.</p></div>'+
+    L.map((a,k)=>'<div class="card"><span class="pill">'+jourTxt(a.publie)+'</span><h3 style="margin-top:6px">'+a.emoji+' '+esc(a.titre)+'</h3><p class="muted">'+esc(a.resume)+'</p>'+
+      (a.image?'<img src="'+a.image+'" alt="" loading="lazy" style="width:100%;border-radius:12px;margin:8px 0">':'')+
+      '<details><summary>🎯 Faire le quiz ('+a.quiz.length+' questions)</summary><div id="aq'+k+'"></div></details></div>').join('');
+  L.forEach((a,k)=>{const box=$('aq'+k);let sc=0,done=0;
+    a.quiz.forEach((q,j)=>{const w=document.createElement('div');w.innerHTML='<p class="q" style="font-size:16px;margin-top:12px">'+(j+1)+'. '+esc(q[0])+'</p>';
+      q[1].forEach((t,i)=>{const b=document.createElement('button');b.className='opt';b.textContent=t;
+        b.onclick=()=>{if(w.dataset.d)return;w.dataset.d=1;done++;const g=i===q[2];if(g)sc++;b.classList.add(g?'good':'bad');if(!g)w.children[q[2]+1].classList.add('good');
+          if(done===a.quiz.length){const r=document.createElement('p');r.className='fb';r.innerHTML='Score : <b>'+sc+'/'+a.quiz.length+'</b> '+(sc===a.quiz.length?'🏆 Parfait !':'💪');box.appendChild(r)}};
+        w.appendChild(b)});
+      box.appendChild(w)})});
+}
+showActu();
+showNiveaux();
+
+/* ---------- Vidéos ---------- */
 const V=[
- ["Shadowing","t1_shadowing_v_story.mp4","🎧 Séance de shadowing : on écoute, on répète, on imite."],
- ["Pratique à deux","t2_practice.mp4","🗺️ Deux apprenants jouent une vraie situation."],
- ["Présentation","t4_presentation1_story.mp4","🎤 Un apprenant se présente en anglais."],
- ["Lecture","t3_reading.mp4","📖 Lecture en groupe et correction de la prononciation."],
- ["Sortie au Banco","t7_banco_story.mp4","🌳 Cours en pleine nature au Parc National du Banco."]
+ ["Shadowing","v/t1_shadowing_v_story.mp4","🎧 Séance de shadowing : on écoute, on répète, on imite."],
+ ["Pratique à deux","v/t2_practice.mp4","🗺️ Deux apprenants jouent une vraie situation."],
+ ["Présentation","v/t4_presentation1_story.mp4","🎤 Un apprenant se présente en anglais."],
+ ["Lecture","v/t3_reading.mp4","📖 Lecture en groupe et correction de la prononciation."],
+ ["Sortie au Banco","v/t7_banco_story.mp4","🌳 Cours en pleine nature au Parc National du Banco."]
 ];
 V.forEach((v,k)=>{const b=document.createElement('button');b.textContent=v[0];b.onclick=()=>loadVid(k);$('vtabs').appendChild(b)});
-function loadVid(k){
-  [...$('vtabs').children].forEach((b,j)=>b.classList.toggle('on',j===k));
-  $('vid').src=RAW+V[k][1];$('vcap').textContent=V[k][2];
+function loadVid(k){[...$('vtabs').children].forEach((b,j)=>b.classList.toggle('on',j===k));$('vid').src=V[k][1];$('vcap').textContent=V[k][2]}
+$('lnkFb').href=C.facebook;$('lnkTt').href=C.tiktok;
+
+/* ---------- Galerie ---------- */
+const G=[["g/groupe.jpg","Un groupe en plein cours"],["g/aide.jpg","Coach Winner aide un apprenant"],["g/remise.jpg","Remise d'attestation"],["g/banco.jpg","Sortie au Parc National du Banco"],["g/bureau.jpg","Préparation des cours"],["g/coulisses.jpg","Dans les coulisses"],["g/enseigne.jpg","Le centre, à Cocody Riviera Palmeraie"],["g/interpretariat.jpg","Coach Winner en mission d'interprétariat"],["g/coach.jpg","Coach Winner"]];
+$('gal').innerHTML=G.map((g,k)=>'<figure><img src="'+g[0]+'" alt="'+esc(g[1])+'" loading="lazy" onclick="lb('+k+')"><figcaption>'+esc(g[1])+'</figcaption></figure>').join('');
+function lb(k){$('lbImg').src=G[k][0];$('lbCap').textContent=G[k][1];$('lb').classList.add('on')}
+
+/* ---------- Avis ---------- */
+const AV=window.AVIS||[];
+$('avisList').innerHTML=AV.length?AV.map(a=>'<div class="ex"><b>⭐⭐⭐⭐⭐ '+esc(a[0])+'</b><span class="pill">'+esc(a[1])+'</span><p>« '+esc(a[2])+' »</p></div>').join('')
+  :'<p class="muted">Les avis écrits de nos apprenants arrivent bientôt. En attendant, regarde-les parler anglais dans les vidéos 👇</p><button class="btn b-ghost" onclick="go(\'videos\')">🎬 Voir les vidéos</button>';
+$('aSend').onclick=()=>{
+  const n=$('aNom').value.trim(),t=$('aTxt').value.trim();
+  if(n.length<2||t.length<5){$('err4').classList.remove('hidden');return}
+  $('err4').classList.add('hidden');
+  window.open(wa("Bonjour Coach Winner 👋\nVoici mon avis sur Winners' English Center ⭐\n\n👤 "+n+"\n🎓 Programme : "+($('aProg').value.trim()||'-')+"\n💬 « "+t+" »\n\nJ'accepte qu'il soit publié dans l'application."),'_blank');
+};
+
+/* ---------- Agenda ---------- */
+(function(){
+  const t=today();let ev=[];
+  (window.PROGRAMMES||[]).forEach(p=>(p.agenda||[]).forEach(e=>ev.push([e[0],e[1],p.emoji+' '+p.nom])));
+  ev.sort((a,b)=>a[0]<b[0]?-1:1);
+  const fut=ev.filter(e=>e[0]>=t), pas=ev.filter(e=>e[0]<t).slice(-3);
+  const L=pas.concat(fut);
+  if(!L.length){$('agList').innerHTML='<p class="muted">Aucune date pour le moment. Les prochaines dates arrivent bientôt.</p>';return}
+  const nx=fut.length?fut[0][0]:null;
+  $('agList').innerHTML=L.map(e=>{const d=D0(e[0]);return '<div class="ag'+(e[0]<t?' past':'')+(e[0]===nx?' next':'')+'"><div class="d">'+d.getUTCDate()+'<small>'+MOIS[d.getUTCMonth()]+'</small></div><div><b>'+esc(e[1])+'</b><div class="muted">'+esc(e[2])+'</div></div></div>'}).join('');
+})();
+
+/* ---------- Parrainage ---------- */
+const red=(P&&OUVERT&&P.reductionAmi)?P.reductionAmi:0;
+$('parrainTxt').innerHTML=red?'Invite tes amis : quand l\'un d\'eux s\'inscrit à la <b>'+esc(P.nom)+'</b> grâce à ton lien, vous avez <b>'+fmt(red)+' de réduction chacun</b>.':'Invite tes amis à apprendre l\'anglais : quand l\'un d\'eux s\'inscrit grâce à ton lien, vous êtes <b>récompensés tous les deux</b>.';
+if(red)$('homeParrainTxt').innerHTML='Partage ton lien personnel : quand ton ami s\'inscrit, vous avez <b>'+fmt(red)+' de réduction chacun</b>.';
+const savedPar=store('wec_mon_nom');if(savedPar)$('parNom').value=savedPar;
+$('parGen').onclick=()=>{
+  const n=$('parNom').value.trim();if(n.length<2){$('parNom').focus();return}
+  store('wec_mon_nom',n);
+  const link=appUrl+'?ami='+encodeURIComponent(n);
+  $('parLien').value=link;$('parOut').classList.remove('hidden');
+  $('parWa').href="https://wa.me/?text="+encodeURIComponent("🇬🇧 Viens apprendre l'anglais avec moi chez Winners' English Center ! Fais le test de niveau gratuit et inscris-toi avec mon lien"+(red?" : on a "+fmt(red)+" de réduction chacun 👫":" 👫")+"\n"+link);
+};
+$('parCopy').onclick=async()=>{try{await navigator.clipboard.writeText($('parLien').value);$('parCopy').textContent='✅ Lien copié'}catch(e){$('parLien').select()}};
+
+/* ---------- Attestations ---------- */
+$('cGo').onclick=()=>{
+  const n=$('cNum').value.trim().toUpperCase();if(!n)return;
+  const c=(window.CERTIFICATS||[]).find(x=>x[0].toUpperCase()===n);
+  $('cRes').innerHTML=c?'<div class="tip" style="border-color:var(--ok)"><b class="okmsg">✅ Attestation authentique</b><br>👤 <b>'+esc(c[1])+'</b><br>📊 Niveau : '+esc(c[2])+'<br>🎓 Programme : '+esc(c[3])+'<br>📅 Délivrée le '+jourTxt(c[4])+' '+c[4].slice(0,4)+'</div>'
+    :'<div class="tip" style="border-color:var(--p)"><b style="color:var(--p)">❌ Numéro introuvable</b><br>Vérifie le numéro, ou contacte Coach Winner pour confirmation.</div><a class="btn b-wa" target="_blank" rel="noopener" href="'+wa("Bonjour Coach Winner, je souhaite vérifier l'attestation n° "+n+".")+'">Contacter Coach Winner</a>';
+};
+
+/* ---------- Services & contact ---------- */
+$('sWin').href=wa("Bonjour 👋 Je cherche un répétiteur à domicile (WIN Cours à domicile).\nClasse de l'enfant : \nMatière(s) : \nQuartier : ");
+$('sInt').href=wa("Bonjour Coach Winner 👋 J'ai besoin d'un service d'interprétariat / de traduction.\nType de mission : \nDate : \nLieu : ");
+$('sSalle').href=wa("Bonjour 👋 Je veux réserver la CHIC SALLE.\nDate : \nDurée (heure / demi-journée / journée) : \nNombre de personnes : ");
+$('cTel').textContent=C.telAffiche;$('cAdr').innerHTML='<b>'+esc(C.adresse)+'</b>';
+$('cWa').href=wa("Bonjour Coach Winner 👋 J'ai une question sur vos cours d'anglais.");
+$('cCall').href='tel:+'+WA;
+$('shareApp').onclick=async()=>{
+  const data={title:"Winners' English Center",text:"L'appli de Coach Winner : test d'anglais gratuit, leçons, flashcards"+(P&&OUVERT?" et la "+P.nom+" "+(P.emoji||""):""),url:appUrl};
+  try{if(navigator.share){await navigator.share(data);return}}catch(e){}
+  window.open("https://wa.me/?text="+encodeURIComponent(data.text+" "+appUrl),"_blank");
+};
+
+/* ---------- Installation (PWA) ---------- */
+let deferred=null;
+const standalone=window.matchMedia('(display-mode: standalone)').matches||navigator.standalone;
+if(standalone)$('instDone').classList.remove('hidden');
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e;if(!standalone){$('installBar').classList.remove('hidden');$('instBtn').classList.remove('hidden')}});
+async function installer(){
+  if(!deferred){go('installer');return}
+  deferred.prompt();try{await deferred.userChoice}catch(e){}deferred=null;
+  $('installBar').classList.add('hidden');$('instBtn').classList.add('hidden');
 }
+if('serviceWorker' in navigator&&location.protocol==='https:')navigator.serviceWorker.register('sw.js').catch(()=>{});
+
+/* ---------- ouverture directe d'un onglet : #test, #learn, #promo… ---------- */
+const h=location.hash.slice(1);if(h&&$('v-'+h))go(h);
 </script>
 </body>
 </html>
