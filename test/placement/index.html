@@ -81,7 +81,7 @@ function intro(){
   app.innerHTML='<span class="tag">Gratuit · '+esc(T.duree)+'</span><h1>Test de placement</h1>'+
   '<p class="muted">Ce test nous permet de te placer dans le groupe qui correspond vraiment à ton niveau, du débutant (A1) à l\'avancé (B2).</p>'+
   '<div class="card"><b>Comment ça marche</b><ul class="rules"><li>'+qn+' questions en 4 parties, de plus en plus difficiles.</li><li>Réponds seul, sans dictionnaire ni traducteur : on veut ton vrai niveau.</li><li>Si tu ne sais pas, laisse vide et passe à la suite.</li><li>Si une partie est trop difficile, le test s\'arrête tout seul : c\'est normal.</li></ul></div>'+
-  '<div class="card"><label class="f" for="nm">Ton nom et prénom</label><input type="text" id="nm" autocomplete="name" placeholder="Ex. : Kouassi Awa">'+
+  '<div class="card"><label class="f" for="nm">Ton nom et prénom</label><input type="text" id="nm" autocomplete="name" placeholder="Ex. : Emma Smith">'+
   '<label class="f" for="tl">Ton numéro WhatsApp (facultatif)</label><input type="tel" id="tl" autocomplete="tel" placeholder="07 00 00 00 00">'+
   '<div class="row"><button class="btn btn-main" id="go">Commencer le test</button></div></div>';
   document.getElementById('go').onclick=function(){ S.name=document.getElementById('nm').value.trim(); S.tel=document.getElementById('tl').value.trim(); if(!S.name){document.getElementById('nm').focus(); document.getElementById('nm').placeholder="Écris ton nom pour commencer"; return;} S.i=0; show(); };

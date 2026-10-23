@@ -11,10 +11,10 @@ window.PLACEMENT = {
   { level: "A1", titre: "Partie 1 : Débutant (A1)", exercises: [
     { titre: "Choisis la bonne réponse", type: "choice", items: [
       { q: "Are you a student?", options: ["Yes, I am.", "Yes, I do.", "Yes, I student."], a: 0 },
-      { q: "Where do you live?", options: ["I'm 25.", "I live in Cocody.", "I'm a teacher."], a: 1 },
-      { q: "What's her name?", options: ["Her name is Awa.", "His name is Awa.", "My name is Awa."], a: 0 },
+      { q: "Where do you live?", options: ["I'm 25.", "I live in London.", "I'm a teacher."], a: 1 },
+      { q: "What's her name?", options: ["Her name is Emma.", "His name is Emma.", "My name is Emma."], a: 0 },
       { q: "Do they speak English?", options: ["Yes, they speak.", "Yes, they do.", "Yes, they are."], a: 1 },
-      { q: "How are you?", options: ["I'm fine, thank you.", "I'm Paul.", "I'm from Bouaké."], a: 0 }
+      { q: "How are you?", options: ["I'm fine, thank you.", "I'm Paul.", "I'm from Leeds."], a: 0 }
     ]},
     { titre: "Complète avec am, is ou are", type: "text", banque: "am / is / are", items: [
       { q: "I ___ a teacher.", a: ["am"] },
@@ -49,7 +49,7 @@ window.PLACEMENT = {
   { level: "A2", titre: "Partie 2 : Élémentaire (A2)", exercises: [
     { titre: "Mets le verbe au passé (past simple)", type: "text", items: [
       { q: "Yesterday, I (watch) ___ a film.", a: ["watched"] },
-      { q: "Last year, we (go) ___ to Ghana.", a: ["went"] },
+      { q: "Last year, we (go) ___ to Canada.", a: ["went"] },
       { q: "She (buy) ___ a new phone last week.", a: ["bought"] },
       { q: "They (not / come) ___ to class yesterday.", a: ["didn't come", "did not come"] }
     ]},
@@ -61,7 +61,7 @@ window.PLACEMENT = {
     { titre: "Choisis le bon mot interrogatif", type: "choice", items: [
       { q: "___ is that man? He's my uncle.", options: ["Who", "Where", "What"], a: 0 },
       { q: "___ does the bus leave? At 7 a.m.", options: ["Where", "When", "Who"], a: 1 },
-      { q: "___ is this shirt? 5 000 francs.", options: ["How many", "How old", "How much"], a: 2 },
+      { q: "___ is this shirt? Twenty dollars.", options: ["How many", "How old", "How much"], a: 2 },
       { q: "___ are you sad? Because I lost my keys.", options: ["Why", "How", "Which"], a: 0 },
       { q: "___ you see the match last night?", options: ["Do", "Did", "Were"], a: 1 }
     ]},
@@ -75,7 +75,7 @@ window.PLACEMENT = {
   { level: "B1", titre: "Partie 3 : Intermédiaire (B1)", exercises: [
     { titre: "Choisis la bonne réponse", type: "choice", items: [
       { q: "I ___ to London three times.", options: ["have been", "went", "am"], a: 0 },
-      { q: "She ___ to Bouaké in 2020.", options: ["has moved", "moved", "moves"], a: 1 },
+      { q: "She ___ to Manchester in 2020.", options: ["has moved", "moved", "moves"], a: 1 },
       { q: "___ you ever ___ sushi?", options: ["Did / eat", "Have / eaten", "Do / eat"], a: 1 },
       { q: "We have lived here ___ ten years.", options: ["since", "for", "during"], a: 1 },
       { q: "If it rains tomorrow, we ___ at home.", options: ["stay", "will stay", "would stay"], a: 1 },
@@ -85,11 +85,11 @@ window.PLACEMENT = {
       { q: "This is the house ___ I was born.", options: ["which", "who", "where"], a: 2 }
     ]},
     { titre: "Lis le texte : vrai ou faux ?", type: "choice",
-      texte: "Koffi is 28. He works in a bank in the city centre. Every morning he takes the bus at 6:30 because the traffic is terrible. He started English lessons last month because his company wants to work with clients from Ghana and Nigeria. He finds speaking difficult, but he practises every evening with a friend.",
+      texte: "Jack is 28. He works in a bank in central London. Every morning he takes the bus at 6:30 because the traffic is terrible. He started Spanish lessons last month because his company wants to work with clients from Mexico and Spain. He finds speaking difficult, but he practises every evening with a friend.",
       items: [
-      { q: "Koffi drives to work.", options: ["Vrai", "Faux"], a: 1 },
-      { q: "He started English lessons a month ago.", options: ["Vrai", "Faux"], a: 0 },
-      { q: "His company works only with Ivorian clients.", options: ["Vrai", "Faux"], a: 1 },
+      { q: "Jack drives to work.", options: ["Vrai", "Faux"], a: 1 },
+      { q: "He started Spanish lessons a month ago.", options: ["Vrai", "Faux"], a: 0 },
+      { q: "His company works only with British clients.", options: ["Vrai", "Faux"], a: 1 },
       { q: "Speaking is easy for him.", options: ["Vrai", "Faux"], a: 1 },
       { q: "He practises with a friend.", options: ["Vrai", "Faux"], a: 0 }
     ]}

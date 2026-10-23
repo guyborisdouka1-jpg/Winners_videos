@@ -14,23 +14,23 @@ window.LECONS = [
   /* ----------------------------- DÉBUTANT ----------------------------- */
   {
     id: "d1", niveau: "debutant", emoji: "👋", titre: "Saluer et se présenter",
-    intro: "Les premières phrases à connaître pour commencer une conversation, au bureau, au maquis ou en voyage.",
+    intro: "Les premières phrases à connaître pour commencer une conversation, au bureau, au restaurant ou en voyage.",
     points: [
       ["Hello! / Hi!", "Bonjour ! / Salut !", "hè-LO-ou / HAÏ"],
       ["Good morning", "Bonjour (le matin)", "goud MOR-ning"],
       ["Good evening", "Bonsoir", "goud I-ve-ning"],
       ["How are you?", "Comment vas-tu ?", "hao AR iou"],
       ["I'm fine, thank you. And you?", "Je vais bien, merci. Et toi ?", "aïm FAÏN, SÈNK-iou. ènd IOU"],
-      ["My name is Aya.", "Je m'appelle Aya.", "maï NÈÏM iz A-ya"],
+      ["My name is Emma.", "Je m'appelle Emma.", "maï NÈÏM iz A-ya"],
       ["Nice to meet you!", "Enchanté(e) !", "naïs tou MIT iou"],
       ["Goodbye! See you later!", "Au revoir ! À plus tard !", "goud-BAÏ. SI iou LÈÏ-teur"]
     ],
     astuce: "« Good night » ne veut pas dire bonsoir : on le dit seulement pour aller dormir ou en partant tard le soir. Pour dire bonsoir en arrivant : « Good evening ».",
     quiz: [
       ["Il est 19 h, tu arrives à une réunion. Tu dis…", ["Good night", "Good evening", "Good morning"], 1, "On dit « Good evening » en arrivant le soir. « Good night » sert à se quitter ou à aller dormir."],
-      ["Quelqu'un te dit « How are you? ». Tu réponds…", ["I'm fine, thank you.", "I'm 25.", "My name is Aya."], 0, "« How are you? » = Comment vas-tu ? On répond « I'm fine, thank you »."],
+      ["Quelqu'un te dit « How are you? ». Tu réponds…", ["I'm fine, thank you.", "I'm 25.", "My name is Emma."], 0, "« How are you? » = Comment vas-tu ? On répond « I'm fine, thank you »."],
       ["« Nice to meet you » veut dire…", ["À bientôt", "Enchanté(e)", "Bonne nuit"], 1, "On le dit quand on rencontre quelqu'un pour la première fois."],
-      ["Complète : « My ___ is Koffi. »", ["call", "name", "am"], 1, "« My name is… » = Je m'appelle…"]
+      ["Complète : « My ___ is Jack. »", ["call", "name", "am"], 1, "« My name is… » = Je m'appelle…"]
     ]
   },
   {
@@ -63,7 +63,7 @@ window.LECONS = [
       ["thirteen / thirty", "13 / 30", "seur-TINE / SEUR-ti"],
       ["a hundred / a thousand", "100 / 1 000", "e HEUN-dred / e SAO-zend"],
       ["How much is it?", "C'est combien ?", "hao MEUTCH iz it"],
-      ["It's five thousand francs.", "C'est 5 000 francs.", "its faïv SAO-zend frènks"],
+      ["It's five dollars.", "Ça fait 5 dollars.", "its faïv DO-leuz"],
       ["What's your phone number?", "Quel est ton numéro ?", "ouats ior FO-oun NEUM-beur"],
       ["It's too expensive!", "C'est trop cher !", "its tou iks-PÈN-siv"]
     ],
@@ -111,7 +111,7 @@ window.LECONS = [
     ],
     astuce: "Au présent simple, n'oublie jamais le « s » avec he / she / it : She works, He lives, It costs.",
     quiz: [
-      ["« Elle habite à Bouaké. »", ["She live in Bouaké.", "She lives in Bouaké.", "She is live in Bouaké."], 1, "Habitude/fait permanent + she → lives."],
+      ["« Elle habite à London. »", ["She live in London.", "She lives in London.", "She is live in London."], 1, "Habitude/fait permanent + she → lives."],
       ["Ton ami t'appelle et tu es en train de manger. Tu dis…", ["I eat.", "I'm eating.", "I eating."], 1, "Action en cours → be + -ing : I'm eating."],
       ["« Il ne parle pas anglais. »", ["He doesn't speak English.", "He don't speak English.", "He not speak English."], 0, "Avec he/she/it : doesn't + verbe."],
       ["Complète : « Every morning, I ___ coffee. »", ["drink", "am drinking", "drinks"], 0, "Every morning = habitude → présent simple."]
@@ -133,7 +133,7 @@ window.LECONS = [
       ["Passé de « go » :", ["goed", "went", "gone"], 1, "go → went (irrégulier)."],
       ["« Tu as mangé ? »", ["Did you ate?", "Did you eat?", "Do you ate?"], 1, "Après « did », le verbe reste à la base : eat."],
       ["« Je n'ai pas vu le film. »", ["I didn't see the movie.", "I didn't saw the movie.", "I not saw the movie."], 0, "Didn't + verbe de base."],
-      ["Complète : « Last year, we ___ in Yamoussoukro. »", ["live", "lived", "living"], 1, "Last year → passé : lived."]
+      ["Complète : « Last year, we ___ in Boston. »", ["live", "lived", "living"], 1, "Last year → passé : lived."]
     ]
   },
   {
@@ -184,7 +184,7 @@ window.LECONS = [
     points: [
       ["I have lived here since 2019.", "J'habite ici depuis 2019.", "aï hav LIVD hir sins…"],
       ["I have worked here for 3 years.", "Je travaille ici depuis 3 ans.", "aï hav OUEURKT hir for…"],
-      ["Have you ever been to Ghana?", "Es-tu déjà allé(e) au Ghana ?", "hav iou È-veur BIN tou GA-na"],
+      ["Have you ever been to Canada?", "Es-tu déjà allé(e) au Canada ?", "hav iou È-veur BIN tou KA-na-da"],
       ["I've never seen snow.", "Je n'ai jamais vu la neige.", "aïv NÈ-veur SIN sno-ou"],
       ["She has just arrived.", "Elle vient d'arriver.", "chi haz DJEUST e-RAÏVD"],
       ["We haven't finished yet.", "Nous n'avons pas encore fini.", "oui HA-vent FI-nicht IÈT"]
@@ -344,7 +344,7 @@ window.PHRASES = [
 window.DEFIS = [
   ["Comment dit-on « Je suis en retard » ?", ["I'm late.", "I'm later.", "I have late."], 0],
   ["« I have 25 years » est…", ["Correct", "Incorrect : on dit « I am 25 »"], 1],
-  ["Complète : « She ___ in Abidjan. »", ["live", "lives", "living"], 1],
+  ["Complète : « She ___ in London. »", ["live", "lives", "living"], 1],
   ["Que veut dire « actually » ?", ["Actuellement", "En fait / en réalité"], 1],
   ["« Je suis d'accord » se dit…", ["I am agree.", "I agree."], 1],
   ["Complète : « I'm good ___ English. »", ["in", "at", "on"], 1],
