@@ -787,12 +787,13 @@ showNiveaux();
 
 /* ---------- Vidéos ---------- */
 const V=[
- ["Shadowing","v/reading.mp4","🎧 Séance de shadowing : on écoute, on répète, on imite.","v/reading.jpg"],
- ["En classe","v/shadowing.mp4","📚 Un vrai cours au centre, en petit groupe.","v/shadowing.jpg"],
- ["Pratique à deux","v/practice.mp4","🗺️ Deux apprenants jouent une vraie situation.","v/practice.jpg"],
- ["Sortie au Banco","v/banco.mp4","🌳 Cours en pleine nature au Parc National du Banco.","v/banco.jpg"],
- ["Dialogue","v/dialogue.mp4","🗣️ Pratique avec Coach Winner : je suis A, tu es B.","v/dialogue.jpg"],
- ["Présentation","v/presentation.mp4","🎤 Un apprenant se présente en anglais.","v/presentation.jpg"]
+ ["Jeu de rôle","v/practice.mp4","🗺️ Deux apprenantes jouent une vraie situation devant le groupe.","v/practice.jpg"],
+ ["Il se présente","v/intro_apprenant.mp4","🎤 Un apprenant se présente en anglais.","v/intro_apprenant.jpg"],
+ ["Shadowing","v/shadowing_hd.mp4","🎧 Séance de shadowing : on écoute, on répète, on imite.","v/shadowing_hd.jpg"],
+ ["Présentation","v/presentation.mp4","🗣️ Un autre apprenant prend la parole en anglais.","v/presentation.jpg"],
+ ["Happy birthday","v/birthday.mp4","🎂 Une apprenante souhaite un joyeux anniversaire… en anglais !","v/birthday.jpg"],
+ ["En classe","v/cours_groupe.mp4","📚 Un vrai cours au centre, en petit groupe.","v/cours_groupe.jpg"],
+ ["Au Banco","v/banco.mp4","🌳 Cours en pleine nature au Parc National du Banco.","v/banco.jpg"]
 ];
 V.forEach((v,k)=>{const b=document.createElement('button');b.textContent=v[0];b.onclick=()=>loadVid(k);$('vtabs').appendChild(b)});
 function loadVid(k){[...$('vtabs').children].forEach((b,j)=>b.classList.toggle('on',j===k));$('vid').poster=V[k][3];$('vid').src=V[k][1];$('vcap').textContent=V[k][2]}
