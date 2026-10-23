@@ -1,0 +1,739 @@
+<!doctype html>
+<html lang="fr"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Winners' English Center, Cocody Riviera Palmeraie : cours d'anglais en groupe, en privé, en ligne et à domicile, du niveau A1 au C2. Test de niveau gratuit.">
+<meta property="og:title" content="Winners' English Center">
+<meta property="og:description" content="Parlez anglais avec confiance. Test de niveau gratuit, Promo Anglais Noël.">
+<meta property="og:image" content="https://guyborisdouka1-jpg.github.io/Winners_videos/img/promo_noel.jpg">
+<link rel="icon" href="../img/icon-192.png">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Winners' English Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
+<style id="site-style">
+/* Layout: fixed header + section chips rail, alternating cream/navy bands, magazine grids that collapse to one column on phones. */
+:root{
+  --navy:#1B2A4A; --navy-2:#24365e; --red:#C8102E; --red-ink:#a50d26; --gold:#D4AF37; --cream:#F7F5F0;
+  --bg:#F7F5F0; --surface:#ffffff; --surface-2:#efebe2; --fg:#1B2A4A; --muted:#5b6478; --line:#ddd6c8;
+  --band:#1B2A4A; --band-fg:#F7F5F0; --band-muted:#b9c2d6;
+  --f-display:'Fraunces', Georgia, 'Times New Roman', serif;
+  --f-body:'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --f-mono:'Space Mono', ui-monospace, 'Courier New', monospace;
+  --r:14px; --shadow:0 10px 30px -14px rgba(27,42,74,.35);
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#111a2e; --surface:#18233d; --surface-2:#1e2b49; --fg:#F2EEE4; --muted:#a8b2c8; --line:#2c3b5f;
+  --band:#0b1222; --band-fg:#F2EEE4; --band-muted:#a8b2c8; --navy:#d9e0f0; --red:#e0324d; --red-ink:#ff5c74; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#111a2e; --surface:#18233d; --surface-2:#1e2b49; --fg:#F2EEE4; --muted:#a8b2c8; --line:#2c3b5f;
+  --band:#0b1222; --band-fg:#F2EEE4; --band-muted:#a8b2c8; --navy:#d9e0f0; --red:#e0324d; --red-ink:#ff5c74; color-scheme:dark }
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:128px}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto} *{animation:none!important;transition:none!important}}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--f-display);line-height:1.12;text-wrap:balance;margin:0}
+p{margin:0}
+.wrap{max-width:1160px;margin:0 auto;padding-inline:20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;padding:.85em 1.4em;border-radius:999px;border:0;font:600 .98rem/1 var(--f-body);cursor:pointer;text-decoration:none;transition:transform .15s ease, background .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.btn-red{background:#C8102E;color:#fff}.btn-red:hover{background:#a50d26}
+.btn-gold{background:var(--gold);color:#1B2A4A}
+.btn-ghost{background:transparent;color:inherit;box-shadow:inset 0 0 0 1.5px currentColor}
+.btn-wa{background:#1f9d55;color:#fff}
+.label{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
+
+/* Header */
+.hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.hdr-row{display:flex;align-items:center;gap:16px;padding-block:10px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0}
+.brand img{width:44px;height:44px;border-radius:50%}
+.brand b{font-family:var(--f-display);font-size:1.12rem;line-height:1.1;white-space:nowrap}
+.brand small{display:block;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.nav{display:flex;gap:18px;margin-left:auto;font-weight:500;font-size:.94rem}
+.nav a{text-decoration:none;color:var(--muted)}.nav a:hover{color:var(--fg)}
+.hdr .btn{padding:.6em 1.05em;font-size:.88rem}
+@media (max-width:900px){.nav{display:none}.hdr .btn{margin-left:auto}}
+.brand span{min-width:0;overflow:hidden}.brand b{display:block;overflow:hidden;text-overflow:ellipsis}
+@media (max-width:420px){.brand small{display:none}.hdr .btn span{display:none}.brand b{font-size:1rem}}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-block:0 10px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chips a{flex:none;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:.45em .9em;border-radius:999px;background:var(--surface-2);color:var(--fg);border:1px solid var(--line)}
+.chips a:hover{border-color:var(--gold)}
+
+/* Hero */
+.hero{position:relative;color:#F7F5F0;background:#1B2A4A;overflow:hidden;isolation:isolate}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease}
+.hero-bg img.on{opacity:.38}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(100deg,rgba(17,27,49,.96) 0%,rgba(27,42,74,.82) 55%,rgba(27,42,74,.55) 100%)}
+.hero-in{padding-block:72px 56px;display:grid;gap:28px;max-width:780px}
+.hero .label{color:#D4AF37}
+.hero h1{font-size:clamp(2.3rem,6vw,4.4rem);font-weight:800;min-height:2.3em;transition:opacity .5s ease}
+.hero h1 em{font-style:italic;color:#D4AF37;font-weight:700}
+.hero-sub{font-size:1.1rem;color:#d7dceb;max-width:60ch}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+.cefr{display:grid;gap:8px;max-width:620px}
+.cefr-bar{display:grid;grid-template-columns:repeat(6,1fr);gap:4px}
+.cefr-bar span{font-family:var(--f-mono);font-size:.75rem;text-align:center;padding:.4em 0;border-radius:6px;background:rgba(255,255,255,.08);color:#d7dceb}
+.cefr-bar span:nth-child(1){background:rgba(212,175,55,.25)}.cefr-bar span:nth-child(2){background:rgba(212,175,55,.38)}.cefr-bar span:nth-child(3){background:rgba(212,175,55,.52)}.cefr-bar span:nth-child(4){background:rgba(212,175,55,.66);color:#1B2A4A}.cefr-bar span:nth-child(5){background:rgba(212,175,55,.82);color:#1B2A4A}.cefr-bar span:nth-child(6){background:#D4AF37;color:#1B2A4A;font-weight:700}
+.cefr small{color:#b9c2d6;font-size:.85rem}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.12);border-radius:var(--r);overflow:hidden;max-width:780px}
+.stats div{background:rgba(17,27,49,.7);padding:16px}
+.stats b{display:block;font-family:var(--f-display);font-size:1.7rem;color:#D4AF37;font-variant-numeric:tabular-nums}
+.stats span{font-size:.85rem;color:#d7dceb}
+@media (max-width:640px){.stats{grid-template-columns:repeat(2,1fr)}.hero-in{padding-block:48px 40px}}
+
+/* Sections */
+section.sec{padding-block:72px}
+section.sec.band{background:var(--band);color:var(--band-fg)}
+section.sec.band .muted{color:var(--band-muted)}
+section.sec.band .card .muted{color:var(--muted)}
+section.sec.alt{background:var(--surface-2)}
+.sec-head{display:grid;gap:10px;margin-bottom:32px;max-width:720px}
+.sec-head .label{color:var(--red)}
+.band .sec-head .label{color:#D4AF37}
+.sec-head h2{font-size:clamp(1.8rem,4vw,2.7rem);font-weight:700}
+.muted{color:var(--muted)}
+.more{margin-top:24px;text-align:center}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+
+/* Gallery */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;grid-auto-flow:dense;gap:12px}
+.gal figure{margin:0;position:relative;border-radius:var(--r);overflow:hidden;background:var(--surface-2)}
+.gal figure.big{grid-column:span 2;grid-row:span 2}
+.gal img{width:100%;height:100%;object-fit:cover}
+.gal figcaption{position:absolute;inset:auto 0 0 0;padding:28px 14px 12px;font-size:.88rem;color:#fff;background:linear-gradient(transparent,rgba(17,27,49,.88))}
+@media (max-width:820px){.gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:180px}}
+@media (max-width:460px){.gal{grid-template-columns:1fr;grid-auto-rows:240px}.gal figure.big{grid-column:auto;grid-row:span 1}}
+
+/* Level test */
+.test{max-width:760px;margin:0 auto;padding:28px}
+.test-grid{display:grid;gap:14px}
+.field{display:grid;gap:6px}
+.field label{font-weight:600;font-size:.92rem}
+input,textarea,select{font:inherit;color:var(--fg);background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:.7em .85em;width:100%}
+textarea{min-height:96px;resize:vertical}
+.q-meta{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}
+.progress{height:6px;background:var(--surface-2);border-radius:99px;overflow:hidden;flex:1}
+.progress i{display:block;height:100%;background:var(--red);transition:width .3s ease}
+.q-text{font-family:var(--f-display);font-size:1.45rem;margin-bottom:18px}
+.opts{display:grid;gap:10px}
+.opt{text-align:left;padding:.9em 1.1em;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--fg);font:500 1rem var(--f-body);cursor:pointer}
+.opt:hover{border-color:var(--gold)}
+.result{text-align:center;display:grid;gap:14px;justify-items:center}
+.result .lvl{font-family:var(--f-mono);font-size:3.4rem;font-weight:700;color:var(--red);line-height:1}
+.row-btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+
+/* Videos */
+.vids{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.vid{display:grid;gap:10px;text-decoration:none;color:inherit}
+.vid .thumb{position:relative;aspect-ratio:9/12;border-radius:var(--r);overflow:hidden;background:#24365e;max-width:100%}
+.vid .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
+.vid:hover .thumb img{transform:scale(1.04)}
+.vid .play{position:absolute;left:50%;top:68%;width:62px;height:62px;margin:-31px 0 0 -31px;border-radius:50%;background:#C8102E;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.vid .play::before{content:"";border-left:18px solid #fff;border-top:11px solid transparent;border-bottom:11px solid transparent;margin-left:5px}
+.vid .plat{position:absolute;top:10px;left:10px;font-family:var(--f-mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;background:rgba(17,27,49,.85);color:#fff;padding:.3em .6em;border-radius:6px}
+.vid b{font-weight:600;font-size:.98rem;line-height:1.35}
+@media (max-width:900px){.vids{grid-template-columns:repeat(2,1fr)}}
+
+/* Services */
+.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.svc .card{padding:22px;display:grid;gap:8px;align-content:start}
+.svc .ic{font-size:1.7rem}
+.svc h3{font-size:1.15rem}
+.svc p{font-size:.94rem;color:var(--muted)}
+@media (max-width:980px){.svc{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.svc{grid-template-columns:1fr}}
+
+/* Founder */
+.bio{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px;align-items:start}
+.bio-photos{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.bio-photos img{width:100%;border-radius:var(--r);object-fit:cover;aspect-ratio:4/5}
+.bio-photos img:first-child{grid-column:span 2}
+.bio-photos.one img{grid-column:span 2}
+.bio h3{font-size:2rem}
+.bio .role{color:#D4AF37;font-family:var(--f-mono);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;margin:6px 0 16px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.tags span{font-size:.82rem;padding:.35em .8em;border-radius:999px;border:1px solid rgba(212,175,55,.6);color:#f1e3b0}
+.press{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
+.press article{display:grid;gap:10px}
+.press img{border-radius:var(--r);aspect-ratio:16/10;object-fit:cover;width:100%}
+.press figcaption{font-size:.8rem;color:var(--band-muted);font-style:italic}
+.press h4{font-family:var(--f-display);font-size:1.35rem;margin:0}
+.extra{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:28px}
+.extra img{aspect-ratio:1;object-fit:cover;border-radius:10px;width:100%}
+@media (max-width:820px){.bio,.press{grid-template-columns:1fr}.extra{grid-template-columns:repeat(3,1fr)}}
+
+/* Testimonials */
+.marquee{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.track{display:flex;gap:16px;width:max-content;animation:scroll 40s linear infinite}
+.marquee:hover .track{animation-play-state:paused}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.tcard{width:320px;padding:22px;display:grid;gap:12px}
+.tcard p{font-family:var(--f-display);font-size:1.05rem;font-style:italic}
+.tcard b{font-size:.9rem}.tcard small{color:var(--muted)}
+
+/* Courses / specials / shop / resources */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media (max-width:900px){.grid3{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.grid3{grid-template-columns:1fr}}
+.item{overflow:hidden;display:grid;align-content:start}
+.item .cover{aspect-ratio:16/10;background:var(--surface-2);overflow:hidden}
+.item .cover img{width:100%;height:100%;object-fit:cover}
+.item .body{padding:20px;display:grid;gap:10px}
+.item h3{font-size:1.25rem}
+.badge{justify-self:start;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;padding:.3em .65em;border-radius:6px;background:var(--surface-2);color:var(--fg);border:1px solid var(--line)}
+.price{font-family:var(--f-display);font-weight:700;font-size:1.25rem;color:var(--red)}
+.links{display:grid;gap:6px;padding:12px;border-radius:10px;background:var(--surface-2)}
+.links a{font-weight:600}
+.lock{display:flex;flex-wrap:wrap;gap:8px}
+.lock input{flex:1;min-width:0}
+.feat{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:0;overflow:hidden;margin-bottom:26px;background:#1B2A4A;color:#F7F5F0;border-radius:var(--r)}
+.feat .txt{padding:36px;display:grid;gap:14px;align-content:center}
+.feat .label{color:#D4AF37}
+.feat h3{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:800;letter-spacing:.01em}
+.feat p{color:#d7dceb}
+.feat .price{color:#D4AF37;font-size:1.6rem}
+.feat .media{min-height:260px;background:#24365e}
+.feat .media img{width:100%;height:100%;object-fit:cover}
+@media (max-width:760px){.feat{grid-template-columns:1fr}.feat .txt{padding:26px}}
+.new{color:#C8102E;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase}
+
+/* Spotlight (lien publicitaire) */
+.spot{background:#1B2A4A;color:#F7F5F0;padding-block:48px;border-bottom:6px solid #C8102E}
+.spot-in{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:32px;align-items:center}
+.spot .label{color:#D4AF37}
+.spot h1{font-size:clamp(2.2rem,6vw,3.8rem);font-weight:800;margin:10px 0 14px}
+.spot p{color:#d7dceb;max-width:60ch}
+.spot .price{color:#D4AF37;font-size:1.7rem;display:block;margin:16px 0}
+.spot .media{border-radius:var(--r);overflow:hidden;background:#24365e;aspect-ratio:4/3}
+.spot .media img{width:100%;height:100%;object-fit:cover}
+.spot .badge{background:rgba(255,255,255,.1);color:#F7F5F0;border-color:rgba(255,255,255,.2)}
+@media (max-width:760px){.spot-in{grid-template-columns:1fr}}
+.adlink{display:grid;gap:6px;padding:12px;border-radius:10px;background:var(--surface-2);border:1px dashed var(--gold)}
+.adlink code{font-family:var(--f-mono);font-size:.8rem;word-break:break-all}
+
+/* Tests officiels */
+.tests{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.tests .card{padding:26px;display:grid;gap:12px}
+@media (max-width:640px){.tests{grid-template-columns:1fr}}
+
+/* FAQ */
+.faq{max-width:820px;display:grid;gap:10px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:0 20px}
+.faq summary{cursor:pointer;padding:18px 0;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--f-mono);color:var(--red);font-size:1.2rem}
+.faq details[open] summary::after{content:"–"}
+.faq details p{padding:0 0 18px;color:var(--muted)}
+
+/* Social + contact */
+.social{display:flex;flex-wrap:wrap;gap:12px}
+.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px}
+.clist{display:grid;gap:14px}
+.clist div{display:grid;gap:2px}
+.clist .label{color:#D4AF37}
+.clist b{font-size:1.1rem;word-break:break-word}
+.mapcard{border-radius:var(--r);background:#24365e;padding:28px;display:grid;gap:14px;align-content:end;min-height:280px;position:relative;overflow:hidden;color:#F7F5F0}
+.mapcard::before{content:"";position:absolute;inset:0;opacity:.35;background:repeating-linear-gradient(0deg,transparent 0 38px,rgba(212,175,55,.35) 38px 39px),repeating-linear-gradient(90deg,transparent 0 38px,rgba(212,175,55,.35) 38px 39px)}
+.mapcard .pin{position:absolute;top:34%;left:50%;width:22px;height:22px;margin-left:-11px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#C8102E;box-shadow:0 0 0 8px rgba(200,16,46,.25)}
+.mapcard > *{position:relative}
+@media (max-width:760px){.contact{grid-template-columns:1fr}}
+footer{background:#0f1729;color:#b9c2d6;padding-block:28px;font-size:.88rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+footer button{background:none;border:0;color:#5f6b85;font:inherit;font-size:.78rem;cursor:pointer;text-decoration:underline}
+
+/* Modal */
+.modal{position:fixed;inset:0;z-index:80;background:rgba(10,16,30,.62);display:grid;place-items:center;padding:16px}
+.modal-box{background:var(--surface);color:var(--fg);border-radius:18px;max-width:520px;width:100%;max-height:90vh;overflow:auto;padding:26px;display:grid;gap:14px;box-shadow:0 30px 80px -20px rgba(0,0,0,.5)}
+.modal-box h3{font-size:1.5rem}
+.x{justify-self:end;background:none;border:0;font-size:1.6rem;line-height:1;cursor:pointer;color:var(--muted)}
+.copy{display:flex;gap:8px;align-items:center;padding:10px 12px;border-radius:10px;background:var(--surface-2);font-weight:600;word-break:break-all}
+.copy button{margin-left:auto;flex:none}
+.cert-img{border-radius:10px;border:1px solid var(--line);width:100%}
+.note{font-size:.85rem;color:var(--muted)}
+
+/* Admin */
+.admin{position:fixed;inset:0;z-index:90;background:var(--bg);display:grid;grid-template-rows:auto 1fr;padding-top:env(safe-area-inset-top,0px)}
+.admin-top{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line);background:var(--surface)}
+.admin-top b{font-family:var(--f-display);font-size:1.2rem;margin-right:auto}
+.admin-main{display:grid;grid-template-columns:220px minmax(0,1fr);min-height:0}
+.admin-nav{border-right:1px solid var(--line);overflow:auto;padding:10px;display:grid;gap:4px;align-content:start}
+.admin-nav button{text-align:left;padding:.6em .8em;border-radius:8px;border:0;background:none;color:var(--fg);font:500 .92rem var(--f-body);cursor:pointer}
+.admin-nav button.on{background:var(--surface-2);font-weight:700}
+.admin-body{overflow:auto;padding:20px 16px 80px}
+.admin-body h2{font-size:1.6rem;margin-bottom:6px}
+.ed-item{border:1px solid var(--line);border-radius:12px;padding:16px;margin-top:14px;display:grid;gap:12px;background:var(--surface)}
+.ed-head{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.ed-head b{margin-right:auto;font-size:.95rem}
+.ed-head button,.mini{padding:.4em .7em;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer;font:500 .82rem var(--f-body)}
+.imgf{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.imgf img{width:84px;height:84px;object-fit:cover;border-radius:8px;border:1px solid var(--line)}
+.status{font-size:.88rem;color:var(--muted)}
+.chk{display:flex;gap:8px;align-items:center}.chk input{width:auto}
+@media (max-width:760px){.admin-main{grid-template-columns:1fr;grid-template-rows:auto 1fr}.admin-nav{display:flex;overflow-x:auto;border-right:0;border-bottom:1px solid var(--line)}.admin-nav button{flex:none}}
+</style>
+<script src="../programmes.js"></script>
+<script src="../test.js"></script>
+<div id="app"></div>
+<script id="site-data" type="application/json">{"general": {"name": "Winners' English Center", "tagline": "Centre de formation en anglais", "logo": "img/16d24c4840.png", "whatsapp": "2250767037284", "whatsappDisplay": "+225 07 67 03 72 84", "phone": "+225 07 67 03 72 84 · +225 01 41 81 70 78", "email": "winnersenglish04@gmail.com", "address": "Cocody, Riviera Palmeraie, Abidjan, Côte d'Ivoire", "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Riviera+Palmeraie+Cocody+Abidjan", "siteUrl": "https://guyborisdouka1-jpg.github.io/Winners_videos/site/", "facebook": "https://www.facebook.com/108178682182393", "tiktok": "https://www.tiktok.com/@winnersenglish", "adminCode": "winners2026", "heroTitles": [["Parlez anglais avec confiance", "Speak English with confidence"], ["Osez prendre la parole", "Dare to speak up"], ["Votre anglais, votre avenir", "Your English, your future"]], "heroSubtitle": "Cours en groupe, en privé, en ligne ou à domicile, du niveau A1 au C2. Une méthode basée sur la pratique orale, pour enfin parler et pas seulement comprendre.", "heroImages": ["img/71c95fdfda.jpg", "img/ccb16445c5.jpg", "img/3f90f15446.jpg"], "stats": [{"n": "929+", "l": "fans sur Facebook"}, {"n": "3 000+", "l": "abonnés TikTok"}, {"n": "30K+", "l": "j'aime sur TikTok"}, {"n": "A1 → C2", "l": "tous les niveaux"}]}, "gallery": [{"img": "img/71c95fdfda.jpg", "caption": "L'anglais se pratique : conversation en groupe", "big": true}, {"img": "img/8f2b7b0e54.jpg", "caption": "English Club Meeting : practice time", "big": false}, {"img": "img/6d7f88cf89.jpg", "caption": "Anglais vacances : les enfants pratiquent à l'oral", "big": false}, {"img": "img/c3166048ca.jpg", "caption": "Sortie 100 % English au Parc National du Banco", "big": true}, {"img": "img/3f90f15446.jpg", "caption": "Séance de shadowing à l'English Club", "big": false}, {"img": "img/f428c2afc0.jpg", "caption": "Témoignage d'un apprenant sur son parcours", "big": false}, {"img": "img/e0e84ff163.jpg", "caption": "Cours d'anglais pour enfants", "big": false}, {"img": "img/d1c85db623.jpg", "caption": "Nos apprenants prennent la parole dès la première semaine", "big": false}, {"img": "img/04c37d86da.jpg", "caption": "WIN Cours à domicile : un répétiteur sérieux chez vous", "big": false}], "videos": [{"title": "Ils ont appris pendant les vacances… maintenant ils parlent !", "url": "https://www.tiktok.com/@winnersenglish/video/7677538557010922770", "cover": "img/8443656978.jpg"}, {"title": "Nos nouveaux apprenants s'expriment déjà", "url": "https://www.tiktok.com/@winnersenglish/video/7569231465477590328", "cover": "img/e7a78c4f41.jpg"}, {"title": "English Club Meeting : Practice Time 1", "url": "https://www.tiktok.com/@winnersenglish/video/7679761989798792456", "cover": "img/2bef1f46ac.jpg"}, {"title": "Sortie au Parc du Banco : self-introduction", "url": "https://www.tiktok.com/@winnersenglish/video/7587333055933631755", "cover": "img/3571e91f14.jpg"}, {"title": "Il raconte son expérience avec l'anglais", "url": "https://www.tiktok.com/@winnersenglish/video/7566386105898110220", "cover": "img/62e81edcc2.jpg"}, {"title": "English Club : séance de shadowing", "url": "https://www.tiktok.com/@winnersenglish/video/7679521730158791944", "cover": "img/440a1c186b.jpg"}, {"title": "English for kids", "url": "https://www.tiktok.com/@winnersenglish/video/7663166205120793874", "cover": "img/b98c4559bb.jpg"}, {"title": "Anglais vacances : le résultat est là", "url": "https://www.tiktok.com/@winnersenglish/video/7677532368151776520", "cover": "img/7be4ee22d7.jpg"}, {"title": "English Club Meeting : Practice Time 2", "url": "https://www.tiktok.com/@winnersenglish/video/7680211008773754130", "cover": "img/ac58b861e2.jpg"}, {"title": "Practice makes perfect !", "url": "https://www.tiktok.com/@winnersenglish/video/7608948340897811732", "cover": "img/6ddbe91149.jpg"}], "services": [{"icon": "👥", "title": "Cours en groupe", "desc": "Des petits groupes par niveau, pour pratiquer l'oral avec d'autres apprenants motivés."}, {"icon": "🎯", "title": "Cours privés", "desc": "Un programme sur mesure, à votre rythme, centré sur vos objectifs : travail, voyage, examen."}, {"icon": "💻", "title": "Cours en ligne", "desc": "Les mêmes cours en visioconférence, où que vous soyez en Côte d'Ivoire ou à l'étranger."}, {"icon": "🏠", "title": "Cours à domicile", "desc": "Le formateur se déplace chez vous, pour adultes comme pour enfants."}, {"icon": "🧒", "title": "Répétiteurs pour enfants", "desc": "Des répétiteurs à domicile pour accompagner vos enfants en anglais, du primaire à la terminale."}, {"icon": "📄", "title": "Traduction de documents", "desc": "Traduction français ↔ anglais de vos documents administratifs, académiques et professionnels."}, {"icon": "🎙️", "title": "Interprétariat", "desc": "Un interprète pour vos réunions, rendez-vous d'affaires et événements."}, {"icon": "🤝", "title": "Escorte bilingue", "desc": "Un accompagnateur bilingue pour vos visiteurs anglophones, dans leurs démarches et déplacements."}], "founder": {"name": "Guy Boris Douka", "role": "Fondateur et formateur, « Coach Winner »", "photos": ["img/92016bd6ac.jpg"], "desc": "Fondateur de Winners' English Center à Cocody, Guy Boris Douka, alias Coach Winner, accompagne enfants, étudiants et professionnels vers un anglais qu'ils osent parler. Sa conviction : une langue s'apprend en la pratiquant, chaque jour, sans peur de se tromper.", "skills": ["Anglais général", "Anglais professionnel", "Préparation à l'oral", "Traduction", "Interprétariat", "Pédagogie enfants"], "articles": [], "extraPhotos": []}, "testimonials": [], "courses": [], "specialFeatured": {}, "specials": [{"title": "FRENCH AT WORK", "audience": "Professionnels anglophones", "desc": "Le français pratique pour le travail : réunions, échanges avec les collègues, administration.", "price": "", "date": "2026-09-25"}, {"title": "Anglais pour enfants", "audience": "Enfants, du primaire au collège", "desc": "Cours d'anglais à domicile et au centre : jeux éducatifs, expression orale, vocabulaire, prononciation, confiance en soi.", "price": "", "date": "2026-08-25"}, {"title": "English Club Meeting", "audience": "Tous niveaux", "desc": "Des rencontres pour pratiquer : écoute, conversation, jeux et échanges en anglais. Entrée gratuite.", "price": "Gratuit", "date": "2026-08-20"}, {"title": "Cours à domicile", "slug": "cours-a-domicile", "audience": "Enfants, du primaire à la Terminale", "desc": "WIN Cours à domicile : un répétiteur sérieux chez vous, toutes matières, partout à Abidjan. Tarif au mois, remplacement garanti si le répétiteur ne convient pas.", "price": "", "date": "2026-08-01"}, {"title": "Traduction & interprétariat", "slug": "traduction-interpretariat", "audience": "Entreprises, particuliers", "desc": "Traduction français ↔ anglais de vos documents, interprète pour vos réunions, rendez-vous d'affaires et missions.", "price": "Sur devis", "date": "2026-07-01"}, {"title": "Cours privés", "slug": "cours-prives", "audience": "Adultes, professionnels", "desc": "Un programme sur mesure, à votre rythme, au centre, en ligne ou à domicile : entretien, travail, voyage, examen.", "price": "", "date": "2026-07-02"}], "shop": [], "resources": [], "officialTests": [{"title": "Test de Placement", "desc": "Pour les nouveaux inscrits : il détermine votre groupe et votre programme de départ.", "code": "PLACEMENT2026", "link": "", "audio": ""}, {"title": "Test Intermédiaire", "desc": "En cours de formation : il mesure vos progrès et valide le passage au niveau suivant.", "code": "INTER2026", "link": "", "audio": ""}], "faq": [{"q": "Où se trouve le centre ?", "a": "À Cocody, Riviera Palmeraie (Abidjan). Écrivez-nous sur WhatsApp pour recevoir l'itinéraire exact."}, {"q": "Les cours sont-ils aussi en ligne ?", "a": "Oui. Tous nos programmes existent en présentiel et en ligne, avec le même formateur et le même suivi."}, {"q": "Combien coûte la Promo Anglais Noël ?", "a": "65 000 F au lieu de 95 000 F : 35 000 F à l'inscription, puis 30 000 F début décembre. Cours du 9 novembre au 24 décembre, inscriptions jusqu'au 8 novembre."}, {"q": "Comment payer ?", "a": "Par Mobile Money au 07 67 03 72 84 ou au 01 41 81 70 78, puis envoyez la capture du paiement sur WhatsApp."}, {"q": "Proposez-vous des cours pour enfants ?", "a": "Oui : cours d'anglais pour enfants au centre ou à domicile, et répétiteurs du primaire à la terminale."}, {"q": "Comment connaître mon niveau ?", "a": "Faites le test de niveau gratuit sur cette page : 20 questions, résultat immédiat (A1, A2, B1 ou B2+)."}, {"q": "Faites-vous de la traduction ?", "a": "Oui : traduction de documents, interprétariat et escorte bilingue. Envoyez-nous votre demande sur WhatsApp."}, {"q": "Comment s'inscrire ?", "a": "Le plus simple : écrivez-nous sur WhatsApp au +225 07 67 03 72 84. Nous vous répondons rapidement."}]}</script>
+<script id="site-app">
+(function(){
+"use strict";
+var DATA = JSON.parse(document.getElementById('site-data').textContent);
+(function(){var L=window.PROGRAMMES||[],now=new Date(),D0=function(s){return new Date(s+'T00:00:00Z')},D1=function(s){return new Date(s+'T23:59:59Z')};
+var P=L.filter(function(p){return D0(p.afficherDes)<=now&&now<=D1(p.inscriptions[1]);})[0]; if(!P) return;
+var f=function(n){return n.toLocaleString('fr-FR').replace(/ | /g,' ')+' F'}, strip=function(h){return String(h).replace(/<[^>]+>/g,'')};
+var desc=(P.accroche?P.accroche+'.\n\n':'')+(P.details||[]).map(function(d){return d[0]+' '+strip(d[1])}).join('\n')+((P.bonus||[]).length?'\n\n🎁 Tes bonus :\n'+P.bonus.map(function(b){return b[0]+' '+strip(b[1])}).join('\n'):'')+'\n\n💳 Paiement Mobile Money : '+((window.CENTRE&&CENTRE.paiement&&CENTRE.paiement.numeros)||[]).join(' ou ');
+var it={title:(P.emoji?P.emoji+' ':'')+P.nom,slug:P.lien||P.id,desc:desc,price:P.prix?f(P.prix)+(P.prixBarre?' au lieu de '+f(P.prixBarre):''):'',image:'../'+P.visuel,audience:'Adultes, étudiants, professionnels',date:P.inscriptions[0],promo:true};
+DATA.specialFeatured=it;})();
+var STYLE_SRC = document.getElementById('site-style').textContent;
+var APP_SRC = document.getElementById('site-app').textContent;
+var app = document.getElementById('app');
+var state = { test:{step:'intro', i:0, score:0, name:'', phone:''}, unlocked:{} };
+try{ state.unlocked = JSON.parse(sessionStorage.getItem('wec-unlocked')||'{}'); }catch(e){}
+
+/* ---------- helpers ---------- */
+function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
+function nl(s){ return esc(s).replace(/\n/g,'<br>'); }
+function safeUrl(u){ u=String(u||'').trim(); return (/^(https?:|mailto:|tel:|data:image\/)/i.test(u)||/^(\.\.\/)?[\w\/.-]+$/.test(u))?u:''; }
+function g(){ return DATA.general; }
+function wa(text){ return 'https://wa.me/'+g().whatsapp.replace(/\D/g,'')+(text?'?text='+encodeURIComponent(text):''); }
+function list(k){ return Array.isArray(DATA[k])?DATA[k]:[]; }
+function platform(u){ u=String(u||''); if(/tiktok\.com/i.test(u)) return 'TikTok'; if(/facebook\.com|fb\.watch/i.test(u)) return 'Facebook'; if(/youtu\.?be/i.test(u)) return 'YouTube'; return 'Vidéo'; }
+function slugify(t){ return String(t||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,40)||'formation'; }
+function slugOf(it){ if(!it.slug) it.slug=slugify(it.title); return it.slug; }
+function progLink(it){ return String(g().siteUrl||'').replace(/#.*$/,'')+'#'+slugOf(it); }
+function programs(){
+  var out=[], F=DATA.specialFeatured;
+  list('specials').forEach(function(s){ out.push({kind:'Programme spécial', it:s}); });
+  list('courses').forEach(function(c){ out.push({kind:'Cours préenregistré', it:c}); });
+  if(F&&F.title && !out.some(function(o){return slugOf(o.it)===slugOf(F);})) out.push({kind:'Programme à la une', it:F});
+  return out;
+}
+function currentProg(){ var h=decodeURIComponent((location.hash||'').slice(1)); var sl=h.indexOf('p-')===0?h.slice(2):h; if(!sl) return null; return programs().filter(function(o){return slugOf(o.it)===sl;})[0]||null; }
+function $(sel,root){ return (root||document).querySelector(sel); }
+function expandable(items, n, key, renderFn){
+  var open = state['open_'+key];
+  var shown = open?items:items.slice(0,n);
+  var html = shown.map(renderFn).join('');
+  var more = items.length>n ? '<div class="more"><button class="btn btn-ghost" data-more="'+key+'">'+(open?'Voir moins':'Voir tout ('+items.length+')')+'</button></div>' : '';
+  return {html:html, more:more};
+}
+
+/* ---------- level test ---------- */
+var QUESTIONS = window.TEST_Q;
+function levelOf(s){ return s<=5?'A1':s<=10?'A2':s<=15?'B1':'B2+'; }
+var LEVEL_TXT = {
+ 'A1':"Vous posez les premières bases. Avec un accompagnement régulier, vous pouvez vite tenir des échanges simples.",
+ 'A2':"Vous comprenez l'essentiel des phrases courantes. Il est temps de pratiquer l'oral pour gagner en aisance.",
+ 'B1':"Vous vous débrouillez dans la plupart des situations. La pratique intensive vous fera passer un vrai cap.",
+ 'B2+':"Très bon niveau ! Perfectionnez votre aisance, votre accent et votre anglais professionnel."
+};
+function renderTest(){
+  var t = state.test, el = $('#test-box'); if(!el) return;
+  if(t.step==='intro'){
+    el.innerHTML = '<form id="test-form" class="test-grid">'+
+      '<p class="muted">20 questions, environ 5 minutes. Résultat immédiat sur l\'échelle européenne (CECR).</p>'+
+      '<div class="field"><label for="t-name">Votre nom</label><input id="t-name" required autocomplete="name" value="'+esc(t.name)+'"></div>'+
+      '<div class="field"><label for="t-phone">Votre téléphone (WhatsApp)</label><input id="t-phone" required inputmode="tel" autocomplete="tel" value="'+esc(t.phone)+'"></div>'+
+      '<button class="btn btn-red" type="submit">Commencer le test</button></form>';
+    $('#test-form').addEventListener('submit',function(e){ e.preventDefault(); t.name=$('#t-name').value.trim(); t.phone=$('#t-phone').value.trim(); if(!t.name||!t.phone) return; t.step='q'; t.i=0; t.score=0; renderTest(); });
+  } else if(t.step==='q'){
+    var q = QUESTIONS[t.i];
+    el.innerHTML = '<div class="q-meta"><span class="label">Question '+(t.i+1)+' / '+QUESTIONS.length+'</span><div class="progress"><i style="width:'+(t.i/QUESTIONS.length*100)+'%"></i></div></div>'+
+      '<p class="q-text">'+esc(q[0])+'</p><div class="opts">'+q[1].map(function(o,k){return '<button class="opt" data-k="'+k+'">'+esc(o)+'</button>';}).join('')+'</div>';
+    el.querySelectorAll('.opt').forEach(function(b){ b.addEventListener('click',function(){ if(+b.dataset.k===q[2]) t.score++; t.i++; t.step = t.i>=QUESTIONS.length?'done':'q'; renderTest(); }); });
+  } else {
+    var lv = levelOf(t.score);
+    var msg = "Bonjour Winners' English Center ! Je suis "+t.name+" ("+t.phone+"). J'ai fait le test de niveau sur votre site : "+t.score+"/"+QUESTIONS.length+", niveau "+lv+". J'aimerais connaître le programme adapté.";
+    el.innerHTML = '<div class="result"><span class="label">Votre niveau estimé</span><span class="lvl">'+lv+'</span><p><b>'+t.score+' / '+QUESTIONS.length+'</b> bonnes réponses</p><p class="muted" style="max-width:52ch">'+esc(LEVEL_TXT[lv])+'</p>'+
+      '<div class="row-btns"><a class="btn btn-wa" target="_blank" rel="noopener" href="'+wa(msg)+'">Envoyer mon résultat sur WhatsApp</a>'+
+      '<a class="btn btn-ghost" href="mailto:'+esc(g().email)+'?subject='+encodeURIComponent('Résultat test de niveau : '+lv)+'&body='+encodeURIComponent(msg)+'">Par email</a></div>'+
+      '<p class="note">Email : '+esc(g().email)+'</p><button class="btn btn-ghost" id="t-again">Refaire le test</button></div>';
+    $('#t-again').addEventListener('click',function(){ t.step='intro'; renderTest(); });
+  }
+}
+
+/* ---------- sections ---------- */
+var SECTIONS = [
+ {id:'activites', label:'Activités', show:function(){return list('gallery').length;}},
+ {id:'test', label:'Test de niveau', show:function(){return true;}},
+ {id:'appli', label:'Appli gratuite', show:function(){return true;}},
+ {id:'videos', label:'Vidéos', show:function(){return list('videos').length;}},
+ {id:'services', label:'Services', show:function(){return list('services').length;}},
+ {id:'fondateur', label:'Le fondateur', show:function(){return !!DATA.founder;}},
+ {id:'temoignages', label:'Témoignages', show:function(){return list('testimonials').length;}},
+ {id:'programmes', label:'Programmes spéciaux', show:function(){return list('specials').length || (DATA.specialFeatured&&DATA.specialFeatured.title);}},
+ {id:'cours', label:'Cours en ligne', show:function(){return list('courses').length;}},
+ {id:'boutique', label:'Boutique', show:function(){return list('shop').length;}},
+ {id:'ressources', label:'Ressources', show:function(){return list('resources').length;}},
+ {id:'tests', label:'Tests officiels', show:function(){return list('officialTests').length;}},
+ {id:'faq', label:'FAQ', show:function(){return list('faq').length;}},
+ {id:'contact', label:'Contact', show:function(){return true;}}
+];
+
+function header(){
+  var vis = SECTIONS.filter(function(s){return s.show();});
+  return '<header class="hdr"><div class="wrap"><div class="hdr-row">'+
+    '<a class="brand" href="#top"><img src="'+safeUrl(g().logo)+'" alt="Logo Winners\' English Center"><span><b>'+esc(g().name)+'</b><small>'+esc(g().tagline)+'</small></span></a>'+
+    '<nav class="nav" aria-label="Navigation principale"><a href="#programmes">Programmes</a><a href="#services">Services</a><a href="#test">Test de niveau</a><a href="#fondateur">À propos</a><a href="#contact">Contact</a></nav>'+
+    '<a class="btn btn-wa" target="_blank" rel="noopener" href="'+wa("Bonjour Winners' English Center, je souhaite des informations.")+'">WhatsApp <span>'+esc(g().whatsappDisplay)+'</span></a>'+
+    '</div><nav class="chips" aria-label="Rubriques">'+vis.map(function(s){return '<a href="#'+s.id+'">'+esc(s.label)+'</a>';}).join('')+'</nav></div></header>';
+}
+function hero(){
+  var G=g(), imgs=(G.heroImages||[]).filter(Boolean), t=(G.heroTitles||[])[0]||['',''];
+  return '<section class="hero" id="top"><div class="hero-bg">'+imgs.map(function(s,i){return '<img src="'+safeUrl(s)+'" alt="" class="'+(i===0?'on':'')+'">';}).join('')+'</div>'+
+    '<div class="wrap"><div class="hero-in"><span class="label">'+esc(G.name)+' · Cocody, Riviera Palmeraie</span>'+
+    '<h1 id="hero-title">'+esc(t[0])+'<br><em>'+esc(t[1])+'</em></h1>'+
+    '<p class="hero-sub">'+nl(G.heroSubtitle)+'</p>'+
+    '<div class="hero-cta">'+(DATA.specialFeatured&&DATA.specialFeatured.promo?'<a class="btn btn-gold" href="#'+esc(slugOf(DATA.specialFeatured))+'">'+esc(DATA.specialFeatured.title)+'</a>':'')+'<a class="btn btn-red" href="#test">Faire mon test de niveau</a><button class="btn btn-ghost" data-rdv>Prendre un rendez-vous</button></div>'+
+    '<div class="cefr" aria-label="Niveaux du Cadre européen"><div class="cefr-bar"><span>A1</span><span>A2</span><span>B1</span><span>B2</span><span>C1</span><span>C2</span></div><small>Du grand débutant (A1) à la maîtrise (C2) : chaque apprenant progresse depuis son niveau réel.</small></div>'+
+    '<div class="stats">'+(G.stats||[]).map(function(s){return '<div><b>'+esc(s.n)+'</b><span>'+esc(s.l)+'</span></div>';}).join('')+'</div>'+
+    '</div></div></section>';
+}
+function secSpot(){
+  var o=currentProg(); if(!o) return '';
+  var it=o.it, F=DATA.specialFeatured||{}, img=it.image||it.cover||(slugOf(F)===slugOf(it)?F.image:'')||'';
+  var msg="Bonjour Winners' English Center ! J'ai vu votre publicité pour « "+it.title+" ». Je souhaite m'inscrire / avoir les détails.";
+  return '<section class="spot" id="p-'+esc(slugOf(it))+'"><div class="wrap"><div class="spot-in"><div><span class="label">'+esc(o.kind)+'</span><h1>'+esc(it.title)+'</h1>'+(it.audience?'<span class="badge">'+esc(it.audience)+'</span>':'')+(it.level?'<span class="badge">Niveau '+esc(it.level)+'</span>':'')+
+    (it.price?'<span class="price" style="display:block;margin-top:12px">'+esc(it.price)+'</span>':'')+
+    '<div class="hero-cta" style="margin-top:8px"><a class="btn btn-red" target="_blank" rel="noopener" href="'+wa(msg)+'">Je m\'inscris sur WhatsApp</a><a class="btn btn-ghost" href="#test">Tester mon niveau</a></div>'+
+    '<p style="margin-top:18px">'+nl(it.desc)+'</p>'+
+    '<p class="note" style="color:#b9c2d6;margin-top:16px">Découvrez ci-dessous tout Winners\' English Center : nos services, nos vidéos et notre fondateur.</p></div>'+
+    (img?'<div class="media"><img src="'+safeUrl(img)+'" alt=""></div>':'')+'</div></div></section>';
+}
+function head(label,title,sub){ return '<div class="sec-head"><span class="label">'+esc(label)+'</span><h2>'+esc(title)+'</h2>'+(sub?'<p class="muted">'+esc(sub)+'</p>':'')+'</div>'; }
+function secGallery(){
+  var items=list('gallery'); if(!items.length) return '';
+  var e=expandable(items,9,'gal',function(p){return '<figure class="'+(p.big?'big':'')+'"><img loading="lazy" src="'+safeUrl(p.img)+'" alt="'+esc(p.caption)+'"><figcaption>'+esc(p.caption)+'</figcaption></figure>';});
+  return '<section class="sec" id="activites"><div class="wrap">'+head('Galerie','Nos activités en images')+'<div class="gal">'+e.html+'</div>'+e.more+'</div></section>';
+}
+function secTest(){
+  return '<section class="sec alt" id="test"><div class="wrap">'+head('Gratuit · 5 minutes','Test de niveau rapide','Répondez à 20 questions et découvrez votre niveau d\'anglais estimé, puis recevez le programme qui vous correspond.')+'<div class="card test" id="test-box"></div></div></section>';
+}
+function secVideos(){
+  var items=list('videos'); if(!items.length) return '';
+  var e=expandable(items,8,'vid',function(v){ var u=safeUrl(v.url); return '<a class="vid" target="_blank" rel="noopener" href="'+u+'"><div class="thumb">'+(v.cover?'<img loading="lazy" src="'+safeUrl(v.cover)+'" alt="">':'')+'<span class="plat">'+platform(u)+'</span><span class="play" aria-hidden="true"></span></div><b>'+esc(v.title)+'</b></a>';});
+  return '<section class="sec band" id="videos"><div class="wrap">'+head('Vidéos','Nos apprenants en action','Ils parlent, ils pratiquent, ils progressent. Touchez une vidéo pour la regarder sur TikTok.')+'<div class="vids">'+e.html+'</div>'+e.more+'</div></section>';
+}
+function secServices(){
+  var items=list('services'); if(!items.length) return '';
+  var e=expandable(items,8,'svc',function(s){return '<div class="card"><span class="ic" aria-hidden="true">'+esc(s.icon)+'</span><h3>'+esc(s.title)+'</h3><p>'+nl(s.desc)+'</p></div>';});
+  return '<section class="sec" id="services"><div class="wrap">'+head('Ce que nous faisons','Nos services')+'<div class="svc">'+e.html+'</div>'+e.more+'</div></section>';
+}
+function secFounder(){
+  var f=DATA.founder; if(!f) return '';
+  var ph=(f.photos||[]).filter(Boolean).slice(0,3);
+  var arts=(f.articles||[]).filter(function(a){return a.title||a.text;});
+  var extra=(f.extraPhotos||[]).filter(Boolean).slice(0,5);
+  return '<section class="sec band" id="fondateur"><div class="wrap"><div class="bio">'+
+    '<div class="bio-photos '+(ph.length<2?'one':'')+'">'+ph.map(function(p){return '<img src="'+safeUrl(p)+'" alt="'+esc(f.name)+'">';}).join('')+'</div>'+
+    '<div><span class="label" style="color:#D4AF37">Le fondateur</span><h3 style="margin-top:8px">'+esc(f.name)+'</h3><p class="role">'+esc(f.role)+'</p><p>'+nl(f.desc)+'</p>'+
+    '<div class="tags">'+(f.skills||[]).map(function(s){return '<span>'+esc(s)+'</span>';}).join('')+'</div></div></div>'+
+    (arts.length?'<div class="press">'+arts.map(function(a){return '<article>'+(a.img?'<figure style="margin:0"><img src="'+safeUrl(a.img)+'" alt=""><figcaption>'+esc(a.caption)+'</figcaption></figure>':'')+'<h4>'+esc(a.title)+'</h4><p class="muted">'+nl(a.text)+'</p></article>';}).join('')+'</div>':'')+
+    (extra.length?'<div class="extra">'+extra.map(function(p){return '<img loading="lazy" src="'+safeUrl(p)+'" alt="">';}).join('')+'</div>':'')+
+    '</div></section>';
+}
+function secTestimonials(){
+  var items=list('testimonials').filter(function(t){return t.text;}); if(!items.length) return '';
+  var cards=items.map(function(t){return '<div class="card tcard"><p>« '+esc(t.text)+' »</p><div><b>'+esc(t.name)+'</b><br><small>'+esc(t.role)+'</small></div></div>';}).join('');
+  return '<section class="sec" id="temoignages"><div class="wrap">'+head('Ils témoignent','Ce que disent nos apprenants')+'</div><div class="marquee"><div class="track">'+cards+cards+'</div></div></section>';
+}
+function secSpecials(){
+  var F=DATA.specialFeatured||{}, items=list('specials').slice().sort(function(a,b){return String(b.date||'').localeCompare(String(a.date||''));});
+  if(!items.length && !F.title) return '';
+  var feat = F.title ? '<div class="feat"><div class="txt"><span class="label">Programme à la une</span><h3>'+esc(F.title)+'</h3><p>'+nl(F.desc)+'</p>'+(F.price?'<span class="price">'+esc(F.price)+'</span>':'')+
+    '<div class="row-btns" style="justify-content:flex-start"><a class="btn btn-red" target="_blank" rel="noopener" href="'+wa("Bonjour, je veux m'inscrire à "+F.title+".")+'">Je m\'inscris</a>'+(F.videoUrl?'<a class="btn btn-ghost" target="_blank" rel="noopener" href="'+safeUrl(F.videoUrl)+'">Voir la vidéo</a>':'')+'</div></div>'+
+    '<div class="media">'+(F.image?'<img src="'+safeUrl(F.image)+'" alt="">':'')+'</div></div>' : '';
+  var e=expandable(items,6,'spe',function(s,i){return '<div class="card item" id="card-'+esc(slugOf(s))+'"><div class="body">'+(i===0?'<span class="new">Nouveau</span>':'')+'<span class="badge">'+esc(s.audience)+'</span><h3>'+esc(s.title)+'</h3><p class="muted">'+nl(s.desc)+'</p>'+(s.price?'<span class="price">'+esc(s.price)+'</span>':'')+'<a class="btn btn-ghost" target="_blank" rel="noopener" href="'+wa("Bonjour, je souhaite des informations sur "+s.title+".")+'">Je me renseigne</a></div></div>';});
+  return '<section class="sec alt" id="programmes"><div class="wrap">'+head('Programmes spéciaux','Des programmes pour chaque objectif')+feat+'<div class="grid3">'+e.html+'</div>'+e.more+'</div></section>';
+}
+function secCourses(){
+  var items=list('courses'); if(!items.length) return '';
+  var e=expandable(items,6,'crs',function(c,i){
+    var key='c'+i+'_'+(c.title||''), open=!!state.unlocked[key];
+    var links=(c.links||'').split('\n').map(function(l){var p=l.split('|'); return p.length>1?{t:p[0].trim(),u:safeUrl(p.slice(1).join('|'))}:null;}).filter(function(x){return x&&x.u;});
+    return '<div class="card item" id="card-'+esc(slugOf(c))+'"><div class="cover">'+(c.cover?'<img loading="lazy" src="'+safeUrl(c.cover)+'" alt="">':'')+'</div><div class="body"><span class="badge">Niveau '+esc(c.level)+'</span><h3>'+esc(c.title)+'</h3><p class="muted">'+nl(c.desc)+'</p>'+
+      '<p><span class="price">'+esc(c.price)+'</span>'+(c.access?' <span class="muted">· accès '+esc(c.access)+'</span>':'')+'</p>'+
+      (c.videoUrl?'<a target="_blank" rel="noopener" href="'+safeUrl(c.videoUrl)+'">▶ Vidéo de présentation</a>':'')+
+      (open?'<div class="links">'+(links.length?links.map(function(l){return '<a target="_blank" rel="noopener" href="'+l.u+'">'+esc(l.t)+'</a>';}).join(''):'<span class="muted">Les contenus arrivent bientôt.</span>')+'</div>'
+           :'<form class="lock" data-lock="'+esc(key)+'" data-idx="'+i+'" data-list="courses"><label class="note" style="flex-basis:100%" for="lk'+i+'">Code d\'accès (reçu après paiement)</label><input id="lk'+i+'" placeholder="Code"><button class="btn btn-red" type="submit">Déverrouiller</button></form>')+
+      '<div class="row-btns" style="justify-content:flex-start"><a class="btn btn-wa" target="_blank" rel="noopener" href="'+wa("Bonjour, je veux acheter le cours « "+c.title+" ».")+'">Acheter</a><button class="btn btn-ghost" data-cert="'+i+'">Obtenir mon attestation</button></div></div></div>';
+  });
+  return '<section class="sec" id="cours"><div class="wrap">'+head('À votre rythme','Cours préenregistrés','Des programmes complets à suivre seul, sans séance en direct.')+'<div class="grid3">'+e.html+'</div>'+e.more+'</div></section>';
+}
+function secShop(){
+  var items=list('shop'); if(!items.length) return '';
+  var e=expandable(items,6,'shp',function(p){return '<div class="card item"><div class="cover">'+(p.cover?'<img loading="lazy" src="'+safeUrl(p.cover)+'" alt="">':'')+'</div><div class="body"><h3>'+esc(p.title)+'</h3><p class="muted">'+nl(p.desc)+'</p><span class="price">'+esc(p.price)+'</span><div class="row-btns" style="justify-content:flex-start">'+(p.payUrl?'<a class="btn btn-red" target="_blank" rel="noopener" href="'+safeUrl(p.payUrl)+'">Acheter</a>':'<a class="btn btn-red" target="_blank" rel="noopener" href="'+wa("Bonjour, je veux acheter « "+p.title+" ».")+'">Commander</a>')+(p.audioUrl?'<a class="btn btn-ghost" target="_blank" rel="noopener" href="'+safeUrl(p.audioUrl)+'">Écouter l\'audio</a>':'')+'</div></div></div>';});
+  return '<section class="sec alt" id="boutique"><div class="wrap">'+head('Boutique','Livres et guides numériques')+'<div class="grid3">'+e.html+'</div>'+e.more+'</div></section>';
+}
+function secResources(){
+  var items=list('resources'); if(!items.length) return '';
+  var e=expandable(items,6,'res',function(r){return '<div class="card item"><div class="cover">'+(r.cover?'<img loading="lazy" src="'+safeUrl(r.cover)+'" alt="">':'')+'</div><div class="body"><span class="badge">Gratuit</span><h3>'+esc(r.title)+'</h3><p class="muted">'+nl(r.desc)+'</p>'+(r.url?'<a class="btn btn-ghost" target="_blank" rel="noopener" href="'+safeUrl(r.url)+'">Télécharger</a>':'')+'</div></div>';});
+  return '<section class="sec" id="ressources"><div class="wrap">'+head('Offert','Ressources gratuites')+'<div class="grid3">'+e.html+'</div>'+e.more+'</div></section>';
+}
+function secTests(){
+  var items=list('officialTests'); if(!items.length) return '';
+  return '<section class="sec band" id="tests"><div class="wrap">'+head('Réservé aux inscrits','Tests officiels','Le code d\'accès vous est communiqué par votre formateur.')+'<div class="tests">'+items.map(function(t,i){
+    var key='t'+i+'_'+(t.title||''), open=!!state.unlocked[key];
+    return '<div class="card" style="color:var(--fg)"><span class="badge">Accès protégé</span><h3>'+esc(t.title)+'</h3><p class="muted">'+nl(t.desc)+'</p>'+
+      (open?'<div class="links">'+(t.link?'<a target="_blank" rel="noopener" href="'+safeUrl(t.link)+'">Ouvrir le test</a>':'<span class="muted">Le lien du test sera communiqué par votre formateur.</span>')+(t.audio?'<a target="_blank" rel="noopener" href="'+safeUrl(t.audio)+'">Écouter l\'audio</a>':'')+'</div>'
+        :'<form class="lock" data-lock="'+esc(key)+'" data-idx="'+i+'" data-list="officialTests"><label class="note" style="flex-basis:100%" for="tk'+i+'">Code d\'accès</label><input id="tk'+i+'" placeholder="Code"><button class="btn btn-red" type="submit">Accéder</button></form>')+'</div>';
+  }).join('')+'</div></div></section>';
+}
+function secFaq(){
+  var items=list('faq'); if(!items.length) return '';
+  var e=expandable(items,8,'faq',function(f){return '<details><summary>'+esc(f.q)+'</summary><p>'+nl(f.a)+'</p></details>';});
+  return '<section class="sec" id="faq"><div class="wrap">'+head('Questions fréquentes','FAQ')+'<div class="faq">'+e.html+'</div>'+e.more+'</div></section>';
+}
+function secContact(){
+  var G=g();
+  return '<section class="sec alt" id="reseaux"><div class="wrap" style="display:grid;gap:16px">'+head('Suivez-nous','Rejoignez la communauté','Un quiz, une astuce ou un défi en anglais presque tous les jours.')+
+    '<div class="social"><a class="btn btn-red" target="_blank" rel="noopener" href="'+safeUrl(G.facebook)+'">Facebook · Winners\' English Center</a><a class="btn btn-ghost" target="_blank" rel="noopener" href="'+safeUrl(G.tiktok)+'">TikTok · @winnersenglish</a></div></div></section>'+
+    '<section class="sec band" id="contact"><div class="wrap">'+head('Contact','Parlons de votre projet en anglais')+'<div class="contact"><div class="clist">'+
+    '<div><span class="label">WhatsApp</span><b>'+esc(G.whatsappDisplay)+'</b></div>'+
+    '<div><span class="label">Téléphone</span><b>'+esc(G.phone)+'</b></div>'+
+    '<div><span class="label">Email</span><b>'+esc(G.email)+'</b></div>'+
+    '<div><span class="label">Adresse</span><b>'+esc(G.address)+'</b></div>'+
+    '<div class="row-btns" style="justify-content:flex-start"><a class="btn btn-wa" target="_blank" rel="noopener" href="'+wa("Bonjour Winners' English Center, je souhaite des informations.")+'">Écrire sur WhatsApp</a><button class="btn btn-ghost" data-rdv>Prendre rendez-vous</button></div></div>'+
+    '<div class="mapcard"><span class="pin" aria-hidden="true"></span><span class="label" style="color:#D4AF37">Nous trouver</span><b style="font-family:var(--f-display);font-size:1.5rem">Cocody, Riviera Palmeraie</b><div class="row-btns" style="justify-content:flex-start"><a class="btn btn-gold" target="_blank" rel="noopener" href="'+safeUrl(G.mapsUrl)+'">Ouvrir dans Google Maps</a><a class="btn btn-wa" target="_blank" rel="noopener" href="'+wa("Bonjour, pouvez-vous m'envoyer l'itinéraire du centre ?")+'">Demander l\'itinéraire</a></div></div>'+
+    '</div></div></section>'+
+    '<footer><div class="wrap"><span>© '+new Date().getFullYear()+' '+esc(G.name)+' · Cocody, Riviera Palmeraie</span><a href="../" style="color:inherit">📲 L\'appli Winners English</a></div></footer>';
+}
+
+function secApp(){
+  return '<section class="sec" id="appli"><div class="wrap"><div class="card" style="display:grid;gap:10px;text-align:center;padding:26px"><span class="label">Gratuit</span><h2 style="margin:0">📲 L\'appli Winners English</h2><p class="muted" style="margin:0 auto;max-width:56ch">Leçons du débutant à l\'avancé avec la prononciation écrite, flashcards, phrase du jour, quiz de l\'actu… Installez-la sur votre téléphone.</p><div class="row-btns"><a class="btn btn-red" href="../">Ouvrir l\'appli</a></div></div></div></section>';
+}
+function render(){
+  app.innerHTML = header()+'<main>'+secSpot()+hero()+secGallery()+secTest()+secApp()+secVideos()+secServices()+secFounder()+secTestimonials()+secSpecials()+secCourses()+secShop()+secResources()+secTests()+secFaq()+'</main>'+secContact();
+  renderTest(); bind(); startHero();
+}
+
+/* ---------- interactions ---------- */
+var heroTimer=null;
+function startHero(){
+  clearInterval(heroTimer);
+  var titles=g().heroTitles||[], imgs=app.querySelectorAll('.hero-bg img'), i=0;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  heroTimer=setInterval(function(){
+    i++;
+    if(imgs.length){ imgs.forEach(function(im,k){im.classList.toggle('on',k===i%imgs.length);}); }
+    var h=$('#hero-title'); if(!h||!titles.length) return;
+    h.style.opacity=0;
+    setTimeout(function(){ var t=titles[i%titles.length]; h.innerHTML=esc(t[0])+'<br><em>'+esc(t[1])+'</em>'; h.style.opacity=1; },500);
+  },5000);
+}
+function bind(){
+  app.querySelectorAll('[data-more]').forEach(function(b){ b.addEventListener('click',function(){ var k='open_'+b.dataset.more; state[k]=!state[k]; render(); var s=b.closest('section'); if(s) s.scrollIntoView(); }); });
+  app.querySelectorAll('[data-rdv]').forEach(function(b){ b.addEventListener('click',openRdv); });
+  app.querySelectorAll('form.lock').forEach(function(f){ f.addEventListener('submit',function(e){
+    e.preventDefault(); var item=list(f.dataset.list)[+f.dataset.idx]; var v=f.querySelector('input').value.trim();
+    if(item && v && v===String(item.code||'').trim()){ state.unlocked[f.dataset.lock]=1; try{sessionStorage.setItem('wec-unlocked',JSON.stringify(state.unlocked));}catch(_){} render(); location.hash=f.closest('section').id; }
+    else { var n=f.querySelector('.err')||document.createElement('p'); n.className='note err'; n.style.flexBasis='100%'; n.style.color='var(--red)'; n.textContent='Code incorrect. Vérifiez le code reçu de votre formateur.'; f.appendChild(n); }
+  }); });
+  app.querySelectorAll('[data-cert]').forEach(function(b){ b.addEventListener('click',function(){ openCert(list('courses')[+b.dataset.cert]); }); });
+  var al=$('#admin-link'); if(al) al.addEventListener('click',askAdmin);
+}
+function modal(html){
+  var m=document.createElement('div'); m.className='modal'; m.setAttribute('role','dialog'); m.setAttribute('aria-modal','true');
+  m.innerHTML='<div class="modal-box"><button class="x" aria-label="Fermer">×</button>'+html+'</div>';
+  document.body.appendChild(m);
+  function close(){ m.remove(); document.removeEventListener('keydown',kd); }
+  function kd(e){ if(e.key==='Escape') close(); }
+  m.addEventListener('click',function(e){ if(e.target===m||e.target.classList.contains('x')) close(); });
+  document.addEventListener('keydown',kd);
+  var f=m.querySelector('input,button.btn,a.btn'); if(f) f.focus();
+  return {el:m, close:close};
+}
+function copyRow(id,val){ return '<div class="copy"><span id="'+id+'">'+esc(val)+'</span><button class="mini" data-copy="'+id+'">Copier</button></div>'; }
+function bindCopy(root){ root.querySelectorAll('[data-copy]').forEach(function(b){ b.addEventListener('click',function(){ var t=document.getElementById(b.dataset.copy).textContent; var done=function(){b.textContent='Copié';}; try{ navigator.clipboard.writeText(t).then(done,function(){selectText(b.dataset.copy);}); }catch(e){ selectText(b.dataset.copy); } }); }); }
+function selectText(id){ var r=document.createRange(); r.selectNodeContents(document.getElementById(id)); var s=getSelection(); s.removeAllRanges(); s.addRange(r); }
+function openRdv(){
+  var G=g(), msg="Bonjour Winners' English Center, je souhaite prendre un rendez-vous.";
+  var m=modal('<h3>Prendre un rendez-vous</h3><p class="muted">Choisissez votre moyen de contact préféré. Nous vous répondons rapidement.</p>'+
+    '<a class="btn btn-wa" target="_blank" rel="noopener" href="'+wa(msg)+'">Par WhatsApp</a>'+
+    '<a class="btn btn-ghost" href="mailto:'+esc(G.email)+'?subject='+encodeURIComponent('Demande de rendez-vous')+'&body='+encodeURIComponent(msg)+'">Par email</a>'+
+    '<p class="note">Si le bouton email ne s\'ouvre pas, écrivez-nous directement :</p>'+copyRow('rdv-mail',G.email)+copyRow('rdv-wa',G.whatsappDisplay));
+  bindCopy(m.el);
+}
+
+/* ---------- certificate ---------- */
+function openCert(course){
+  if(!course) return;
+  var m=modal('<h3>Obtenir mon attestation</h3><p class="muted">Cours : <b>'+esc(course.title)+'</b>. Saisissez votre nom et le score obtenu au test final du cours. L\'attestation est délivrée à partir de 70/100.</p>'+
+    '<form id="cert-form" class="test-grid"><div class="field"><label for="c-name">Nom complet</label><input id="c-name" required></div><div class="field"><label for="c-score">Score au test final (sur 100)</label><input id="c-score" type="number" min="0" max="100" required></div><button class="btn btn-red" type="submit">Générer</button></form><div id="cert-out"></div>');
+  $('#cert-form',m.el).addEventListener('submit',function(e){
+    e.preventDefault(); var name=$('#c-name',m.el).value.trim(), sc=+$('#c-score',m.el).value, out=$('#cert-out',m.el);
+    if(sc<70){ out.innerHTML='<p class="note" style="color:var(--red)">Score inférieur à 70/100 : révisez le cours et repassez le test, vous y êtes presque.</p>'; return; }
+    var cv=drawCert(name,course.title,sc), url=cv.toDataURL('image/png');
+    out.innerHTML='<img class="cert-img" src="'+url+'" alt="Attestation de '+esc(name)+'"><div class="row-btns"><button class="btn btn-gold" id="cert-dl" hidden>Enregistrer l\'image</button></div><p class="note" id="cert-note">Sur téléphone : appui long sur l\'image pour l\'enregistrer.</p>';
+    if(window.claude&&claude.use){ claude.use('downloads').then(function(dl){ if(!dl) return; var b=$('#cert-dl',m.el); b.hidden=false; b.addEventListener('click',function(){ cv.toBlob(function(blob){ dl.save({filename:'attestation-'+name.replace(/[^\w-]+/g,'-')+'.png', data:blob}).catch(function(){ $('#cert-note',m.el).textContent='Enregistrement annulé. Vous pouvez aussi faire un appui long ou une capture d\'écran.'; }); }); }); }); }
+  });
+}
+function drawCert(name,course,score){
+  var c=document.createElement('canvas'); c.width=1600; c.height=1130; var x=c.getContext('2d');
+  x.fillStyle='#F7F5F0'; x.fillRect(0,0,1600,1130);
+  x.strokeStyle='#1B2A4A'; x.lineWidth=18; x.strokeRect(40,40,1520,1050);
+  x.strokeStyle='#D4AF37'; x.lineWidth=4; x.strokeRect(78,78,1444,974);
+  x.textAlign='center'; x.fillStyle='#1B2A4A';
+  x.font='700 30px "Space Mono", monospace'; x.fillText("WINNERS' ENGLISH CENTER",800,190);
+  x.font='800 92px Fraunces, Georgia, serif'; x.fillText('Attestation de réussite',800,320);
+  x.font='400 34px Inter, sans-serif'; x.fillStyle='#5b6478'; x.fillText('décernée à',800,400);
+  x.font='italic 700 84px Fraunces, Georgia, serif'; x.fillStyle='#C8102E'; x.fillText(name,800,510);
+  x.font='400 34px Inter, sans-serif'; x.fillStyle='#1B2A4A'; x.fillText('pour avoir suivi le cours',800,600);
+  x.font='700 46px Fraunces, Georgia, serif'; x.fillText(course,800,670);
+  x.font='400 32px Inter, sans-serif'; x.fillStyle='#5b6478'; x.fillText('avec un score déclaré de '+score+'/100 au test final',800,740);
+  var d=new Date().toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'});
+  x.font='400 28px Inter, sans-serif'; x.fillText('Cocody, Riviera Palmeraie, le '+d,800,830);
+  x.fillStyle='#1B2A4A'; x.font='700 30px Fraunces, Georgia, serif'; x.fillText('Coach Winner',1200,960); x.fillRect(1040,910,320,2);
+  x.font='400 22px Inter, sans-serif'; x.fillStyle='#5b6478'; x.fillText('Formateur, fondateur',1200,995);
+  var lg=new Image(); lg.src=g().logo; try{ x.drawImage(lg,330,880,140,140); }catch(e){}
+  return c;
+}
+
+/* ---------- admin ---------- */
+var IMG='img', TXT='text', AREA='area', URL_='url', BOOL='bool', NUM='num';
+var SCHEMA = [
+ {key:'general', label:'Général', obj:true, fields:[['name','Nom du centre',TXT],['tagline','Slogan court',TXT],['logo','Logo',IMG],['whatsapp','Numéro WhatsApp (chiffres, avec 225)',TXT],['whatsappDisplay','WhatsApp affiché',TXT],['phone','Téléphone',TXT],['email','Email',TXT],['address','Adresse',TXT],['mapsUrl','Lien Google Maps',URL_],['siteUrl','Adresse du site (pour les liens publicitaires)',URL_],['facebook','Lien Facebook',URL_],['tiktok','Lien TikTok',URL_],['heroSubtitle','Texte d\'accueil',AREA],['adminCode','Code de l\'espace admin',TXT]],
+   extra:[{key:'heroTitles', label:'Titres de l\'accueil (français / anglais)', fields:[['0','Français',TXT],['1','Anglais',TXT]], arr:true},
+          {key:'heroImages', label:'Photos de fond de l\'accueil (3 conseillées)', single:IMG},
+          {key:'stats', label:'Chiffres clés (4)', fields:[['n','Chiffre',TXT],['l','Libellé',TXT]]}]},
+ {key:'gallery', label:'Galerie photo', fields:[['img','Photo',IMG],['caption','Légende',TXT],['big','Grande photo',BOOL]]},
+ {key:'videos', label:'Vidéos', fields:[['title','Titre',TXT],['url','Lien (TikTok, Facebook, YouTube)',URL_],['cover','Photo de couverture',IMG]]},
+ {key:'services', label:'Services', fields:[['icon','Icône (emoji)',TXT],['title','Titre',TXT],['desc','Description',AREA]]},
+ {key:'founder', label:'Fondateur', obj:true, fields:[['name','Nom',TXT],['role','Rôle',TXT],['desc','Présentation',AREA]],
+   extra:[{key:'photos', label:'Photos (1 à 3)', single:IMG},{key:'skills', label:'Compétences', single:TXT},
+          {key:'articles', label:'Articles (parcours, naissance du centre)', fields:[['img','Photo',IMG],['caption','Légende photo',TXT],['title','Titre',TXT],['text','Texte',AREA]]},
+          {key:'extraPhotos', label:'Galerie (5 photos)', single:IMG}]},
+ {key:'testimonials', label:'Témoignages', fields:[['text','Témoignage',AREA],['name','Nom',TXT],['role','Profession / niveau',TXT]]},
+ {key:'specialFeatured', label:'Programme à la une', obj:true, adlink:true, fields:[['title','Titre',TXT],['slug','Code du lien publicitaire',TXT],['desc','Description',AREA],['price','Prix',TXT],['videoUrl','Lien vidéo',URL_],['image','Image',IMG]]},
+ {key:'specials', label:'Programmes spéciaux', adlink:true, fields:[['title','Titre',TXT],['slug','Code du lien publicitaire',TXT],['audience','Public',TXT],['desc','Description',AREA],['price','Prix',TXT],['date','Date d\'ajout (AAAA-MM-JJ)',TXT]], newFirst:true},
+ {key:'courses', label:'Cours préenregistrés', adlink:true, fields:[['title','Titre',TXT],['slug','Code du lien publicitaire',TXT],['level','Niveau',TXT],['desc','Description',AREA],['price','Prix',TXT],['access','Durée d\'accès',TXT],['cover','Couverture',IMG],['videoUrl','Vidéo de présentation (lien)',URL_],['code','Code d\'accès',TXT],['links','Liens (un par ligne : Nom | https://…)',AREA]]},
+ {key:'shop', label:'Boutique (ebooks)', fields:[['title','Titre',TXT],['desc','Description',AREA],['price','Prix',TXT],['cover','Couverture',IMG],['payUrl','Lien de paiement',URL_],['audioUrl','Lien audio (optionnel)',URL_]]},
+ {key:'resources', label:'Ressources gratuites', fields:[['title','Titre',TXT],['desc','Description',AREA],['cover','Couverture',IMG],['url','Lien de téléchargement',URL_]]},
+ {key:'officialTests', label:'Tests officiels', fields:[['title','Titre',TXT],['desc','Description',AREA],['code','Code d\'accès',TXT],['link','Lien du test',URL_],['audio','Lien audio (optionnel)',URL_]]},
+ {key:'faq', label:'FAQ', fields:[['q','Question',TXT],['a','Réponse',AREA]]}
+];
+var adminSec='general', dirty=false;
+function askAdmin(){
+  var m=modal('<h3>Espace administration</h3><form id="adm-f" class="test-grid"><div class="field"><label for="adm-code">Code d\'accès</label><input id="adm-code" type="password" autocomplete="off"></div><button class="btn btn-red" type="submit">Entrer</button><p class="note" id="adm-err"></p></form>');
+  $('#adm-f',m.el).addEventListener('submit',function(e){ e.preventDefault(); if($('#adm-code',m.el).value===String(g().adminCode)){ m.close(); openAdmin(); } else $('#adm-err',m.el).textContent='Code incorrect.'; });
+}
+function openAdmin(){
+  var a=document.createElement('div'); a.className='admin'; a.id='admin';
+  a.innerHTML='<div class="admin-top"><b>Administration du site</b><span class="status" id="adm-status">Les modifications s\'appliquent à l\'aperçu. Cliquez sur Enregistrer pour les publier.</span><button class="btn btn-ghost" id="adm-close">Voir le site</button><button class="btn btn-red" id="adm-save">Enregistrer</button></div>'+
+    '<div class="admin-main"><nav class="admin-nav">'+SCHEMA.map(function(s){return '<button data-s="'+s.key+'">'+esc(s.label)+'</button>';}).join('')+'</nav><div class="admin-body" id="adm-body"></div></div>';
+  document.body.appendChild(a); document.body.style.overflow='hidden';
+  a.querySelectorAll('[data-s]').forEach(function(b){ b.addEventListener('click',function(){ adminSec=b.dataset.s; drawAdmin(); }); });
+  $('#adm-close').addEventListener('click',function(){ a.remove(); document.body.style.overflow=''; render(); if(dirty) toastBar(); });
+  $('#adm-save').addEventListener('click',save);
+  drawAdmin();
+}
+function toastBar(){
+  var t=document.getElementById('unsaved'); if(t) t.remove();
+  t=document.createElement('div'); t.id='unsaved'; t.style.cssText='position:fixed;left:16px;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:70;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:12px 16px;border-radius:12px;background:#1B2A4A;color:#F7F5F0;box-shadow:var(--shadow)';
+  t.innerHTML='<span>Aperçu avec modifications non enregistrées.</span><span style="display:flex;gap:8px"><button class="btn btn-ghost" id="u-admin">Retour à l\'admin</button><button class="btn btn-red" id="u-save">Enregistrer</button></span>';
+  document.body.appendChild(t);
+  $('#u-admin').addEventListener('click',function(){ t.remove(); openAdmin(); });
+  $('#u-save').addEventListener('click',function(){ t.remove(); openAdmin(); save(); });
+}
+function fieldHtml(id,label,type,val){
+  if(type===IMG) return '<div class="field"><span style="font-weight:600;font-size:.92rem">'+esc(label)+'</span><div class="imgf">'+(val?'<img src="'+safeUrl(val)+'" alt="">':'<span class="note">Aucune photo</span>')+'<label class="mini" for="'+id+'">Choisir une photo</label><input id="'+id+'" type="file" accept="image/*" hidden data-img>'+(val?'<button class="mini" data-clear="'+id+'">Retirer</button>':'')+'</div></div>';
+  if(type===AREA) return '<div class="field"><label for="'+id+'">'+esc(label)+'</label><textarea id="'+id+'">'+esc(val)+'</textarea></div>';
+  if(type===BOOL) return '<label class="chk" for="'+id+'"><input id="'+id+'" type="checkbox" '+(val?'checked':'')+'> '+esc(label)+'</label>';
+  return '<div class="field"><label for="'+id+'">'+esc(label)+'</label><input id="'+id+'" value="'+esc(val)+'"></div>';
+}
+function drawAdmin(){
+  document.querySelectorAll('#admin [data-s]').forEach(function(b){ b.classList.toggle('on',b.dataset.s===adminSec); });
+  var S=SCHEMA.filter(function(s){return s.key===adminSec;})[0], body=$('#adm-body'), h='<h2>'+esc(S.label)+'</h2>';
+  var refs=[];
+  function reg(obj,k,type){ var id='f'+refs.length; refs.push({id:id,obj:obj,k:k,type:type}); return id; }
+  var adl=!!S.adlink;
+  function listEd(arr, fields, single, title, path){
+    var out='';
+    arr.forEach(function(it,i){
+      out+='<div class="ed-item"><div class="ed-head"><b>'+esc(title)+' '+(i+1)+'</b><button data-mv="'+path+'|'+i+'|-1" aria-label="Monter">↑</button><button data-mv="'+path+'|'+i+'|1" aria-label="Descendre">↓</button><button data-rm="'+path+'|'+i+'">Supprimer</button></div>';
+      if(adl && it && it.title){ slugOf(it); out+=adBox(it,path+'_'+i); }
+      if(single){ out+=fieldHtml(reg(arr,i,single),'Valeur',single,it); }
+      else fields.forEach(function(f){ out+=fieldHtml(reg(it,f[0],f[2]),f[1],f[2],it[f[0]]); });
+      out+='</div>';
+    });
+    return out+'<p style="margin-top:12px"><button class="btn btn-ghost" data-add="'+path+'">+ Ajouter</button></p>';
+  }
+  if(S.obj){
+    var o=DATA[S.key]=DATA[S.key]||{};
+    if(S.adlink && o.title){ slugOf(o); h+='<div class="ed-item">'+adBox(o,'feat')+'</div>'; }
+    h+='<div class="ed-item">'+S.fields.map(function(f){return fieldHtml(reg(o,f[0],f[2]),f[1],f[2],o[f[0]]);}).join('')+'</div>';
+    (S.extra||[]).forEach(function(x){ o[x.key]=o[x.key]||[]; h+='<h3 style="margin-top:28px;font-size:1.2rem">'+esc(x.label)+'</h3>'+listEd(o[x.key],x.fields,x.single,'Élément',S.key+'.'+x.key); });
+  } else {
+    DATA[S.key]=DATA[S.key]||[];
+    if(S.key==='testimonials') h+='<p class="note">La section n\'apparaît sur le site que s\'il y a au moins un témoignage. N\'ajoutez que de vrais avis d\'apprenants.</p>';
+    if(S.newFirst) h+='<p class="note">Sur le site, les programmes les plus récents (date d\'ajout) apparaissent en premier.</p>';
+    if(['courses','shop','resources'].indexOf(S.key)>=0) h+='<p class="note">La section reste masquée tant que la liste est vide.</p>';
+    h+=listEd(DATA[S.key],S.fields,null,'Élément',S.key);
+  }
+  if(adl) h='<p class="note">Chaque formation a son lien publicitaire : copiez-le dans votre campagne Facebook. La personne qui clique arrive directement sur la formation, puis peut découvrir tout le site. Si vous changez le code du lien, l\'ancien lien ne marche plus.</p>'+h;
+  body.innerHTML=h;
+  bindCopy(body);
+  refs.forEach(function(r){
+    var el=document.getElementById(r.id); if(!el) return;
+    if(r.type===IMG){
+      el.addEventListener('change',function(){ var f=el.files[0]; if(!f) return; compress(f).then(function(d){ r.obj[r.k]=d; dirty=true; drawAdmin(); }); });
+      var c=body.querySelector('[data-clear="'+r.id+'"]'); if(c) c.addEventListener('click',function(){ r.obj[r.k]=''; dirty=true; drawAdmin(); });
+    } else el.addEventListener('input',function(){ r.obj[r.k]= r.type===BOOL?el.checked:el.value; dirty=true; });
+    if(r.type===BOOL) el.addEventListener('change',function(){ r.obj[r.k]=el.checked; dirty=true; });
+  });
+  function arrAt(path){ var p=path.split('.'), a=DATA[p[0]]; return p[1]?a[p[1]]:a; }
+  body.querySelectorAll('[data-add]').forEach(function(b){ b.addEventListener('click',function(){
+    var path=b.dataset.add, a=arrAt(path), p=path.split('.'), S2=SCHEMA.filter(function(s){return s.key===p[0];})[0], spec=p[1]?S2.extra.filter(function(x){return x.key===p[1];})[0]:S2;
+    if(spec.single) a.push(''); else if(spec.arr) a.push(['','']); else { var n={}; spec.fields.forEach(function(f){n[f[0]]=f[2]===BOOL?false:'';}); if(spec.newFirst) n.date=new Date().toISOString().slice(0,10); a.push(n); }
+    dirty=true; drawAdmin(); }); });
+  body.querySelectorAll('[data-rm]').forEach(function(b){ b.addEventListener('click',function(){ var q=b.dataset.rm.split('|'); arrAt(q[0]).splice(+q[1],1); dirty=true; drawAdmin(); }); });
+  body.querySelectorAll('[data-mv]').forEach(function(b){ b.addEventListener('click',function(){ var q=b.dataset.mv.split('|'), a=arrAt(q[0]), i=+q[1], j=i+(+q[2]); if(j<0||j>=a.length) return; var t=a[i]; a[i]=a[j]; a[j]=t; dirty=true; drawAdmin(); }); });
+}
+function adBox(it,id){
+  var base=String(g().siteUrl||'');
+  return '<div class="adlink"><span class="label">Lien publicitaire</span>'+(base?'<div class="copy"><code id="ad-'+esc(id)+'">'+esc(progLink(it))+'</code><button class="mini" data-copy="ad-'+esc(id)+'">Copier</button></div>':'<span class="note">Renseignez d\'abord l\'adresse du site dans l\'onglet Général.</span>')+'</div>';
+}
+function compress(file){
+  return new Promise(function(res){
+    var r=new FileReader(); r.onload=function(){ var im=new Image(); im.onload=function(){ var max=1400, w=im.width, h=im.height; if(w>max){h=Math.round(h*max/w); w=max;} if(h>max){w=Math.round(w*max/h); h=max;} var c=document.createElement('canvas'); c.width=w; c.height=h; c.getContext('2d').drawImage(im,0,0,w,h); res(c.toDataURL('image/jpeg',0.78)); }; im.src=r.result; }; r.readAsDataURL(file);
+  });
+}
+function buildDoc(){
+  var json=JSON.stringify(DATA).replace(/<\//g,'<\\/');
+  var close='</'+'script>';
+  return '<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,-apple-system,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style></head><body>'+
+    '<title>'+esc(g().name)+'</title>\n'+
+    '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">\n'+
+    '<style id="site-style">'+STYLE_SRC+'</style>\n<div id="app"></div>\n'+
+    '<script id="site-data" type="application/json">'+json+close+'\n'+
+    '<script id="site-app">'+APP_SRC+close+'\n</body></html>';
+}
+function setStatus(t,bad){ var s=$('#adm-status'); if(s){ s.textContent=t; s.style.color=bad?'var(--red)':''; } }
+function save(){
+  var btn=$('#adm-save'); if(btn) btn.disabled=true; setStatus('Publication en cours…');
+  var html=buildDoc();
+  if(!(window.claude&&claude.use)){ setStatus('Enregistrement indisponible ici : ouvrez le site depuis votre compte Claude.',true); if(btn) btn.disabled=false; return; }
+  claude.use('artifact').then(function(art){
+    if(!art){ setStatus('Enregistrement indisponible dans cette vue. Ouvrez le site depuis votre compte Claude.',true); if(btn) btn.disabled=false; return; }
+    return art.publish(html).then(function(){ dirty=false; setStatus('Publié. Le site se recharge avec vos modifications.'); },function(err){
+      var c=err&&err.code, msg={not_writer:'Seul le propriétaire du site peut enregistrer.',not_granted:'Seul le propriétaire du site peut enregistrer.',too_large:'Le site est trop lourd : retirez quelques photos.',conflict:'Une autre version vient d\'être publiée : la page se recharge.',rate_limited:'Trop d\'enregistrements rapprochés : réessayez dans une minute.'}[c]||'Échec de la publication ('+(c||'erreur')+'). Réessayez.';
+      setStatus(msg,true); if(btn) btn.disabled=false;
+    });
+  });
+}
+window.addEventListener('beforeunload',function(e){ if(dirty){ e.preventDefault(); e.returnValue=''; } });
+
+window.addEventListener('hashchange',function(){ if(currentProg()){ render(); window.scrollTo(0,0); } });
+render();
+if(currentProg()) window.scrollTo(0,0);
+})();
+</script>
+
+</head></html>
