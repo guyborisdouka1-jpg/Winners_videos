@@ -25,7 +25,7 @@ window.CENTRE = {
     numeros: ["07 67 03 72 84", "01 41 81 70 78"],
     titulaire: "",
     // Virement bancaire (laisser rib vide "" pour le masquer)
-    banque: { nom: "", rib: "CI201 01001 111607555481 35" }
+    banque: { nom: "Djamo", titulaire: "Guy Boris Douka", rib: "CI201 01001 111607555481 35" }
   }
 };
 
