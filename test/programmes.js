@@ -28,6 +28,7 @@ window.CENTRE = {
 window.PROGRAMMES = [
   {
     id: "noel-2026",
+    lien: "promo-noel",                         // lien publicitaire du site : …/site/#promo-noel
     nom: "PROMO ANGLAIS NOËL",
     emoji: "🎄",
     accroche: "6 semaines pour oser enfin parler anglais",
