@@ -365,7 +365,7 @@ function renderTest(){
 var SECTIONS = [
  {id:'activites', label:'Activités', show:function(){return list('gallery').length;}},
  {id:'test', label:'Test de niveau', show:function(){return true;}},
- {id:'appli', label:'Appli gratuite', show:function(){return true;}},
+ {id:'appli', label:'Apprendre gratuitement', show:function(){return true;}},
  {id:'videos', label:'Vidéos', show:function(){return list('videos').length;}},
  {id:'services', label:'Services', show:function(){return list('services').length;}},
  {id:'fondateur', label:'Le fondateur', show:function(){return !!DATA.founder;}},
@@ -512,10 +512,13 @@ function secContact(){
 }
 
 function secApp(){
-  return '<section class="sec" id="appli"><div class="wrap"><div class="card" style="display:grid;gap:10px;text-align:center;padding:26px"><span class="label">Gratuit</span><h2 style="margin:0">📲 L\'appli Winners English</h2><p class="muted" style="margin:0 auto;max-width:56ch">Leçons du débutant à l\'avancé avec la prononciation écrite, flashcards, phrase du jour, quiz de l\'actu… Installez-la sur votre téléphone.</p><div class="row-btns"><a class="btn btn-red" href="../">Ouvrir l\'appli</a></div></div></div></section>';
+  var tiles=[["📚","12 leçons, du débutant à l\'avancé","Grammaire, vocabulaire et phrases utiles, avec la prononciation écrite pour bien dire chaque mot.","learn"],["🃏","Flashcards par thème","7 thèmes pour mémoriser le vocabulaire du quotidien, du travail et du voyage.","learn"],["💬","Une phrase et un défi par jour","Une nouvelle expression chaque jour et des petits défis pour pratiquer.","home"],["📝","Teste ton niveau","Le test rapide en 5 minutes, ou le test de placement complet avec écoute.","test"]];
+  return '<section class="sec alt" id="appli"><div class="wrap">'+head('100 % gratuit','Apprendre gratuitement','Commence dès maintenant avec notre appli gratuite : rien à télécharger, elle s\'ouvre dans ton navigateur et s\'installe sur ton téléphone en un clic.')+
+  '<div class="grid3" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">'+tiles.map(function(x){return '<a class="card item" href="../#'+x[3]+'" style="text-decoration:none;color:inherit"><div class="body"><div style="font-size:2rem">'+x[0]+'</div><h3>'+x[1]+'</h3><p class="muted">'+x[2]+'</p><b style="color:var(--red)">Commencer →</b></div></a>';}).join('')+'</div>'+
+  '<div class="row-btns" style="margin-top:22px"><a class="btn btn-red" href="../">Ouvrir l\'appli gratuite</a><a class="btn btn-ghost" href="../#learn">Voir les leçons</a></div></div></section>';
 }
 function render(){
-  app.innerHTML = header()+'<main>'+secSpot()+hero()+secGallery()+secTest()+secPlacement()+secVideos()+secServices()+secFounder()+secTestimonials()+secSpecials()+secCourses()+secShop()+secResources()+secTests()+secFaq()+'</main>'+secContact();
+  app.innerHTML = header()+'<main>'+secSpot()+hero()+secGallery()+secTest()+secPlacement()+secApp()+secVideos()+secServices()+secFounder()+secTestimonials()+secSpecials()+secCourses()+secShop()+secResources()+secTests()+secFaq()+'</main>'+secContact();
   renderTest(); bind(); startHero();
 }
 
