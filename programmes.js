@@ -16,6 +16,8 @@ window.CENTRE = {
   adresse: "Cocody Riviera Palmeraie, non loin de Chez Samer",
   facebook: "https://www.facebook.com/108178682182393",
   tiktok: "https://www.tiktok.com/@winnersenglish",
+  // Pixel Meta (Facebook/Instagram) : coller ici le numéro du pixel pour suivre les pubs, ex. "1234567890123456"
+  metaPixel: "",
   // Couleurs par défaut (celles du logo), utilisées quand aucun programme n'est en cours
   couleurs: { sombre: "#2F3480", principal: "#B83A35", accent: "#F2B33D" },
   // Numéros de paiement mobile (laisser la liste vide [] pour que les gens demandent sur WhatsApp)
