@@ -122,6 +122,12 @@ window.PLACEMENT = {
       { q: "I need to ___ my English before the interview. (= réviser)", options: ["brush up on", "look up", "give up"], a: 0 },
       { q: "« To make up your mind » veut dire :", options: ["se décider", "se maquiller", "oublier"], a: 0 },
       { q: "« Actually » veut dire :", options: ["en fait", "actuellement", "activement"], a: 0 }
+    ]},
+    { titre: "Écoute : un avis sur l'apprentissage des langues", type: "choice", audio: "audio4.mp3", consigne: "Écoute l'audio (2 écoutes maximum), puis réponds.", items: [
+      { q: "What is the speaker's opinion?", options: ["You must live abroad to become fluent.", "Practising regularly matters more than where you live.", "London is the best place to learn a language."], a: 1 },
+      { q: "Why do some people in London still struggle to speak?", options: ["They only spend time with people from their own country.", "The lessons are too expensive.", "They have bad teachers."], a: 0 },
+      { q: "What do the speaker's best students have in common?", options: ["They have lived abroad.", "They study grammar for hours.", "They practise every day and aren't afraid of mistakes."], a: 2 },
+      { q: "In this context, « consistency » means:", options: ["la régularité", "la rapidité", "l'intelligence"], a: 0 }
     ]}
   ]}
   ]
