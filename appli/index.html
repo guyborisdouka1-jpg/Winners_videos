@@ -144,6 +144,26 @@ nav button{flex:1;background:none;border:0;color:var(--muted);font-size:11.5px;f
 nav button i{display:block;font-style:normal;font-size:21px}
 nav button.on{color:var(--p);font-weight:700}
 footer{text-align:center;color:var(--muted);font-size:12.5px;padding:8px 0 16px}
+
+/* ---------- motivation : série, points, badges ---------- */
+.gam{display:grid;gap:10px}
+.gam-top{display:flex;align-items:center;gap:12px}
+.gam-flame{font-size:34px;line-height:1}
+.gam-top b{font-size:20px}
+.gam-xp{height:10px;background:var(--soft);border-radius:6px;overflow:hidden}
+.gam-xp div{height:100%;background:linear-gradient(90deg,var(--a),var(--p));transition:width .6s}
+.gam-todo{display:grid;gap:6px;margin:0;padding:0;list-style:none}
+.gam-todo li{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:12px;background:var(--soft);cursor:pointer;font-size:14.5px}
+.gam-todo li.ok{opacity:.65;text-decoration:line-through}
+.gam-todo li .r{margin-left:auto;font-weight:700;color:var(--p);font-size:13px}
+.gam-badges{display:flex;flex-wrap:wrap;gap:6px}
+.gam-badges span{font-size:12.5px;padding:4px 9px;border-radius:20px;background:var(--soft)}
+.gam-badges span.off{opacity:.35;filter:grayscale(1)}
+.ndot{position:relative}
+.ndot::after{content:"";position:absolute;top:2px;right:calc(50% - 18px);width:9px;height:9px;border-radius:50%;background:#e0245e;box-shadow:0 0 0 2px var(--card)}
+#learnChips button.ndot::after{top:-2px;right:-2px}
+.xp-toast{position:fixed;left:50%;bottom:86px;transform:translateX(-50%) translateY(20px);background:var(--d);color:#fff;padding:10px 18px;border-radius:999px;font-weight:700;opacity:0;transition:.35s;z-index:50;pointer-events:none;white-space:nowrap}
+.xp-toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
 </style>
 <script src="programmes.js"></script>
 <script src="pub.js"></script>
@@ -166,6 +186,7 @@ footer{text-align:center;color:var(--muted);font-size:12.5px;padding:8px 0 16px}
 <section class="view on" id="v-home">
   <div class="install hidden" id="installBar"><span style="font-size:26px">📲</span><div><b>Installe l'appli</b><span style="font-size:13px">Sur ton écran d'accueil, en 1 clic</span></div><button onclick="installer()">Installer</button></div>
   <div id="homeProg"></div>
+  <div class="card gam" id="gamCard"></div>
   <div class="grid">
     <button class="tile" onclick="go('test')"><i>📝</i><b>Test de niveau</b>Gratuit • 5 min</button>
     <button class="tile" onclick="go('learn');learnTab('lecons')"><i>📚</i><b>Leçons</b>Débutant à avancé</button>
@@ -875,6 +896,61 @@ async function installer(){
   $('installBar').classList.add('hidden');$('instBtn').classList.add('hidden');
 }
 if('serviceWorker' in navigator&&location.protocol==='https:')navigator.serviceWorker.register('sw.js').catch(()=>{});
+
+
+/* =========================================================
+   MOTIVATION : série de jours, points (XP), badges, points rouges
+   Tout est gardé sur le téléphone de l'apprenant (localStorage).
+   ========================================================= */
+const GM=(()=>{const d=()=>{try{return JSON.parse(store('wec_gam')||'{}')}catch(e){return {}}};
+  const sv=o=>store('wec_gam',JSON.stringify(o));
+  const today=()=>{const t=new Date();return t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0')};
+  const yday=()=>{const t=new Date(Date.now()-864e5);return t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0')};
+  return {d,sv,today,yday};})();
+const NIV=[[0,'🌱','Beginner'],[100,'📘','Learner'],[300,'🗣️','Speaker'],[700,'🏆','Winner'],[1500,'👑','Champion']];
+const BADGES=[['first','👋','Premier pas',g=>g.days>=1],['s3','🔥','3 jours de suite',g=>g.best>=3],['s7','⚡','7 jours de suite',g=>g.best>=7],['s30','💎','30 jours de suite',g=>g.best>=30],
+  ['l1','📖','1re leçon validée',g=>(g.lec||0)>=1],['l5','📚','5 leçons validées',g=>(g.lec||0)>=5],['lall','🎓','Toutes les leçons',g=>(g.lec||0)>=LECONS.length],
+  ['test','📝','Test de niveau fait',g=>!!g.test],['d7','🎯','7 défis réussis',g=>(g.dok||0)>=7],['xp700','🏆','Niveau Winner',g=>(g.xp||0)>=700]];
+function xpToast(t){let e=document.querySelector('.xp-toast');if(!e){e=document.createElement('div');e.className='xp-toast';document.body.appendChild(e)}e.textContent=t;e.classList.add('on');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('on'),1800)}
+function gain(key,pts,label){const g=GM.d();g.done=g.done||{};if(g.done[key])return false;g.done[key]=1;g.xp=(g.xp||0)+pts;
+  const before=BADGES.filter(b=>b[3](g)).length;GM.sv(g);xpToast('+'+pts+' XP · '+label+' 🎉');
+  const nb=BADGES.filter(b=>b[3](g));if(nb.length>before)setTimeout(()=>xpToast('🏅 Nouveau badge : '+nb[nb.length-1][2]),1900);
+  renderGam();return true}
+function dayKey(k){return k+':'+GM.today()}
+/* série : chaque jour où l'appli est ouverte compte */
+(function streak(){const g=GM.d(),t=GM.today();if(g.last!==t){g.streak=(g.last===GM.yday())?(g.streak||0)+1:1;g.best=Math.max(g.best||0,g.streak);g.days=(g.days||0)+1;g.last=t;
+  // on nettoie les clés quotidiennes de plus de 3 jours
+  if(g.done)Object.keys(g.done).forEach(k=>{const m=k.match(/:(\d{4}-\d\d-\d\d)$/);if(m&&m[1]<GM.yday())delete g.done[k]});GM.sv(g);setTimeout(()=>gain(dayKey('visite'),5,'Visite du jour'),800)}})();
+function todo(){const g=GM.d(),dn=g.done||{};
+  return [['jour','💡','Lire la phrase du jour',!!dn[dayKey('phrase')],()=>{go('learn');learnTab('jour')}],
+          ['defi','🎯','Réussir le défi du jour',!!dn[dayKey('defi')],()=>{go('learn');learnTab('jour');setTimeout(()=>{const e=$('dQ');e&&e.scrollIntoView({behavior:'smooth',block:'center'})},200)}],
+          ['flash','🃏','Réviser 5 flashcards',!!dn[dayKey('flash')],()=>{go('learn');learnTab('flash')}],
+          ['lecon','📚','Faire une leçon',!!dn[dayKey('lecon')],()=>{go('learn');learnTab('lecons')}]]}
+function renderGam(){const g=GM.d(),xp=g.xp||0;let i=NIV.length-1;while(i>0&&xp<NIV[i][0])i--;
+  const cur=NIV[i],nx=NIV[i+1],pct=nx?Math.round((xp-cur[0])*100/(nx[0]-cur[0])):100,T=todo(),left=T.filter(x=>!x[3]).length;
+  $('gamCard').innerHTML='<div class="gam-top"><span class="gam-flame">🔥</span><div style="flex:1"><b>'+(g.streak||1)+' jour'+((g.streak||1)>1?'s':'')+' de suite</b><div class="muted" style="font-size:13px">Record : '+(g.best||1)+' · '+cur[1]+' '+cur[2]+' · '+xp+' XP</div></div></div>'+
+    '<div class="gam-xp"><div style="width:'+pct+'%"></div></div><div class="muted" style="font-size:12.5px;margin-top:-4px">'+(nx?'Encore '+(nx[0]-xp)+' XP pour devenir '+nx[1]+' '+nx[2]:'Niveau maximum atteint, bravo !')+'</div>'+
+    '<b style="font-size:15px">'+(left?'À faire aujourd\'hui ('+left+')':'✅ Tout est fait aujourd\'hui, à demain !')+'</b><ul class="gam-todo">'+T.map((x,k)=>'<li data-k="'+k+'" class="'+(x[3]?'ok':'')+'">'+x[1]+' <span>'+x[2]+'</span>'+(x[3]?'<span class="r" style="color:var(--ok)">✓</span>':'<span class="r">●</span>')+'</li>').join('')+'</ul>'+
+    '<details><summary style="cursor:pointer;font-weight:600">🏅 Mes badges ('+BADGES.filter(b=>b[3](g)).length+'/'+BADGES.length+')</summary><div class="gam-badges" style="margin-top:8px">'+BADGES.map(b=>'<span class="'+(b[3](g)?'':'off')+'">'+b[1]+' '+b[2]+'</span>').join('')+'</div></details>';
+  $('gamCard').querySelectorAll('.gam-todo li').forEach(li=>li.onclick=()=>T[+li.dataset.k][4]());
+  // points rouges
+  const learnLeft=T.filter(x=>!x[3]).length;
+  document.querySelector('nav button[data-v="learn"]').classList.toggle('ndot',learnLeft>0);
+  const dn=g.done||{};const cj=document.querySelector('#learnChips button[data-t="jour"]');if(cj)cj.classList.toggle('ndot',!(dn[dayKey('phrase')]&&dn[dayKey('defi')]));
+  try{if(navigator.setAppBadge){learnLeft?navigator.setAppBadge(learnLeft):navigator.clearAppBadge()}}catch(e){}
+}
+/* branchements sur les activités existantes */
+const _learnTab=learnTab;learnTab=function(t){_learnTab(t);if(t==='jour')gain(dayKey('phrase'),5,'Phrase du jour')};
+document.querySelectorAll('#learnChips button').forEach(b=>b.onclick=()=>learnTab(b.dataset.t));
+$('dOpts').addEventListener('click',e=>{const b=e.target.closest('.opt');if(!b)return;const k=[...$('dOpts').children].indexOf(b);const g=GM.d();
+  if((g.done||{})[dayKey('defi')])return;if(k===DF[2]){g.dok=(g.dok||0)+1;GM.sv(g);gain(dayKey('defi'),15,'Défi réussi')}else{gain(dayKey('defi'),5,'Défi tenté')}},true);
+let flashSeen=0;['fNext','fPrev'].forEach(id=>$(id).addEventListener('click',()=>{flashSeen++;if(flashSeen>=5)gain(dayKey('flash'),10,'5 flashcards')}));
+const _saveProg=saveProg;saveProg=function(id,sc){const before=(prog()[id]||0)>=3;_saveProg(id,sc);gain(dayKey('lecon'),10,'Leçon du jour');
+  if(sc>=3&&!before){const g=GM.d();g.lec=Object.values(prog()).filter(v=>v>=3).length;GM.sv(g);gain('lecon:'+id,30,'Leçon validée')}};
+const _finish=finish;finish=function(){_finish();const g=GM.d();g.test=1;GM.sv(g);gain(dayKey('test'),30,'Test de niveau')};
+new MutationObserver(m=>m.forEach(r=>r.addedNodes.forEach(n=>{if(n.classList&&n.classList.contains('fb')&&/Score/.test(n.textContent)){const box=n.parentNode;gain('actu:'+box.id,15,'Quiz de l\'actu')}}))).observe($('l-actu'),{childList:true,subtree:true});
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)renderGam()});
+renderGam();
 
 /* ---------- ouverture directe d'un onglet : #test, #learn, #promo… ---------- */
 const h=location.hash.slice(1);if(h&&$('v-'+h))go(h);
