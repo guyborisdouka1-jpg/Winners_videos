@@ -280,8 +280,33 @@ footer button{background:none;border:0;color:#5f6b85;font:inherit;font-size:.78r
 .status{font-size:.88rem;color:var(--muted)}
 .chk{display:flex;gap:8px;align-items:center}.chk input{width:auto}
 @media (max-width:760px){.admin-main{grid-template-columns:1fr;grid-template-rows:auto 1fr}.admin-nav{display:flex;overflow-x:auto;border-right:0;border-bottom:1px solid var(--line)}.admin-nav button{flex:none}}
-.hero{display:flex;flex-direction:column}.hero::after{display:none}.hero-bg{position:relative;inset:auto;z-index:0;height:min(46vh,420px);order:-1;overflow:hidden}.hero-bg::after{content:"";position:absolute;left:0;right:0;bottom:0;height:22%;background:linear-gradient(180deg,rgba(27,42,74,0),#1B2A4A)}.hero h1,.hero-sub,.hero .label{text-shadow:none}.hero-in{padding-block:24px 48px}@media(min-width:900px){.hero{display:grid;grid-template-columns:1.05fr 1fr;align-items:center}.hero-bg{order:2;height:100%;min-height:620px}.hero-bg::after{top:0;bottom:0;left:0;right:auto;width:18%;height:auto;background:linear-gradient(90deg,#1B2A4A,rgba(27,42,74,0))}.hero-in{padding-block:64px}.hero>.wrap{margin:0 0 0 auto;max-width:640px;padding-inline:40px}}#boutique .cover{aspect-ratio:4/5;height:auto;background:#fff}#boutique .cover img{width:100%;height:100%;object-fit:contain}#programmes .cover{aspect-ratio:1/1;height:auto}#programmes .cover img{width:100%;height:100%;object-fit:cover}</style>
+.hero{display:flex;flex-direction:column}.hero::after{display:none}.hero-bg{position:relative;inset:auto;z-index:0;height:min(46vh,420px);order:-1;overflow:hidden}.hero-bg::after{content:"";position:absolute;left:0;right:0;bottom:0;height:22%;background:linear-gradient(180deg,rgba(27,42,74,0),#1B2A4A)}.hero h1,.hero-sub,.hero .label{text-shadow:none}.hero-in{padding-block:24px 48px}@media(min-width:900px){.hero{display:grid;grid-template-columns:1.05fr 1fr;align-items:center}.hero-bg{order:2;height:100%;min-height:620px}.hero-bg::after{top:0;bottom:0;left:0;right:auto;width:18%;height:auto;background:linear-gradient(90deg,#1B2A4A,rgba(27,42,74,0))}.hero-in{padding-block:64px}.hero>.wrap{margin:0 0 0 auto;max-width:640px;padding-inline:40px}}#boutique .cover{aspect-ratio:4/5;height:auto;background:#fff}#boutique .cover img{width:100%;height:100%;object-fit:contain}#programmes .cover{aspect-ratio:1/1;height:auto}#programmes .cover img{width:100%;height:100%;object-fit:cover}
+#wec-band{background:#D4AF37;color:#1B2A4A;text-align:center;font:700 14px/1.35 var(--f-body);padding:9px 14px}
+section.sec{padding-block:56px}@media(max-width:600px){section.sec{padding-block:40px}.sec-head{margin-bottom:22px}}
+.pm{background:linear-gradient(180deg,#1B2A4A,#24365e);color:#F7F5F0}
+.pm .label{color:#D4AF37}.pm h2{font-size:clamp(2rem,6vw,3rem);margin:6px 0 4px}.pm h3{font-size:1.15rem;margin:22px 0 10px;color:#fff}
+.pm-in{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:start}@media(max-width:900px){.pm-in{grid-template-columns:1fr;gap:22px}}
+.pm-duree{display:inline-block;background:#D4AF37;color:#1B2A4A;font-weight:800;font-size:1.05rem;padding:.45em .9em;border-radius:10px;margin:8px 0 14px}
+.pm-months{display:grid;grid-template-columns:1fr 1fr;gap:10px}.pm-months div{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:12px 14px}
+.pm-months b{display:block;font-family:var(--f-display);font-size:1.35rem;color:#D4AF37}.pm-months span{font-size:.88rem;color:#d7dceb}
+.pm-acc{font-size:1.08rem;margin-top:16px;color:#e6e9f2}
+.pm-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}.pm-list li{display:grid;grid-template-columns:28px 1fr;gap:6px;color:#e6e9f2}.pm-list .muted{color:#b9c2d6}
+.pm-price{margin-top:26px;background:#fff;color:#1B2A4A;border-radius:16px;padding:20px 22px}.pm-price .label{color:#C8102E}
+.pm-amount{font-family:var(--f-display);margin:6px 0}.pm-amount b{font-size:2.1rem;color:#C8102E}.pm-amount s{color:#8a90a0;font-size:1.1rem;margin-right:6px}
+.pm-price p{margin:4px 0}.pm-dead{font-weight:700}.pm-price .btn-ghost{color:#1B2A4A}
+.pm-media{display:grid;gap:12px}.pm-media img{width:100%;border-radius:16px;object-fit:cover;aspect-ratio:4/3}@media(max-width:900px){.pm-media{grid-template-columns:1fr 1fr}.pm-media img{aspect-ratio:1/1}}
+.fcard .fem{aspect-ratio:16/5;display:flex;align-items:center;justify-content:center;font-size:3.4rem;background:linear-gradient(135deg,#1B2A4A,#2F3480)}
+.fmeta{list-style:none;margin:0;padding:0;display:grid;gap:4px;font-size:.92rem;color:var(--muted)}
+.fcard .price{border-top:1px solid var(--line);padding-top:10px}
+.brochure{display:flex;align-items:center;gap:16px;padding:18px 20px;margin-bottom:24px;flex-wrap:wrap}.brochure>div{flex:1;min-width:220px;display:grid;gap:2px}.bro-ic{font-size:2.2rem}
+.pcard .lnk{color:var(--red);font-weight:600;text-decoration:none}
+.fbwrap{display:grid;grid-template-columns:minmax(0,500px) 1fr;gap:28px;align-items:center;margin-top:28px}@media(max-width:820px){.fbwrap{grid-template-columns:1fr}}
+.fbbox{padding:0;overflow:hidden;min-height:200px;display:flex;justify-content:center;background:var(--surface)}
+.gal{grid-auto-rows:200px}@media(max-width:460px){.gal{grid-template-columns:1fr 1fr;grid-auto-rows:150px;gap:8px}.gal figure.big{grid-column:span 2;grid-row:span 1}.gal figcaption{font-size:.72rem;padding:6px 8px}}
+@media(max-width:520px){.svc{grid-template-columns:1fr 1fr;gap:10px}.svc .card{padding:14px}.svc .card h3{font-size:1rem}.svc .card p{font-size:.85rem}}
+</style>
 <script src="programmes.js"></script>
+<script src="wec.js"></script>
 <script src="pub.js"></script>
 <script src="test.js"></script>
 <div id="app"></div>
@@ -347,8 +372,8 @@ function renderTest(){
       '<p class="muted">20 questions, environ 5 minutes. Résultat immédiat sur l\'échelle européenne (CECR).</p>'+
       '<div class="field"><label for="t-name">Votre nom</label><input id="t-name" required autocomplete="name" value="'+esc(t.name)+'"></div>'+
       '<div class="field"><label for="t-phone">Votre téléphone (WhatsApp)</label><input id="t-phone" required inputmode="tel" autocomplete="tel" value="'+esc(t.phone)+'"></div>'+
-      '<button class="btn btn-red" type="submit">Commencer le test</button></form>';
-    $('#test-form').addEventListener('submit',function(e){ e.preventDefault(); t.name=$('#t-name').value.trim(); t.phone=$('#t-phone').value.trim(); if(!t.name||!t.phone) return; t.step='q'; t.i=0; t.score=0; renderTest(); });
+      (window.WEC?WEC.keyField('rapide'):'')+'<button class="btn btn-red" type="submit">Commencer le test</button></form>';
+    $('#test-form').addEventListener('submit',function(e){ e.preventDefault(); t.name=$('#t-name').value.trim(); t.phone=$('#t-phone').value.trim(); if(!t.name||!t.phone) return; if(window.WEC&&!WEC.checkKey('rapide')) return; t.step='q'; t.i=0; t.score=0; renderTest(); });
   } else if(t.step==='q'){
     var q = QUESTIONS[t.i];
     el.innerHTML = '<div class="q-meta"><span class="label">Question '+(t.i+1)+' / '+QUESTIONS.length+'</span><div class="progress"><i style="width:'+(t.i/QUESTIONS.length*100)+'%"></i></div></div>'+
@@ -367,6 +392,7 @@ function renderTest(){
 
 /* ---------- sections ---------- */
 var SECTIONS = [
+ {id:'promo', label:'🎄 Promo Noël', show:function(){return !!curP();}},
  {id:'activites', label:'Activités', show:function(){return list('gallery').length;}},
  {id:'test', label:'Test de niveau', show:function(){return true;}},
  {id:'appli', label:'Apprendre gratuitement', show:function(){return true;}},
@@ -374,7 +400,8 @@ var SECTIONS = [
  {id:'services', label:'Services', show:function(){return list('services').length;}},
  {id:'fondateur', label:'Le fondateur', show:function(){return !!DATA.founder;}},
  {id:'temoignages', label:'Témoignages', show:function(){return list('testimonials').length;}},
- {id:'programmes', label:'Programmes spéciaux', show:function(){return list('specials').length || (DATA.specialFeatured&&DATA.specialFeatured.title);}},
+ {id:'formations', label:'Nos formations', show:function(){return true;}},
+ {id:'publications', label:'Publications', show:function(){return true;}},
  {id:'cours', label:'Cours en ligne', show:function(){return list('courses').length;}},
  {id:'boutique', label:'Notre boutique', show:function(){return list('shop').length;}},
  {id:'ressources', label:'Ressources', show:function(){return list('resources').length;}},
@@ -387,7 +414,7 @@ function header(){
   var vis = SECTIONS.filter(function(s){return s.show();});
   return '<header class="hdr"><div class="wrap"><div class="hdr-row">'+
     '<a class="brand" href="#top"><img src="'+safeUrl(g().logo)+'" alt="Logo Winners\' English Center"><span><b>'+esc(g().name)+'</b><small>'+esc(g().tagline)+'</small></span></a>'+
-    '<nav class="nav" aria-label="Navigation principale"><a href="#programmes">Programmes</a><a href="#services">Services</a><a href="#test">Test de niveau</a><a href="#fondateur">À propos</a><a href="#contact">Contact</a></nav>'+
+    '<nav class="nav" aria-label="Navigation principale"><a href="#formations">Formations</a><a href="#appli">Appli gratuite</a><a href="#services">Services</a><a href="#test">Test de niveau</a><a href="#fondateur">À propos</a><a href="#contact">Contact</a></nav>'+
     '<a class="btn btn-wa" target="_blank" rel="noopener" href="'+wa("Bonjour Winners' English Center, je souhaite des informations.")+'">WhatsApp <span>'+esc(g().whatsappDisplay)+'</span></a>'+
     '</div><nav class="chips" aria-label="Rubriques">'+vis.map(function(s){return '<a href="#'+s.id+'">'+esc(s.label)+'</a>';}).join('')+'</nav></div></header>';
 }
@@ -397,7 +424,7 @@ function hero(){
     '<div class="wrap"><div class="hero-in"><div class="hero-dots">'+imgs.map(function(s,i){return '<i class="'+(i===0?'on':'')+'"></i>';}).join('')+'</div><span class="label">'+esc(G.name)+' · Cocody, Riviera Palmeraie</span>'+
     '<h1 id="hero-title">'+esc(t[0])+'<br><em>'+esc(t[1])+'</em></h1>'+
     '<p class="hero-sub">'+nl(G.heroSubtitle)+'</p>'+
-    '<div class="hero-cta">'+(DATA.specialFeatured&&DATA.specialFeatured.promo?'<a class="btn btn-gold" href="#'+esc(slugOf(DATA.specialFeatured))+'">'+esc(DATA.specialFeatured.title)+'</a>':'')+'<a class="btn btn-red" href="#test">Faire mon test de niveau</a><button class="btn btn-ghost" data-rdv>Prendre un rendez-vous</button></div>'+
+    '<div class="hero-cta">'+(DATA.specialFeatured&&DATA.specialFeatured.promo?'<a class="btn btn-gold" href="#promo">🎄 Promo Noël : 2 mois (nov. + déc.)</a>':'')+'<a class="btn btn-red" href="#test">Faire mon test de niveau</a><a class="btn btn-ghost" href="appli/">📲 Appli gratuite</a><button class="btn btn-ghost" data-rdv>Prendre un rendez-vous</button></div>'+
     '<div class="cefr" aria-label="Niveaux du Cadre européen"><div class="cefr-bar"><span>A1</span><span>A2</span><span>B1</span><span>B2</span><span>C1</span><span>C2</span></div><small>Du grand débutant (A1) à la maîtrise (C2) : chaque apprenant progresse depuis son niveau réel.</small></div>'+
     '<div class="stats">'+(G.stats||[]).map(function(s){return '<div><b>'+esc(s.n)+'</b><span>'+esc(s.l)+'</span></div>';}).join('')+'</div>'+
     '</div></div></section>';
@@ -512,7 +539,7 @@ function secContact(){
     '<div class="row-btns" style="justify-content:flex-start"><a class="btn btn-wa" target="_blank" rel="noopener" href="'+wa("Bonjour Winners' English Center, je souhaite des informations.")+'">Écrire sur WhatsApp</a><a class="btn btn-ghost" href="'+mail('Demande d\'informations',"Bonjour Winners' English Center, je souhaite des informations.")+'">Écrire par email</a><button class="btn btn-ghost" data-rdv>Prendre rendez-vous</button></div></div>'+
     '<div class="mapcard"><span class="pin" aria-hidden="true"></span><span class="label" style="color:#D4AF37">Nous trouver</span><b style="font-family:var(--f-display);font-size:1.5rem">Cocody, Riviera Palmeraie</b><div class="row-btns" style="justify-content:flex-start"><a class="btn btn-gold" target="_blank" rel="noopener" href="'+safeUrl(G.mapsUrl)+'">Ouvrir dans Google Maps</a><a class="btn btn-wa" target="_blank" rel="noopener" href="'+wa("Bonjour, pouvez-vous m'envoyer l'itinéraire du centre ?")+'">Demander l\'itinéraire</a></div></div>'+
     '</div></div></section>'+
-    '<footer><div class="wrap"><span>© '+new Date().getFullYear()+' '+esc(G.name)+' · Cocody, Riviera Palmeraie</span><a href="appli/" style="color:inherit">📲 L\'appli Winners English</a></div></footer>';
+    '<footer><div class="wrap"><span>© '+new Date().getFullYear()+' '+esc(G.name)+' · Cocody, Riviera Palmeraie</span><a href="appli/" style="color:inherit">📲 L\'appli Winners English</a> · <a href="brochure.pdf" style="color:inherit" download>📄 Brochure</a> · <a href="admin/" style="color:inherit" rel="nofollow">Espace admin</a></div></footer>';
 }
 
 function secApp(){
@@ -521,8 +548,74 @@ function secApp(){
   '<div class="grid3" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">'+tiles.map(function(x){return '<a class="card item" href="appli/#'+x[3]+'" style="text-decoration:none;color:inherit"><div class="body"><div style="font-size:2rem">'+x[0]+'</div><h3>'+x[1]+'</h3><p class="muted">'+x[2]+'</p><b style="color:var(--red)">Commencer →</b></div></a>';}).join('')+'</div>'+
   '<div class="row-btns" style="margin-top:22px"><a class="btn btn-red" href="appli/">Ouvrir l\'appli gratuite</a><a class="btn btn-ghost" href="appli/#learn">Voir les leçons</a></div></div></section>';
 }
+
+var WEC_DEF = {"Formations": [["OUI", "English Club Meeting", "Tous niveaux", "Des rencontres au centre pour parler anglais : discussions, jeux, activités et nouvelles amitiés. Venez, pratiquez, échangez et progressez !", "Tous les mois", "Au centre (Cocody Riviera Palmeraie)", "Entrée gratuite", "Gratuit", "https://winnersenglishcenter.com/site/img/prog_club.jpg", "🗣️"], ["OUI", "Cours privés", "Adultes, professionnels", "Un programme sur mesure, à votre rythme : entretien d'embauche, travail, voyage, examen.", "Toute l'année, horaires à la carte", "Au centre, en ligne ou à domicile", "Sur devis", "", "", "🎯"], ["OUI", "Anglais pour enfants", "Enfants, du primaire au collège", "Jeux éducatifs, expression orale, vocabulaire, prononciation et confiance en soi.", "Toute l'année", "Au centre ou à domicile", "Sur devis", "", "", "🧒"], ["OUI", "WIN Cours à domicile", "Élèves du primaire à la Terminale", "Un répétiteur sérieux chez vous, toutes matières. Tarif au mois, remplacement garanti si le répétiteur ne convient pas.", "Toute l'année", "À domicile", "Tarif au mois", "", "", "🏠"], ["OUI", "Traduction & interprétariat", "Entreprises, particuliers", "Traduction français ↔ anglais de vos documents, interprète pour vos réunions, rendez-vous d'affaires et missions.", "Sur demande", "Partout", "Sur devis", "", "", "🎙️"], ["NON", "Anglais Vacances : adolescents", "Adolescents", "Gagner en confiance en anglais pendant les vacances : 2 séances de 2 h par semaine, test de placement gratuit, supports audio, vidéo et PDF inclus.", "Pendant les vacances", "Présentiel ou en ligne", "30 000 F le programme", "Vacances", "https://winnersenglishcenter.com/site/img/prog_vacances_ados.jpg", "🌴"], ["NON", "Anglais Vacances : travailleurs & entrepreneurs", "Travailleurs, entrepreneurs", "L'anglais qui ouvre les portes de votre carrière et de votre business : 2 séances de 2 h par semaine, supports inclus.", "Pendant les vacances", "Présentiel ou en ligne", "30 000 F le programme", "Vacances", "https://winnersenglishcenter.com/site/img/prog_vacances_pro.jpg", "💼"], ["NON", "Webinaire : Je comprends l'anglais, mais je ne parle pas", "Tous niveaux", "Un webinaire gratuit avec Coach Winner pour débloquer ta parole.", "Date annoncée sur Facebook", "En ligne", "Gratuit", "Gratuit", "https://winnersenglishcenter.com/site/img/prog_webinaire.jpg", "💻"]], "Publications": [["OUI", "2026-11-02", "Dernière ligne droite pour la Promo Noël", "Dans quelques jours, le groupe démarre : 80 % de pratique orale, conversations guidées, shadowing et attestation de fin de formation.", "https://static.metricool.com/planner/202610/7212387-file-10532280377631765315.jpeg", "https://facebook.com/751985827793233/posts/1150915037900308"], ["OUI", "2026-10-24", "Notre site officiel est en ligne", "winnersenglishcenter.com : test de placement gratuit, application gratuite, programmes, vidéos de nos apprenants et inscription en un clic.", "https://winnersenglishcenter.com/site/img/lancement_site.jpg", "https://www.facebook.com/108178682182393"], ["OUI", "2026-10-24", "Notre sortie au Parc du Banco", "Chez Winners', on apprend aussi en dehors de la classe : une journée à pratiquer l'anglais en pleine nature.", "https://static.metricool.com/planner/202610/7212387-file-11344063746428434846.jpeg", "https://facebook.com/751985827793233/posts/1141818535476625"]]};
+var WEC_FORM = WEC_DEF.Formations, WEC_PUBS = WEC_DEF.Publications;
+function curP(){ var L=window.PROGRAMMES||[], now=new Date(); return L.filter(function(p){return new Date(p.afficherDes+'T00:00:00Z')<=now && now<=new Date(p.cours[1]+'T23:59:59Z');})[0]||null; }
+function fcfa(n){ return Number(n).toLocaleString('fr-FR').replace(/\s/g,' ')+' F'; }
+function jourFr(s){ var d=new Date(s+'T12:00:00Z'); return d.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long',timeZone:'UTC'}); }
+function secPromo(){
+  var P=curP(); if(!P) return '';
+  var now=new Date(), open=now<=new Date(P.inscriptions[1]+'T23:59:59Z');
+  var msg="Bonjour Coach Winner ! Je viens du site et je veux réserver ma place pour la "+P.nom+" (novembre + décembre).";
+  var det=(P.details||[]).filter(function(d){return d[0]!=='💳';});
+  var months='<div class="pm-months"><div><b>Novembre</b><span>1er cours : '+esc(jourFr(P.cours[0]))+'</span></div><div><b>Décembre</b><span>Fin : '+esc(jourFr(P.cours[1]))+' + Christmas English Party</span></div></div>';
+  var tarif=open?'<div class="pm-price"><span class="label">Ton investissement pour les 2 mois</span>'+
+      '<div class="pm-amount">'+(P.prixBarre?'<s>'+fcfa(P.prixBarre)+'</s> ':'')+'<b>'+fcfa(P.prix)+'</b></div>'+
+      '<p>'+esc(P.paiementTexte||'')+'</p><p class="pm-dead">⏳ Inscriptions jusqu\'au '+esc(jourFr(P.inscriptions[1]))+'</p>'+
+      '<div class="row-btns" style="justify-content:flex-start"><a class="btn btn-wa" target="_blank" rel="noopener" href="'+wa(msg)+'">Je réserve ma place sur WhatsApp</a><a class="btn btn-ghost" href="brochure.pdf" download>📄 Brochure PDF</a></div></div>'
+    :'<div class="pm-price"><span class="label">Programme en cours</span><p>Les inscriptions sont closes. Écris-nous pour être prévenu(e) en premier de la prochaine session.</p><div class="row-btns" style="justify-content:flex-start"><a class="btn btn-wa" target="_blank" rel="noopener" href="'+wa("Bonjour Coach Winner ! Je veux être prévenu(e) de la prochaine session.")+'">Me prévenir</a></div></div>';
+  return '<section class="sec pm" id="promo"><div class="wrap"><div class="pm-in">'+
+    '<div class="pm-txt"><span class="label">Programme du moment</span><h2>'+esc((P.emoji?P.emoji+' ':'')+P.nom)+'</h2>'+
+    '<p class="pm-duree">'+esc(P.duree||'')+'</p>'+months+
+    '<p class="pm-acc">'+esc(P.accroche||'')+'</p>'+
+    '<h3>📋 Le programme</h3><ul class="pm-list">'+det.map(function(d){return '<li><span>'+d[0]+'</span><span>'+d[1]+'</span></li>';}).join('')+'</ul>'+
+    ((P.bonus||[]).length?'<h3>🎁 Tes bonus</h3><ul class="pm-list">'+P.bonus.map(function(d){return '<li><span>'+d[0]+'</span><span>'+d[1]+'</span></li>';}).join('')+'</ul>':'')+
+    tarif+'</div>'+
+    '<div class="pm-media"><img src="site/img/fb/cours_adultes.jpg" alt="Cours en petit groupe au centre"><img src="site/img/fb/groupe_tshirts.jpg" alt="Nos apprenants"></div>'+
+    '</div></div></section>';
+}
+function driveImg(u){ u=String(u||'').trim(); var m=u.match(/drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?(?:export=\w+&)?id=)([\w-]{20,})/); return m?'https://drive.google.com/thumbnail?id='+m[1]+'&sz=w1000':u; }
+function formCard(r){
+  var t=r[1]; if(!t) return '';
+  var img=safeUrl(driveImg(r[8])), em=r[9]||'🎓';
+  var msg="Bonjour Coach Winner ! Je souhaite des informations sur : "+t+".";
+  return '<div class="card item fcard">'+(img?'<div class="cover"><img loading="lazy" src="'+img+'" alt="'+esc(t)+'"></div>':'<div class="cover fem" aria-hidden="true">'+esc(em)+'</div>')+
+    '<div class="body">'+(r[7]?'<span class="new">'+esc(r[7])+'</span>':'')+(r[2]?'<span class="badge">'+esc(r[2])+'</span>':'')+'<h3>'+esc(t)+'</h3><p class="muted">'+nl(r[3])+'</p>'+
+    '<ul class="fmeta">'+(r[4]?'<li>📅 '+esc(r[4])+'</li>':'')+(r[5]?'<li>📍 '+esc(r[5])+'</li>':'')+'</ul>'+
+    (r[6]?'<span class="price">'+esc(r[6])+'</span>':'')+
+    '<div class="row-btns" style="justify-content:flex-start"><a class="btn btn-wa" target="_blank" rel="noopener" href="'+wa(msg)+'">Je me renseigne</a><a class="btn btn-ghost" href="'+mail('Informations : '+t,msg)+'">Email</a></div></div></div>';
+}
+function formHTML(){ var L=(WEC_FORM||[]).filter(function(r){return /^oui/i.test(r[0]||'');}); return L.length?L.map(formCard).join(''):'<p class="muted">Nos formations arrivent bientôt. Écris-nous sur WhatsApp !</p>'; }
+function secFormations(){
+  return '<section class="sec alt" id="formations"><div class="wrap">'+head('Nos formations','Une formation pour chaque objectif','Adultes, enfants, professionnels : au centre, en ligne ou à domicile.')+'<div class="grid3" id="form-grid">'+formHTML()+'</div></div></section>';
+}
+function pubCard(r){
+  if(!r[2]&&!r[3]) return '';
+  var img=safeUrl(driveImg(r[4])), u=safeUrl(r[5]);
+  return '<article class="card item pcard">'+(img?'<div class="cover"><img loading="lazy" src="'+img+'" alt=""></div>':'')+'<div class="body">'+(r[1]?'<span class="label muted">'+esc(r[1])+'</span>':'')+'<h3>'+esc(r[2])+'</h3><p class="muted">'+nl(r[3])+'</p>'+
+    (u?'<a class="lnk" target="_blank" rel="noopener" href="'+u+'">Voir la publication sur Facebook →</a>':'')+'</div></article>';
+}
+function pubsHTML(){ return (WEC_PUBS||[]).filter(function(r){return /^oui/i.test(r[0]||'');}).slice(0,6).map(pubCard).join(''); }
+function secPubs(){
+  var fb='https://www.facebook.com/plugins/page.php?href='+encodeURIComponent('https://www.facebook.com/108178682182393')+'&tabs=timeline&width=500&height=620&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false';
+  return '<section class="sec" id="publications"><div class="wrap">'+head('Suivez-nous','Nos publications','Nos dernières nouvelles, nos conseils et nos programmes, comme sur notre page Facebook.')+
+    '<div class="brochure card"><span class="bro-ic" aria-hidden="true">📄</span><div><b>La brochure Winners\' English Center</b><span class="muted">Nos cours, le programme du moment et nos contacts, en 1 page. À lire et à partager.</span></div><a class="btn btn-red" href="brochure.pdf" download>Télécharger le PDF</a></div>'+
+    '<div class="grid3" id="pubs-grid">'+pubsHTML()+'</div>'+
+    '<div class="fbwrap"><div class="card fbbox"><iframe title="Page Facebook Winners\' English Center" src="'+fb+'" width="500" height="620" style="border:0;overflow:hidden;width:100%;max-width:500px" scrolling="no" frameborder="0" allowfullscreen="true" loading="lazy" allow="encrypted-media"></iframe></div>'+
+    '<div class="fbside"><h3>Rejoins la communauté</h3><p class="muted">Un quiz, une astuce ou un défi en anglais presque tous les jours.</p><div class="row-btns" style="justify-content:flex-start"><a class="btn btn-red" target="_blank" rel="noopener" href="'+safeUrl(g().facebook)+'">Facebook</a><a class="btn btn-ghost" target="_blank" rel="noopener" href="'+safeUrl(g().tiktok)+'">TikTok</a></div></div></div>'+
+    '</div></section>';
+}
+function wecLive(){
+  if(!window.WEC) return;
+  WEC.load('Formations',function(rows){ if(!rows) return; WEC_FORM=rows; var el=document.getElementById('form-grid'); if(el) el.innerHTML=formHTML(); });
+  WEC.load('Publications',function(rows){ if(!rows) return; WEC_PUBS=rows; var el=document.getElementById('pubs-grid'); if(el) el.innerHTML=pubsHTML(); });
+  WEC.settings(function(s){ var b=document.getElementById('wec-band'); if(!b) return; if(s.bandeau){ b.textContent=s.bandeau; b.hidden=false; } else b.hidden=true; });
+}
 function render(){
-  app.innerHTML = header()+'<main>'+secSpot()+hero()+secGallery()+secTest()+secPlacement()+secApp()+secVideos()+secServices()+secFounder()+secTestimonials()+secSpecials()+secCourses()+secShop()+secResources()+secTests()+secFaq()+'</main>'+secContact();
+  var _cp=currentProg(), _isP=_cp&&_cp.it&&_cp.it.promo;
+  app.innerHTML = '<div id="wec-band" hidden></div>'+header()+'<main>'+(_isP?secPromo():secSpot())+hero()+(_isP?'':secPromo())+secApp()+secTest()+secPlacement()+secFormations()+secVideos()+secPubs()+secGallery()+secServices()+secFounder()+secTestimonials()+secCourses()+secShop()+secFaq()+'</main>'+secContact();
+  wecLive();
   renderTest(); bind(); startHero();
 }
 
@@ -752,7 +845,7 @@ if(currentProg()) window.scrollTo(0,0);
 <style>#wa-fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:90;display:flex;align-items:center;gap:8px;background:#1f9d55;color:#fff;font:600 15px/1 Inter,system-ui,sans-serif;padding:13px 18px 13px 14px;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.25);text-decoration:none}#wa-fab svg{width:22px;height:22px;fill:#fff}@media(min-width:900px){#wa-fab{right:24px;bottom:24px}}</style>
 <a id="wa-fab" target="_blank" rel="noopener" href="https://wa.me/2250767037284"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg><span>Écrivez-nous</span></a>
 <script>(function(){var P=(window.PROGRAMMES||[]).filter(function(p){var t=new Date().toISOString().slice(0,10);return p.afficherDes<=t&&t<=p.cours[1];})[0];var f=document.getElementById('wa-fab');function upd(){var h=decodeURIComponent((location.hash||'').slice(1));var m="Bonjour Coach Winner ! Je viens du site";m+=(P&&(!h||h===P.lien))?" et je veux des informations sur la "+P.nom+".":(h&&h!=='top'?" ("+h.replace(/-/g,' ')+"). Je souhaite des informations.":". Je souhaite des informations.");f.href='https://wa.me/'+((window.CENTRE||{}).whatsapp||'2250767037284')+'?text='+encodeURIComponent(m);f.removeAttribute('data-ref');}upd();window.addEventListener('hashchange',upd);})();</script>
-<div id="app-bar" hidden style="position:fixed;left:0;right:0;bottom:0;z-index:95;background:#1B2A4A;color:#fff;font:600 14px/1.3 Inter,system-ui,sans-serif;padding:10px 12px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:10px;box-shadow:0 -4px 16px rgba(0,0,0,.25)"><span style="flex:1">📲 Tu viens pour l'appli gratuite ? Leçons, flashcards, test…</span><a href="appli/" style="background:#D4AF37;color:#1B2A4A;padding:9px 14px;border-radius:999px;text-decoration:none;white-space:nowrap">Ouvrir l'appli</a><button aria-label="Fermer" style="background:none;border:0;color:#fff;font-size:20px;cursor:pointer" onclick="this.parentNode.hidden=true;document.getElementById('wa-fab').style.bottom=''">×</button></div>
-<script>(function(){var r=document.referrer||'',q=location.search;if(/facebook|fb\.|tiktok|instagram|whatsapp|t\.co/i.test(r)||/fbclid|ttclid/.test(q)){if(!location.hash||location.hash==='#top'){var b=document.getElementById('app-bar');b.hidden=false;document.getElementById('wa-fab').style.bottom='78px';}}})();</script>
+<div id="app-bar" hidden style="position:fixed;left:0;right:0;bottom:0;z-index:95;background:#1B2A4A;color:#fff;font:600 14px/1.3 Inter,system-ui,sans-serif;padding:10px 12px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:10px;box-shadow:0 -4px 16px rgba(0,0,0,.25)"><span style="flex:1">📲 Nouveau : notre <b>application gratuite</b> pour apprendre l'anglais</span><a href="appli/" style="background:#D4AF37;color:#1B2A4A;padding:9px 14px;border-radius:999px;text-decoration:none;white-space:nowrap">Ouvrir l'appli</a><button aria-label="Fermer" style="background:none;border:0;color:#fff;font-size:20px;cursor:pointer" onclick="try{sessionStorage.setItem('wec_appbar_x','1')}catch(e){}this.parentNode.hidden=true;document.getElementById('wa-fab').style.bottom=''">×</button></div>
+<script>(function(){var r=document.referrer||'',q=location.search;var _x;try{_x=sessionStorage.getItem('wec_appbar_x')}catch(e){}if(!_x){if(!location.hash||location.hash==='#top'){var b=document.getElementById('app-bar');b.hidden=false;document.getElementById('wa-fab').style.bottom='78px';}}})();</script>
 
 </head></html>

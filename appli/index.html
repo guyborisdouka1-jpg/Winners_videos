@@ -166,6 +166,7 @@ footer{text-align:center;color:var(--muted);font-size:12.5px;padding:8px 0 16px}
 .xp-toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
 </style>
 <script src="programmes.js"></script>
+<script src="wec.js"></script>
 <script src="pub.js"></script>
 <script src="lecons.js"></script>
 <script src="actu.js"></script>
@@ -175,6 +176,21 @@ footer{text-align:center;color:var(--muted);font-size:12.5px;padding:8px 0 16px}
 </head>
 <body>
 
+<div id="hello" class="hidden" style="position:fixed;inset:0;z-index:999;background:linear-gradient(180deg,#2F3480,#1B1C33);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:28px 22px;overflow:auto">
+  <img src="logo.png" alt="" style="width:92px;height:92px;border-radius:50%;background:#fff;padding:6px">
+  <p style="margin:18px 0 4px;letter-spacing:.12em;font-size:12px;color:#F2B33D;font-weight:700">BIENVENUE DANS L'APPLICATION</p>
+  <h1 style="margin:0 0 10px;font-size:28px;line-height:1.15">Winners English 📲</h1>
+  <p style="margin:0 0 18px;max-width:340px;opacity:.92">L'application <b>100 % gratuite</b> de Winners' English Center pour apprendre l'anglais chaque jour, sur ton téléphone.</p>
+  <ul style="list-style:none;padding:0;margin:0 0 22px;text-align:left;display:grid;gap:10px;max-width:340px;font-size:15px">
+    <li>📚 Leçons du débutant à l'avancé, avec la prononciation écrite</li>
+    <li>🃏 Flashcards et quiz de l'actu</li>
+    <li>💬 Une phrase et un défi chaque jour</li>
+    <li>📝 Test de niveau et test de placement</li>
+  </ul>
+  <button id="helloInst" class="hidden" style="background:#F2B33D;color:#1B1C33;border:0;border-radius:14px;padding:14px 22px;font-weight:700;font-size:16px;font-family:inherit;width:100%;max-width:340px;margin-bottom:10px;cursor:pointer">📲 Installer l'appli sur mon téléphone</button>
+  <button id="helloGo" style="background:#fff;color:#2F3480;border:0;border-radius:14px;padding:14px 22px;font-weight:700;font-size:16px;font-family:inherit;width:100%;max-width:340px;cursor:pointer">Commencer à apprendre →</button>
+  <a href="./" id="helloSite" style="color:#fff;opacity:.8;margin-top:14px;font-size:14px">Voir le site du centre</a>
+</div>
 <div class="top">
   <img src="logo.png" alt="Logo Winners' English Center">
   <div><b>WINNERS' ENGLISH CENTER</b><span>I speak English, and you? 🇬🇧</span></div>
@@ -212,7 +228,7 @@ footer{text-align:center;color:var(--muted);font-size:12.5px;padding:8px 0 16px}
 
 <!-- ======================= TEST ======================= -->
 <section class="view" id="v-test">
-  <a class="card" href="placement/" style="display:block;text-decoration:none;color:inherit;border:2px solid var(--accent,#F2B33D)"><h2>🎯 Test de placement complet</h2><p class="muted">83 questions en 4 parties (A1 à B2), avec exercices d'écoute, corrigé tout seul avec tes erreurs. Environ 45 min. C'est le test qui sert à te placer dans ton groupe.</p><b style="color:#B83A35">Commencer le test de placement →</b></a>
+  <a class="card" href="placement/" style="display:block;text-decoration:none;color:inherit;border:2px solid var(--accent,#F2B33D)"><h2>🎯 Test de placement complet</h2><p class="muted">83 questions en 4 parties (A1 à B2), avec exercices d'écoute, corrigé tout seul avec tes erreurs. Environ 45 min. C'est le test qui sert à te placer dans ton groupe. 🔑 Clé d'accès gratuite sur WhatsApp.</p><b style="color:#B83A35">Commencer le test de placement →</b></a>
   <div id="t1" class="card">
     <h2>📝 Test rapide (5 min)</h2>
     <p class="muted">20 questions, du niveau débutant au niveau avancé. Réponds sans dictionnaire : le but est de te placer dans le bon groupe.</p>
@@ -227,6 +243,7 @@ footer{text-align:center;color:var(--muted);font-size:12.5px;padding:8px 0 16px}
       <option>Je ne sais pas encore</option>
     </select>
     <div id="err1" class="err hidden">Merci d'indiquer ton nom et ton numéro WhatsApp.</div>
+    <div id="keyBox"></div>
     <button class="btn b-p" id="start">Commencer le test →</button>
   </div>
   <div id="t2" class="card hidden">
@@ -580,20 +597,20 @@ function carteProg(compteur){
       '<button class="btn b-a" onclick="go(\'promo\')">Me prévenir de la prochaine session →</button></div>';
   }
   return '<div class="card promo"><h2 style="margin-bottom:4px">'+(P.emoji||'')+' '+esc(P.nom)+'</h2>'+
-    (P.prix?'<div class="price">'+fmt(P.prix)+(P.prixBarre?' <s>'+fmt(P.prixBarre)+'</s>':'')+'</div>':'')+
-    '<p>'+(P.acompte?'Dès <b>'+fmt(P.acompte)+'</b> pour commencer • ':'')+'Cours du <b>'+jourTxt(P.cours[0])+' au '+jourTxt(P.cours[1])+'</b></p>'+
+    (P.duree?'<div class="price" style="font-size:20px">📅 '+esc(P.duree)+'</div>':'')+
+    '<p>'+esc(P.accroche||'')+'. Cours du <b>'+jourTxt(P.cours[0])+' au '+jourTxt(P.cours[1])+'</b>, en présentiel ou en ligne.</p>'+
     (compteur?'<div class="count" id="count"></div><div style="font-size:13px;opacity:.9" id="countLbl"></div>':'')+
     (compteur?'<button class="btn b-a" onclick="go(\'promo\')">Voir le programme et m\'inscrire →</button>':'')+'</div>';
 }
 function rendreProgramme(){
-  $('homeProg').innerHTML=(P&&OUVERT&&P.visuel?'<img class="visuel" src="'+P.visuel+'" alt="'+esc(P.nom)+'">':'')+carteProg(true);
+  $('homeProg').innerHTML=carteProg(true);
   $('testProg').innerHTML=carteProg(false);
   let h='';
   if(P&&OUVERT){
-    h+=(P.visuel?'<img class="visuel" src="'+P.visuel+'" alt="">':'')+
-      '<div class="card promo"><h2>'+(P.emoji||'')+' '+esc(P.nom)+'</h2>'+(P.prix?'<div class="price">'+fmt(P.prix)+(P.prixBarre?' <s>'+fmt(P.prixBarre)+'</s>':'')+'</div>':'')+'<p>'+esc(P.accroche||'')+'</p></div>';
-    if(P.details&&P.details.length)h+='<div class="card"><h3>📋 Le programme</h3><ul class="list">'+P.details.map(x=>'<li>'+x[0]+' <span>'+x[1]+'</span></li>').join('')+'</ul></div>';
+    h+='<div class="card promo"><h2>'+(P.emoji||'')+' '+esc(P.nom)+'</h2>'+(P.duree?'<div class="price" style="font-size:20px">📅 '+esc(P.duree)+'</div>':'')+'<p>'+esc(P.accroche||'')+'</p></div>';
+    if(P.details&&P.details.length)h+='<div class="card"><h3>📋 Le programme</h3><ul class="list">'+P.details.filter(x=>x[0]!=='💳').map(x=>'<li>'+x[0]+' <span>'+x[1]+'</span></li>').join('')+'</ul></div>';
     if(P.bonus&&P.bonus.length)h+='<div class="card"><h3>🎁 Tes bonus</h3><ul class="list">'+P.bonus.map(x=>'<li>'+x[0]+' <span>'+x[1]+'</span></li>').join('')+'</ul></div>';
+    h+=(P.visuel?'<img class="visuel" src="'+P.visuel+'" alt="">':'')+'<div class="card"><h3>💰 Ton investissement pour les 2 mois</h3>'+(P.prix?'<div class="price" style="color:var(--p)">'+fmt(P.prix)+(P.prixBarre?' <s style="font-size:16px;opacity:.6">'+fmt(P.prixBarre)+'</s>':'')+'</div>':'')+'<p>'+esc(P.paiementTexte||'')+'</p><a class="btn b-a" href="brochure.pdf" download style="display:inline-block;text-decoration:none;margin-top:6px">📄 Télécharger la brochure (PDF)</a></div>';
     $('formTitre').textContent='✍️ Je réserve ma place';
     $('inscrire').textContent='📲 Envoyer ma pré-inscription sur WhatsApp';
     const opts=[];if(P.acompte)opts.push('Acompte : '+fmt(P.acompte));if(P.prix&&P.acompte)opts.push('Solde : '+fmt(P.prix-P.acompte));if(P.prix)opts.push('Totalité : '+fmt(P.prix));opts.push('Autre montant');
@@ -640,9 +657,11 @@ document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>go(b.dataset.v)
 /* ---------- test de niveau ---------- */
 const Q=window.TEST_Q;
 let qi=0,ans=[],pick=null;
+if(window.WEC)$('keyBox').innerHTML=WEC.keyField('rapide');
 $('start').onclick=()=>{
   if($('nom').value.trim().length<2||$('tel').value.replace(/\D/g,'').length<8){$('err1').classList.remove('hidden');return}
   $('err1').classList.add('hidden');
+  if(window.WEC&&!WEC.checkKey('rapide'))return;
   $('iNom').value=$('nom').value;$('iTel').value=$('tel').value;$('pNom').value=$('nom').value;
   $('t1').classList.add('hidden');$('t2').classList.remove('hidden');showQ();
 };
@@ -890,6 +909,13 @@ let deferred=null;
 const standalone=window.matchMedia('(display-mode: standalone)').matches||navigator.standalone;
 if(standalone)$('instDone').classList.remove('hidden');
 window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e;if(!standalone){$('installBar').classList.remove('hidden');$('instBtn').classList.remove('hidden')}});
+(function(){let seen;try{seen=localStorage.getItem('wec_hello')}catch(e){}
+  const h=$('hello');if(!seen&&!standalone&&!/[#](test|learn|promo|installer)/.test(location.hash)){h.classList.remove('hidden');}
+  const close=()=>{h.classList.add('hidden');try{localStorage.setItem('wec_hello','1')}catch(e){}};
+  $('helloGo').onclick=close;
+  $('helloInst').onclick=()=>{close();installer();};
+  window.addEventListener('beforeinstallprompt',()=>{if(!standalone)$('helloInst').classList.remove('hidden')});
+})();
 async function installer(){
   if(!deferred){go('installer');return}
   deferred.prompt();try{await deferred.userChoice}catch(e){}deferred=null;
