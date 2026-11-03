@@ -398,7 +398,7 @@ function renderTest(){
 
 /* ---------- sections ---------- */
 var SECTIONS = [
- {id:'promo', label:'🎄 Promo Noël', show:function(){return !!curP();}},
+ {id:(curP()||{}).lien||'promo', label:'🎄 Promo Noël', show:function(){return !!curP();}},
  {id:'activites', label:'Activités', show:function(){return list('gallery').length;}},
  {id:'test', label:'Test de niveau', show:function(){return true;}},
  {id:'appli', label:'Apprendre gratuitement', show:function(){return true;}},
@@ -430,7 +430,7 @@ function hero(){
     '<div class="wrap"><div class="hero-in"><div class="hero-dots">'+imgs.map(function(s,i){return '<i class="'+(i===0?'on':'')+'"></i>';}).join('')+'</div><span class="label">'+esc(G.name)+' · Cocody, Riviera Palmeraie</span>'+
     '<h1 id="hero-title">'+esc(t[0])+'<br><em>'+esc(t[1])+'</em></h1>'+
     '<p class="hero-sub">'+nl(G.heroSubtitle)+'</p>'+
-    '<div class="hero-cta">'+(DATA.specialFeatured&&DATA.specialFeatured.promo?'<a class="btn btn-gold" href="#promo">🎄 Promo Noël : 2 mois (nov. + déc.)</a>':'')+'<a class="btn btn-red" href="#test">Faire mon test de niveau</a><a class="btn btn-ghost" href="appli/">📲 Appli gratuite</a><button class="btn btn-ghost" data-rdv>Prendre un rendez-vous</button></div>'+
+    '<div class="hero-cta">'+(DATA.specialFeatured&&DATA.specialFeatured.promo?'<a class="btn btn-gold" href="#'+esc((curP()||{}).lien||'promo')+'">🎄 Promo Noël : 2 mois (nov. + déc.)</a>':'')+'<a class="btn btn-red" href="#test">Faire mon test de niveau</a><a class="btn btn-ghost" href="appli/">📲 Appli gratuite</a><button class="btn btn-ghost" data-rdv>Prendre un rendez-vous</button></div>'+
     '<div class="cefr" aria-label="Niveaux du Cadre européen"><div class="cefr-bar"><span>A1</span><span>A2</span><span>B1</span><span>B2</span><span>C1</span><span>C2</span></div><small>Du grand débutant (A1) à la maîtrise (C2) : chaque apprenant progresse depuis son niveau réel.</small></div>'+
     '<div class="stats">'+(G.stats||[]).map(function(s){return '<div><b>'+esc(s.n)+'</b><span>'+esc(s.l)+'</span></div>';}).join('')+'</div>'+
     '</div></div></section>';
@@ -584,7 +584,7 @@ function secPromo(){
 function promoStrip(){
   var P=curP(); if(!P) return '';
   return '<section class="pstrip"><div class="wrap"><div class="ps-in"><div class="ps-txt"><span class="ps-k">'+esc((P.emoji?P.emoji+' ':'')+P.nom)+'</span><b>2 mois de cours : novembre + décembre</b><span class="ps-d">Du '+esc(jourFr(P.cours[0]))+' au '+esc(jourFr(P.cours[1]))+' · en petit groupe, au centre ou en ligne</span></div>'+
-    '<div class="ps-btns"><a class="btn btn-gold" href="#promo">Voir le programme</a><a class="btn btn-ghost" href="appli/">📲 Appli gratuite</a></div></div></div></section>';
+    '<div class="ps-btns"><a class="btn btn-gold" href="#'+esc(P.lien||'promo')+'">Voir le programme</a><a class="btn btn-ghost" href="appli/">📲 Appli gratuite</a></div></div></div></section>';
 }
 function driveImg(u){ u=String(u||'').trim(); var m=u.match(/drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?(?:export=\w+&)?id=)([\w-]{20,})/); return m?'https://drive.google.com/thumbnail?id='+m[1]+'&sz=w1000':u; }
 function formCard(r){
