@@ -7,8 +7,11 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://guyborisdouka1-jpg.github.io/Winners_videos/site/">
 <meta property="og:title" content="Cours d'anglais à Abidjan (Cocody) | Winners' English Center">
-<meta property="og:description" content="Parlez anglais avec confiance. Test de niveau gratuit, Promo Anglais Noël.">
-<meta property="og:image" content="https://guyborisdouka1-jpg.github.io/Winners_videos/img/promo_noel.jpg">
+<meta property="og:description" content="Promo Anglais Noël : 2 mois de cours, novembre + décembre, en présentiel ou en ligne. Test de niveau et application gratuits.">
+<meta property="og:image" content="https://guyborisdouka1-jpg.github.io/Winners_videos/img/partage.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../img/icon-192.png">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Cours d'anglais à Abidjan (Cocody) | Winners' English Center</title>
@@ -281,6 +284,9 @@ footer button{background:none;border:0;color:#5f6b85;font:inherit;font-size:.78r
 .chk{display:flex;gap:8px;align-items:center}.chk input{width:auto}
 @media (max-width:760px){.admin-main{grid-template-columns:1fr;grid-template-rows:auto 1fr}.admin-nav{display:flex;overflow-x:auto;border-right:0;border-bottom:1px solid var(--line)}.admin-nav button{flex:none}}
 .hero{display:flex;flex-direction:column}.hero::after{display:none}.hero-bg{position:relative;inset:auto;z-index:0;height:min(46vh,420px);order:-1;overflow:hidden}.hero-bg::after{content:"";position:absolute;left:0;right:0;bottom:0;height:22%;background:linear-gradient(180deg,rgba(27,42,74,0),#1B2A4A)}.hero h1,.hero-sub,.hero .label{text-shadow:none}.hero-in{padding-block:24px 48px}@media(min-width:900px){.hero{display:grid;grid-template-columns:1.05fr 1fr;align-items:center}.hero-bg{order:2;height:100%;min-height:620px}.hero-bg::after{top:0;bottom:0;left:0;right:auto;width:18%;height:auto;background:linear-gradient(90deg,#1B2A4A,rgba(27,42,74,0))}.hero-in{padding-block:64px}.hero>.wrap{margin:0 0 0 auto;max-width:640px;padding-inline:40px}}#boutique .cover{aspect-ratio:4/5;height:auto;background:#fff}#boutique .cover img{width:100%;height:100%;object-fit:contain}#programmes .cover{aspect-ratio:1/1;height:auto}#programmes .cover img{width:100%;height:100%;object-fit:cover}
+.pstrip{background:linear-gradient(90deg,#B83A35,#8f1f2f);color:#fff;padding:14px 0}.ps-in{display:flex;align-items:center;gap:14px 22px;flex-wrap:wrap}
+.ps-txt{flex:1;min-width:240px;display:grid;gap:2px}.ps-k{font:700 .78rem/1.2 var(--f-mono);letter-spacing:.12em;color:#F2D27A}.ps-txt b{font-family:var(--f-display);font-size:1.35rem;line-height:1.2}.ps-d{font-size:.9rem;opacity:.92}
+.ps-btns{display:flex;gap:10px;flex-wrap:wrap}.ps-btns .btn{padding:.7em 1.1em;font-size:.92rem}.ps-btns .btn-ghost{color:#fff}
 #wec-band{background:#D4AF37;color:#1B2A4A;text-align:center;font:700 14px/1.35 var(--f-body);padding:9px 14px}
 section.sec{padding-block:56px}@media(max-width:600px){section.sec{padding-block:40px}.sec-head{margin-bottom:22px}}
 .pm{background:linear-gradient(180deg,#1B2A4A,#24365e);color:#F7F5F0}
@@ -372,8 +378,8 @@ function renderTest(){
       '<p class="muted">20 questions, environ 5 minutes. Résultat immédiat sur l\'échelle européenne (CECR).</p>'+
       '<div class="field"><label for="t-name">Votre nom</label><input id="t-name" required autocomplete="name" value="'+esc(t.name)+'"></div>'+
       '<div class="field"><label for="t-phone">Votre téléphone (WhatsApp)</label><input id="t-phone" required inputmode="tel" autocomplete="tel" value="'+esc(t.phone)+'"></div>'+
-      (window.WEC?WEC.keyField('rapide'):'')+'<button class="btn btn-red" type="submit">Commencer le test</button></form>';
-    $('#test-form').addEventListener('submit',function(e){ e.preventDefault(); t.name=$('#t-name').value.trim(); t.phone=$('#t-phone').value.trim(); if(!t.name||!t.phone) return; if(window.WEC&&!WEC.checkKey('rapide')) return; t.step='q'; t.i=0; t.score=0; renderTest(); });
+      '<button class="btn btn-red" type="submit">Commencer le test</button></form>';
+    $('#test-form').addEventListener('submit',function(e){ e.preventDefault(); t.name=$('#t-name').value.trim(); t.phone=$('#t-phone').value.trim(); if(!t.name||!t.phone) return; t.step='q'; t.i=0; t.score=0; renderTest(); });
   } else if(t.step==='q'){
     var q = QUESTIONS[t.i];
     el.innerHTML = '<div class="q-meta"><span class="label">Question '+(t.i+1)+' / '+QUESTIONS.length+'</span><div class="progress"><i style="width:'+(t.i/QUESTIONS.length*100)+'%"></i></div></div>'+
@@ -539,7 +545,7 @@ function secContact(){
     '<div class="row-btns" style="justify-content:flex-start"><a class="btn btn-wa" target="_blank" rel="noopener" href="'+wa("Bonjour Winners' English Center, je souhaite des informations.")+'">Écrire sur WhatsApp</a><a class="btn btn-ghost" href="'+mail('Demande d\'informations',"Bonjour Winners' English Center, je souhaite des informations.")+'">Écrire par email</a><button class="btn btn-ghost" data-rdv>Prendre rendez-vous</button></div></div>'+
     '<div class="mapcard"><span class="pin" aria-hidden="true"></span><span class="label" style="color:#D4AF37">Nous trouver</span><b style="font-family:var(--f-display);font-size:1.5rem">Cocody, Riviera Palmeraie</b><div class="row-btns" style="justify-content:flex-start"><a class="btn btn-gold" target="_blank" rel="noopener" href="'+safeUrl(G.mapsUrl)+'">Ouvrir dans Google Maps</a><a class="btn btn-wa" target="_blank" rel="noopener" href="'+wa("Bonjour, pouvez-vous m'envoyer l'itinéraire du centre ?")+'">Demander l\'itinéraire</a></div></div>'+
     '</div></div></section>'+
-    '<footer><div class="wrap"><span>© '+new Date().getFullYear()+' '+esc(G.name)+' · Cocody, Riviera Palmeraie</span><a href="../" style="color:inherit">📲 L\'appli Winners English</a> · <a href="../brochure.pdf" style="color:inherit" download>📄 Brochure</a> · <a href="../admin/" style="color:inherit" rel="nofollow">Espace admin</a></div></footer>';
+    '<footer><div class="wrap"><span>© '+new Date().getFullYear()+' '+esc(G.name)+' · Cocody, Riviera Palmeraie</span><a href="../" style="color:inherit">📲 L\'appli Winners English</a> · <a href="../brochure.pdf" style="color:inherit" download>📄 Brochure</a></div></footer>';
 }
 
 function secApp(){
@@ -574,6 +580,11 @@ function secPromo(){
     tarif+'</div>'+
     '<div class="pm-media"><img src="img/fb/cours_adultes.jpg" alt="Cours en petit groupe au centre"><img src="img/fb/groupe_tshirts.jpg" alt="Nos apprenants"></div>'+
     '</div></div></section>';
+}
+function promoStrip(){
+  var P=curP(); if(!P) return '';
+  return '<section class="pstrip"><div class="wrap"><div class="ps-in"><div class="ps-txt"><span class="ps-k">'+esc((P.emoji?P.emoji+' ':'')+P.nom)+'</span><b>2 mois de cours : novembre + décembre</b><span class="ps-d">Du '+esc(jourFr(P.cours[0]))+' au '+esc(jourFr(P.cours[1]))+' · en petit groupe, au centre ou en ligne</span></div>'+
+    '<div class="ps-btns"><a class="btn btn-gold" href="#promo">Voir le programme</a><a class="btn btn-ghost" href="../">📲 Appli gratuite</a></div></div></div></section>';
 }
 function driveImg(u){ u=String(u||'').trim(); var m=u.match(/drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?(?:export=\w+&)?id=)([\w-]{20,})/); return m?'https://drive.google.com/thumbnail?id='+m[1]+'&sz=w1000':u; }
 function formCard(r){
@@ -614,7 +625,7 @@ function wecLive(){
 }
 function render(){
   var _cp=currentProg(), _isP=_cp&&_cp.it&&_cp.it.promo;
-  app.innerHTML = '<div id="wec-band" hidden></div>'+header()+'<main>'+(_isP?secPromo():secSpot())+hero()+(_isP?'':secPromo())+secApp()+secTest()+secPlacement()+secFormations()+secVideos()+secPubs()+secGallery()+secServices()+secFounder()+secTestimonials()+secCourses()+secShop()+secFaq()+'</main>'+secContact();
+  app.innerHTML = '<div id="wec-band" hidden></div>'+header()+'<main>'+(_isP?secPromo():secSpot()+promoStrip())+hero()+(_isP?'':secPromo())+secApp()+secTest()+secPlacement()+secFormations()+secVideos()+secPubs()+secGallery()+secServices()+secFounder()+secTestimonials()+secCourses()+secShop()+secFaq()+'</main>'+secContact();
   wecLive();
   renderTest(); bind(); startHero();
 }
@@ -841,7 +852,7 @@ if(currentProg()) window.scrollTo(0,0);
 })();
 </script>
 
-<nav aria-label="Nos cours d'anglais" style="background:#1B2A4A;color:#b9c2d6;font:14px/1.6 Inter,system-ui,sans-serif;padding:18px 16px 90px;text-align:center"><b style="color:#fff">Nos cours d'anglais à Abidjan :</b> <a style="color:#fff" href="cours-anglais-adultes/">Adultes et pros</a> · <a style="color:#fff" href="cours-anglais-enfants/">Enfants</a> · <a style="color:#fff" href="cours-anglais-en-ligne/">En ligne</a> · <a style="color:#fff" href="cours-anglais-a-domicile/">À domicile</a> · <a style="color:#fff" href="traduction-interpretariat/">Traduction</a> · <a style="color:#fff" href="test-niveau-anglais-gratuit/">Test gratuit</a></nav>
+<nav aria-label="Nos cours d'anglais" style="background:#1B2A4A;color:#b9c2d6;font:14px/1.6 Inter,system-ui,sans-serif;padding:18px 16px 90px;text-align:center"><b style="color:#fff">Nos cours d'anglais à Abidjan :</b> <a style="color:#fff" href="cours-anglais-adultes/">Adultes et pros</a> · <a style="color:#fff" href="cours-anglais-enfants/">Enfants</a> · <a style="color:#fff" href="cours-anglais-en-ligne/">En ligne</a> · <a style="color:#fff" href="cours-anglais-a-domicile/">À domicile</a> · <a style="color:#fff" href="traduction-interpretariat/">Traduction</a> · <a style="color:#fff" href="test-niveau-anglais-gratuit/">Test gratuit</a><br><br><a href="https://docs.google.com/spreadsheets/d/12iKRmkDdlo7G2UYbGZajUZrnJ0jmcd0LyE1DsFmI1VU/edit" target="_blank" rel="noopener nofollow" style="color:#8f9ab3;font-size:12px;text-decoration:none">⚙️ Admin</a></nav>
 <style>#wa-fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:90;display:flex;align-items:center;gap:8px;background:#1f9d55;color:#fff;font:600 15px/1 Inter,system-ui,sans-serif;padding:13px 18px 13px 14px;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.25);text-decoration:none}#wa-fab svg{width:22px;height:22px;fill:#fff}@media(min-width:900px){#wa-fab{right:24px;bottom:24px}}</style>
 <a id="wa-fab" target="_blank" rel="noopener" href="https://wa.me/2250767037284"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg><span>Écrivez-nous</span></a>
 <script>(function(){var P=(window.PROGRAMMES||[]).filter(function(p){var t=new Date().toISOString().slice(0,10);return p.afficherDes<=t&&t<=p.cours[1];})[0];var f=document.getElementById('wa-fab');function upd(){var h=decodeURIComponent((location.hash||'').slice(1));var m="Bonjour Coach Winner ! Je viens du site";m+=(P&&(!h||h===P.lien))?" et je veux des informations sur la "+P.nom+".":(h&&h!=='top'?" ("+h.replace(/-/g,' ')+"). Je souhaite des informations.":". Je souhaite des informations.");f.href='https://wa.me/'+((window.CENTRE||{}).whatsapp||'2250767037284')+'?text='+encodeURIComponent(m);f.removeAttribute('data-ref');}upd();window.addEventListener('hashchange',upd);})();</script>
