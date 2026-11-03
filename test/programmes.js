@@ -17,7 +17,7 @@ window.CENTRE = {
   facebook: "https://www.facebook.com/108178682182393",
   tiktok: "https://www.tiktok.com/@winnersenglish",
   // Pixel Meta (Facebook/Instagram) : coller ici le numéro du pixel pour suivre les pubs, ex. "1234567890123456"
-  metaPixel: "",
+  metaPixel: "1967147677422094",
   // Clés d'accès des tests (le tableau Google « Winners – Admin du site » peut les changer)
   cles: { rapide: "WIN2026", placement: "WIN2026" },
   brochure: "brochure.pdf",
