@@ -609,14 +609,14 @@ function carteProg(compteur){
     (compteur?'<button class="btn b-a" onclick="go(\'promo\')">Voir le programme et m\'inscrire →</button>':'')+'</div>';
 }
 function rendreProgramme(){
-  $('homeProg').innerHTML=carteProg(true);
+  $('homeProg').innerHTML=(P&&OUVERT&&P.visuel?'<img class="visuel" src="'+P.visuel+'" alt="'+esc(P.nom)+'" onclick="go(\'promo\')" style="cursor:pointer">':'')+carteProg(true);
   $('testProg').innerHTML=carteProg(false);
   let h='';
   if(P&&OUVERT){
-    h+='<div class="card promo"><h2>'+(P.emoji||'')+' '+esc(P.nom)+'</h2>'+(P.duree?'<div class="price" style="font-size:20px">📅 '+esc(P.duree)+'</div>':'')+'<p>'+esc(P.accroche||'')+'</p></div>';
+    h+=(P.visuel?'<img class="visuel" src="'+P.visuel+'" alt="">':'')+'<div class="card promo"><h2>'+(P.emoji||'')+' '+esc(P.nom)+'</h2>'+(P.duree?'<div class="price" style="font-size:20px">📅 '+esc(P.duree)+'</div>':'')+'<p>'+esc(P.accroche||'')+'</p></div>';
     if(P.details&&P.details.length)h+='<div class="card"><h3>📋 Le programme</h3><ul class="list">'+P.details.filter(x=>x[0]!=='💳').map(x=>'<li>'+x[0]+' <span>'+x[1]+'</span></li>').join('')+'</ul></div>';
     if(P.bonus&&P.bonus.length)h+='<div class="card"><h3>🎁 Tes bonus</h3><ul class="list">'+P.bonus.map(x=>'<li>'+x[0]+' <span>'+x[1]+'</span></li>').join('')+'</ul></div>';
-    h+=(P.visuel?'<img class="visuel" src="'+P.visuel+'" alt="">':'')+'<div class="card"><h3>💰 Ton investissement pour les 2 mois</h3>'+(P.prix?'<div class="price" style="color:var(--p)">'+fmt(P.prix)+(P.prixBarre?' <s style="font-size:16px;opacity:.6">'+fmt(P.prixBarre)+'</s>':'')+'</div>':'')+'<p>'+esc(P.paiementTexte||'')+'</p><a class="btn b-a" href="brochure.pdf" download style="display:inline-block;text-decoration:none;margin-top:6px">📄 Télécharger la brochure (PDF)</a></div>';
+    h+='<div class="card"><h3>💰 Ton investissement pour les 2 mois</h3>'+(P.prix?'<div class="price" style="color:var(--p)">'+fmt(P.prix)+(P.prixBarre?' <s style="font-size:16px;opacity:.6">'+fmt(P.prixBarre)+'</s>':'')+'</div>':'')+'<p>'+esc(P.paiementTexte||'')+'</p><a class="btn b-a" href="brochure.pdf" download style="display:inline-block;text-decoration:none;margin-top:6px">📄 Télécharger la brochure (PDF)</a></div>';
     $('formTitre').textContent='✍️ Je réserve ma place';
     $('inscrire').textContent='📲 Envoyer ma pré-inscription sur WhatsApp';
     const opts=[];if(P.acompte)opts.push('Acompte : '+fmt(P.acompte));if(P.prix&&P.acompte)opts.push('Solde : '+fmt(P.prix-P.acompte));if(P.prix)opts.push('Totalité : '+fmt(P.prix));opts.push('Autre montant');
