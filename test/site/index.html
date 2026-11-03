@@ -570,7 +570,7 @@ function secPromo(){
   var tarif=open?'<div class="pm-price"><span class="label">Ton investissement pour les 2 mois</span>'+
       '<div class="pm-amount">'+(P.prixBarre?'<s>'+fcfa(P.prixBarre)+'</s> ':'')+'<b>'+fcfa(P.prix)+'</b></div>'+
       '<p>'+esc(P.paiementTexte||'')+'</p><p class="pm-dead">⏳ Inscriptions jusqu\'au '+esc(jourFr(P.inscriptions[1]))+'</p>'+
-      '<div class="row-btns" style="justify-content:flex-start"><a class="btn btn-wa" target="_blank" rel="noopener" href="'+wa(msg)+'">Je réserve ma place sur WhatsApp</a><a class="btn btn-ghost" href="../brochure.pdf" download>📄 Brochure PDF</a></div></div>'
+      '<div class="row-btns" style="justify-content:flex-start"><a class="btn btn-red" target="_blank" rel="noopener" onclick="window.wecTrack&&wecTrack(\'Lead\',{content_name:\'formulaire_inscription\'})" href="https://docs.google.com/forms/d/e/1FAIpQLSfLmFAB-Y63PmzJ4QvS4uSuvNbzPfy2AdWKk-zvsUCEzGV-ng/viewform">📝 Je m\'inscris (formulaire)</a><a class="btn btn-wa" target="_blank" rel="noopener" href="'+wa(msg)+'">Je réserve ma place sur WhatsApp</a><a class="btn btn-ghost" href="../brochure.pdf" download>📄 Brochure PDF</a></div></div>'
     :'<div class="pm-price"><span class="label">Programme en cours</span><p>Les inscriptions sont closes. Écris-nous pour être prévenu(e) en premier de la prochaine session.</p><div class="row-btns" style="justify-content:flex-start"><a class="btn btn-wa" target="_blank" rel="noopener" href="'+wa("Bonjour Coach Winner ! Je veux être prévenu(e) de la prochaine session.")+'">Me prévenir</a></div></div>';
   return '<section class="sec pm" id="promo"><div class="wrap"><div class="pm-in">'+
     '<div class="pm-txt"><span class="label">Programme du moment</span><h2>'+esc((P.emoji?P.emoji+' ':'')+P.nom)+'</h2>'+
@@ -579,7 +579,7 @@ function secPromo(){
     '<h3>📋 Le programme</h3><ul class="pm-list">'+det.map(function(d){return '<li><span>'+d[0]+'</span><span>'+d[1]+'</span></li>';}).join('')+'</ul>'+
     ((P.bonus||[]).length?'<h3>🎁 Tes bonus</h3><ul class="pm-list">'+P.bonus.map(function(d){return '<li><span>'+d[0]+'</span><span>'+d[1]+'</span></li>';}).join('')+'</ul>':'')+
     tarif+'</div>'+
-    '<div class="pm-media">'+(P.visuel?'<img class="pm-poster" src="../'+esc(P.visuel)+'" alt="Affiche '+esc(P.nom)+'">':'')+(open?'<a class="btn btn-wa pm-cta" target="_blank" rel="noopener" href="'+wa(msg)+'">✅ Je réserve ma place sur WhatsApp</a>':'')+'<img class="pm-ph" src="img/fb/adultes_explication.jpg" alt="Cours en petit groupe au centre"><img class="pm-ph" src="img/fb/groupe_tshirts.jpg" alt="Nos apprenants"></div>'+
+    '<div class="pm-media">'+(P.visuel?'<img class="pm-poster" src="../'+esc(P.visuel)+'" alt="Affiche '+esc(P.nom)+'">':'')+(open?'<a class="btn btn-red pm-cta" target="_blank" rel="noopener" onclick="window.wecTrack&&wecTrack(\'Lead\',{content_name:\'formulaire_inscription\'})" href="https://docs.google.com/forms/d/e/1FAIpQLSfLmFAB-Y63PmzJ4QvS4uSuvNbzPfy2AdWKk-zvsUCEzGV-ng/viewform">📝 Je m\'inscris maintenant (formulaire)</a><a class="btn btn-wa pm-cta" target="_blank" rel="noopener" href="'+wa(msg)+'">💬 Une question ? WhatsApp</a>':'')+'<img class="pm-ph" src="img/fb/adultes_explication.jpg" alt="Cours en petit groupe au centre"><img class="pm-ph" src="img/fb/groupe_tshirts.jpg" alt="Nos apprenants"></div>'+
     '</div></div></section>';
 }
 function promoStrip(){
