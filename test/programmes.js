@@ -18,6 +18,9 @@ window.CENTRE = {
   tiktok: "https://www.tiktok.com/@winnersenglish",
   // Pixel Meta (Facebook/Instagram) : coller ici le numéro du pixel pour suivre les pubs, ex. "1234567890123456"
   metaPixel: "",
+  // Clés d'accès des tests (le tableau Google « Winners – Admin du site » peut les changer)
+  cles: { rapide: "WIN2026", placement: "WIN2026" },
+  brochure: "brochure.pdf",
   // Couleurs par défaut (celles du logo), utilisées quand aucun programme n'est en cours
   couleurs: { sombre: "#2F3480", principal: "#B83A35", accent: "#F2B33D" },
   // Numéros de paiement mobile (laisser la liste vide [] pour que les gens demandent sur WhatsApp)
@@ -35,7 +38,8 @@ window.PROGRAMMES = [
     lien: "promo-noel",                         // lien publicitaire du site : …/site/#promo-noel
     nom: "PROMO ANGLAIS NOËL",
     emoji: "🎄",
-    accroche: "6 semaines pour oser enfin parler anglais",
+    accroche: "2 mois de cours, novembre et décembre, pour oser enfin parler anglais",
+    duree: "2 mois : novembre + décembre 2026",
     visuel: "img/promo_noel.jpg",
     couleurs: { sombre: "#2F3480", principal: "#B83A35", accent: "#F2B33D" },
     afficherDes: "2026-10-01",                 // date à partir de laquelle l'appli montre ce programme
@@ -47,7 +51,7 @@ window.PROGRAMMES = [
     paiementTexte: "35 000 F à l'inscription, puis 30 000 F début décembre",
     reductionAmi: 5000,
     details: [
-      ["📅", "Du <b>lundi 9 novembre au jeudi 24 décembre 2026</b>"],
+      ["📅", "<b>2 mois de cours : novembre et décembre</b>, du lundi 9 novembre au jeudi 24 décembre 2026"],
       ["🕑", "<b>2 cours de 2 h</b> par semaine"],
       ["📍", "<b>Présentiel</b> (Cocody Riviera Palmeraie) ou <b>en ligne</b>"],
       ["💳", "<b>35 000 F</b> à l'inscription, puis <b>30 000 F</b> début décembre"],

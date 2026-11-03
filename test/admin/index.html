@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="fr"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Espace admin | Winners' English Center</title>
+<link rel="icon" href="../img/icon-192.png">
+<style>
+:root{--d:#2F3480;--p:#B83A35;--a:#F2B33D;--bg:#F5F3EE;--fg:#1B1C33;--mu:#5b6478;--card:#fff;--line:#e2ddd2}
+@media (prefers-color-scheme:dark){:root{--bg:#12142a;--fg:#eef0f7;--mu:#a9b0c6;--card:#1c1f3b;--line:#2d3157}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+.top{background:var(--d);color:#fff;padding:18px 16px}.top .w{display:flex;align-items:center;gap:12px}.top img{width:46px;height:46px;border-radius:50%;background:#fff}
+.top b{display:block;font-size:18px}.top span{opacity:.8;font-size:14px}
+.w{max-width:760px;margin:0 auto;padding:0 16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin:16px 0}
+h1{font-size:24px;margin:22px 0 4px}h2{font-size:19px;margin:0 0 8px}.mu{color:var(--mu)}
+.btn{display:block;text-align:center;text-decoration:none;font-weight:700;border-radius:14px;padding:15px 18px;margin:10px 0;border:0;font-size:16px}
+.b1{background:var(--p);color:#fff}.b2{background:var(--a);color:#1B1C33}.b3{background:transparent;color:var(--fg);box-shadow:inset 0 0 0 1.5px var(--line)}
+ol{padding-left:22px;margin:6px 0}li{margin:6px 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(max-width:520px){.grid{grid-template-columns:1fr}}
+.row{display:flex;gap:10px;align-items:center;padding:8px 0;border-top:1px solid var(--line)}.row:first-child{border-top:0}
+.pill{font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap}.on{background:#dff3e6;color:#17663a}.off{background:#f3e1df;color:#8a2a24}
+code{background:rgba(127,127,127,.15);padding:1px 6px;border-radius:6px}
+</style></head><body>
+<div class="top"><div class="w"><img src="../logo.png" alt=""><div><b>Espace admin</b><span>Winners' English Center</span></div></div></div>
+<div class="w">
+<h1>Bonjour Coach Winner 👋</h1>
+<p class="mu">Ici, tu modifies toi-même ton site, sans attendre personne. Tout se fait dans un tableau Google, depuis ton téléphone ou ton ordinateur. Le site se met à jour tout seul en 5 à 10 minutes.</p>
+
+<a class="btn b1" id="edit" target="_blank" rel="noopener" href="#">✏️ Ouvrir mon tableau de gestion</a>
+<p class="mu" style="font-size:14px;margin-top:-4px">Il s'ouvre avec ton compte Google <b>guyborisdouka1@gmail.com</b>. Sur téléphone, installe l'appli gratuite <b>Google Sheets</b> : c'est plus confortable.</p>
+
+<div class="card"><h2>➕ Ajouter une formation (1 minute)</h2>
+<ol><li>Ouvre le tableau, onglet <b>Formations</b>.</li>
+<li>Va à la première ligne vide en bas et remplis : <b>OUI</b>, le titre, pour qui, la description, les dates, le lieu, le prix.</li>
+<li>Facultatif : une étiquette (<code>Nouveau</code>, <code>Gratuit</code>…), un emoji, ou le lien d'une image.</li>
+<li>C'est tout. Pour retirer une formation du site sans l'effacer, remplace <b>OUI</b> par <b>NON</b>.</li></ol></div>
+
+<div class="card"><h2>📰 Ajouter une publication</h2>
+<ol><li>Sur Facebook, sous ta publication : <b>Partager → Copier le lien</b>.</li>
+<li>Dans le tableau, onglet <b>Publications</b> : insère une ligne <b>tout en haut</b> (sous les titres), mets OUI, la date, un titre, 1 ou 2 phrases et colle le lien.</li>
+<li>Le site affiche les 6 plus récentes.</li></ol></div>
+
+<div class="card"><h2>🔑 Clé des tests et bandeau</h2>
+<p>Onglet <b>Réglages</b> : tu y changes la <b>clé d'accès</b> du test rapide et du test de placement (c'est elle que tu envoies sur WhatsApp à ceux qui la demandent), et la phrase du <b>bandeau jaune</b> en haut du site.</p></div>
+
+<div class="card"><h2>👀 Ce que le site affiche en ce moment</h2>
+<div id="live" class="mu">Chargement…</div></div>
+
+<div class="grid">
+<a class="btn b2" href="../">🌐 Voir le site</a>
+<a class="btn b3" href="../appli/">📲 L'application</a>
+<a class="btn b3" href="../placement/">🎯 Test de placement</a>
+<a class="btn b3" href="../brochure.pdf" download>📄 Brochure PDF</a>
+</div>
+<p class="mu" style="font-size:14px;margin:18px 0 40px">Le programme du moment (Promo Noël : dates, prix, bonus) reste géré avec Claude pour garder les comptes à rebours et le formulaire d'inscription justes. Garde l'adresse de cette page : <b>winnersenglishcenter.com/admin</b></p>
+</div>
+<script src="../programmes.js"></script>
+<script src="../wec.js"></script>
+<script>
+document.getElementById('edit').href = WEC.editUrl;
+function esc(s){return String(s||'').replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+var out = {f:null,p:null};
+function draw(){
+  var h='';
+  if(out.f){ h+='<b>Formations</b>'+out.f.map(function(r){var on=/^oui/i.test(r[0]);return '<div class="row"><span class="pill '+(on?'on':'off')+'">'+(on?'Visible':'Masquée')+'</span><span>'+esc(r[1])+'</span></div>';}).join(''); }
+  if(out.p){ h+='<br><b>Publications</b>'+out.p.slice(0,6).map(function(r){var on=/^oui/i.test(r[0]);return '<div class="row"><span class="pill '+(on?'on':'off')+'">'+(on?'Visible':'Masquée')+'</span><span>'+esc(r[1])+' · '+esc(r[2])+'</span></div>';}).join(''); }
+  document.getElementById('live').innerHTML = h || 'Impossible de lire le tableau pour le moment. Vérifie ta connexion.';
+}
+WEC.load('Formations',function(r){ if(r) out.f=r; draw(); });
+WEC.load('Publications',function(r){ if(r) out.p=r; draw(); });
+</script>
+</body></html>
