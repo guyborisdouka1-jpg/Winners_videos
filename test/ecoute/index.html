@@ -1,0 +1,103 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Espace 30 jours d'écoute anglophone | Winners' English Center</title>
+<meta name="description" content="L'espace des inscrits au programme 30 jours d'écoute anglophone de Winners' English Center : un audio et un PDF d'exercices par jour.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../img/icon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--d:#2F3480;--p:#B83A35;--a:#F2B33D;--bg:#F5F3EE;--fg:#1B1C33;--mu:#5b6478;--ok:#17663a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 Inter,system-ui,sans-serif}
+.w{max-width:720px;margin:0 auto;padding:0 16px}
+.top{background:var(--d);color:#fff;padding:14px 0}.top .w{display:flex;align-items:center;gap:12px}.top img{width:44px;height:44px;border-radius:50%;background:#fff}.top b{display:block}.top span{font-size:13px;opacity:.85}
+.hero{background:var(--d);color:#fff;padding:6px 0 26px}.hero h1{margin:6px 0 4px;font-size:30px;line-height:1.1;font-weight:900}.hero h1 em{color:var(--a);font-style:normal}.hero p{margin:0;opacity:.9}
+.card{background:#fff;border-radius:16px;padding:18px;margin:16px 0;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+label{font-weight:700;display:block;margin-bottom:6px}input{width:100%;font:inherit;font-size:20px;letter-spacing:2px;text-transform:uppercase;padding:12px 14px;border:2px solid #d9d5c9;border-radius:12px}
+button,.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font:inherit;font-weight:800;border:0;border-radius:12px;padding:12px 16px;cursor:pointer;text-decoration:none;min-height:44px}
+.bp{background:var(--p);color:#fff}.bd{background:var(--d);color:#fff}.bg{background:#eef0fb;color:var(--d)}.bw{background:#25D366;color:#fff}
+.err{color:var(--p);font-weight:700;margin-top:8px}
+.prog{display:flex;align-items:center;gap:12px}.bar{flex:1;height:12px;background:#e6e2d6;border-radius:8px;overflow:hidden}.bar i{display:block;height:100%;background:var(--a)}
+.day{border-left:6px solid var(--d)}.day.done{border-left-color:var(--ok)}
+.day h3{margin:0 0 8px;font-size:18px}.day h3 small{color:var(--mu);font-weight:600}
+audio{width:100%;margin:6px 0 10px}
+.row{display:flex;flex-wrap:wrap;gap:8px}
+.chk{display:flex;align-items:center;gap:10px;margin-top:12px;font-weight:700}.chk input{width:24px;height:24px}
+.muted{color:var(--mu)}h2{font-size:20px;margin:26px 0 4px;color:var(--d)}
+.foot{padding:30px 0 50px;color:var(--mu);font-size:14px;text-align:center}
+[hidden]{display:none!important}
+</style></head><body>
+<div class="top"><div class="w"><img src="../logo.png" alt=""><div><b>Winners' English Center</b><span>I speak English, and you?</span></div></div></div>
+<div class="hero"><div class="w"><h1>30 jours <em>d'écoute anglophone</em></h1><p id="sub">L'espace des inscrits : un audio et un PDF d'exercices par jour.</p></div></div>
+<main class="w">
+
+<section id="login" class="card">
+<form id="f">
+<label for="code">Ton code d'accès</label>
+<input id="code" autocomplete="off" placeholder="Ex. : BEG-XXXXX" required>
+<p class="muted" style="margin:8px 0 12px">Tu reçois ton code par WhatsApp après ton inscription.</p>
+<button class="bp" type="submit">Entrer dans mon espace</button>
+<p id="err" class="err" hidden>Ce code ne marche pas. Vérifie-le ou écris-nous sur WhatsApp.</p>
+</form>
+<hr style="border:0;border-top:1px solid #eee;margin:18px 0">
+<p style="margin:0 0 10px"><b>Pas encore inscrit ?</b> 1 audio et 1 PDF par jour, 4 rencontres par mois avec le Teacher, un casque offert…</p>
+<a class="btn bd" href="../site/#card-30-jours-ecoute">Découvrir le programme</a>
+</section>
+
+<section id="space" hidden>
+<div class="card"><div class="prog"><b id="lvl"></b><div class="bar"><i id="barfill" style="width:0"></i></div><b id="count">0 / 30</b></div>
+<p class="muted" style="margin:10px 0 0">Écoute l'audio du jour, fais les exercices du PDF, puis coche « J'ai terminé ».</p></div>
+<div id="empty" class="card" hidden><b>🎧 Ton programme démarre le <span id="start"></span>.</b><p class="muted" style="margin:6px 0 0">Le Jour 1 apparaîtra ici ce jour-là. En attendant, rejoins le groupe WhatsApp de ton niveau.</p></div>
+<div id="days"></div>
+<div id="bonuswrap" hidden><h2>🎁 Audios bonus</h2><div id="bonus"></div></div>
+<div class="card"><b>Une question ?</b><p class="muted" style="margin:4px 0 10px">Coach Winner te répond sur WhatsApp.</p>
+<div class="row"><a class="btn bw" href="https://wa.me/2250767037284" target="_blank" rel="noopener">💬 WhatsApp</a><button class="bg" type="button" id="out">Changer de code</button></div></div>
+</section>
+</main>
+<p class="foot">Winners' English Center · Cocody Riviera Palmeraie · 07 67 03 72 84 · <a href="../site/">winnersenglishcenter.com</a></p>
+
+<script>
+(function(){
+  var K='wec_ecoute_code', D='wec_ecoute_done_';
+  function get(k){try{return localStorage.getItem(k)}catch(e){return null}}
+  function set(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+  function del(k){try{localStorage.removeItem(k)}catch(e){}}
+  function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+  async function hash(c){var b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(c));return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,'0')}).join('').slice(0,20)}
+  function load(dir){return new Promise(function(ok,ko){window.JOURS=null;var s=document.createElement('script');s.src=dir+'/jours.js?v='+Date.now();s.onload=function(){window.JOURS?ok(window.JOURS):ko()};s.onerror=ko;document.head.appendChild(s)})}
+  function fmt(d){try{return new Date(d+'T00:00:00').toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'})}catch(e){return d}}
+  function card(dir,it,key,label){
+    var done=key&&get(D+key)==='1';
+    var h='<div class="card day'+(done?' done':'')+'"><h3>'+esc(label)+(it.titre?' <small>· '+esc(it.titre)+'</small>':'')+'</h3>';
+    if(it.audio) h+='<audio controls preload="none" src="'+esc(dir+'/'+it.audio)+'"></audio>';
+    h+='<div class="row">';
+    if(it.pdf) h+='<a class="btn bd" target="_blank" rel="noopener" href="'+esc(dir+'/'+it.pdf)+'">📄 Ouvrir le PDF</a>';
+    if(it.audio) h+='<a class="btn bg" download href="'+esc(dir+'/'+it.audio)+'">⬇️ Audio</a>';
+    if(it.pdf) h+='<a class="btn bg" download href="'+esc(dir+'/'+it.pdf)+'">⬇️ PDF</a>';
+    h+='</div>';
+    if(key) h+='<label class="chk"><input type="checkbox" data-k="'+esc(key)+'"'+(done?' checked':'')+'> J\'ai terminé ce jour</label>';
+    return h+'</div>';
+  }
+  function render(dir,J){
+    document.getElementById('login').hidden=true; document.getElementById('space').hidden=false;
+    document.getElementById('lvl').textContent='Niveau '+J.niveau;
+    var jours=(J.jours||[]).slice().sort(function(a,b){return a.n-b.n});
+    var lvlKey=dir.slice(-6);
+    document.getElementById('days').innerHTML=jours.map(function(it){return card(dir,it,lvlKey+'_'+it.n,'Jour '+it.n)}).join('');
+    document.getElementById('empty').hidden=jours.length>0; document.getElementById('start').textContent=fmt(J.debut||'2026-12-01');
+    var b=J.bonus||[]; document.getElementById('bonuswrap').hidden=!b.length;
+    document.getElementById('bonus').innerHTML=b.map(function(it,i){return card(dir,it,null,'Bonus '+(i+1))}).join('');
+    function upd(){var n=jours.filter(function(it){return get(D+lvlKey+'_'+it.n)==='1'}).length;document.getElementById('count').textContent=n+' / 30';document.getElementById('barfill').style.width=Math.min(100,n/30*100)+'%'}
+    upd();
+    document.getElementById('days').onchange=function(e){var k=e.target.getAttribute('data-k');if(!k)return;if(e.target.checked)set(D+k,'1');else del(D+k);e.target.closest('.day').classList.toggle('done',e.target.checked);upd()};
+  }
+  async function enter(code,silent){
+    code=(code||'').trim().toUpperCase(); if(!code) return;
+    var dir=await hash(code);
+    try{var J=await load(dir); set(K,code); render(dir,J)}
+    catch(e){ if(!silent) document.getElementById('err').hidden=false; else del(K) }
+  }
+  document.getElementById('f').onsubmit=function(e){e.preventDefault();document.getElementById('err').hidden=true;enter(document.getElementById('code').value)};
+  document.getElementById('out').onclick=function(){del(K);location.reload()};
+  var saved=get(K); if(saved) enter(saved,true);
+})();
+</script>
+</body></html>
