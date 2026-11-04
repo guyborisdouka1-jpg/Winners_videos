@@ -21,18 +21,19 @@
 .ok{display:none;background:#e6f6ec;color:#17663a;border-radius:12px;padding:10px 14px;font-weight:700;margin-top:8px}
 ul{padding-left:20px;margin:6px 0}li{margin:5px 0}.mu{color:var(--mu);font-size:14px}
 footer{text-align:center;color:var(--mu);font-size:14px;padding:20px 0 40px}
-</style>
+.lib{display:flex;gap:12px;align-items:center;padding:9px 0;border-top:1px solid #eee;text-decoration:none;color:inherit}.lib img{width:56px;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,.2)}.lib b{display:block}.lib span{font-size:13px;color:#5b6478}</style>
 <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1967147677422094');fbq('track','PageView');</script>
 </head><body>
 <div class="top"><div class="w"><img src="../img/icon-192.png" alt=""><div><b>Winners' English Center</b><span>I speak English, and you?</span></div></div></div>
 <section class="hero"><div class="w">
-<h1>🎁 Ton PDF gratuit :<br><em>25 phrases d'anglais</em></h1>
-<p>pour parler au quotidien, avec la prononciation écrite en français.</p>
-<img class="l" style="max-width:260px;box-shadow:0 14px 30px rgba(0,0,0,.4)" src="livre.jpg" alt="PDF 25 phrases d'anglais">
-<a class="btn b1" id="dl" href="25-phrases-anglais-winners.pdf" download>⬇️ Télécharger mon PDF gratuit</a>
+<h1>🎁 Ton PDF gratuit :<br><em id="t1">25 phrases d'anglais</em></h1>
+<p id="t2">pour parler au quotidien</p>
+<img class="l" style="max-width:260px;box-shadow:0 14px 30px rgba(0,0,0,.4)" id="cov" src="pdf/25-phrases-quotidien.jpg" alt="PDF 25 phrases d'anglais">
+<a class="btn b1" id="dl" href="pdf/25-phrases-quotidien.pdf" download>⬇️ Télécharger mon PDF gratuit</a>
 <div class="ok" id="ok">✅ Ton PDF se télécharge ! Pendant ce temps, découvre ce qu'on t'a préparé juste en dessous 👇</div>
 </div></section>
 <div class="w">
+<div class="card" id="lib" style="display:none"><h2>📚 Les autres PDF gratuits</h2><p class="mu">Ils sont tous à toi, télécharge ceux qui te manquent :</p><div id="libl"></div></div>
 <div class="card" id="prog"><h2>🔥 Le programme du moment</h2><div id="pz"></div></div>
 <div class="card"><h2>🎯 Quel est ton vrai niveau ?</h2><p>Fais notre <b>test de niveau gratuit</b> en 5 minutes sur l'appli Winners English : résultat immédiat, de A1 à B2.</p>
 <a class="btn b2" href="../appli/">📲 Passer le test gratuit</a></div>
@@ -45,9 +46,18 @@ footer{text-align:center;color:var(--mu);font-size:14px;padding:20px 0 40px}
 <a class="btn bw" target="_blank" rel="noopener" href="https://wa.me/2250767037284?text=Bonjour%20Coach%20Winner%20!%20J%27ai%20t%C3%A9l%C3%A9charg%C3%A9%20le%20PDF%20des%2025%20phrases%20et%20je%20veux%20en%20savoir%20plus%20sur%20vos%20cours.">💬 Écrire à Coach Winner sur WhatsApp</a></div>
 <footer>📍 Cocody Riviera Palmeraie (non loin de Chez Samer) · 07 67 03 72 84 · 01 41 81 70 78<br>Coach Winner · Winners' English Center</footer>
 </div>
+<script src="pdfs.js"></script>
+<script>
+(function(){var t=new Date().toISOString().slice(0,10),L=(window.PDFS||[]).filter(function(p){return p.date<=t;}).sort(function(a,b){return a.date<b.date?1:-1;});
+if(!L.length)L=[(window.PDFS||[])[0]];var P=L[0];window._pdf=P.slug;
+document.getElementById('t1').textContent=P.title;document.getElementById('t2').textContent=P.sub;
+document.getElementById('cov').src='pdf/'+P.slug+'.jpg';var a=document.getElementById('dl');a.href='pdf/'+P.slug+'.pdf';
+if(L.length>1){document.getElementById('lib').style.display='block';document.getElementById('libl').innerHTML=L.slice(1).map(function(p){return '<a class="lib" href="pdf/'+p.slug+'.pdf" download><img src="pdf/'+p.slug+'.jpg" alt=""><div><b>'+p.emoji+' '+p.title+'</b><span>'+p.sub+' · ⬇️ Télécharger</span></div></a>';}).join('');}
+})();
+</script>
 <script src="../programmes.js"></script>
 <script>
-document.getElementById('dl').addEventListener('click',function(){document.getElementById('ok').style.display='block';try{fbq('track','Lead',{content_name:'pdf_25_phrases'})}catch(e){}});
+document.getElementById('dl').addEventListener('click',function(){document.getElementById('ok').style.display='block';try{fbq('track','Lead',{content_name:'pdf_'+(window._pdf||'')})}catch(e){}});
 (function(){var t=new Date().toISOString().slice(0,10),P=(window.PROGRAMMES||[]).filter(function(p){return p.afficherDes<=t&&t<=p.cours[1];})[0],z=document.getElementById('pz');
 if(!P){document.getElementById('prog').style.display='none';return;}
 z.innerHTML='<a href="../#'+(P.lien||'promo')+'"><img class="poster" src="../'+P.visuel+'" alt="'+P.nom+'"></a><p><b>'+(P.emoji?P.emoji+' ':'')+P.nom+'</b> : '+(P.accroche||'')+'.</p><a class="btn b2" href="../#'+(P.lien||'promo')+'">👉 Voir le programme et m\'inscrire</a>';})();
