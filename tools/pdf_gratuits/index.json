@@ -47,5 +47,54 @@
   "title": "15 expressions anglaises",
   "sub": "que les natifs adorent",
   "emoji": "💬"
+ },
+ {
+  "slug": "quiz-20-questions",
+  "date": "2026-11-11",
+  "title": "Quiz : quel est ton niveau ?",
+  "sub": "20 questions pour tester ton anglais",
+  "emoji": "🎯"
+ },
+ {
+  "slug": "15-faux-amis",
+  "date": "2026-11-12",
+  "title": "15 faux amis",
+  "sub": "les mots anglais qui te piègent",
+  "emoji": "⚠️"
+ },
+ {
+  "slug": "in-on-at",
+  "date": "2026-11-13",
+  "title": "IN, ON ou AT ?",
+  "sub": "la mini-leçon des prépositions",
+  "emoji": "📍"
+ },
+ {
+  "slug": "dialogue-aeroport",
+  "date": "2026-11-14",
+  "title": "À l'aéroport",
+  "sub": "un dialogue complet, avec la prononciation",
+  "emoji": "✈️"
+ },
+ {
+  "slug": "email-professionnel",
+  "date": "2026-11-15",
+  "title": "Écrire un email pro",
+  "sub": "en anglais, avec le modèle à copier",
+  "emoji": "📧"
+ },
+ {
+  "slug": "20-phrasal-verbs",
+  "date": "2026-11-16",
+  "title": "20 phrasal verbs",
+  "sub": "indispensables au quotidien",
+  "emoji": "🔗"
+ },
+ {
+  "slug": "telephone-anglais",
+  "date": "2026-11-17",
+  "title": "Au téléphone",
+  "sub": "16 phrases pour appeler en anglais",
+  "emoji": "📞"
  }
 ]

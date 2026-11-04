@@ -8,12 +8,21 @@ B={
 'dialogue-restaurant':("Au restaurant","un dialogue complet en anglais",["🍽️ Commander un plat","🥤 Demander à boire","🧾 Demander l'addition","🔊 Prononciation en français"]),
 '30-verbes-irreguliers':("30 verbes irréguliers","les plus utilisés en anglais",["🔁 go – went – gone","📋 Tableau clair","🇫🇷 Traduction","✍️ Petit exercice"]),
 '15-expressions-natifs':("15 expressions anglaises","que les natifs adorent",["🍰 « A piece of cake »","🧊 « Break the ice »","🌙 « Once in a blue moon »","🔊 Prononciation en français"]),
+"quiz-20-questions":("Quiz : quel est ton niveau ?","20 questions pour te tester",["🎯 20 questions A, B, C","✅ Les réponses","📊 Ton niveau à la fin","💪 Débutant à avancé"]),
+'15-faux-amis':("15 faux amis","les mots anglais qui te piègent",["⚠️ « Actually » ≠ actuellement","📚 « Library » ≠ librairie","✅ Le vrai sens","🔊 Prononciation en français"]),
+'in-on-at':("IN, ON ou AT ?","la mini-leçon des prépositions",["⏰ Pour le temps","📍 Pour le lieu","🔺 L'astuce de la pyramide","✍️ Exercice + réponses"]),
+'dialogue-aeroport':("À l'aéroport","un dialogue complet en anglais",["✈️ L'enregistrement","🧳 Les bagages","🎫 La carte d'embarquement","🔊 Prononciation en français"]),
+'email-professionnel':("Écrire un email pro","en anglais, avec le modèle",["📧 Le modèle à copier","🧩 Les 3 parties","💬 9 phrases utiles","✍️ À toi d'écrire"]),
+'20-phrasal-verbs':("20 phrasal verbs","indispensables au quotidien",["🔗 get up, give up…","💬 Un exemple pour chacun","🇫🇷 Traduction","🔊 Prononciation en français"]),
+'telephone-anglais':("Au téléphone","16 phrases pour appeler en anglais",["📞 Se présenter","⏳ « Hold on, please »","📝 Prendre un message","🔊 Prononciation en français"]),
 }
+import sys
+NEW=sys.argv[1:] or list(B)
 T=open('visuel_template.html').read()
 async def main():
     async with async_playwright() as p:
         b=await p.chromium.launch(); pg=await b.new_page(viewport={'width':1080,'height':1350})
-        for s,(t1,t2,li) in B.items():
+        for s,(t1,t2,li) in [(k,v) for k,v in B.items() if k in NEW]:
             h=T
             import re
             h=re.sub(r'<h1>.*?</h1>',f'<h1>{t1}<br><em>{t2}</em></h1>',h,flags=re.S)

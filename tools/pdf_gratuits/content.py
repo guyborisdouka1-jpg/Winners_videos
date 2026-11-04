@@ -94,3 +94,103 @@ def idt(rows,s):
     return h+'</table>'
 D.append(dict(slug='15-expressions-natifs',date='2026-11-10',title="15 expressions anglaises",sub="que les natifs adorent",emoji='💬',
  tip="Ces expressions ne se traduisent pas mot à mot ! Apprends le sens et l'exemple ensemble.",p1=idt(idi[:8],1),p2=idt(idi[8:],9)))
+# ---------- Semaine 2 : 11 au 17 novembre ----------
+quiz=[("« Je suis fatigué » se dit :","I have tired","I am tired","I tired","B"),
+("Complète : She ___ English every day.","study","studys","studies","C"),
+("« Combien ça coûte ? »","How much is it?","How many is it?","How cost it?","A"),
+("Le passé de « buy » :","buyed","bought","brought","B"),
+("« J'ai 30 ans »","I have 30 years","I am 30","I make 30 years","B"),
+("Complète : I'm good ___ English.","in","at","on","B"),
+("« Il pleut »","It rains now","It's raining","It is rain","B"),
+("Complète : There ___ two cars.","is","are","have","B"),
+("« Je suis d'accord »","I agree","I am agree","I'm agreed","A"),
+("Complète : I was born ___ 1995.","on","at","in","C"),
+("« Réunion » en anglais :","reunion","meeting","assembly","B"),
+("Complète : He ___ like coffee.","don't","doesn't","not","B"),
+("« Pouvez-vous répéter ? »","Can you repeat, please?","Can you say again me?","You repeat?","A"),
+("Complète : I have lived here ___ 2020.","for","since","from","B"),
+("« Actually » veut dire :","actuellement","en réalité","activement","B"),
+("Complète : She is ___ than her sister.","more tall","taller","tallest","B"),
+("« Je cherche mes clés »","I'm looking for my keys","I search my keys","I look my keys","A"),
+("Complète : ___ you like tea?","Do","Are","Does","A"),
+("« Un conseil » :","an advice","a piece of advice","one advices","B"),
+("Complète : See you ___ Monday!","in","at","on","C")]
+def quizt(rows,s):
+    h='<table>'
+    for k,(q,a,b,c,_) in enumerate(rows): h+=f'<tr><td class="n">{s+k}</td><td><b>{q}</b><span class="fr2">A. {a} &nbsp;·&nbsp; B. {b} &nbsp;·&nbsp; C. {c}</span></td></tr>'
+    return h+'</table>'
+qans=' · '.join(f'{i+1}. {r[4]}' for i,r in enumerate(quiz))
+D.append(dict(slug='quiz-20-questions',date='2026-11-11',title="Quiz : quel est ton niveau ?",sub="20 questions pour tester ton anglais",emoji='🎯',
+ tip="Réponds sans regarder les réponses, compte tes points à la fin, puis lis ton résultat. Sois honnête !",
+ p1=quizt(quiz[:11],1),p2=quizt(quiz[11:],12)+f'<p class="mu">Réponses : {qans}</p><h2>📊 Ton résultat</h2><table><tr><td><b>0 à 8</b></td><td class="fr">Débutant : les bases d\'abord, tu vas vite progresser 💪</td></tr><tr><td><b>9 à 15</b></td><td class="fr">Intermédiaire : tu comprends, maintenant il faut parler 🗣️</td></tr><tr><td><b>16 à 20</b></td><td class="fr">Avancé : bravo ! Viens pratiquer l\'oral 🔥</td></tr></table>'))
+ff=[("actually","ak-tchou-eu-li","en réalité","actuellement = currently"),("library","laï-breu-ri","bibliothèque","librairie = bookshop"),("eventually","i-vèn-tchou-eu-li","finalement","éventuellement = possibly"),("to attend","tou eu-tènd","assister à","attendre = to wait"),("sensible","sèn-si-beul","raisonnable","sensible = sensitive"),("a journey","eu djeur-ni","un voyage","journée = day"),("to pretend","tou pri-tènd","faire semblant","prétendre = to claim"),("a coin","eu koïn","une pièce de monnaie","coin = corner"),("a lecture","eu lèk-tcheur","un cours magistral","lecture = reading"),("a car","eu kâr","une voiture","car (bus) = coach"),
+("deception","di-sèp-cheun","tromperie","déception = disappointment"),("to rest","tou rèst","se reposer","rester = to stay"),("a location","eu lo-kéï-cheun","un endroit","location = rental"),("to assist","tou eu-sist","aider","assister = to attend"),("chance","tchânss","hasard / occasion","chance = luck")]
+def fft(rows,s):
+    h='<table>'
+    for k,(en,pr,fr,trap) in enumerate(rows): h+=f'<tr><td class="n">{s+k}</td><td><b>{en}</b><span class="pr">🔊 {pr}</span><span class="ex">⚠️ {trap}</span></td><td class="fr">✅ {fr}</td></tr>'
+    return h+'</table>'
+D.append(dict(slug='15-faux-amis',date='2026-11-12',title="15 faux amis",sub="les mots anglais qui te piègent",emoji='⚠️',
+ tip="Un « faux ami » ressemble à un mot français mais ne veut pas dire la même chose. Lis bien la ligne ⚠️ : c'est le piège à éviter.",
+ p1=fft(ff[:8],1),p2=fft(ff[8:],9)+'<h2>✍️ Corrige la phrase</h2><p>1. I went to the <i>librairie</i> to borrow a book. · 2. <i>Actually</i>, I live in Boston (= en ce moment). · 3. I need to <i>rester</i> after work (= me reposer).</p><p class="mu">Réponses : library · Currently · rest</p>'))
+iol1='''<h2>⏰ Pour le temps</h2><table>
+<tr><td><b>AT</b></td><td>une heure précise : <b>at</b> 7 o'clock, <b>at</b> noon, <b>at</b> night, <b>at</b> the weekend</td></tr>
+<tr><td><b>ON</b></td><td>un jour, une date : <b>on</b> Monday, <b>on</b> 14 November, <b>on</b> my birthday</td></tr>
+<tr><td><b>IN</b></td><td>un mois, une année, une saison, un moment de la journée : <b>in</b> May, <b>in</b> 2026, <b>in</b> summer, <b>in</b> the morning</td></tr></table>
+<h2>📍 Pour le lieu</h2><table>
+<tr><td><b>AT</b></td><td>un point précis : <b>at</b> the bus stop, <b>at</b> home, <b>at</b> work, <b>at</b> school</td></tr>
+<tr><td><b>ON</b></td><td>une surface : <b>on</b> the table, <b>on</b> the wall, <b>on</b> the bus, <b>on</b> Facebook</td></tr>
+<tr><td><b>IN</b></td><td>à l'intérieur, une ville, un pays : <b>in</b> the box, <b>in</b> my bag, <b>in</b> London, <b>in</b> Canada</td></tr></table>
+<h2>🔺 L'astuce de la pyramide</h2><div class="ex2"><b>IN</b> = grand (pays, année) → <b>ON</b> = moyen (rue, jour) → <b>AT</b> = petit et précis (adresse, heure)</div>'''
+iol2='''<h2>✍️ À toi de jouer : in, on ou at ?</h2><table>
+<tr><td class="n">1</td><td>The meeting is ___ 10 a.m.</td></tr><tr><td class="n">2</td><td>I was born ___ 1998.</td></tr>
+<tr><td class="n">3</td><td>See you ___ Saturday!</td></tr><tr><td class="n">4</td><td>My keys are ___ the table.</td></tr>
+<tr><td class="n">5</td><td>She lives ___ Manchester.</td></tr><tr><td class="n">6</td><td>I'm ___ work right now.</td></tr>
+<tr><td class="n">7</td><td>We go to the beach ___ summer.</td></tr><tr><td class="n">8</td><td>I saw it ___ Instagram.</td></tr></table>
+<p class="mu">Réponses : 1. at · 2. in · 3. on · 4. on · 5. in · 6. at · 7. in · 8. on</p>'''
+D.append(dict(slug='in-on-at',date='2026-11-13',title="IN, ON ou AT ?",sub="la mini-leçon des prépositions",emoji='📍',
+ tip="Retiens la pyramide : IN pour le plus grand, ON pour le moyen, AT pour le plus précis.",p1=iol1,p2=iol2))
+air=[("Agent","Good morning. Your passport, please.","goud mor-ning. yor pâss-port, plîz","Bonjour. Votre passeport, s'il vous plaît."),
+("Sarah","Here you are.","hîr you âr","Le voici."),
+("Agent","Where are you flying to today?","wèr âr you flaï-ing tou tou-déï ?","Où allez-vous aujourd'hui ?"),
+("Sarah","To New York.","tou nyou york","À New York."),
+("Agent","Do you have any bags to check in?","dou you hèv è-ni bègz tou tchèk in ?","Avez-vous des bagages à enregistrer ?"),
+("Sarah","Yes, just one suitcase.","yèss, djeust weun sout-kéïss","Oui, une seule valise."),
+("Agent","Would you like a window or an aisle seat?","woud you laïk eu win-do or eun aïl sît ?","Côté hublot ou côté couloir ?"),
+("Sarah","A window seat, please.","eu win-do sît, plîz","Côté hublot, s'il vous plaît."),
+("Agent","Here is your boarding pass. Gate 12.","hîr iz yor bor-ding pâss. guéït twèlv","Voici votre carte d'embarquement. Porte 12."),
+("Sarah","What time does boarding start?","wot taïm deuz bor-ding stârt ?","À quelle heure commence l'embarquement ?"),
+("Agent","At 9:30. Have a nice flight!","èt naïn ssêr-ti. hèv eu naïss flaït !","À 9 h 30. Bon vol !")]
+D.append(dict(slug='dialogue-aeroport',date='2026-11-14',title="À l'aéroport",sub="un dialogue complet, avec la prononciation",emoji='✈️',
+ tip="Lis le dialogue à deux : une personne fait Sarah, l'autre fait l'agent. Puis échangez les rôles !",
+ p1=diat(air[:7]),p2=diat(air[7:])+'<h2>📌 Les mots à retenir</h2><table><tr><td><b>flight</b> = vol</td><td><b>suitcase</b> = valise</td></tr><tr><td><b>to check in</b> = enregistrer</td><td><b>boarding pass</b> = carte d\'embarquement</td></tr><tr><td><b>gate</b> = porte</td><td><b>aisle seat</b> = siège côté couloir</td></tr><tr><td><b>delayed</b> = en retard</td><td><b>departure / arrival</b> = départ / arrivée</td></tr></table>'))
+em1='''<h2>📧 Le modèle à copier</h2><div class="ex2" style="font-size:10.3pt;line-height:1.55">
+<b>Subject:</b> Request for information<br><br>Dear Mr Smith,<br><br>I hope you are well.<br>
+I am writing to ask for more information about your English courses.<br>
+Could you please send me the prices and the schedule?<br><br>
+Thank you in advance for your help.<br>I look forward to hearing from you.<br><br>Best regards,<br>Anna Brown</div>
+<h2>🧩 Les 3 parties d'un email</h2><table>
+<tr><td class="n">1</td><td><b>L'ouverture</b><span class="fr2">Dear Mr / Ms + nom (formel) · Hi Tom (collègue)</span></td></tr>
+<tr><td class="n">2</td><td><b>Le message</b><span class="fr2">Pourquoi tu écris, en 2 ou 3 phrases courtes</span></td></tr>
+<tr><td class="n">3</td><td><b>La fermeture</b><span class="fr2">Best regards (formel) · Thanks / Cheers (collègue)</span></td></tr></table>'''
+emph=[("I am writing to…","J'écris pour…"),("Please find attached…","Veuillez trouver ci-joint…"),("Could you please…?","Pourriez-vous…?"),("I would like to…","Je voudrais…"),("Thank you for your email.","Merci pour votre email."),("Sorry for the late reply.","Désolé pour la réponse tardive."),("Let me know if…","Dites-moi si…"),("I look forward to hearing from you.","Dans l'attente de votre réponse."),("Best regards,","Cordialement,")]
+em2='<h2>💬 9 phrases à réutiliser</h2><table>'+''.join(f'<tr><td class="n">{i+1}</td><td><b>{a}</b></td><td class="fr">{b}</td></tr>' for i,(a,b) in enumerate(emph))+'</table><h2>✍️ À toi !</h2><p>Écris un email à ton manager pour demander un jour de congé (<i>a day off</i>) vendredi. Utilise au moins 3 phrases ci-dessus.</p>'
+D.append(dict(slug='email-professionnel',date='2026-11-15',title="Écrire un email pro",sub="en anglais, avec le modèle à copier",emoji='📧',
+ tip="Un bon email en anglais est court et poli. Copie le modèle, adapte-le à ta situation, et c'est envoyé !",p1=em1,p2=em2))
+pv=[("get up","guèt eup","se lever","I get up at 6 every day."),("wake up","wéïk eup","se réveiller","I woke up late today."),("look for","louk for","chercher","I'm looking for my phone."),("find out","faïnd aout","découvrir","I found out the truth."),("give up","guiv eup","abandonner","Never give up!"),("turn on / off","teurn on / of","allumer / éteindre","Turn off the light, please."),("put on","pout on","mettre (un vêtement)","Put on your jacket."),("take off","téïk of","enlever / décoller","The plane takes off at 9."),("pick up","pik eup","ramasser / aller chercher","I'll pick you up at 5."),("call back","kôl bèk","rappeler","Can you call me back?"),
+("come back","keum bèk","revenir","I'll come back tomorrow."),("go out","go aout","sortir","Let's go out tonight!"),("sit down","sit daoun","s'asseoir","Please sit down."),("look after","louk âf-teur","s'occuper de","She looks after her son."),("run out of","reun aout ov","ne plus avoir de","We ran out of milk."),("fill in","fil in","remplir (un formulaire)","Fill in this form, please."),("set up","sèt eup","installer / créer","I set up my new phone."),("carry on","kè-ri on","continuer","Carry on, you're doing well!"),("check in","tchèk in","s'enregistrer","We checked in at the hotel."),("hang up","hèng eup","raccrocher","Don't hang up!")]
+def pvt(rows,s):
+    h='<table>'
+    for k,(en,pr,fr,ex) in enumerate(rows): h+=f'<tr><td class="n">{s+k}</td><td><b>{en}</b><span class="pr">🔊 {pr}</span><span class="ex">« {ex} »</span></td><td class="fr">{fr}</td></tr>'
+    return h+'</table>'
+D.append(dict(slug='20-phrasal-verbs',date='2026-11-16',title="20 phrasal verbs",sub="indispensables au quotidien",emoji='🔗',
+ tip="Un phrasal verb = un verbe + une petite particule (up, on, off…) qui change le sens. Apprends-les avec leur exemple !",
+ p1=pvt(pv[:10],1),p2=pvt(pv[10:],11)))
+tel=[("Hello, this is Anna speaking.","hè-lo, ziss iz è-na spî-king","Allô, c'est Anna."),("Could I speak to Mr Smith, please?","koud aï spîk tou miss-teur smiss, plîz ?","Pourrais-je parler à M. Smith ?"),("Who's calling, please?","houz kô-ling, plîz ?","Qui est à l'appareil ?"),("Hold on, please.","hold on, plîz","Ne quittez pas."),("I'll put you through.","aïl pout you srou","Je vous le passe."),("He's not available right now.","hîz not eu-véï-leu-beul raït nao","Il n'est pas disponible pour le moment."),("Can I take a message?","kèn aï téïk eu mè-sidj ?","Puis-je prendre un message ?"),("Could you call back later?","koud you kôl bèk léï-teur ?","Pouvez-vous rappeler plus tard ?"),("Sorry, I didn't catch that.","so-ri, aï di-deunt kètch zèt","Pardon, je n'ai pas compris."),
+("Could you speak more slowly?","koud you spîk mor slo-li ?","Pouvez-vous parler plus lentement ?"),("Can you spell that, please?","kèn you spèl zèt, plîz ?","Pouvez-vous l'épeler ?"),("The line is bad.","zeu laïn iz bèd","La ligne est mauvaise."),("I'll send you a text.","aïl sènd you eu tèkst","Je vous envoie un SMS."),("What's your number?","wots yor neum-beur ?","Quel est votre numéro ?"),("Thanks for calling.","sènks for kô-ling","Merci d'avoir appelé."),("Talk to you soon. Bye!","tôk tou you soun. baï !","À bientôt. Au revoir !")]
+def telt(rows,s):
+    h='<table>'
+    for k,(en,pr,fr) in enumerate(rows): h+=f'<tr><td class="n">{s+k}</td><td><b>{en}</b><span class="pr">🔊 {pr}</span></td><td class="fr">{fr}</td></tr>'
+    return h+'</table>'
+D.append(dict(slug='telephone-anglais',date='2026-11-17',title="Au téléphone",sub="16 phrases pour appeler en anglais",emoji='📞',
+ tip="Au téléphone, on ne voit pas la personne : c'est plus dur ! Garde cette fiche à côté de toi pendant tes appels.",
+ p1=telt(tel[:9],1),p2=telt(tel[9:],10)))
