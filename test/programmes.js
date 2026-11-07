@@ -73,7 +73,8 @@ window.PROGRAMMES = [
     ],
     agenda: [
       ["2026-10-26", "Ouverture des inscriptions"],
-      ["2026-11-15", "Masterclass gratuite (8 h 30 – 12 h) et clôture des inscriptions"],
+      ["2026-11-14", "Masterclass gratuite (8 h 30 – 12 h) à CHIC SALLE"],
+      ["2026-11-15", "Clôture des inscriptions"],
       ["2026-11-16", "Premier cours"],
         ["2026-12-24", "Dernier cours, Christmas English Party (CHIC SALLE) et remise des attestations"]
     ]
