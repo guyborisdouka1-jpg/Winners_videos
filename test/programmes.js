@@ -43,19 +43,19 @@ window.PROGRAMMES = [
     visuel: "img/promo_noel.jpg",
     couleurs: { sombre: "#2F3480", principal: "#B83A35", accent: "#F2B33D" },
     afficherDes: "2026-10-01",                 // date à partir de laquelle l'appli montre ce programme
-    inscriptions: ["2026-10-26", "2026-11-08"], // ouverture, clôture
-    cours: ["2026-11-09", "2026-12-24"],        // début, fin
-    prix: 65000,
+    inscriptions: ["2026-10-26", "2026-11-15"], // ouverture, clôture
+    cours: ["2026-11-16", "2026-12-24"],        // début, fin
+    prix: 45000,
     prixBarre: 95000,
-    acompte: 35000,
-    paiementTexte: "35 000 F à l'inscription, puis 30 000 F début décembre",
+    acompte: 0,
+    paiementTexte: "45 000 F pour les 2 mois de cours",
     reductionAmi: 5000,
     details: [
-      ["📅", "<b>2 mois de cours : novembre et décembre</b>, du lundi 9 novembre au jeudi 24 décembre 2026"],
+      ["📅", "<b>2 mois de cours : novembre et décembre</b>, du lundi 16 novembre au jeudi 24 décembre 2026"],
       ["🕑", "<b>2 cours de 2 h</b> par semaine"],
       ["📍", "<b>Présentiel</b> (Cocody Riviera Palmeraie) ou <b>en ligne</b>"],
-      ["💳", "<b>35 000 F</b> à l'inscription, puis <b>30 000 F</b> début décembre"],
-      ["⏳", "Inscriptions du <b>26 octobre au 8 novembre</b>"]
+      ["💳", "<b>45 000 F</b> pour les 2 mois de cours"],
+      ["⏳", "Inscriptions ouvertes jusqu'au <b>dimanche 15 novembre</b>"]
     ],
     bonus: [
       ["📝", "Test de niveau gratuit"],
@@ -67,16 +67,15 @@ window.PROGRAMMES = [
     faq: [
       ["Je suis débutant complet, je peux venir ?", "Oui ! Le test de niveau nous permet de te placer dans le groupe qui te correspond."],
       ["Comment se passent les cours en ligne ?", "En direct avec Coach Winner, avec les mêmes exercices oraux qu'en présentiel. Il te faut juste un téléphone et une connexion."],
-      ["Je peux payer en deux fois ?", "Oui : 35 000 F à l'inscription, puis 30 000 F début décembre."],
+      ["Je peux payer en deux fois ?", "Écris à Coach Winner sur WhatsApp : on trouve ensemble la formule qui te convient."],
       ["Quels jours ont lieu les cours ?", "2 séances de 2 h par semaine. Les jours et horaires des groupes te sont communiqués à l'inscription."],
       ["Je suis déjà élève de Winners' English Center…", "Écris à Coach Winner sur WhatsApp, il te dira comment continuer."]
     ],
     agenda: [
       ["2026-10-26", "Ouverture des inscriptions"],
-      ["2026-11-08", "Clôture des inscriptions"],
-      ["2026-11-09", "Premier cours"],
-      ["2026-12-01", "Paiement du 2e versement (30 000 F)"],
-      ["2026-12-24", "Dernier cours, Christmas English Party (CHIC SALLE) et remise des attestations"]
+      ["2026-11-15", "Masterclass gratuite (8 h 30 – 12 h) et clôture des inscriptions"],
+      ["2026-11-16", "Premier cours"],
+        ["2026-12-24", "Dernier cours, Christmas English Party (CHIC SALLE) et remise des attestations"]
     ]
   }
 
