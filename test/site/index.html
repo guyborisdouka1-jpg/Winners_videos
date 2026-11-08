@@ -877,5 +877,10 @@ function run(){
 var tm;new MutationObserver(function(){clearTimeout(tm);tm=setTimeout(run,60);}).observe(document.documentElement,{childList:true,subtree:true});
 document.addEventListener('DOMContentLoaded',run);setTimeout(run,300);
 })();</script>
+<script>(function(){var F='https://docs.google.com/forms/d/e/1FAIpQLSfLmFAB-Y63PmzJ4QvS4uSuvNbzPfy2AdWKk-zvsUCEzGV-ng/viewform';
+function fix(){var fab=document.getElementById('wa-fab');if(fab)fab.style.display='none';
+ document.querySelectorAll('a[href*="wa.me"]').forEach(function(a){var h=a.getAttribute('href')||'';try{h=decodeURIComponent(h)}catch(e){}
+  if(/PROMO ANGLAIS NO/i.test(h)){if(/Une question/i.test(a.textContent)){a.style.display='none';return;}a.href=F;a.removeAttribute('onclick');if(!a.dataset.f){a.dataset.f=1;a.textContent='📝 Je m’inscris en ligne';}}});}
+var t;new MutationObserver(function(){clearTimeout(t);t=setTimeout(fix,80);}).observe(document.documentElement,{childList:true,subtree:true});document.addEventListener('DOMContentLoaded',fix);setTimeout(fix,400);})();</script>
 
 </head></html>
