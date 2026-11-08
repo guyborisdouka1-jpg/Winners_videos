@@ -54,14 +54,15 @@ window.PROGRAMMES = [
     cours: ["2026-11-16", "2026-12-24"],        // début, fin
     prix: 45000,
     prixBarre: 95000,
-    acompte: 0,
-    paiementTexte: "45 000 F pour les 2 mois de cours",
+    acompte: 25000,
+    paiementTexte: "45 000 F pour les 2 mois : 25 000 F à l'inscription, 20 000 F avant le 7 décembre",
     reductionAmi: 5000,
     details: [
       ["📅", "<b>2 mois de cours : novembre et décembre</b>, du lundi 16 novembre au jeudi 24 décembre 2026"],
       ["🕑", "<b>2 cours de 2 h</b> par semaine"],
       ["📍", "<b>Présentiel</b> (Cocody Riviera Palmeraie) ou <b>en ligne</b>"],
-      ["💳", "<b>45 000 F</b> pour les 2 mois de cours"],
+      ["💳", "<b>45 000 F</b> pour les 2 mois : 25 000 F à l'inscription, 20 000 F avant le 7 décembre"],
+      ["📚", "Supports : <b>10 000 F</b> (document de cours, audios, vidéos…)"],
       ["⏳", "Inscriptions ouvertes jusqu'au <b>dimanche 15 novembre</b>"]
     ],
     bonus: [
@@ -74,7 +75,8 @@ window.PROGRAMMES = [
     faq: [
       ["Je suis débutant complet, je peux venir ?", "Oui ! Le test de niveau nous permet de te placer dans le groupe qui te correspond."],
       ["Comment se passent les cours en ligne ?", "En direct avec Coach Winner, avec les mêmes exercices oraux qu'en présentiel. Il te faut juste un téléphone et une connexion."],
-      ["Je peux payer en deux fois ?", "Écris à Coach Winner sur WhatsApp : on trouve ensemble la formule qui te convient."],
+      ["Je peux payer en deux fois ?", "Oui : 25 000 F à l'inscription, puis 20 000 F avant le 7 décembre."],
+      ["C'est quoi les supports à 10 000 F ?", "Ton document de cours, les audios et les vidéos pour pratiquer à la maison entre les séances."],
       ["Quels jours ont lieu les cours ?", "2 séances de 2 h par semaine. Les jours et horaires des groupes te sont communiqués à l'inscription."],
       ["Je suis déjà élève de Winners' English Center…", "Écris à Coach Winner sur WhatsApp, il te dira comment continuer."]
     ],
@@ -98,7 +100,7 @@ window.PROGRAMMES = [
     afficherDes: "2026-12-26",
     inscriptions: ["2026-12-26", "2027-01-10"],
     cours: ["2027-01-11", "2027-03-05"],
-    prix: 0, prixBarre: 0, acompte: 0, paiementTexte: "",
+    prix: 0, prixBarre: 0, acompte: 25000, paiementTexte: "",
     reductionAmi: 0,
     details: [], bonus: [], faq: [], agenda: []
   }
