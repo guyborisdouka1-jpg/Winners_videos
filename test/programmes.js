@@ -55,13 +55,13 @@ window.PROGRAMMES = [
     prix: 45000,
     prixBarre: 95000,
     acompte: 25000,
-    paiementTexte: "45 000 F pour les 2 mois : 25 000 F à l'inscription, 20 000 F avant le 7 décembre",
+    paiementTexte: "Total 45 000 F pour les 2 mois : vous payez 25 000 F à l'inscription, il vous reste 20 000 F à payer avant le 7 décembre",
     reductionAmi: 5000,
     details: [
       ["📅", "<b>2 mois de cours : novembre et décembre</b>, du lundi 16 novembre au jeudi 24 décembre 2026"],
       ["🕑", "<b>2 cours de 2 h</b> par semaine"],
       ["📍", "<b>Présentiel</b> (Cocody Riviera Palmeraie) ou <b>en ligne</b>"],
-      ["💳", "<b>45 000 F</b> pour les 2 mois : 25 000 F à l'inscription, 20 000 F avant le 7 décembre"],
+      ["💳", "<b>Total 45 000 F</b> pour les 2 mois : vous payez <b>25 000 F</b> à l'inscription, il vous reste <b>20 000 F</b> à payer avant le 7 décembre"],
       ["📚", "Supports : <b>10 000 F</b> (document de cours, audios, vidéos…)"],
       ["⏳", "Inscriptions ouvertes jusqu'au <b>dimanche 15 novembre</b>"]
     ],
@@ -75,7 +75,7 @@ window.PROGRAMMES = [
     faq: [
       ["Je suis débutant complet, je peux venir ?", "Oui ! Le test de niveau nous permet de te placer dans le groupe qui te correspond."],
       ["Comment se passent les cours en ligne ?", "En direct avec Coach Winner, avec les mêmes exercices oraux qu'en présentiel. Il te faut juste un téléphone et une connexion."],
-      ["Je peux payer en deux fois ?", "Oui : 25 000 F à l'inscription, puis 20 000 F avant le 7 décembre."],
+      ["Je peux payer en deux fois ?", "Oui. Le total est de 45 000 F : vous payez 25 000 F à l'inscription, et il vous reste 20 000 F à payer avant le 7 décembre."],
       ["C'est quoi les supports à 10 000 F ?", "Ton document de cours, les audios et les vidéos pour pratiquer à la maison entre les séances."],
       ["Quels jours ont lieu les cours ?", "2 séances de 2 h par semaine. Les jours et horaires des groupes te sont communiqués à l'inscription."],
       ["Je suis déjà élève de Winners' English Center…", "Écris à Coach Winner sur WhatsApp, il te dira comment continuer."]
