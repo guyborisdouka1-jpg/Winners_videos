@@ -25,7 +25,14 @@ window.CENTRE = {
   couleurs: { sombre: "#2F3480", principal: "#B83A35", accent: "#F2B33D" },
   // Numéros de paiement mobile (laisser la liste vide [] pour que les gens demandent sur WhatsApp)
   paiement: {
-    numeros: ["07 67 03 72 84", "01 41 81 70 78"],
+    numeros: ["07 67 03 72 84", "01 41 81 70 78", "05 56 42 35 66"],
+    // Moyens de paiement affichés sur la page du programme (bloc « Payer ma place »)
+    // Pour ajouter MTN ou Wave : copier une ligne et changer l'opérateur et le numéro.
+    operateurs: [
+      { op: "Orange Money", num: "07 67 03 72 84" },
+      { op: "Moov Money",   num: "01 41 81 70 78" },
+      { op: "MTN MoMo",     num: "05 56 42 35 66" }
+    ],
     titulaire: "",
     // Virement bancaire (laisser rib vide "" pour le masquer)
     banque: { nom: "Djamo", titulaire: "Guy Boris Douka", rib: "CI201 01001 111607555481 35" }
