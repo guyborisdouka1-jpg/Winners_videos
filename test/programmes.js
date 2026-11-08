@@ -27,11 +27,11 @@ window.CENTRE = {
   paiement: {
     numeros: ["07 67 03 72 84", "01 41 81 70 78", "05 56 42 35 66"],
     // Moyens de paiement affichés sur la page du programme (bloc « Payer ma place »)
-    // Pour ajouter MTN ou Wave : copier une ligne et changer l'opérateur et le numéro.
+    // Tous ces numéros acceptent aussi Wave. Pour en ajouter un : copier une ligne et changer l'opérateur et le numéro.
     operateurs: [
-      { op: "Orange Money", num: "07 67 03 72 84" },
-      { op: "Moov Money",   num: "01 41 81 70 78" },
-      { op: "MTN MoMo",     num: "05 56 42 35 66" }
+      { op: "Orange Money ou Wave", num: "07 67 03 72 84" },
+      { op: "Moov Money ou Wave",   num: "01 41 81 70 78" },
+      { op: "MTN MoMo ou Wave",     num: "05 56 42 35 66" }
     ],
     titulaire: "",
     // Virement bancaire (laisser rib vide "" pour le masquer)
