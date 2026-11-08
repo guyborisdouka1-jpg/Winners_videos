@@ -194,3 +194,114 @@ def telt(rows,s):
 D.append(dict(slug='telephone-anglais',date='2026-11-17',title="Au téléphone",sub="16 phrases pour appeler en anglais",emoji='📞',
  tip="Au téléphone, on ne voit pas la personne : c'est plus dur ! Garde cette fiche à côté de toi pendant tes appels.",
  p1=telt(tel[:9],1),p2=telt(tel[9:],10)))
+# ---- Semaine 3 : 18 → 24 novembre ----
+h1='''<h2>❓ Demander l'heure</h2><table><tr><td><b>What time is it?</b><span class="pr">🔊 wot taïm iz it ?</span></td><td class="fr">Quelle heure est-il ?</td></tr>
+<tr><td><b>Do you have the time?</b><span class="pr">🔊 dou you hèv zeu taïm ?</span></td><td class="fr">Vous avez l'heure ?</td></tr></table>
+<h2>1️⃣ La méthode facile : l'heure + les minutes</h2><div class="ex2">7:15 → <b>seven fifteen</b> (sè-veun fif-tîn) · 9:40 → <b>nine forty</b> (naïn for-ti) · 11:05 → <b>eleven oh five</b> (i-lè-veun o faïv)</div>
+<h2>2️⃣ La méthode classique : past et to</h2><table>
+<tr><td>🕒 3:00</td><td><b>three o'clock</b><span class="pr">🔊 srî o-klok</span></td><td class="fr">trois heures pile</td></tr>
+<tr><td>🕒 3:10</td><td><b>ten past three</b><span class="pr">🔊 tèn pâst srî</span></td><td class="fr">3 h 10 (past = après)</td></tr>
+<tr><td>🕒 3:15</td><td><b>a quarter past three</b><span class="pr">🔊 eu kwor-teur pâst srî</span></td><td class="fr">3 h et quart</td></tr>
+<tr><td>🕞 3:30</td><td><b>half past three</b><span class="pr">🔊 hâf pâst srî</span></td><td class="fr">3 h et demie</td></tr>
+<tr><td>🕓 3:45</td><td><b>a quarter to four</b><span class="pr">🔊 eu kwor-teur tou for</span></td><td class="fr">4 h moins le quart (to = avant)</td></tr>
+<tr><td>🕓 3:50</td><td><b>ten to four</b><span class="pr">🔊 tèn tou for</span></td><td class="fr">4 h moins 10</td></tr></table>
+<h2>☀️ Le matin ou le soir ?</h2><p><b>a.m.</b> (éï-èm) = de minuit à midi · <b>p.m.</b> (pî-èm) = de midi à minuit<br><b>noon</b> (noun) = midi · <b>midnight</b> (mid-naït) = minuit</p>'''
+h2='''<h2>✍️ À toi de jouer : écris l'heure en anglais</h2><table>
+<tr><td class="n">1</td><td>8:00</td><td class="n">5</td><td>2:45</td></tr><tr><td class="n">2</td><td>10:30</td><td class="n">6</td><td>6:20</td></tr>
+<tr><td class="n">3</td><td>4:15</td><td class="n">7</td><td>9:55</td></tr><tr><td class="n">4</td><td>12:00 (le jour)</td><td class="n">8</td><td>1:05</td></tr></table>
+<p class="mu">Réponses : 1. eight o'clock · 2. half past ten · 3. a quarter past four · 4. noon / twelve o'clock · 5. a quarter to three · 6. twenty past six · 7. five to ten · 8. five past one</p>
+<h2>💬 Phrases utiles</h2><table>
+<tr><td><b>At what time…?</b><span class="pr">🔊 èt wot taïm…?</span></td><td class="fr">À quelle heure… ?</td></tr>
+<tr><td><b>I'm on time.</b><span class="pr">🔊 aïm on taïm</span></td><td class="fr">Je suis à l'heure.</td></tr>
+<tr><td><b>Sorry, I'm late.</b><span class="pr">🔊 so-ri, aïm léït</span></td><td class="fr">Désolé, je suis en retard.</td></tr>
+<tr><td><b>It's early.</b><span class="pr">🔊 its eur-li</span></td><td class="fr">Il est tôt.</td></tr></table>'''
+D.append(dict(slug='dire-l-heure',date='2026-11-18',title="Quelle heure est-il ?",sub="dire l'heure en anglais sans se tromper",emoji='⏰',
+ tip="Commence par la méthode facile (seven fifteen), puis entraîne-toi avec past et to en regardant ta montre plusieurs fois par jour.",p1=h1,p2=h2))
+shop=[("Assistant","Hello! Can I help you?","hè-lo ! kèn aï hèlp you ?","Bonjour ! Je peux vous aider ?"),
+("Lucy","Yes, I'm looking for a blue shirt.","yèss, aïm lou-king for eu blou cheurt","Oui, je cherche une chemise bleue."),
+("Assistant","What size are you?","wot saïz âr you ?","Quelle taille faites-vous ?"),
+("Lucy","Medium, I think.","mî-di-eum, aï sink","Médium, je crois."),
+("Assistant","Here you are. The fitting room is over there.","hîr you âr. zeu fi-ting roum iz o-veur zèr","Voici. La cabine d'essayage est là-bas."),
+("Lucy","It's a bit too small. Do you have a large?","its eu bit tou smôl. dou you hèv eu lârdj ?","C'est un peu petit. Vous avez du large ?"),
+("Assistant","Yes, here it is.","yèss, hîr it iz","Oui, la voici."),
+("Lucy","Perfect! How much is it?","peur-fikt ! hao meutch iz it ?","Parfait ! Combien ça coûte ?"),
+("Assistant","It's on sale today: twenty pounds.","its on séïl tou-déï : twèn-ti paoundz","Elle est en promo aujourd'hui : 20 livres."),
+("Lucy","Great, I'll take it. Can I pay by card?","gréït, aïl téïk it. kèn aï péï baï kârd ?","Super, je la prends. Je peux payer par carte ?"),
+("Assistant","Of course. Here's your receipt. Have a nice day!","ov korss. hîrz yor ri-sît. hèv eu naïss déï !","Bien sûr. Voici votre ticket. Bonne journée !")]
+D.append(dict(slug='dialogue-magasin',date='2026-11-19',title="Dans un magasin",sub="un dialogue complet, avec la prononciation",emoji='🛍️',
+ tip="Lis le dialogue à deux : une personne fait Lucy, l'autre fait le vendeur. Puis remplace « shirt » par « dress », « shoes »… et recommence !",
+ p1=diat(shop[:7]),p2=diat(shop[7:])+'<h2>📌 Les mots à retenir</h2><table><tr><td><b>size</b> = taille</td><td><b>fitting room</b> = cabine d\'essayage</td></tr><tr><td><b>too small / too big</b> = trop petit / trop grand</td><td><b>on sale</b> = en promotion</td></tr><tr><td><b>How much is it?</b> = combien ?</td><td><b>receipt</b> = ticket de caisse</td></tr><tr><td><b>I\'ll take it</b> = je le prends</td><td><b>cash / card</b> = espèces / carte</td></tr></table>'))
+pron=[("comfortable","kom-for-ta-ble","keumf-teu-beul","On « avale » le milieu : 3 syllabes seulement."),
+("vegetable","vé-gé-ta-ble","vèdj-teu-beul","Le 2ᵉ « e » ne se prononce pas."),
+("Wednesday","ouèd-nèss-dé","wènz-déï","Le « d » est muet : comme « Wens-day »."),
+("island","is-land","aï-leund","Le « s » est muet."),
+("receipt","ré-cé-ipt","ri-sît","Le « p » est muet."),
+("clothes","klo-tèss","klôdz","Une seule syllabe !"),
+("recipe","ré-cipe","rè-si-pi","3 syllabes, le « e » final se prononce."),
+("chocolate","cho-co-la-te","tcho-kleut","2 syllabes seulement."),
+("women","ou-o-mèn","wi-min","Le « o » se dit « i »."),
+("answer","an-sou-eur","ân-seur","Le « w » est muet."),
+("knife","k-naïf","naïf","Le « k » devant « n » est toujours muet."),
+("listen","lis-tèn","li-seun","Le « t » est muet.")]
+def pront(rows,s):
+    h='<table class="err">'
+    for k,(w,bad,good,e) in enumerate(rows): h+=f'<tr><td class="n">{s+k}</td><td><b style="font-size:13pt">{w}</b><span class="bad">❌ {bad}</span><span class="good">✅ 🔊 {good}</span><span class="ex">{e}</span></td></tr>'
+    return h+'</table>'
+D.append(dict(slug='12-mots-mal-prononces',date='2026-11-20',title="12 mots anglais",sub="que presque tout le monde prononce mal",emoji='🔊',
+ tip="Lis la bonne prononciation (en vert) 5 fois à voix haute. Le secret : en anglais, beaucoup de lettres sont muettes !",
+ p1=pront(pron[:6],1),p2=pront(pron[6:],7)))
+wg1='''<h2>1️⃣ WILL : décider maintenant, promettre, prévoir</h2><p>Quand tu décides <b>au moment où tu parles</b>, pour une promesse, ou une prévision sans preuve.</p>
+<div class="ex2">The phone is ringing. I<b>'ll</b> answer it! · I <b>will</b> call you tomorrow, I promise. · I think it <b>will</b> rain.</div>
+<p>Formule : <b>will + verbe</b> (I'll, you'll, she'll…) · Négatif : <b>won't</b> (wont) = will not</p>
+<h2>2️⃣ GOING TO : un projet déjà décidé, une preuve</h2><p>Quand c'est <b>déjà prévu</b> avant de parler, ou quand on <b>voit</b> que ça va arriver.</p>
+<div class="ex2">I'<b>m going to</b> visit my aunt this weekend. · Look at the clouds! It'<b>s going to</b> rain.</div>
+<p>Formule : <b>am / is / are + going to + verbe</b> · 🔊 à l'oral : <i>gonna</i> (go-na)</p>
+<h2>🔎 La différence en une image</h2><table><tr><td>🛒 « There's no milk! » — « OK, I<b>'ll</b> buy some. »</td><td class="fr">décision immédiate</td></tr><tr><td>🛒 I<b>'m going to</b> buy milk after work.</td><td class="fr">déjà prévu</td></tr></table>'''
+wg2='''<h2>✍️ À toi de jouer : will ou going to ?</h2><table>
+<tr><td class="n">1</td><td>« I'm cold. » — « I (will / am going to) close the window. »</td></tr>
+<tr><td class="n">2</td><td>We (will / are going to) travel to Boston next month. We have the tickets.</td></tr>
+<tr><td class="n">3</td><td>Don't worry, I (will / am going to) help you.</td></tr>
+<tr><td class="n">4</td><td>Look! That glass (will / is going to) fall!</td></tr>
+<tr><td class="n">5</td><td>I think Chelsea (will / is going to) win the match.</td></tr>
+<tr><td class="n">6</td><td>She (will / is going to) start a new job on Monday. She signed the contract.</td></tr></table>
+<p class="mu">Réponses : 1. will · 2. are going to · 3. will · 4. is going to · 5. will · 6. is going to</p>'''
+D.append(dict(slug='will-going-to',date='2026-11-21',title="Will ou going to ?",sub="la mini-leçon pour parler du futur",emoji='🔮',
+ tip="Retiens la règle : décision sur le moment = will · projet déjà décidé = going to.",p1=wg1,p2=wg2))
+adj=[("😊","kind","kaïnd","gentil"),("😂","funny","feu-ni","drôle"),("🙈","shy","chaï","timide"),("🤗","friendly","frènd-li","sympathique"),("😴","lazy","léï-zi","paresseux"),("💪","hard-working","hârd-weur-king","travailleur"),("🧠","smart","smârt","intelligent"),("🤞","honest","o-nist","honnête"),("🙏","polite","po-laït","poli"),("😠","rude","roud","impoli"),("🎁","generous","djè-neu-reuss","généreux"),("🙄","selfish","sèl-fich","égoïste"),
+("⏳","patient","péï-cheunt","patient"),("😌","calm","kâm","calme"),("🦁","brave","bréïv","courageux"),("😁","cheerful","tchîr-foul","joyeux"),("🐂","stubborn","steu-beurn","têtu"),("🗣️","talkative","tô-keu-tiv","bavard"),("🤝","reliable","ri-laï-eu-beul","fiable"),("👑","bossy","bo-si","autoritaire"),("😎","confident","kon-fi-deunt","sûr de soi"),("😟","nervous","neur-veuss","nerveux"),("🎨","creative","kri-éï-tiv","créatif"),("🧹","tidy","taï-di","ordonné"),
+("📏","tall","tôl","grand"),("🔽","short","chort","petit"),("🌿","slim","slim","mince"),("👶","young","yeung","jeune"),("🌹","beautiful","byou-ti-foul","belle"),("🕴️","handsome","hèn-seum","beau (homme)")]
+D.append(dict(slug='30-adjectifs-personne',date='2026-11-22',title="30 adjectifs",sub="pour décrire une personne",emoji='🧑',
+ tip="Pour chaque mot, pense à une personne que tu connais qui lui correspond : c'est le meilleur moyen de ne plus l'oublier !",
+ p1=voct(adj[:24]),p2=voct(adj[24:])+'''<p class="mu">⚠️ <b>handsome</b> se dit plutôt pour un homme, <b>beautiful</b> / <b>pretty</b> pour une femme.</p>
+<h2>✍️ Décris quelqu'un !</h2><div class="ex2">My friend Emily is <b>tall</b> and <b>slim</b>. She is <b>kind</b>, <b>funny</b> and very <b>hard-working</b>. But she is a bit <b>stubborn</b>! 😄</div>
+<p>À toi : décris ton meilleur ami en 3 phrases, avec au moins 4 adjectifs de la fiche.</p><p class="mu">Astuce : <b>a bit</b> (eu bit) = un peu · <b>very</b> (vè-ri) = très · <b>so</b> (so) = tellement</p>'''))
+itv=[("Tell me about yourself.","tèl mî eu-baout yor-sèlf","Parlez-moi de vous.","I'm Daniel. I have a degree in marketing and three years of experience in sales."),
+("Why do you want this job?","waï dou you wont ziss djob ?","Pourquoi voulez-vous ce poste ?","Because I love working with customers and I want to grow with your company."),
+("What are your strengths?","wot âr yor strèngs ?","Quelles sont vos qualités ?","I'm hard-working, reliable and I learn quickly."),
+("What is your main weakness?","wot iz yor méïn wîk-niss ?","Quel est votre principal défaut ?","Sometimes I'm too perfectionist, but I'm learning to manage my time."),
+("Where do you see yourself in five years?","wèr dou you sî yor-sèlf in faïv yîrz ?","Où vous voyez-vous dans 5 ans ?","I see myself as a team manager in this company."),
+("Why did you leave your last job?","waï did you lîv yor lâst djob ?","Pourquoi avez-vous quitté votre dernier poste ?","I was looking for new challenges."),
+("Can you work in a team?","kèn you weurk in eu tîm ?","Savez-vous travailler en équipe ?","Yes, of course. I enjoy sharing ideas with my colleagues."),
+("When can you start?","wèn kèn you stârt ?","Quand pouvez-vous commencer ?","I can start next Monday."),
+("Do you have any questions?","dou you hèv è-ni kwès-tcheunz ?","Avez-vous des questions ?","Yes. What does a typical day look like in this job?")]
+def itvt(rows,s):
+    h='<table>'
+    for k,(q,pr,fr,a) in enumerate(rows): h+=f'<tr><td class="n">{s+k}</td><td><b>{q}</b><span class="pr">🔊 {pr}</span><span class="fr2">{fr}</span><span class="ex">💬 « {a} »</span></td></tr>'
+    return h+'</table>'
+D.append(dict(slug='entretien-embauche',date='2026-11-23',title="L'entretien d'embauche",sub="9 questions en anglais + les réponses modèles",emoji='🤝',
+ tip="Adapte chaque réponse modèle à TON parcours, écris-la, puis répète-la à voix haute devant un miroir jusqu'à la dire sans lire.",
+ p1=itvt(itv[:5],1),p2=itvt(itv[5:],6)+'<h2>⭐ 3 conseils le jour J</h2><p>1. Souris et dis <b>« Nice to meet you »</b> (naïss tou mît you) en serrant la main.<br>2. Réponds en phrases courtes et simples : c\'est mieux qu\'une longue phrase pleine d\'erreurs.<br>3. Tu n\'as pas compris ? Dis <b>« Could you repeat that, please? »</b> (koud you ri-pît zèt, plîz ?)</p>'))
+md1='''<h2>🛠️ MAKE = créer, fabriquer, produire</h2><p>Quand on <b>crée quelque chose</b> qui n'existait pas avant.</p>
+<div class="ex2"><b>make</b> a cake (un gâteau) · <b>make</b> a mistake (une erreur) · <b>make</b> a decision (une décision) · <b>make</b> money (de l'argent) · <b>make</b> a phone call (un appel) · <b>make</b> friends (se faire des amis) · <b>make</b> a noise (du bruit) · <b>make</b> a plan (un plan) · <b>make</b> the bed (le lit) · <b>make</b> an effort (un effort)</div>
+<h2>✅ DO = faire une activité, une tâche</h2><p>Pour le <b>travail</b>, les <b>tâches</b>, les activités en général.</p>
+<div class="ex2"><b>do</b> homework (les devoirs) · <b>do</b> the dishes (la vaisselle) · <b>do</b> sport (du sport) · <b>do</b> business (des affaires) · <b>do</b> a favour (un service) · <b>do</b> your best (de ton mieux) · <b>do</b> the shopping (les courses) · <b>do</b> an exercise (un exercice) · <b>do</b> a job (un travail) · <b>do</b> nothing (rien)</div>
+<h2>🔊 Prononciation</h2><p><b>make</b> → méïk · made → méïd &nbsp;|&nbsp; <b>do</b> → dou · did → did · done → deun</p>
+<h2>🔎 Le piège classique</h2><table><tr><td><span class="bad">❌ I did a mistake.</span><span class="good">✅ I made a mistake.</span></td></tr></table>'''
+md2='''<h2>✍️ À toi de jouer : make ou do ?</h2><table>
+<tr><td class="n">1</td><td>Can you ___ me a favour?</td></tr><tr><td class="n">2</td><td>I need to ___ a decision today.</td></tr>
+<tr><td class="n">3</td><td>She ___ her homework every evening.</td></tr><tr><td class="n">4</td><td>Don't ___ a noise, the baby is sleeping!</td></tr>
+<tr><td class="n">5</td><td>I ___ sport three times a week.</td></tr><tr><td class="n">6</td><td>He ___ a lot of money last year.</td></tr>
+<tr><td class="n">7</td><td>Who is going to ___ the dishes?</td></tr><tr><td class="n">8</td><td>It's OK to ___ mistakes when you learn.</td></tr></table>
+<p class="mu">Réponses : 1. do · 2. make · 3. does · 4. make · 5. do · 6. made · 7. do · 8. make</p>'''
+D.append(dict(slug='make-ou-do',date='2026-11-24',title="Make ou Do ?",sub="la règle + 20 expressions à connaître",emoji='🛠️',
+ tip="Retiens l'idée : MAKE = je crée quelque chose · DO = je fais une tâche, une activité.",p1=md1,p2=md2))

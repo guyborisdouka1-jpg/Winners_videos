@@ -96,5 +96,54 @@
   "title": "Au téléphone",
   "sub": "16 phrases pour appeler en anglais",
   "emoji": "📞"
+ },
+ {
+  "slug": "dire-l-heure",
+  "date": "2026-11-18",
+  "title": "Quelle heure est-il ?",
+  "sub": "dire l'heure en anglais sans se tromper",
+  "emoji": "⏰"
+ },
+ {
+  "slug": "dialogue-magasin",
+  "date": "2026-11-19",
+  "title": "Dans un magasin",
+  "sub": "un dialogue complet, avec la prononciation",
+  "emoji": "🛍️"
+ },
+ {
+  "slug": "12-mots-mal-prononces",
+  "date": "2026-11-20",
+  "title": "12 mots anglais",
+  "sub": "que presque tout le monde prononce mal",
+  "emoji": "🔊"
+ },
+ {
+  "slug": "will-going-to",
+  "date": "2026-11-21",
+  "title": "Will ou going to ?",
+  "sub": "la mini-leçon pour parler du futur",
+  "emoji": "🔮"
+ },
+ {
+  "slug": "30-adjectifs-personne",
+  "date": "2026-11-22",
+  "title": "30 adjectifs",
+  "sub": "pour décrire une personne",
+  "emoji": "🧑"
+ },
+ {
+  "slug": "entretien-embauche",
+  "date": "2026-11-23",
+  "title": "L'entretien d'embauche",
+  "sub": "9 questions en anglais + les réponses modèles",
+  "emoji": "🤝"
+ },
+ {
+  "slug": "make-ou-do",
+  "date": "2026-11-24",
+  "title": "Make ou Do ?",
+  "sub": "la règle + 20 expressions à connaître",
+  "emoji": "🛠️"
  }
 ]

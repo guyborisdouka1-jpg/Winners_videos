@@ -15,6 +15,13 @@ B={
 'email-professionnel':("Écrire un email pro","en anglais, avec le modèle",["📧 Le modèle à copier","🧩 Les 3 parties","💬 9 phrases utiles","✍️ À toi d'écrire"]),
 '20-phrasal-verbs':("20 phrasal verbs","indispensables au quotidien",["🔗 get up, give up…","💬 Un exemple pour chacun","🇫🇷 Traduction","🔊 Prononciation en français"]),
 'telephone-anglais':("Au téléphone","16 phrases pour appeler en anglais",["📞 Se présenter","⏳ « Hold on, please »","📝 Prendre un message","🔊 Prononciation en français"]),
+"dire-l-heure":("Quelle heure est-il ?","dire l'heure en anglais",["⏰ What time is it?","🕞 Past et to expliqués","☀️ a.m. ou p.m. ?","✍️ Exercice + réponses"]),
+"dialogue-magasin":("Dans un magasin","un dialogue complet en anglais",["🛍️ Demander un article","👕 La taille, la cabine","💳 Payer par carte","🔊 Prononciation en français"]),
+"12-mots-mal-prononces":("12 mots anglais","que tout le monde prononce mal",["🔇 Les lettres muettes","❌ Wednesday, island…","✅ La bonne prononciation","💡 Expliqué simplement"]),
+"will-going-to":("Will ou going to ?","la mini-leçon du futur",["🔮 La règle en 2 minutes","🔎 Exemples simples","✍️ Exercice + réponses","🎯 Fini les erreurs"]),
+"30-adjectifs-personne":("30 adjectifs","pour décrire une personne",["😊 Caractère : kind, shy…","📏 Physique : tall, slim…","✍️ Décris ton ami","🔊 Prononciation en français"]),
+"entretien-embauche":("L'entretien d'embauche","en anglais, avec les réponses",["🤝 9 questions classiques","💬 Les réponses modèles","⭐ 3 conseils le jour J","🔊 Prononciation en français"]),
+"make-ou-do":("Make ou Do ?","la règle + 20 expressions",["🛠️ Make = créer","✅ Do = faire une tâche","❌ « I did a mistake »","✍️ Exercice + réponses"]),
 }
 import sys
 NEW=sys.argv[1:] or list(B)
