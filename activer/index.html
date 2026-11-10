@@ -1,0 +1,10 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Activation</title>
+<style>body{font-family:system-ui,sans-serif;max-width:480px;margin:40px auto;padding:0 16px;text-align:center;color:#1d1f3a;background:#fff}h1{font-size:24px}.b{background:#2F3480;color:#fff;border-radius:14px;padding:18px;margin:20px 0;font-size:18px}a{color:#B83A35;font-weight:700}</style></head><body>
+<h1 id="t">⏳ Envoi en cours…</h1><p id="m"></p>
+<script>
+fetch('https://formsubmit.co/ajax/winnersenglish04@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'Activation – Test de placement Winners',_captcha:'false',Message:'Activation des alertes du test de placement'})})
+.then(function(r){return r.json()}).then(function(j){
+ document.getElementById('t').textContent='✅ C’est parti !';
+ document.getElementById('m').innerHTML='<div class="b">Ouvrez maintenant <b>winnersenglish04@gmail.com</b><br>et appuyez sur <b>« Activate Form »</b><br>dans l’email de FormSubmit.</div><p>Pas dans la boîte principale ? Regardez dans Spams ou Promotions.</p><p><a href="https://mail.google.com/mail/u/0/#search/formsubmit">Ouvrir Gmail</a></p>';
+}).catch(function(){document.getElementById('t').textContent='❌ Problème de connexion';document.getElementById('m').textContent='Rechargez la page.';});
+</script></body></html>
