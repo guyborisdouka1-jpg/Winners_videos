@@ -398,7 +398,7 @@ function renderTest(){
       var relance="Bonjour "+t.name.split(' ')[0]+", ici Coach Winner de Winners' English Center 👋\n\nMerci d'avoir fait notre test de niveau. Votre niveau estimé : "+lv+" ("+t.score+"/"+QUESTIONS.length+").\n"+(MSGN[lv]||"")+"\n\nLa Promo Anglais Noël (2 mois de cours, novembre + décembre, en présentiel ou en ligne) est faite pour vous.\nDécouvrez le programme et inscrivez-vous en ligne :\nhttps://winnersenglishcenter.com/site/#promo-noel\n\nÀ très vite !\nCoach Winner";
       var telI=(function(x){x=x.replace(/\D/g,'');return x.length===10?'225'+x:x.replace(/^00/,'');})(t.phone);
       var body={_subject:'🆕 Test rapide (20 questions) : '+t.name+' ('+lv+')',_template:'table',_captcha:'false','Nom':t.name,'Téléphone':t.phone,'Niveau':lv,'Score':t.score+'/'+QUESTIONS.length,'1 clic : message WhatsApp prêt':'https://wa.me/'+telI+'?text='+encodeURIComponent(relance)};
-      if(t.email){body.email=t.email;body._autoresponse=relance;} else body['Email']='(non donné)';
+      if(t.email){body.email=t.email;body._replyto=t.email;var EA=(window.CENTRE||{}).emailAutoURL;if(EA){try{fetch(EA,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify({test:'rapide',nom:t.name,email:t.email,niveau:lv,score:t.score+'/'+QUESTIONS.length})});}catch(e){}}} else body['Email']='(non donné)';
       try{fetch(RU,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(body)});}catch(e){}
     }
     var msg = "Bonjour Winners' English Center ! Je suis "+t.name+" ("+t.phone+"). J'ai fait le test de niveau sur votre site : "+t.score+"/"+QUESTIONS.length+", niveau "+lv+". J'aimerais connaître le programme adapté.";

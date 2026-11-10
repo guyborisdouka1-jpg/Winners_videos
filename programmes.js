@@ -20,6 +20,8 @@ window.CENTRE = {
   metaPixel: "1967147677422094",
   // Les résultats du test de placement sont envoyés automatiquement à cette adresse email (laisser "" pour arrêter)
   resultatsURL: "https://formsubmit.co/ajax/winnersenglish04@gmail.com",
+  // Programme Google (compte winnersenglish04) qui envoie l'email de relance à l'apprenant (laisser "" tant qu'il n'est pas installé)
+  emailAutoURL: "",
   // Clés d'accès des tests (le tableau Google « Winners – Admin du site » peut les changer)
   cles: { rapide: "WIN2026", placement: "WIN2026" },
   brochure: "brochure.pdf",
