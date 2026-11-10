@@ -90,9 +90,9 @@ function intro(){
   '<p class="muted">Ce test nous permet de te placer dans le groupe qui correspond vraiment à ton niveau, du débutant (A1) à l\'avancé (B2).</p>'+
   '<div class="card"><b>Comment ça marche</b><ul class="rules"><li>'+qn+' questions en 4 parties, de plus en plus difficiles.</li><li>Réponds seul, sans dictionnaire ni traducteur : on veut ton vrai niveau.</li><li>Il y a aussi des exercices d\'écoute : mets des écouteurs ou monte le son. Chaque audio s\'écoute 2 fois maximum.</li><li>Si tu ne sais pas, laisse vide et passe à la suite.</li><li>Si une partie est trop difficile, le test s\'arrête tout seul : c\'est normal.</li></ul></div>'+
   '<div class="card"><label class="f" for="nm">Ton nom et prénom</label><input type="text" id="nm" autocomplete="name" placeholder="Ex. : Emma Smith">'+
-  '<label class="f" for="tl">Ton numéro WhatsApp (facultatif)</label><input type="tel" id="tl" autocomplete="tel" placeholder="07 00 00 00 00">'+
+  '<label class="f" for="tl">Ton numéro WhatsApp'+(C.resultatsURL?'':' (facultatif)')+'</label><input type="tel" id="tl" autocomplete="tel" placeholder="07 00 00 00 00">'+
   (window.WEC?WEC.keyField('placement'):'')+'<div class="row"><button class="btn btn-main" id="go">Commencer le test</button></div></div>';
-  document.getElementById('go').onclick=function(){ S.name=document.getElementById('nm').value.trim(); S.tel=document.getElementById('tl').value.trim(); if(!S.name){document.getElementById('nm').focus(); document.getElementById('nm').placeholder="Écris ton nom pour commencer"; return;} if(window.WEC&&!WEC.checkKey('placement')) return; S.i=0; show(); };
+  document.getElementById('go').onclick=function(){ S.name=document.getElementById('nm').value.trim(); S.tel=document.getElementById('tl').value.trim(); if(!S.name){document.getElementById('nm').focus(); document.getElementById('nm').placeholder="Écris ton nom pour commencer"; return;} if(C.resultatsURL&&S.tel.replace(/\D/g,'').length<8){document.getElementById('tl').focus(); document.getElementById('tl').placeholder="Écris ton numéro pour commencer"; return;} if(window.WEC&&!WEC.checkKey('placement')) return; S.i=0; show(); };
 }
 function setProg(p){document.getElementById('prog').style.width=p+'%';}
 function show(){
@@ -142,12 +142,14 @@ function result(stop){
   var msg="Bonjour Coach Winner, j'ai fait le test de placement.\nNom : "+S.name+(S.tel?"\nWhatsApp : "+S.tel:"")+"\nNiveau : "+lvl+"\nScore : "+tot+"/"+n+" ("+lines.join(", ")+")\nJe voudrais savoir quel groupe me correspond.";
   app.innerHTML='<span class="tag">Test terminé</span><h1>Bravo '+esc(S.name.split(' ')[0])+' !</h1>'+
   '<div class="card"><span class="muted">Ton niveau estimé</span><div class="lvl">'+esc(lvl.split(' ')[0])+'</div><p>'+esc(DESC[lvl])+'</p><p class="muted">Score : '+tot+' / '+n+'</p><div class="parts">'+parts+'</div></div>'+
+  (C.resultatsURL?'<div class="card"><b>✅ Ton résultat a été transmis à Coach Winner</b><p class="muted">Découvre maintenant le programme qui te permettra de progresser.</p><div class="row"><a class="btn btn-main" href="/site/#promo-noel">Voir la Promo Anglais Noël</a></div></div>':
   '<div class="card"><b>Envoie ton résultat à Coach Winner</b><p class="muted">Il te dira quel groupe te correspond et comment démarrer.</p><div class="row">'+
   '<a class="btn btn-wa" target="_blank" rel="noopener" href="https://wa.me/'+WA+'?text='+encodeURIComponent(msg)+'">Envoyer sur WhatsApp</a>'+
-  '<a class="btn btn-ghost" href="mailto:'+MAIL+'?subject='+encodeURIComponent('Test de placement : '+S.name+' ('+lvl.split(' ')[0]+')')+'&body='+encodeURIComponent(msg)+'">Envoyer par email</a></div></div>'+
+  '<a class="btn btn-ghost" href="mailto:'+MAIL+'?subject='+encodeURIComponent('Test de placement : '+S.name+' ('+lvl.split(' ')[0]+')')+'&body='+encodeURIComponent(msg)+'">Envoyer par email</a></div></div>')+
   (errs?'<div class="card"><b>Tes corrections</b>'+errs+'</div>':'<div class="card"><b>Aucune erreur, impressionnant !</b></div>')+
   '<div class="row"><a class="btn btn-ghost" href="../site/">Retour au site</a><a class="btn btn-ghost" href="../">Ouvrir l\'appli gratuite</a><button class="btn btn-ghost" id="again">Refaire le test</button></div>';
-  document.getElementById('again').onclick=function(){S.ans={};S.plays={};intro();};
+  if(C.resultatsURL&&!S.sent){S.sent=1;try{fetch(C.resultatsURL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify({test:'Placement',nom:S.name,tel:S.tel,niveau:lvl,score:tot+'/'+n,detail:lines.join(', ')})});}catch(e){}}
+  document.getElementById('again').onclick=function(){S.ans={};S.plays={};S.sent=0;intro();};
   window.scrollTo(0,0);
 }
 intro();
