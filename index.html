@@ -854,7 +854,7 @@ function buildDoc(){
     '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">\n'+
     '<style id="site-style">'+STYLE_SRC+'</style>\n<div id="app"></div>\n'+
     '<script id="site-data" type="application/json">'+json+close+'\n'+
-    '<script id="site-app">'+APP_SRC+close+'\n</body></html>';
+    '<script id="site-app">'+APP_SRC+close+'\n<script>(function(){function go(){var h=(location.hash||"").slice(1);if(!h||h==="top"||window.__wecUserScrolled)return;var e=document.getElementById(h);if(e)e.scrollIntoView();}["wheel","touchmove","keydown"].forEach(function(t){addEventListener(t,function(){window.__wecUserScrolled=1},{once:true,passive:true})});addEventListener("load",function(){go();setTimeout(go,800);setTimeout(go,2000);});})();</script></body></html>';
 }
 function setStatus(t,bad){ var s=$('#adm-status'); if(s){ s.textContent=t; s.style.color=bad?'var(--red)':''; } }
 function save(){
