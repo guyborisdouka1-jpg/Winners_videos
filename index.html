@@ -301,6 +301,10 @@ section.sec{padding-block:56px}@media(max-width:600px){section.sec{padding-block
 .pm-price{margin-top:26px;background:#fff;color:#1B2A4A;border-radius:16px;padding:20px 22px}.pm-price .label{color:#C8102E}
 .pm-amount{font-family:var(--f-display);margin:6px 0}.pm-amount b{font-size:2.1rem;color:#C8102E}.pm-amount s{color:#8a90a0;font-size:1.1rem;margin-right:6px}
 .pm-price p{margin:4px 0}.pm-dead{font-weight:700}.pm-price .btn-ghost{color:#1B2A4A}
+.pay{margin-top:18px;border-top:1px dashed #d5d9e3;padding-top:16px}.pay h3{margin:0 0 4px;font-size:1.05rem;color:#1B2A4A}.pay .muted{font-size:.9rem}
+.pay-list{list-style:none;margin:10px 0;padding:0;display:grid;gap:8px}.pay-list li{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#f4f6fb;border-radius:12px;padding:10px 12px;flex-wrap:wrap}
+.pay-list b{display:block;font-size:.85rem;color:#2F3480}.pay-list code{font:600 1rem/1.3 system-ui,sans-serif;color:#1B2A4A;word-break:break-all}
+.pay-copy{border:0;background:#2F3480;color:#fff;border-radius:999px;padding:7px 14px;font-weight:700;cursor:pointer;font-size:.85rem}.pay-copy.ok{background:#1f9d55}
 .pm-cta{display:block;text-align:center;font-size:17px;padding:16px}.pm-media{display:grid;gap:12px;position:sticky;top:140px}.pm-media img{width:100%;border-radius:16px;object-fit:cover;aspect-ratio:4/3;display:block}.pm-media img.pm-poster{aspect-ratio:auto;object-fit:contain;box-shadow:0 18px 40px -16px rgba(0,0,0,.6)}@media(max-width:900px){.pm-media{order:-1;position:static}.pm-media .pm-ph{display:none}.pm-media img.pm-poster{max-width:520px;margin:0 auto}}
 .fcard .fem{aspect-ratio:16/5;display:flex;align-items:center;justify-content:center;font-size:3.4rem;background:linear-gradient(135deg,#1B2A4A,#2F3480)}
 .fmeta{list-style:none;margin:0;padding:0;display:grid;gap:4px;font-size:.92rem;color:var(--muted)}
@@ -312,7 +316,7 @@ section.sec{padding-block:56px}@media(max-width:600px){section.sec{padding-block
 .gal{grid-auto-rows:200px}.gal img{object-position:50% 30%}@media(max-width:460px){.gal{grid-template-columns:1fr 1fr;grid-auto-rows:150px;gap:8px}.gal figure.big{grid-column:span 2;grid-row:span 2}.gal figcaption{font-size:.72rem;padding:6px 8px}}
 @media(max-width:520px){.svc{grid-template-columns:1fr 1fr;gap:10px}.svc .card{padding:14px}.svc .card h3{font-size:1rem}.svc .card p{font-size:.85rem}}
 </style>
-<script src="programmes.js"></script>
+<script src="programmes.js?v=20261110"></script>
 <script src="wec.js"></script>
 <script src="pub.js"></script>
 <script src="test.js"></script>
@@ -571,6 +575,17 @@ var WEC_FORM = WEC_DEF.Formations, WEC_PUBS = WEC_DEF.Publications;
 function curP(){ var L=window.PROGRAMMES||[], now=new Date(); return L.filter(function(p){return new Date(p.afficherDes+'T00:00:00Z')<=now && now<=new Date(p.cours[1]+'T23:59:59Z');})[0]||null; }
 function fcfa(n){ return Number(n).toLocaleString('fr-FR').replace(/\s/g,' ')+' F'; }
 function jourFr(s){ var d=new Date(s+'T12:00:00Z'); return d.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long',timeZone:'UTC'}); }
+function payBlock(P){
+  var pa=(window.CENTRE||{}).paiement||{}, ops=pa.operateurs||(pa.numeros||[]).map(function(n){var d=String(n).replace(/\D/g,'');return {op:/^07/.test(d)?'Orange Money':/^01/.test(d)?'Moov Money':/^05/.test(d)?'MTN MoMo':'Mobile Money',num:n};}), bq=pa.banque||{};
+  if(!ops.length && !bq.rib) return '';
+  var li=ops.map(function(o){return '<li><span><b>'+esc(o.op)+'</b><code>'+esc(o.num)+'</code></span><button type="button" class="pay-copy" data-copy="'+esc(String(o.num).replace(/\s/g,''))+'">Copier</button></li>';}).join('');
+  if(bq.rib) li+='<li><span><b>Virement bancaire · '+esc(bq.nom||'')+(bq.titulaire?' ('+esc(bq.titulaire)+')':'')+'</b><code>'+esc(bq.rib)+'</code></span><button type="button" class="pay-copy" data-copy="'+esc(bq.rib)+'">Copier</button></li>';
+  var m="Bonjour Coach Winner ! Je viens de payer ma place pour la "+P.nom+". Voici la capture de mon paiement. Mon nom : ";
+  return '<div class="pay" id="payer"><h3>💳 Payer ma place</h3><p class="muted">Envoie <b>'+esc(fcfa(P.prix))+'</b> depuis ton téléphone sur l\'un de ces numéros, puis envoie-nous la capture de ton reçu.</p><ul class="pay-list">'+li+'</ul>'+
+    '<a class="btn btn-wa" style="display:block;text-align:center" target="_blank" rel="noopener" onclick="window.wecTrack&&wecTrack(\'Lead\',{content_name:\'paiement_capture\'})" href="'+wa(m)+'">✅ J\'ai payé, j\'envoie ma capture</a></div>';
+}
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.pay-copy');if(!b)return;var t=b.getAttribute('data-copy');function done(){b.textContent='Copié ✓';b.classList.add('ok');setTimeout(function(){b.textContent='Copier';b.classList.remove('ok');},2000);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,function(){prompt('Copie ce numéro :',t);});}else{prompt('Copie ce numéro :',t);}});
 function secPromo(){
   var P=curP(); if(!P) return '';
   var now=new Date(), open=now<=new Date(P.inscriptions[1]+'T23:59:59Z');
@@ -580,7 +595,7 @@ function secPromo(){
   var tarif=open?'<div class="pm-price"><span class="label">Ton investissement pour les 2 mois</span>'+
       '<div class="pm-amount">'+(P.prixBarre?'<s>'+fcfa(P.prixBarre)+'</s> ':'')+'<b>'+fcfa(P.prix)+'</b></div>'+
       '<p>'+esc(P.paiementTexte||'')+'</p><p class="pm-dead">⏳ Inscriptions jusqu\'au '+esc(jourFr(P.inscriptions[1]))+'</p>'+
-      '<div class="row-btns" style="justify-content:flex-start"><a class="btn btn-red" target="_blank" rel="noopener" onclick="window.wecTrack&&wecTrack(\'Lead\',{content_name:\'formulaire_inscription\'})" href="https://docs.google.com/forms/d/e/1FAIpQLSfLmFAB-Y63PmzJ4QvS4uSuvNbzPfy2AdWKk-zvsUCEzGV-ng/viewform">📝 Je m\'inscris (formulaire)</a><a class="btn btn-wa" target="_blank" rel="noopener" href="'+wa(msg)+'">Je réserve ma place sur WhatsApp</a><a class="btn btn-ghost" href="brochure.pdf" download>📄 Brochure PDF</a></div></div>'
+      '<div class="row-btns" style="justify-content:flex-start"><a class="btn btn-red" target="_blank" rel="noopener" onclick="window.wecTrack&&wecTrack(\'Lead\',{content_name:\'formulaire_inscription\'})" href="https://docs.google.com/forms/d/e/1FAIpQLSfLmFAB-Y63PmzJ4QvS4uSuvNbzPfy2AdWKk-zvsUCEzGV-ng/viewform">📝 Je m\'inscris (formulaire)</a><a class="btn btn-wa" target="_blank" rel="noopener" href="'+wa(msg)+'">Je réserve ma place sur WhatsApp</a><a class="btn btn-ghost" href="brochure.pdf" download>📄 Brochure PDF</a></div>'+payBlock(P)+'</div>'
     :'<div class="pm-price"><span class="label">Programme en cours</span><p>Les inscriptions sont closes. Écris-nous pour être prévenu(e) en premier de la prochaine session.</p><div class="row-btns" style="justify-content:flex-start"><a class="btn btn-wa" target="_blank" rel="noopener" href="'+wa("Bonjour Coach Winner ! Je veux être prévenu(e) de la prochaine session.")+'">Me prévenir</a></div></div>';
   return '<section class="sec pm" id="promo"><div class="wrap"><div class="pm-in">'+
     '<div class="pm-txt"><span class="label">Programme du moment</span><h2>'+esc((P.emoji?P.emoji+' ':'')+P.nom)+'</h2>'+
