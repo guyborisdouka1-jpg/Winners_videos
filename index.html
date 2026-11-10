@@ -379,20 +379,30 @@ function renderTest(){
       '<p class="muted">20 questions, environ 5 minutes. Résultat immédiat sur l\'échelle européenne (CECR).</p>'+
       '<div class="field"><label for="t-name">Votre nom</label><input id="t-name" required autocomplete="name" value="'+esc(t.name)+'"></div>'+
       '<div class="field"><label for="t-phone">Votre téléphone (WhatsApp)</label><input id="t-phone" required inputmode="tel" autocomplete="tel" value="'+esc(t.phone)+'"></div>'+
+      '<div class="field"><label for="t-email">Votre adresse email</label><input id="t-email" type="email" autocomplete="email" value="'+esc(t.email||'')+'"></div>'+
       '<button class="btn btn-red" type="submit">Commencer le test</button></form>';
-    $('#test-form').addEventListener('submit',function(e){ e.preventDefault(); t.name=$('#t-name').value.trim(); t.phone=$('#t-phone').value.trim(); if(!t.name||!t.phone) return; t.step='q'; t.i=0; t.score=0; renderTest(); });
+    $('#test-form').addEventListener('submit',function(e){ e.preventDefault(); t.name=$('#t-name').value.trim(); t.phone=$('#t-phone').value.trim(); t.email=$('#t-email').value.trim(); if(t.email&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(t.email)){$('#t-email').focus();return;} if(!t.name||!t.phone) return; t.sent=0; t.step='q'; t.i=0; t.score=0; renderTest(); });
   } else if(t.step==='q'){
     var q = QUESTIONS[t.i];
     el.innerHTML = '<div class="q-meta"><span class="label">Question '+(t.i+1)+' / '+QUESTIONS.length+'</span><div class="progress"><i style="width:'+(t.i/QUESTIONS.length*100)+'%"></i></div></div>'+
       '<p class="q-text">'+esc(q[0])+'</p>'+(q[3]?'<audio controls preload="auto" src="'+esc(q[3])+'" style="width:100%;margin:4px 0 14px"></audio>':'')+'<div class="opts">'+q[1].map(function(o,k){return '<button class="opt" data-k="'+k+'">'+esc(o)+'</button>';}).join('')+'</div>';
     el.querySelectorAll('.opt').forEach(function(b){ b.addEventListener('click',function(){ if(+b.dataset.k===q[2]) t.score++; t.i++; t.step = t.i>=QUESTIONS.length?'done':'q'; renderTest(); }); });
   } else {
-    var lv = levelOf(t.score);
+    var lv = levelOf(t.score), RU=(window.CENTRE||{}).resultatsURL;
+    if(RU&&!t.sent){ t.sent=1;
+      var MSGN={'A1':"Vous posez les premières bases. Objectif : parler de vous et du quotidien avec confiance.",'A2':"Vous comprenez l'essentiel des phrases courantes. Objectif : pratiquer l'oral pour gagner en aisance.",'B1':"Vous vous débrouillez dans la plupart des situations. Objectif : parler avec aisance, sans chercher vos mots.",'B2+':"Très bon niveau ! Objectif : affiner votre anglais pour être à l'aise dans toutes les situations."};
+      var relance="Bonjour "+t.name.split(' ')[0]+", ici Coach Winner de Winners' English Center 👋\n\nMerci d'avoir fait notre test de niveau. Votre niveau estimé : "+lv+" ("+t.score+"/"+QUESTIONS.length+").\n"+(MSGN[lv]||"")+"\n\nLa Promo Anglais Noël (2 mois de cours, novembre + décembre, en présentiel ou en ligne) est faite pour vous.\nDécouvrez le programme et inscrivez-vous en ligne :\nhttps://winnersenglishcenter.com/site/#promo-noel\n\nÀ très vite !\nCoach Winner";
+      var telI=(function(x){x=x.replace(/\D/g,'');return x.length===10?'225'+x:x.replace(/^00/,'');})(t.phone);
+      var body={_subject:'🆕 Test rapide (20 questions) : '+t.name+' ('+lv+')',_template:'table',_captcha:'false','Nom':t.name,'Téléphone':t.phone,'Niveau':lv,'Score':t.score+'/'+QUESTIONS.length,'1 clic : message WhatsApp prêt':'https://wa.me/'+telI+'?text='+encodeURIComponent(relance)};
+      if(t.email){body.email=t.email;body._autoresponse=relance;} else body['Email']='(non donné)';
+      try{fetch(RU,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(body)});}catch(e){}
+    }
     var msg = "Bonjour Winners' English Center ! Je suis "+t.name+" ("+t.phone+"). J'ai fait le test de niveau sur votre site : "+t.score+"/"+QUESTIONS.length+", niveau "+lv+". J'aimerais connaître le programme adapté.";
     el.innerHTML = '<div class="result"><span class="label">Votre niveau estimé</span><span class="lvl">'+lv+'</span><p><b>'+t.score+' / '+QUESTIONS.length+'</b> bonnes réponses</p><p class="muted" style="max-width:52ch">'+esc(LEVEL_TXT[lv])+'</p>'+
+      (RU?'<p><b>✅ Votre résultat a été transmis à Coach Winner.</b></p><div class="row-btns"><a class="btn btn-red" href="/site/#promo-noel">Voir la Promo Anglais Noël</a></div>':
       '<div class="row-btns"><a class="btn btn-wa" target="_blank" rel="noopener" href="'+wa(msg)+'">Envoyer mon résultat sur WhatsApp</a>'+
       '<a class="btn btn-ghost" href="mailto:'+esc(g().email)+'?subject='+encodeURIComponent('Résultat test de niveau : '+lv)+'&body='+encodeURIComponent(msg)+'">Par email</a></div>'+
-      '<p class="note">Email : '+esc(g().email)+'</p><button class="btn btn-ghost" id="t-again">Refaire le test</button></div>';
+      '<p class="note">Email : '+esc(g().email)+'</p>')+'<button class="btn btn-ghost" id="t-again">Refaire le test</button></div>';
     $('#t-again').addEventListener('click',function(){ t.step='intro'; renderTest(); });
   }
 }
