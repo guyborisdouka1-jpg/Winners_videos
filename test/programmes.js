@@ -66,7 +66,8 @@ window.PROGRAMMES = [
       ["⏳", "Inscriptions ouvertes jusqu'au <b>dimanche 15 novembre</b>"]
     ],
     bonus: [
-      ["📝", "Test de niveau gratuit"],
+      ["📝", "<b>Test de placement complet gratuit</b> (30 min) : <a href=\"/placement/\">winnersenglishcenter.com/placement</a>. Si vous l'avez déjà fait, inutile de le refaire."],
+      ["🎓", "<b>Bilan de fin de formation</b> → passage au niveau suivant en janvier"],
       ["📘", "Livre <b>English Starter</b> offert aux 10 premiers inscrits"],
       ["👫", "<b>5 000 F de réduction</b> chacun si tu viens avec un ami"],
       ["🎉", "<b>Christmas English Party</b> + attestation de fin de formation"],
