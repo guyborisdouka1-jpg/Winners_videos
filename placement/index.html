@@ -148,7 +148,7 @@ function result(stop){
   '<a class="btn btn-ghost" href="mailto:'+MAIL+'?subject='+encodeURIComponent('Test de placement : '+S.name+' ('+lvl.split(' ')[0]+')')+'&body='+encodeURIComponent(msg)+'">Envoyer par email</a></div></div>')+
   (errs?'<div class="card"><b>Tes corrections</b>'+errs+'</div>':'<div class="card"><b>Aucune erreur, impressionnant !</b></div>')+
   '<div class="row"><a class="btn btn-ghost" href="../site/">Retour au site</a><a class="btn btn-ghost" href="../">Ouvrir l\'appli gratuite</a><button class="btn btn-ghost" id="again">Refaire le test</button></div>';
-  if(C.resultatsURL&&!S.sent){S.sent=1;try{fetch(C.resultatsURL,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'🆕 Test de placement : '+S.name+' ('+lvl.split(' ')[0]+')',_template:'table',_captcha:'false','Nom':S.name,'Téléphone':S.tel,'Niveau':lvl,'Score':tot+'/'+n,'Détail':lines.join(', ')})});}catch(e){}}
+  if(C.resultatsURL&&!S.sent){S.sent=1;try{fetch(C.resultatsURL,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'🆕 Test de placement : '+S.name+' ('+lvl.split(' ')[0]+')',_template:'table',_captcha:'false','Nom':S.name,'Téléphone':S.tel,'Écrire au client sur WhatsApp':'https://wa.me/'+(function(t){t=t.replace(/\D/g,'');return t.length===10?'225'+t:t.replace(/^00/,'');})(S.tel),'Niveau':lvl,'Score':tot+'/'+n,'Détail':lines.join(', ')})});}catch(e){}}
   document.getElementById('again').onclick=function(){S.ans={};S.plays={};S.sent=0;intro();};
   window.scrollTo(0,0);
 }
