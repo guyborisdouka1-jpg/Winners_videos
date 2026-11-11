@@ -11,6 +11,7 @@ var MSGN = {
 function doPost(e) {
   var d = {}; try { d = JSON.parse(e.postData.contents || '{}'); } catch (x) {}
   var email = String(d.email || '').trim(), nom = String(d.nom || '').slice(0, 60), lv = String(d.niveau || '').split(' ')[0];
+  if (d.type === 'inscription') return inscription(d, email, nom);
   if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || !MSGN[lv]) return ContentService.createTextOutput('ignoré');
   var cache = CacheService.getScriptCache(); if (cache.get(email)) return ContentService.createTextOutput('déjà envoyé'); cache.put(email, '1', 3600);
   var pren = nom.split(' ')[0] || '';
@@ -19,5 +20,19 @@ function doPost(e) {
     'La Promo Anglais Noël (2 mois de cours, novembre + décembre, en présentiel ou en ligne) est faite pour vous.\n' +
     'Découvrez le programme et inscrivez-vous en ligne :\nhttps://winnersenglishcenter.com/site/#promo-noel\n\nÀ très vite !\nCoach Winner\nWinners\' English Center';
   GmailApp.sendEmail(email, 'Votre résultat au test : niveau ' + lv, corps, { name: "Coach Winner – Winners' English Center" });
+  return ContentService.createTextOutput('ok');
+}
+
+// Email automatique après une inscription à la Promo Noël
+function inscription(d, email, nom) {
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return ContentService.createTextOutput('ignoré');
+  var cache = CacheService.getScriptCache(); if (cache.get('i:' + email)) return ContentService.createTextOutput('déjà envoyé'); cache.put('i:' + email, '1', 3600);
+  var mode = /ligne/.test(String(d.mode || '')) ? 'en ligne' : 'en présentiel';
+  var corps = 'Bonjour ' + (nom.split(' ')[0] || '') + ' 👋, ici Coach Winner de Winners\' English Center.\n' +
+    'Merci pour votre inscription à la Promo Anglais Noël 🎄 (' + mode + ').\n\n' +
+    'Pour réserver votre place :\n💳 25 000 F à l\'inscription, puis il reste 20 000 F à payer avant le 7 décembre.\n📚 Supports de cours : 10 000 F\n' +
+    '📲 Wave / Mobile Money : 07 67 03 72 84 · 01 41 81 70 78 · 05 56 42 35 66\nEnvoyez-moi la capture de votre paiement sur WhatsApp (07 67 03 72 84).\n\n' +
+    '📝 Si ce n\'est pas encore fait, passez votre test de placement (30 min) : https://winnersenglishcenter.com/placement/ (code : WIN2026)\n\nÀ très vite !\nCoach Winner';
+  GmailApp.sendEmail(email, 'Votre inscription à la Promo Anglais Noël 🎄', corps, { name: "Coach Winner – Winners' English Center" });
   return ContentService.createTextOutput('ok');
 }
