@@ -29,6 +29,7 @@ button{font:inherit;cursor:pointer;border:0;border-radius:10px;padding:12px 16px
 .rc .m{font-size:.92rem}.rc .reste{font-weight:800;color:var(--red);text-align:right}
 .rc .reste.ok{color:#1e7a3c}
 .rc button{grid-column:1/-1;background:var(--navy);color:#fff;margin-top:6px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}.chips button{background:#fff;color:var(--navy);border:2px solid #d7d9ea;padding:8px 12px;font-size:.85rem}.chips button.on{background:var(--navy);color:#fff;border-color:var(--navy)}.tg{display:inline-block;background:#F5A623;color:#1d2240;font-size:.72rem;font-weight:700;border-radius:20px;padding:2px 8px;margin-left:6px;vertical-align:middle}
 .who{font-weight:800;font-size:1.05rem;margin:18px 0 6px;color:var(--red)}
 .muted{color:#777;font-size:.9rem}
 #view{position:fixed;inset:0;background:rgba(15,23,41,.85);display:none;flex-direction:column;z-index:9}
@@ -46,7 +47,7 @@ button{font:inherit;cursor:pointer;border:0;border-radius:10px;padding:12px 16px
   <p class="err" id="err"></p>
  </form>
  <div id="app" hidden>
-  <div class="card"><input id="q" type="search" placeholder="Tapez le nom de l'apprenant…" autocomplete="off"></div>
+  <div class="chips" id="chips"></div><div class="card"><input id="q" type="search" placeholder="Tapez le nom de l'apprenant…" autocomplete="off"></div>
   <div id="res"></div>
  </div>
 </main>
@@ -63,7 +64,7 @@ async function unlock(pw){
 }
 $('#lock').addEventListener('submit',async function(ev){
   ev.preventDefault(); $('#err').textContent=''; $('#go').textContent='Vérification…';
-  try{ DB=await unlock($('#pw').value); $('#lock').hidden=true; $('#app').hidden=false; $('#q').focus(); show(''); }
+  try{ DB=await unlock($('#pw').value); $('#lock').hidden=true; $('#app').hidden=false; $('#q').focus(); chips(); show(''); }
   catch(x){ $('#err').textContent='Mot de passe incorrect.'; }
   $('#go').textContent='Entrer';
 });
@@ -73,9 +74,11 @@ function F(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,' ')+' F CFA'}
 var MOIS=['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
 function dfr(s){var p=s.split('-');return p[2]+' '+MOIS[+p[1]-1]+' '+p[0]}
 function dshort(s){var p=s.split('-');return p[2]+'/'+p[1]+'/'+p[0]}
+var ACT='';
+function chips(){var A=['','Cours d\'anglais','Cours à domicile','Location de bureau','Location de salle (CHIC SALLE)'];$('#chips').innerHTML=A.map(function(a){return '<button class="'+(a===ACT?'on':'')+'" data-a="'+esc(a)+'">'+(a||'Tout')+'</button>'}).join('');document.querySelectorAll('[data-a]').forEach(function(b){b.onclick=function(){ACT=b.dataset.a;chips();show($('#q').value)}})}
 function show(q){
   var t=norm(q).split(' ').filter(Boolean);
-  var L=DB.recus.filter(function(r){var n=norm(r.nom+' '+(r.telephone||'')+' '+r.numero);return t.every(function(w){return n.indexOf(w)>=0})});
+  var L=DB.recus.filter(function(r){if(ACT&&(r.activite||"Cours d'anglais")!==ACT)return false;var n=norm(r.nom+' '+(r.telephone||'')+' '+r.numero);return t.every(function(w){return n.indexOf(w)>=0})});
   if(!L.length){$('#res').innerHTML='<p class="muted">Aucun reçu trouvé pour « '+esc(q)+' ».</p>';return}
   var groups={};L.forEach(function(r,i){(groups[norm(r.nom)]=groups[norm(r.nom)]||[]).push(r)});
   var h='';
@@ -84,7 +87,7 @@ function show(q){
     var tot=g.reduce(function(s,r){return s+r.montant},0), reste=g[0].reste;
     h+='<div class="who">'+esc(g[0].nom)+'</div><div class="sum"><div><small>Total payé</small><b>'+F(tot)+'</b></div><div class="r"><small>Reste à payer</small><b>'+F(reste)+'</b></div></div>';
     g.forEach(function(r){
-      h+='<div class="card rc"><span class="n">N° '+esc(r.numero)+'</span><span class="d">'+dshort(r.date)+'</span><span class="f">'+esc(r.formation)+(r.periode?' · '+esc(r.periode):'')+'</span><span class="m">Payé : <b>'+F(r.montant)+'</b> ('+esc(r.mode)+')</span><span class="reste'+(r.reste?'':' ok')+'">'+(r.reste?'Reste '+F(r.reste):'Soldé')+'</span><button data-n="'+esc(r.numero)+'">Voir le reçu</button></div>';
+      h+='<div class="card rc"><span class="n">N° '+esc(r.numero)+'<span class="tg">'+esc(r.activite||"Cours d'anglais")+'</span></span><span class="d">'+dshort(r.date)+'</span><span class="f">'+esc(r.formation)+(r.periode?' · '+esc(r.periode):'')+'</span><span class="m">Payé : <b>'+F(r.montant)+'</b> ('+esc(r.mode)+')</span><span class="reste'+(r.reste?'':' ok')+'">'+(r.reste?'Reste '+F(r.reste):'Soldé')+'</span><button data-n="'+esc(r.numero)+'">Voir le reçu</button></div>';
     });
   });
   $('#res').innerHTML=h;
@@ -99,8 +102,9 @@ function s1000(n){var c=Math.floor(n/100),r=n%100,s='';if(c)s=c==1?'cent':U[c]+'
 function lettres(n){if(!n)return 'zéro';var m=Math.floor(n/1e6),r=n%1e6,k=Math.floor(r/1000),u=r%1000,s=[];if(m)s.push(s1000(m)+' million'+(m>1?'s':''));if(k)s.push(k==1?'mille':s1000(k).replace('cents','cent')+' mille');if(u)s.push(s1000(u));return s.join(' ')}
 
 function receipt(p){
+  var act=p.activite||"Cours d'anglais", loc=act.indexOf('Location')===0;
   var logo=new URL('../logo.png',location.href).href;
-  var rows=[[p.label_nom||'Reçu de',p.nom],['Téléphone',p.telephone||'—'],['Formation',p.formation],['Période couverte',p.periode||'—'],['Mode de paiement',p.mode],['Type de paiement',p.type]]; if(p.remise) rows.push(['Remise',p.remise]);
+  var rows=[[p.label_nom||(loc?'Client':'Reçu de'),p.nom],['Téléphone',p.telephone||'—'],[loc?'Service':'Formation',p.formation],['Période couverte',p.periode||'—'],['Mode de paiement',p.mode],['Type de paiement',p.type]]; if(p.remise) rows.push(['Remise',p.remise]);
   var big=p.reste>0?'<div class="box due2"><div class="l">RESTE À PAYER</div><div class="n">'+F(p.reste)+'</div><div class="w">'+esc(p.reste_periode||'')+'</div></div>'
     :'<div class="box"><div class="l">RESTE À PAYER</div><div class="n">0 F CFA</div><div class="w">Tout est soldé</div></div>';
   return '<!DOCTYPE html><html><head><meta charset="utf-8"><title>Reçu '+esc(p.numero)+'</title><style>'+
@@ -117,10 +121,11 @@ function receipt(p){
   '.foot{position:absolute;left:11mm;right:11mm;bottom:8mm;display:flex;align-items:flex-end}.note{font-size:7.6pt;color:#666;line-height:1.5;flex:1}.note b{color:#BE282C}'+
   '.sig{text-align:center;font-size:8pt;color:#2E3483;font-weight:bold}.sig img{width:52mm;display:block;margin-top:1mm;transform:rotate(-4deg)}'+
   '.nb{margin-top:3mm;font-size:8pt;font-style:italic;color:#2E3483;background:#eef0fa;border-radius:2mm;padding:2mm 3mm}.next{text-align:left;margin-top:3mm;font-size:8.4pt;background:#fff7e6;border-left:1.2mm solid #F5A623;padding:2mm 3mm}'+
+  '.tag{display:inline-block;margin-top:1.5mm;background:#F5A623;color:#1d2240;font-size:7.6pt;font-weight:bold;border-radius:3mm;padding:.8mm 3mm}'+
   '@media print{.page{transform:none!important}}'+
   '</style></head><body><div class="wrap"><div class="page">'+
   '<img class="wm" src="'+logo+'"><div class="head"><img src="'+logo+'"><div class="brand"><h1>WINNERS\' ENGLISH CENTER</h1><p>Cocody Riviera Palmeraie, Abidjan<br>Tél. : 07 67 03 72 84 / 01 41 81 70 78</p></div>'+
-  '<div class="title"><h2>REÇU</h2><div class="no">N° '+esc(p.numero)+'</div><div class="dt">Abidjan, le '+dfr(p.date)+'</div></div></div>'+
+  '<div class="title"><h2>REÇU</h2><div class="no">N° '+esc(p.numero)+'</div><div class="dt">Abidjan, le '+dfr(p.date)+'</div><div class="tag">'+esc(act)+'</div></div></div>'+
   '<div class="body"><div style="flex:1.35"><table style="width:100%">'+rows.map(function(r){return '<tr><td class="k">'+r[0]+'</td><td>'+esc(r[1])+'</td></tr>'}).join('')+'</table>'+(p.note?'<p class="nb">'+esc(p.note)+'</p>':'')+'</div>'+
   '<div class="amt"><div class="paid"><div class="pl">Montant reçu</div><div class="pn">'+F(p.montant)+'</div><div class="pw">Arrêté à la somme de '+lettres(p.montant)+' francs CFA</div></div>'+big+(p.prochain?'<div class="next"><b>Mois prochain :</b> '+esc(p.prochain)+'</div>':'')+'</div></div>'+
   '<div class="foot"><div class="note"><b>Les frais versés ne sont pas remboursables.</b><br>Merci de votre confiance — Keep learning, keep winning!</div><div class="sig">Cachet et signature<img src="'+DB.cachet+'"></div></div>'+
