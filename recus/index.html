@@ -113,7 +113,7 @@ function receipt(p){
   '.body{display:flex;gap:7mm;margin-top:4mm}table{border-collapse:collapse;flex:1.35;font-size:9.2pt}td{padding:1.6mm 2mm;border-bottom:.3mm dashed #c8cbe0}td.k{color:#2E3483;font-weight:bold;width:34mm;white-space:nowrap;font-size:8.6pt}'+
   '.amt{flex:1;text-align:center}.box{background:#2E3483;color:#fff;border-radius:3mm;padding:4mm 3mm;border-bottom:1.6mm solid #BE282C}.due2{background:#BE282C;border-bottom-color:#2E3483}'+
   '.box .l{font-size:8pt;letter-spacing:2px;opacity:.85}.box .n{font-size:20pt;font-weight:bold;margin:1mm 0}.box .w{font-size:7.6pt;font-style:italic}'+
-  '.paid{margin-top:3.5mm;border:.5mm solid #2E3483;border-radius:3mm;padding:2.5mm}.pl{font-size:7.6pt;letter-spacing:1.5px;color:#2E3483;text-transform:uppercase}.pn{font-size:13pt;font-weight:bold;color:#2E3483}.pw{font-size:7.2pt;font-style:italic;color:#555}'+
+  '.paid{margin-bottom:3.5mm;border:.5mm solid #2E3483;border-radius:3mm;padding:2.5mm}.pl{font-size:7.6pt;letter-spacing:1.5px;color:#2E3483;text-transform:uppercase}.pn{font-size:13pt;font-weight:bold;color:#2E3483}.pw{font-size:7.2pt;font-style:italic;color:#555}'+
   '.foot{position:absolute;left:11mm;right:11mm;bottom:8mm;display:flex;align-items:flex-end}.note{font-size:7.6pt;color:#666;line-height:1.5;flex:1}.note b{color:#BE282C}'+
   '.sig{text-align:center;font-size:8pt;color:#2E3483;font-weight:bold}.sig img{width:52mm;display:block;margin-top:1mm;transform:rotate(-4deg)}'+
   '@media print{.page{transform:none!important}}'+
@@ -121,7 +121,7 @@ function receipt(p){
   '<img class="wm" src="'+logo+'"><div class="head"><img src="'+logo+'"><div class="brand"><h1>WINNERS\' ENGLISH CENTER</h1><p>Cocody Riviera Palmeraie, Abidjan<br>Tél. : 07 67 03 72 84 / 01 41 81 70 78</p></div>'+
   '<div class="title"><h2>REÇU</h2><div class="no">N° '+esc(p.numero)+'</div><div class="dt">Abidjan, le '+dfr(p.date)+'</div></div></div>'+
   '<div class="body"><table>'+rows.map(function(r){return '<tr><td class="k">'+r[0]+'</td><td>'+esc(r[1])+'</td></tr>'}).join('')+'</table>'+
-  '<div class="amt">'+big+'<div class="paid"><div class="pl">Montant reçu</div><div class="pn">'+F(p.montant)+'</div><div class="pw">Arrêté à la somme de '+lettres(p.montant)+' francs CFA</div></div></div></div>'+
+  '<div class="amt"><div class="paid"><div class="pl">Montant reçu</div><div class="pn">'+F(p.montant)+'</div><div class="pw">Arrêté à la somme de '+lettres(p.montant)+' francs CFA</div></div>'+big+'</div></div>'+
   '<div class="foot"><div class="note"><b>Les frais versés ne sont pas remboursables.</b><br>Merci de votre confiance — Keep learning, keep winning!</div><div class="sig">Cachet et signature<img src="'+DB.cachet+'"></div></div>'+
   '</div></div><script>function fit(){var p=document.querySelector(".page"),w=document.documentElement.clientWidth,s=Math.min(1,w/p.offsetWidth);p.style.transform="scale("+s+")";document.querySelector(".wrap").style.height=(p.offsetHeight*s)+"px"}addEventListener("resize",fit);fit()<\/script></body></html>';
 }
