@@ -36,3 +36,11 @@ function inscription(d, email, nom) {
   GmailApp.sendEmail(email, 'Votre inscription à la Promo Anglais Noël 🎄', corps, { name: "Coach Winner – Winners' English Center" });
   return ContentService.createTextOutput('ok');
 }
+
+// Essai : envoie un exemple à winnersenglish04
+function essai() {
+  doPost({ postData: { contents: JSON.stringify({ test: 'rapide', nom: 'Coach Essai', email: Session.getEffectiveUser().getEmail(), niveau: 'A2', score: '9/20' }) } });
+}
+function essaiInscription() {
+  doPost({ postData: { contents: JSON.stringify({ type: 'inscription', nom: 'Coach Essai', email: Session.getEffectiveUser().getEmail(), mode: 'en ligne' }) } });
+}
