@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="fr"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Reçus de nos apprenants · Winners' English Center</title>
+<link rel="icon" href="../logo.png">
+<style>
+:root{--navy:#2E3483;--red:#BE282C;--gold:#F5A623;--bg:#f4f5fb}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:#1d2240}
+header{background:var(--navy);color:#fff;padding:14px 16px;display:flex;align-items:center;gap:12px;border-bottom:4px solid var(--red)}
+header img{width:44px;height:44px;border-radius:50%;background:#fff}
+header b{font-size:1.05rem}header a{margin-left:auto;color:#fff;font-size:.85rem}
+main{max-width:760px;margin:0 auto;padding:18px 14px 40px}
+.card{background:#fff;border-radius:14px;padding:16px;box-shadow:0 2px 10px rgba(46,52,131,.08);margin-bottom:12px}
+h1{font-size:1.25rem;color:var(--navy);margin:4px 0 12px}
+input{width:100%;font-size:1.05rem;padding:12px 14px;border:2px solid #d7d9ea;border-radius:10px;outline:none}
+input:focus{border-color:var(--navy)}
+button{font:inherit;cursor:pointer;border:0;border-radius:10px;padding:12px 16px;font-weight:700}
+.btn{background:var(--red);color:#fff;width:100%;margin-top:10px}
+.err{color:var(--red);font-size:.9rem;min-height:1.2em;margin:8px 0 0}
+.sum{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 14px}
+.sum div{flex:1;min-width:140px;background:#fff;border-radius:12px;padding:10px 12px;border-left:5px solid var(--navy)}
+.sum div.r{border-left-color:var(--red)}.sum small{display:block;color:#666;font-size:.75rem;text-transform:uppercase;letter-spacing:.5px}
+.sum b{font-size:1.1rem}
+.rc{display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:center}
+.rc .n{font-weight:800;color:var(--navy)}.rc .d{color:#666;font-size:.85rem;text-align:right}
+.rc .f{grid-column:1/-1;font-size:.92rem}
+.rc .m{font-size:.92rem}.rc .reste{font-weight:800;color:var(--red);text-align:right}
+.rc .reste.ok{color:#1e7a3c}
+.rc button{grid-column:1/-1;background:var(--navy);color:#fff;margin-top:6px}
+.who{font-weight:800;font-size:1.05rem;margin:18px 0 6px;color:var(--red)}
+.muted{color:#777;font-size:.9rem}
+#view{position:fixed;inset:0;background:rgba(15,23,41,.85);display:none;flex-direction:column;z-index:9}
+#view .bar{display:flex;gap:8px;padding:10px;background:#0f1729}
+#view .bar button{flex:1}#view .p{background:var(--red);color:#fff}#view .c{background:#fff;color:var(--navy)}
+#view iframe{flex:1;border:0;background:#fff;width:100%}
+</style></head><body>
+<header><img src="../logo.png" alt=""><b>Reçus de nos apprenants</b><a href="../">← Retour au site</a></header>
+<main>
+ <form id="lock" class="card">
+  <h1>🔒 Espace réservé</h1>
+  <p class="muted">Entrez le mot de passe pour consulter les reçus.</p>
+  <input id="pw" type="password" autocomplete="current-password" placeholder="Mot de passe">
+  <button class="btn" type="submit" id="go">Entrer</button>
+  <p class="err" id="err"></p>
+ </form>
+ <div id="app" hidden>
+  <div class="card"><input id="q" type="search" placeholder="Tapez le nom de l'apprenant…" autocomplete="off"></div>
+  <div id="res"></div>
+ </div>
+</main>
+<div id="view"><div class="bar"><button class="p" id="print">🖨️ Imprimer / Enregistrer en PDF</button><button class="c" id="close">Fermer</button></div><iframe id="fr" title="Reçu"></iframe></div>
+<script>
+var DB=null,$=function(s){return document.querySelector(s)};
+function b64(s){return Uint8Array.from(atob(s),function(c){return c.charCodeAt(0)})}
+async function unlock(pw){
+  var r=await fetch('donnees.json?'+Date.now(),{cache:'no-store'}); var e=await r.json();
+  var k=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveKey']);
+  var key=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(e.salt),iterations:e.it,hash:'SHA-256'},k,{name:'AES-GCM',length:256},false,['decrypt']);
+  var pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(e.iv)},key,b64(e.data));
+  return JSON.parse(new TextDecoder().decode(pt));
+}
+$('#lock').addEventListener('submit',async function(ev){
+  ev.preventDefault(); $('#err').textContent=''; $('#go').textContent='Vérification…';
+  try{ DB=await unlock($('#pw').value); $('#lock').hidden=true; $('#app').hidden=false; $('#q').focus(); show(''); }
+  catch(x){ $('#err').textContent='Mot de passe incorrect.'; }
+  $('#go').textContent='Entrer';
+});
+function norm(s){return (s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/\s+/g,' ').trim()}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function F(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,' ')+' F CFA'}
+var MOIS=['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+function dfr(s){var p=s.split('-');return p[2]+' '+MOIS[+p[1]-1]+' '+p[0]}
+function dshort(s){var p=s.split('-');return p[2]+'/'+p[1]+'/'+p[0]}
+function show(q){
+  var t=norm(q).split(' ').filter(Boolean);
+  var L=DB.recus.filter(function(r){var n=norm(r.nom+' '+(r.telephone||'')+' '+r.numero);return t.every(function(w){return n.indexOf(w)>=0})});
+  if(!L.length){$('#res').innerHTML='<p class="muted">Aucun reçu trouvé pour « '+esc(q)+' ».</p>';return}
+  var groups={};L.forEach(function(r,i){(groups[norm(r.nom)]=groups[norm(r.nom)]||[]).push(r)});
+  var h='';
+  Object.keys(groups).forEach(function(k){
+    var g=groups[k].slice().sort(function(a,b){return b.date.localeCompare(a.date)});
+    var tot=g.reduce(function(s,r){return s+r.montant},0), reste=g[0].reste;
+    h+='<div class="who">'+esc(g[0].nom)+'</div><div class="sum"><div><small>Total payé</small><b>'+F(tot)+'</b></div><div class="r"><small>Reste à payer</small><b>'+F(reste)+'</b></div></div>';
+    g.forEach(function(r){
+      h+='<div class="card rc"><span class="n">N° '+esc(r.numero)+'</span><span class="d">'+dshort(r.date)+'</span><span class="f">'+esc(r.formation)+(r.periode?' · '+esc(r.periode):'')+'</span><span class="m">Payé : <b>'+F(r.montant)+'</b> ('+esc(r.mode)+')</span><span class="reste'+(r.reste?'':' ok')+'">'+(r.reste?'Reste '+F(r.reste):'Soldé')+'</span><button data-n="'+esc(r.numero)+'">Voir le reçu</button></div>';
+    });
+  });
+  $('#res').innerHTML=h;
+  document.querySelectorAll('[data-n]').forEach(function(b){b.onclick=function(){open(b.dataset.n)}});
+}
+$('#q').addEventListener('input',function(){show(this.value)});
+
+/* Nombre en lettres */
+var U=['','un','deux','trois','quatre','cinq','six','sept','huit','neuf','dix','onze','douze','treize','quatorze','quinze','seize'];
+function s100(n){if(n<=16)return U[n];if(n<20)return 'dix-'+U[n-10];var dz=['','','vingt','trente','quarante','cinquante','soixante','soixante','quatre-vingt','quatre-vingt'];var t=Math.floor(n/10),u=n%10;if(t==7||t==9)u+=10;var b=dz[t];if(u==0)return b+(t==8?'s':'');if((u==1||u==11)&&t!=8&&t!=9)return b+' et '+s100(u);return b+'-'+s100(u)}
+function s1000(n){var c=Math.floor(n/100),r=n%100,s='';if(c)s=c==1?'cent':U[c]+' cent'+(r==0?'s':'');if(r)s+=(s?' ':'')+s100(r);return s}
+function lettres(n){if(!n)return 'zéro';var m=Math.floor(n/1e6),r=n%1e6,k=Math.floor(r/1000),u=r%1000,s=[];if(m)s.push(s1000(m)+' million'+(m>1?'s':''));if(k)s.push(k==1?'mille':s1000(k).replace('cents','cent')+' mille');if(u)s.push(s1000(u));return s.join(' ')}
+
+function receipt(p){
+  var logo=new URL('../logo.png',location.href).href;
+  var rows=[['Reçu de',p.nom],['Téléphone',p.telephone||'—'],['Formation',p.formation],['Période couverte',p.periode||'—'],['Mode de paiement',p.mode],['Type de paiement',p.type]];
+  var big=p.reste>0?'<div class="box due2"><div class="l">RESTE À PAYER</div><div class="n">'+F(p.reste)+'</div><div class="w">'+esc(p.reste_periode||'')+'</div></div>'
+    :'<div class="box"><div class="l">RESTE À PAYER</div><div class="n">0 F CFA</div><div class="w">Tout est soldé</div></div>';
+  return '<!DOCTYPE html><html><head><meta charset="utf-8"><title>Reçu '+esc(p.numero)+'</title><style>'+
+  '@page{size:A5 landscape;margin:0}*{box-sizing:border-box;margin:0;padding:0}html,body{background:#fff}body{font-family:Arial,sans-serif;color:#1d2240;-webkit-print-color-adjust:exact;print-color-adjust:exact}'+
+  '.wrap{width:100%;overflow:auto}.page{position:relative;width:210mm;height:148mm;padding:9mm 11mm 7mm;overflow:hidden;border:3mm solid #2E3483;outline:1.2mm solid #BE282C;outline-offset:-5mm;transform-origin:top left}'+
+  '.wm{position:absolute;left:50%;top:54%;width:85mm;transform:translate(-50%,-50%);opacity:.05}'+
+  '.head{display:flex;align-items:center;gap:5mm;padding-bottom:3mm;border-bottom:1mm solid #BE282C}.head img{width:23mm}'+
+  '.brand h1{font-size:15.5pt;white-space:nowrap;color:#2E3483}.brand p{font-size:7.6pt;color:#555;line-height:1.45}'+
+  '.title{margin-left:auto;text-align:right}.title h2{font-size:17pt;color:#BE282C;letter-spacing:3px}.title .no{font-size:10pt;font-weight:bold;color:#2E3483;margin-top:1mm}.title .dt{white-space:nowrap;font-size:8.5pt;color:#444}'+
+  '.body{display:flex;gap:7mm;margin-top:4mm}table{border-collapse:collapse;flex:1.35;font-size:9.2pt}td{padding:1.6mm 2mm;border-bottom:.3mm dashed #c8cbe0}td.k{color:#2E3483;font-weight:bold;width:34mm;white-space:nowrap;font-size:8.6pt}'+
+  '.amt{flex:1;text-align:center}.box{background:#2E3483;color:#fff;border-radius:3mm;padding:4mm 3mm;border-bottom:1.6mm solid #BE282C}.due2{background:#BE282C;border-bottom-color:#2E3483}'+
+  '.box .l{font-size:8pt;letter-spacing:2px;opacity:.85}.box .n{font-size:20pt;font-weight:bold;margin:1mm 0}.box .w{font-size:7.6pt;font-style:italic}'+
+  '.paid{margin-top:3.5mm;border:.5mm solid #2E3483;border-radius:3mm;padding:2.5mm}.pl{font-size:7.6pt;letter-spacing:1.5px;color:#2E3483;text-transform:uppercase}.pn{font-size:13pt;font-weight:bold;color:#2E3483}.pw{font-size:7.2pt;font-style:italic;color:#555}'+
+  '.foot{position:absolute;left:11mm;right:11mm;bottom:8mm;display:flex;align-items:flex-end}.note{font-size:7.6pt;color:#666;line-height:1.5;flex:1}.note b{color:#BE282C}'+
+  '.sig{text-align:center;font-size:8pt;color:#2E3483;font-weight:bold}.sig img{width:52mm;display:block;margin-top:1mm;transform:rotate(-4deg)}'+
+  '@media print{.page{transform:none!important}}'+
+  '</style></head><body><div class="wrap"><div class="page">'+
+  '<img class="wm" src="'+logo+'"><div class="head"><img src="'+logo+'"><div class="brand"><h1>WINNERS\' ENGLISH CENTER</h1><p>Cocody Riviera Palmeraie, Abidjan<br>Tél. : 07 67 03 72 84 / 01 41 81 70 78</p></div>'+
+  '<div class="title"><h2>REÇU</h2><div class="no">N° '+esc(p.numero)+'</div><div class="dt">Abidjan, le '+dfr(p.date)+'</div></div></div>'+
+  '<div class="body"><table>'+rows.map(function(r){return '<tr><td class="k">'+r[0]+'</td><td>'+esc(r[1])+'</td></tr>'}).join('')+'</table>'+
+  '<div class="amt">'+big+'<div class="paid"><div class="pl">Montant reçu</div><div class="pn">'+F(p.montant)+'</div><div class="pw">Arrêté à la somme de '+lettres(p.montant)+' francs CFA</div></div></div></div>'+
+  '<div class="foot"><div class="note"><b>Les frais versés ne sont pas remboursables.</b><br>Merci de votre confiance — Keep learning, keep winning!</div><div class="sig">Cachet et signature<img src="'+DB.cachet+'"></div></div>'+
+  '</div></div><script>function fit(){var p=document.querySelector(".page"),w=document.documentElement.clientWidth,s=Math.min(1,w/p.offsetWidth);p.style.transform="scale("+s+")";document.querySelector(".wrap").style.height=(p.offsetHeight*s)+"px"}addEventListener("resize",fit);fit()<\/script></body></html>';
+}
+function open(n){
+  var p=DB.recus.filter(function(r){return r.numero===n})[0]; if(!p)return;
+  $('#fr').srcdoc=receipt(p); $('#view').style.display='flex';
+}
+$('#close').onclick=function(){$('#view').style.display='none';$('#fr').srcdoc=''};
+$('#print').onclick=function(){var w=$('#fr').contentWindow;w.focus();w.print()};
+</script>
+</body></html>

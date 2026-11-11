@@ -1,3 +1,4 @@
 User-agent: *
+Disallow: /recus/
 Allow: /
 Sitemap: https://winnersenglishcenter.com/sitemap.xml
