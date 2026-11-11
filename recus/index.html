@@ -100,7 +100,7 @@ function lettres(n){if(!n)return 'zéro';var m=Math.floor(n/1e6),r=n%1e6,k=Math.
 
 function receipt(p){
   var logo=new URL('../logo.png',location.href).href;
-  var rows=[['Reçu de',p.nom],['Téléphone',p.telephone||'—'],['Formation',p.formation],['Période couverte',p.periode||'—'],['Mode de paiement',p.mode],['Type de paiement',p.type]];
+  var rows=[['Reçu de',p.nom],['Téléphone',p.telephone||'—'],['Formation',p.formation],['Période couverte',p.periode||'—'],['Mode de paiement',p.mode],['Type de paiement',p.type]]; if(p.remise) rows.push(['Remise',p.remise]);
   var big=p.reste>0?'<div class="box due2"><div class="l">RESTE À PAYER</div><div class="n">'+F(p.reste)+'</div><div class="w">'+esc(p.reste_periode||'')+'</div></div>'
     :'<div class="box"><div class="l">RESTE À PAYER</div><div class="n">0 F CFA</div><div class="w">Tout est soldé</div></div>';
   return '<!DOCTYPE html><html><head><meta charset="utf-8"><title>Reçu '+esc(p.numero)+'</title><style>'+
