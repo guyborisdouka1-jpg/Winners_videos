@@ -100,7 +100,7 @@ function lettres(n){if(!n)return 'zéro';var m=Math.floor(n/1e6),r=n%1e6,k=Math.
 
 function receipt(p){
   var logo=new URL('../logo.png',location.href).href;
-  var rows=[['Reçu de',p.nom],['Téléphone',p.telephone||'—'],['Formation',p.formation],['Période couverte',p.periode||'—'],['Mode de paiement',p.mode],['Type de paiement',p.type]]; if(p.remise) rows.push(['Remise',p.remise]);
+  var rows=[[p.label_nom||'Reçu de',p.nom],['Téléphone',p.telephone||'—'],['Formation',p.formation],['Période couverte',p.periode||'—'],['Mode de paiement',p.mode],['Type de paiement',p.type]]; if(p.remise) rows.push(['Remise',p.remise]);
   var big=p.reste>0?'<div class="box due2"><div class="l">RESTE À PAYER</div><div class="n">'+F(p.reste)+'</div><div class="w">'+esc(p.reste_periode||'')+'</div></div>'
     :'<div class="box"><div class="l">RESTE À PAYER</div><div class="n">0 F CFA</div><div class="w">Tout est soldé</div></div>';
   return '<!DOCTYPE html><html><head><meta charset="utf-8"><title>Reçu '+esc(p.numero)+'</title><style>'+
@@ -116,12 +116,13 @@ function receipt(p){
   '.paid{margin-bottom:3.5mm;border:.5mm solid #2E3483;border-radius:3mm;padding:2.5mm}.pl{font-size:7.6pt;letter-spacing:1.5px;color:#2E3483;text-transform:uppercase}.pn{font-size:13pt;font-weight:bold;color:#2E3483}.pw{font-size:7.2pt;font-style:italic;color:#555}'+
   '.foot{position:absolute;left:11mm;right:11mm;bottom:8mm;display:flex;align-items:flex-end}.note{font-size:7.6pt;color:#666;line-height:1.5;flex:1}.note b{color:#BE282C}'+
   '.sig{text-align:center;font-size:8pt;color:#2E3483;font-weight:bold}.sig img{width:52mm;display:block;margin-top:1mm;transform:rotate(-4deg)}'+
+  '.nb{margin-top:3mm;font-size:8pt;font-style:italic;color:#2E3483;background:#eef0fa;border-radius:2mm;padding:2mm 3mm}.next{text-align:left;margin-top:3mm;font-size:8.4pt;background:#fff7e6;border-left:1.2mm solid #F5A623;padding:2mm 3mm}'+
   '@media print{.page{transform:none!important}}'+
   '</style></head><body><div class="wrap"><div class="page">'+
   '<img class="wm" src="'+logo+'"><div class="head"><img src="'+logo+'"><div class="brand"><h1>WINNERS\' ENGLISH CENTER</h1><p>Cocody Riviera Palmeraie, Abidjan<br>Tél. : 07 67 03 72 84 / 01 41 81 70 78</p></div>'+
   '<div class="title"><h2>REÇU</h2><div class="no">N° '+esc(p.numero)+'</div><div class="dt">Abidjan, le '+dfr(p.date)+'</div></div></div>'+
-  '<div class="body"><table>'+rows.map(function(r){return '<tr><td class="k">'+r[0]+'</td><td>'+esc(r[1])+'</td></tr>'}).join('')+'</table>'+
-  '<div class="amt"><div class="paid"><div class="pl">Montant reçu</div><div class="pn">'+F(p.montant)+'</div><div class="pw">Arrêté à la somme de '+lettres(p.montant)+' francs CFA</div></div>'+big+'</div></div>'+
+  '<div class="body"><div style="flex:1.35"><table style="width:100%">'+rows.map(function(r){return '<tr><td class="k">'+r[0]+'</td><td>'+esc(r[1])+'</td></tr>'}).join('')+'</table>'+(p.note?'<p class="nb">'+esc(p.note)+'</p>':'')+'</div>'+
+  '<div class="amt"><div class="paid"><div class="pl">Montant reçu</div><div class="pn">'+F(p.montant)+'</div><div class="pw">Arrêté à la somme de '+lettres(p.montant)+' francs CFA</div></div>'+big+(p.prochain?'<div class="next"><b>Mois prochain :</b> '+esc(p.prochain)+'</div>':'')+'</div></div>'+
   '<div class="foot"><div class="note"><b>Les frais versés ne sont pas remboursables.</b><br>Merci de votre confiance — Keep learning, keep winning!</div><div class="sig">Cachet et signature<img src="'+DB.cachet+'"></div></div>'+
   '</div></div><script>function fit(){var p=document.querySelector(".page"),w=document.documentElement.clientWidth,s=Math.min(1,w/p.offsetWidth);p.style.transform="scale("+s+")";document.querySelector(".wrap").style.height=(p.offsetHeight*s)+"px"}addEventListener("resize",fit);fit()<\/script></body></html>';
 }
