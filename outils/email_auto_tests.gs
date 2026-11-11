@@ -1,5 +1,6 @@
-// Winners' English Center — email de relance automatique après un test du site
-// À installer dans le compte Google winnersenglish04@gmail.com (Déployer > Application Web > Tout le monde)
+// Winners' English Center — emails automatiques (tests du site + inscription Promo Noël)
+// Installé dans le compte Google winnersenglish04@gmail.com (Application Web, accès : Tout le monde)
+var IMG = 'https://winnersenglishcenter.com/img/promo_noel.jpg';
 var MSGN = {
   'Pré-A1': "Vous démarrez l'anglais : on reprend les bases ensemble, pas à pas, sans stress.",
   'A1': "Vous avez les bases. Objectif : parler de vous et du quotidien avec confiance.",
@@ -8,6 +9,16 @@ var MSGN = {
   'B2': "Excellent niveau ! Objectif : affiner votre anglais pour être à l'aise dans toutes les situations.",
   'B2+': "Excellent niveau ! Objectif : affiner votre anglais pour être à l'aise dans toutes les situations."
 };
+function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+// Transforme le texte en HTML (paragraphes + liens) et ajoute l'affiche du programme en bas
+function enHtml(texte) {
+  var h = esc(texte).replace(/(https:\/\/[^\s)]+)/g, '<a href="$1">$1</a>').replace(/\n/g, '<br>');
+  return '<div style="font-family:Arial,sans-serif;font-size:15px;line-height:1.5;color:#1d1f3a">' + h +
+    '<br><br><a href="https://winnersenglishcenter.com/site/#promo-noel"><img src="' + IMG + '" alt="Promo Anglais Noël" style="max-width:100%;width:480px;border-radius:10px"></a></div>';
+}
+function envoyer(email, sujet, texte) {
+  GmailApp.sendEmail(email, sujet, texte, { name: "Coach Winner - Winners' English Center", htmlBody: enHtml(texte) });
+}
 function doPost(e) {
   var d = {}; try { d = JSON.parse(e.postData.contents || '{}'); } catch (x) {}
   var email = String(d.email || '').trim(), nom = String(d.nom || '').slice(0, 60), lv = String(d.niveau || '').split(' ')[0];
@@ -15,29 +26,26 @@ function doPost(e) {
   if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || !MSGN[lv]) return ContentService.createTextOutput('ignoré');
   var cache = CacheService.getScriptCache(); if (cache.get(email)) return ContentService.createTextOutput('déjà envoyé'); cache.put(email, '1', 3600);
   var pren = nom.split(' ')[0] || '';
-  var corps = 'Bonjour ' + pren + ',\n\nIci Coach Winner de Winners\' English Center 👋\n\n' +
+  var texte = 'Bonjour ' + pren + ',\n\nIci Coach Winner de Winners\' English Center.\n\n' +
     'Merci d\'avoir fait notre test ' + (d.test === 'placement' ? 'de placement' : 'de niveau') + '. Votre niveau : ' + lv + (d.score ? ' (' + String(d.score).slice(0, 10) + ')' : '') + '.\n' + MSGN[lv] + '\n\n' +
     'La Promo Anglais Noël (2 mois de cours, novembre + décembre, en présentiel ou en ligne) est faite pour vous.\n' +
     'Découvrez le programme et inscrivez-vous en ligne :\nhttps://winnersenglishcenter.com/site/#promo-noel\n\nÀ très vite !\nCoach Winner\nWinners\' English Center';
-  GmailApp.sendEmail(email, 'Votre résultat au test : niveau ' + lv, corps, { name: "Coach Winner – Winners' English Center" });
+  envoyer(email, 'Votre résultat au test : niveau ' + lv, texte);
   return ContentService.createTextOutput('ok');
 }
-
 // Email automatique après une inscription à la Promo Noël
 function inscription(d, email, nom) {
   if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return ContentService.createTextOutput('ignoré');
   var cache = CacheService.getScriptCache(); if (cache.get('i:' + email)) return ContentService.createTextOutput('déjà envoyé'); cache.put('i:' + email, '1', 3600);
   var mode = /ligne/.test(String(d.mode || '')) ? 'en ligne' : 'en présentiel';
-  var corps = 'Bonjour ' + (nom.split(' ')[0] || '') + ' 👋, ici Coach Winner de Winners\' English Center.\n' +
-    'Merci pour votre inscription à la Promo Anglais Noël 🎄 (' + mode + ').\n\n' +
-    'Pour réserver votre place :\n💳 25 000 F à l\'inscription, puis il reste 20 000 F à payer avant le 7 décembre.\n📚 Supports de cours : 10 000 F\n' +
-    '📲 Wave / Mobile Money : 07 67 03 72 84 · 01 41 81 70 78 · 05 56 42 35 66\nEnvoyez-moi la capture de votre paiement sur WhatsApp (07 67 03 72 84).\n\n' +
-    '📝 Si ce n\'est pas encore fait, passez votre test de placement (30 min) : https://winnersenglishcenter.com/placement/ (code : WIN2026)\n\nÀ très vite !\nCoach Winner';
-  GmailApp.sendEmail(email, 'Votre inscription à la Promo Anglais Noël 🎄', corps, { name: "Coach Winner – Winners' English Center" });
+  var texte = 'Bonjour ' + (nom.split(' ')[0] || '') + ', ici Coach Winner de Winners\' English Center.\n' +
+    'Merci pour votre inscription à la Promo Anglais Noël (' + mode + ').\n\n' +
+    'Pour réserver votre place :\n- 25 000 F à l\'inscription, puis il reste 20 000 F à payer avant le 7 décembre.\n- Supports de cours : 10 000 F\n' +
+    '- Wave / Mobile Money : 07 67 03 72 84 / 01 41 81 70 78 / 05 56 42 35 66\nEnvoyez-moi la capture de votre paiement sur WhatsApp (07 67 03 72 84).\n\n' +
+    'Si ce n\'est pas encore fait, passez votre test de placement (30 min) :\nhttps://winnersenglishcenter.com/placement/ (code : WIN2026)\n\nÀ très vite !\nCoach Winner';
+  envoyer(email, 'Votre inscription à la Promo Anglais Noël', texte);
   return ContentService.createTextOutput('ok');
 }
-
-// Essai : envoie un exemple à winnersenglish04
 function essai() {
   doPost({ postData: { contents: JSON.stringify({ test: 'rapide', nom: 'Coach Essai', email: Session.getEffectiveUser().getEmail(), niveau: 'A2', score: '9/20' }) } });
 }
