@@ -305,3 +305,118 @@ md2='''<h2>✍️ À toi de jouer : make ou do ?</h2><table>
 <p class="mu">Réponses : 1. do · 2. make · 3. does · 4. make · 5. do · 6. made · 7. do · 8. make</p>'''
 D.append(dict(slug='make-ou-do',date='2026-11-24',title="Make ou Do ?",sub="la règle + 20 expressions à connaître",emoji='🛠️',
  tip="Retiens l'idée : MAKE = je crée quelque chose · DO = je fais une tâche, une activité.",p1=md1,p2=md2))
+# ---- Semaine du 25 novembre au 1er décembre 2026 ----
+med=[("Doctor","Good morning. Please, have a seat.","goud mor-ning. plîz, hèv eu sît","Bonjour. Asseyez-vous, je vous prie."),
+("Sarah","Thank you, doctor.","ssènk you, dok-teur","Merci, docteur."),
+("Doctor","What's the problem?","wots zeu pro-bleum ?","Quel est le problème ?"),
+("Sarah","I have a headache and a sore throat.","aï hèv eu hè-déïk ènd eu sor ssrôt","J'ai mal à la tête et mal à la gorge."),
+("Doctor","How long have you had it?","haou long hèv you hèd it ?","Depuis combien de temps ?"),
+("Sarah","Since Monday. I also have a fever.","sinss meun-déï. aï ol-so hèv eu fî-veur","Depuis lundi. J'ai aussi de la fièvre."),
+("Doctor","Let me check your temperature.","lèt mî tchèk yor tèm-preu-tcheur","Laissez-moi prendre votre température."),
+("Doctor","It's just a bad cold. Nothing serious.","its djeust eu bèd kold. neu-ssing sî-ri-euss","C'est juste un gros rhume. Rien de grave."),
+("Sarah","Do I need any medicine?","dou aï nîd è-ni mèd-sinn ?","Ai-je besoin de médicaments ?"),
+("Doctor","Take these tablets twice a day, after meals.","téïk zîz tè-bleuts twaïss eu déï, âf-teur mîlz","Prenez ces comprimés deux fois par jour, après les repas."),
+("Doctor","And drink a lot of water. Get some rest.","ènd drink eu lot ov wô-teur. guèt seum rèst","Et buvez beaucoup d'eau. Reposez-vous."),
+("Sarah","Thank you very much. Goodbye!","ssènk you vè-ri meutch. goud-baï !","Merci beaucoup. Au revoir !")]
+D.append(dict(slug='dialogue-medecin',date='2026-11-25',title="Chez le médecin",sub="un dialogue complet, avec la prononciation",emoji='🩺',
+ tip="Lis le dialogue à deux : une personne fait Sarah, l'autre fait le médecin. Puis remplace « headache » par « stomachache » (mal au ventre) et recommence !",
+ p1=diat(med[:7]),p2=diat(med[7:])+'<h2>📌 Les mots à retenir</h2><table><tr><td><b>headache</b> (hè-déïk) = mal de tête</td><td><b>stomachache</b> (steu-meuk-éïk) = mal au ventre</td></tr><tr><td><b>sore throat</b> (sor ssrôt) = mal de gorge</td><td><b>fever</b> (fî-veur) = fièvre</td></tr><tr><td><b>cough</b> (kof) = toux</td><td><b>a cold</b> (eu kold) = un rhume</td></tr><tr><td><b>tablets</b> (tè-bleuts) = comprimés</td><td><b>prescription</b> (pris-krip-cheun) = ordonnance</td></tr><tr><td><b>I feel sick</b> (aï fîl sik) = je me sens malade</td><td><b>It hurts here</b> (it heurts hîr) = j\'ai mal ici</td></tr></table>'))
+cui=[("🔪","knife","naïf","couteau"),("🍴","fork","fork","fourchette"),("🥄","spoon","spoun","cuillère"),("🍽️","plate","pléït","assiette"),("🥣","bowl","bôl","bol"),("🥛","glass","glâss","verre"),("☕","cup","keup","tasse"),("🍳","frying pan","fraï-ing pèn","poêle"),("🍲","pot","pot","marmite"),("🧊","fridge","fridj","frigo"),("🔥","cooker","kou-keur","cuisinière (appareil)"),("♨️","oven","eu-veun","four"),
+("🚰","sink","sink","évier"),("🧂","salt","solt","sel"),("🌶️","pepper","pè-peur","poivre / piment"),("🧅","onion","eu-nyeun","oignon"),("🍅","tomato","to-mâ-to","tomate"),("🥔","potato","po-téï-to","pomme de terre"),("🍚","rice","raïss","riz"),("🍗","chicken","tchi-kin","poulet"),("🐟","fish","fich","poisson"),("🥩","meat","mît","viande"),("🫒","oil","oïl","huile"),("🥚","egg","ègg","œuf"),
+("✂️","to cut","tou keut","couper"),("🍳","to fry","tou fraï","frire"),("💧","to boil","tou boïl","faire bouillir"),("🥢","to stir","tou steur","remuer"),("🧽","to wash","tou wôch","laver"),("👩‍🍳","to cook","tou kouk","cuisiner")]
+D.append(dict(slug='30-mots-cuisine',date='2026-11-26',title="30 mots de la cuisine",sub="ustensiles, aliments et verbes",emoji='🍳',
+ tip="Ce soir, en cuisinant, nomme en anglais chaque objet que tu touches : « knife, plate, onion… ». C'est la meilleure façon de les retenir !",
+ p1=voct(cui[:24]),p2=voct(cui[24:])+'''<p class="mu">⚠️ Piège : <b>a cooker</b> = la cuisinière (l'appareil) · <b>a cook</b> = le cuisinier (la personne) !</p>
+<h2>🍳 Une mini-recette : fried eggs</h2><div class="ex2">Put some <b>oil</b> in the <b>frying pan</b>. Break two <b>eggs</b>. Add <b>salt</b> and <b>pepper</b>. <b>Fry</b> for three minutes. Put the eggs on a <b>plate</b>. Enjoy! 😋</div>
+<h2>✍️ Complète !</h2><p>1. I eat soup with a ______ (cuillère) · 2. Put the milk in the ______ (frigo) · 3. ______ the onions (couper) · 4. ______ the water (faire bouillir)</p><p class="mu">Réponses : spoon · fridge · cut · boil</p>'''))
+mm1='''<h2>1️⃣ MANY : ce qu'on peut compter</h2><p>Avec un nom au <b>pluriel</b> : des choses qu'on peut compter (1, 2, 3…).</p>
+<div class="ex2">How <b>many</b> brothers do you have? · I don't have <b>many</b> friends here. · There aren't <b>many</b> cars today.</div>
+<h2>2️⃣ MUCH : ce qu'on ne peut pas compter</h2><p>Avec un nom <b>sans pluriel</b> : l'eau, l'argent, le temps…</p>
+<div class="ex2">How <b>much</b> water do you drink? · I don't have <b>much</b> time. · How <b>much</b> is it? (= combien ça coûte ?)</div>
+<h2>3️⃣ A LOT OF : marche avec les deux</h2><p>Dans les phrases <b>affirmatives</b>, on dit plutôt <b>a lot of</b>. <i>Much</i> et <i>many</i> s'utilisent surtout dans les <b>questions</b> et les phrases <b>négatives</b>.</p>
+<div class="ex2">I have <b>a lot of</b> friends. · She drinks <b>a lot of</b> water.</div>
+<p>🔊 <b>many</b> → mè-ni · <b>much</b> → meutch · <b>a lot of</b> → eu lot ov</p>
+<h2>⚠️ Les pièges : ces mots ne se comptent pas en anglais</h2><table><tr><td><b>money</b> = argent</td><td><b>bread</b> = pain</td><td><b>information</b> = informations</td></tr><tr><td><b>advice</b> = conseils</td><td><b>homework</b> = devoirs</td><td><b>furniture</b> = meubles</td></tr></table><p class="mu">❌ How many money? → ✅ How much money?</p>'''
+mm2='''<h2>✍️ À toi de jouer : much, many ou a lot of ?</h2><table>
+<tr><td class="n">1</td><td>How ______ brothers do you have?</td></tr><tr><td class="n">2</td><td>How ______ is this phone?</td></tr>
+<tr><td class="n">3</td><td>Sorry, I don't have ______ time today.</td></tr><tr><td class="n">4</td><td>How ______ water do you drink every day?</td></tr>
+<tr><td class="n">5</td><td>She doesn't have ______ friends in London.</td></tr><tr><td class="n">6</td><td>We have ______ homework this week!</td></tr>
+<tr><td class="n">7</td><td>How ______ eggs do we need for the cake?</td></tr><tr><td class="n">8</td><td>My father drinks ______ coffee.</td></tr></table>
+<p class="mu">Réponses : 1. many · 2. much · 3. much · 4. much · 5. many · 6. a lot of · 7. many · 8. a lot of</p>
+<h2>🎁 Bonus : a few / a little (un peu, quelques)</h2><div class="ex2"><b>a few</b> friends = quelques amis (on compte) · <b>a little</b> sugar = un peu de sucre (on ne compte pas)</div>
+<p class="mu">🔊 a few → eu fyou · a little → eu li-teul</p>'''
+D.append(dict(slug='much-many',date='2026-11-27',title="Much ou many ?",sub="la mini-leçon pour dire « beaucoup »",emoji='🔢',
+ tip="Pose-toi une seule question : est-ce que je peux compter ? Oui → many · Non → much · Phrase affirmative → a lot of.",p1=mm1,p2=mm2))
+dir1=[("Excuse me, where is the bank?","ex-kyouz mî, wèr iz zeu bènk ?","Excusez-moi, où est la banque ?"),
+("How can I get to the station?","haou kèn aï guèt tou zeu stéï-cheun ?","Comment aller à la gare ?"),
+("Is it far from here?","iz it fâr from hîr ?","C'est loin d'ici ?"),
+("Is there a pharmacy near here?","iz zèr eu fâr-meu-si nîr hîr ?","Y a-t-il une pharmacie près d'ici ?"),
+("Can you show me on the map?","kèn you cho mî on zeu mèp ?","Pouvez-vous me montrer sur le plan ?")]
+dir2=[("Go straight on.","go stréït on","Allez tout droit."),
+("Turn left. / Turn right.","teurn lèft / teurn raït","Tournez à gauche. / à droite."),
+("Take the second street on the left.","téïk zeu sè-keund strît on zeu lèft","Prenez la 2ᵉ rue à gauche."),
+("It's next to the supermarket.","its nèkst tou zeu sou-peur-mâr-kit","C'est à côté du supermarché."),
+("It's opposite the church.","its o-peu-zit zeu tcheurtch","C'est en face de l'église."),
+("It's between the bank and the hotel.","its bi-twîn zeu bènk ènd zeu ho-tèl","C'est entre la banque et l'hôtel."),
+("It's on the corner.","its on zeu kor-neur","C'est au coin de la rue.")]
+dir3=[("It's about five minutes on foot.","its eu-baout faïv mi-nits on fout","C'est à environ 5 minutes à pied."),
+("You can't miss it!","you kânt miss it !","Vous ne pouvez pas le rater !"),
+("Sorry, could you speak more slowly, please?","so-ri, koud you spîk mor slo-li, plîz ?","Pardon, pouvez-vous parler plus lentement ?")]
+D.append(dict(slug='demander-son-chemin',date='2026-11-28',title="Demander son chemin",sub="15 phrases pour ne jamais te perdre",emoji='🗺️',
+ tip="Apprends d'abord les 5 questions, puis entraîne-toi à comprendre les réponses : gauche, droite, tout droit, à côté de, en face de.",
+ p1='<h2>❓ Pour demander</h2>'+table(dir1)+'<h2>➡️ Pour comprendre la réponse</h2>'+table(dir2,start=6),
+ p2=table(dir3,start=13)+'''<h2>💬 Mini-dialogue à Londres</h2><div class="ex2">🧳 <b>Tourist:</b> Excuse me, how can I get to the post office?<br>🙋 <b>Man:</b> Go straight on and take the first street on the right. It's next to the bank.<br>🧳 <b>Tourist:</b> Is it far?<br>🙋 <b>Man:</b> No, about three minutes on foot.<br>🧳 <b>Tourist:</b> Thank you so much!</div>
+<h2>✍️ Traduis en anglais</h2><p>1. Tournez à droite. · 2. C'est en face de la banque. · 3. C'est loin d'ici ?</p><p class="mu">Réponses : 1. Turn right. · 2. It's opposite the bank. · 3. Is it far from here?</p>'''))
+qw=[("What?","wot","quoi ? quel ?","What is your name?"),("Where?","wèr","où ?","Where do you live?"),("When?","wèn","quand ?","When is your birthday?"),
+("Who?","hou","qui ?","Who is your teacher?"),("Why?","waï","pourquoi ?","Why are you late? — Because… (bi-koz)"),("How?","haou","comment ?","How are you?"),
+("Which?","witch","lequel ? quel ? (choix)","Which colour do you prefer, red or blue?"),("Whose?","houz","à qui ?","Whose bag is this?"),("How much / How many?","haou meutch / haou mè-ni","combien ?","How much is it? · How many children do you have?")]
+def qwt(rows):
+    h='<table>'
+    for k,(w,pr,fr,ex) in enumerate(rows): h+=f'<tr><td class="n">{k+1}</td><td><b>{w}</b><span class="pr">🔊 {pr}</span></td><td class="fr">{fr}</td><td><span class="ex">{ex}</span></td></tr>'
+    return h+'</table>'
+qw2='''<h2>📌 Les questions avec HOW</h2><table><tr><td><b>How old…?</b> = quel âge</td><td><b>How long…?</b> = combien de temps</td></tr><tr><td><b>How far…?</b> = à quelle distance</td><td><b>How often…?</b> = à quelle fréquence</td></tr></table>'''
+qw2b='''<h2>🔎 La structure à retenir</h2><div class="ex2">Mot interrogatif + <b>do / does / did</b> + sujet + verbe → Where <b>do</b> you work? · What <b>does</b> she want?<br>Avec le verbe <b>be</b> : on inverse simplement → Where <b>is</b> the bank? · How old <b>are</b> you?</div>
+<table><tr><td><span class="bad">❌ Where you live?</span><span class="good">✅ Where do you live?</span></td><td><span class="bad">❌ What you want?</span><span class="good">✅ What do you want?</span></td></tr></table>'''
+qw3='''<h2>✍️ À toi de jouer : trouve le bon mot</h2><table>
+<tr><td class="n">1</td><td>______ is your name? — My name is Kevin.</td></tr><tr><td class="n">2</td><td>______ do you live? — In Manchester.</td></tr>
+<tr><td class="n">3</td><td>______ are you? — I'm fine, thanks.</td></tr><tr><td class="n">4</td><td>______ is your birthday? — In May.</td></tr>
+<tr><td class="n">5</td><td>______ is that man? — He's my uncle.</td></tr><tr><td class="n">6</td><td>______ are you sad? — Because I lost my phone.</td></tr>
+<tr><td class="n">7</td><td>______ old are you? — I'm thirty.</td></tr><tr><td class="n">8</td><td>______ shoes are these? — They're Anna's.</td></tr></table>
+<p class="mu">Réponses : 1. What · 2. Where · 3. How · 4. When · 5. Who · 6. Why · 7. How · 8. Whose</p>'''
+D.append(dict(slug='mots-interrogatifs',date='2026-11-29',title="What, Where, When… ?",sub="les mots pour poser toutes tes questions",emoji='❓',
+ tip="Une question en anglais commence presque toujours par l'un de ces mots. Apprends-les par cœur, puis pose 5 questions à un ami aujourd'hui !",
+ p1=qwt(qw)+qw2,p2=qw2b+qw3))
+days=[("Monday","meun-déï","lundi"),("Tuesday","tyouz-déï","mardi"),("Wednesday","wènz-déï","mercredi"),("Thursday","sseurz-déï","jeudi"),("Friday","fraï-déï","vendredi"),("Saturday","sè-teur-déï","samedi"),("Sunday","seun-déï","dimanche")]
+months=[("January","djè-nyou-è-ri"),("February","fè-brou-è-ri"),("March","mârtch"),("April","éï-pril"),("May","méï"),("June","djoun"),("July","djou-laï"),("August","ô-geust"),("September","sèp-tèm-beur"),("October","ok-to-beur"),("November","no-vèm-beur"),("December","di-sèm-beur")]
+dt1='<h2>📅 Les 7 jours</h2><table>'+''.join(f'<tr><td><b>{a}</b><span class="pr">🔊 {b}</span></td><td class="fr">{c}</td></tr>' for a,b,c in days)+'</table>'
+dt1+='<h2>🗓️ Les 12 mois</h2><table>'+''.join('<tr>'+''.join(f'<td><b>{a}</b><span class="pr">🔊 {b}</span></td>' for a,b in months[i:i+3])+'</tr>' for i in range(0,12,3))+'</table>'
+dt1+='<p class="mu">⚠️ En anglais, les jours et les mois prennent <b>toujours une majuscule</b> : Monday, December.</p>'
+dt2='''<h2>🥇 Les nombres ordinaux (1er, 2e, 3e…)</h2><table>
+<tr><td><b>1st</b> first <span class="pr">🔊 feurst</span></td><td><b>2nd</b> second <span class="pr">🔊 sè-keund</span></td><td><b>3rd</b> third <span class="pr">🔊 sseurd</span></td><td><b>4th</b> fourth <span class="pr">🔊 forss</span></td></tr>
+<tr><td><b>5th</b> fifth <span class="pr">🔊 fifs</span></td><td><b>12th</b> twelfth <span class="pr">🔊 twèlfs</span></td><td><b>20th</b> twentieth <span class="pr">🔊 twèn-ti-eus</span></td><td><b>31st</b> thirty-first <span class="pr">🔊 sseur-ti feurst</span></td></tr></table>
+<p>Règle : on ajoute <b>-th</b>, sauf pour <b>1st, 2nd, 3rd</b> (et 21st, 22nd, 23rd, 31st).</p>
+<h2>🗣️ Dire la date</h2><div class="ex2">✍️ On écrit : <b>1st December</b> ou <b>December 1st</b><br>🗣️ On dit : « <b>the first of December</b> » 🔊 zeu feurst ov di-sèm-beur</div>
+<p><b>What's the date today?</b> (wots zeu déït tou-déï ?) — It's the first of December.<br><b>When is your birthday?</b> — It's on the fourteenth of July.</p>
+<p>Prépositions : <b>on</b> Monday · <b>on</b> 1st December · <b>in</b> December · <b>in</b> 2026 (twèn-ti twèn-ti siks)</p>
+<h2>✍️ Écris ces dates en toutes lettres</h2><p>1. 3/12 · 2. 22/05 · 3. 31/10</p><p class="mu">Réponses : 1. the third of December · 2. the twenty-second of May · 3. the thirty-first of October</p>'''
+D.append(dict(slug='dire-la-date',date='2026-11-30',title="Dire la date",sub="jours, mois et nombres ordinaux",emoji='📅',
+ tip="Chaque matin, dis la date du jour à voix haute en anglais : « Today is Monday, the first of December ». En une semaine, c'est acquis !",p1=dt1,p2=dt2))
+pol=[("Give me water.","Could I have some water, please?","« Could I have… ? » = pourrais-je avoir… ? 🔊 koud aï hèv"),
+("I want a coffee.","I'd like a coffee, please.","« I'd like » = je voudrais : bien plus poli que « I want ». 🔊 aïd laïk"),
+("Close the door.","Could you close the door, please?","« Could you… ? » transforme un ordre en demande polie."),
+("What?","Sorry? / Pardon?","« What? » tout seul paraît impoli. 🔊 so-ri ? / pâr-deun ?"),
+("Repeat!","Sorry, could you repeat that, please?","🔊 so-ri, koud you ri-pît zèt, plîz ?"),
+("Move!","Excuse me, can I get past?","Pour passer devant quelqu'un. 🔊 ex-kyouz mî, kèn aï guèt pâst ?"),
+("Wait.","Just a moment, please.","🔊 djeust eu mo-meunt, plîz"),
+("You are wrong.","I'm not sure I agree.","Pour contredire en douceur. 🔊 aïm not chour aï eu-grî"),
+("Help me.","Would you mind helping me?","« Would you mind + -ing ? » = ça vous dérangerait de… ? 🔊 woud you maïnd"),
+("No.","No, thank you.","Toujours « thank you » après un refus. 🔊 no, ssènk you"),
+("I need the bill.","Could we have the bill, please?","🔊 koud wî hèv zeu bil, plîz ?"),
+("Bye.","Thanks for your help. Have a nice day!","🔊 ssènks for yor hèlp. hèv eu naïss déï !")]
+def polt(rows,s):
+    h='<table class="err">'
+    for k,(w,r,e) in enumerate(rows): h+=f'<tr><td class="n">{s+k}</td><td><span class="bad" style="text-decoration:none">😬 Trop direct : {w}</span><span class="good">✅ {r}</span><span class="ex">{e}</span></td></tr>'
+    return h+'</table>'
+D.append(dict(slug='etre-poli-anglais',date='2026-12-01',title="Être poli en anglais",sub="12 phrases trop directes… et la version polie",emoji='🎩',
+ tip="En anglais, « please », « could you » et « sorry » sont partout. Une phrase correcte mais trop directe peut paraître impolie : voici comment l'adoucir.",
+ p1=polt(pol[:6],1),p2=polt(pol[6:],7)+'<h2>💡 Sorry ou Excuse me ?</h2><div class="ex2"><b>Excuse me</b> = <i>avant</i> de déranger quelqu\'un (pour attirer l\'attention, pour passer).<br><b>Sorry</b> = <i>après</i>, pour s\'excuser (tu as bousculé quelqu\'un, tu es en retard).</div>'))

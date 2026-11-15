@@ -22,6 +22,13 @@ B={
 "30-adjectifs-personne":("30 adjectifs","pour décrire une personne",["😊 Caractère : kind, shy…","📏 Physique : tall, slim…","✍️ Décris ton ami","🔊 Prononciation en français"]),
 "entretien-embauche":("L'entretien d'embauche","en anglais, avec les réponses",["🤝 9 questions classiques","💬 Les réponses modèles","⭐ 3 conseils le jour J","🔊 Prononciation en français"]),
 "make-ou-do":("Make ou Do ?","la règle + 20 expressions",["🛠️ Make = créer","✅ Do = faire une tâche","❌ « I did a mistake »","✍️ Exercice + réponses"]),
+"dialogue-medecin":("Chez le médecin","un dialogue complet en anglais",["🩺 Expliquer où tu as mal","🤒 Fièvre, toux, rhume…","💊 Comprendre l'ordonnance","🔊 Prononciation en français"]),
+"30-mots-cuisine":("30 mots de la cuisine","ustensiles, aliments, verbes",["🔪 knife, fork, spoon…","🍅 Les aliments du quotidien","🍳 Une mini-recette","🔊 Prononciation en français"]),
+"much-many":("Much ou many ?","la mini-leçon pour dire « beaucoup »",["🔢 Ce qu'on compte ou pas","💰 How much / How many","⚠️ Les pièges : money, advice","✍️ Exercice + réponses"]),
+"demander-son-chemin":("Demander son chemin","15 phrases pour ne pas te perdre",["❓ « How can I get to… ? »","➡️ Gauche, droite, tout droit","💬 Un mini-dialogue","🔊 Prononciation en français"]),
+"mots-interrogatifs":("What, Where, When… ?","les mots pour poser tes questions",["❓ Les 9 mots à connaître","📌 How old, how long…","❌ « Where you live? »","✍️ Exercice + réponses"]),
+"dire-la-date":("Dire la date","jours, mois et ordinaux",["📅 Jours et mois","🥇 1st, 2nd, 3rd…","🗣️ « The first of December »","🔊 Prononciation en français"]),
+"etre-poli-anglais":("Être poli en anglais","12 phrases et leur version polie",["😬 « Give me water »","✅ « Could I have… ? »","💡 Sorry ou Excuse me ?","🔊 Prononciation en français"]),
 }
 import sys
 NEW=sys.argv[1:] or list(B)

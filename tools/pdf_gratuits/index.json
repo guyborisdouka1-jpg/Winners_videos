@@ -145,5 +145,54 @@
   "title": "Make ou Do ?",
   "sub": "la règle + 20 expressions à connaître",
   "emoji": "🛠️"
+ },
+ {
+  "slug": "dialogue-medecin",
+  "date": "2026-11-25",
+  "title": "Chez le médecin",
+  "sub": "un dialogue complet, avec la prononciation",
+  "emoji": "🩺"
+ },
+ {
+  "slug": "30-mots-cuisine",
+  "date": "2026-11-26",
+  "title": "30 mots de la cuisine",
+  "sub": "ustensiles, aliments et verbes",
+  "emoji": "🍳"
+ },
+ {
+  "slug": "much-many",
+  "date": "2026-11-27",
+  "title": "Much ou many ?",
+  "sub": "la mini-leçon pour dire « beaucoup »",
+  "emoji": "🔢"
+ },
+ {
+  "slug": "demander-son-chemin",
+  "date": "2026-11-28",
+  "title": "Demander son chemin",
+  "sub": "15 phrases pour ne jamais te perdre",
+  "emoji": "🗺️"
+ },
+ {
+  "slug": "mots-interrogatifs",
+  "date": "2026-11-29",
+  "title": "What, Where, When… ?",
+  "sub": "les mots pour poser toutes tes questions",
+  "emoji": "❓"
+ },
+ {
+  "slug": "dire-la-date",
+  "date": "2026-11-30",
+  "title": "Dire la date",
+  "sub": "jours, mois et nombres ordinaux",
+  "emoji": "📅"
+ },
+ {
+  "slug": "etre-poli-anglais",
+  "date": "2026-12-01",
+  "title": "Être poli en anglais",
+  "sub": "12 phrases trop directes… et la version polie",
+  "emoji": "🎩"
  }
 ]
