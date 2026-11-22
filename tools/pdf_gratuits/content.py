@@ -420,3 +420,113 @@ def polt(rows,s):
 D.append(dict(slug='etre-poli-anglais',date='2026-12-01',title="Être poli en anglais",sub="12 phrases trop directes… et la version polie",emoji='🎩',
  tip="En anglais, « please », « could you » et « sorry » sont partout. Une phrase correcte mais trop directe peut paraître impolie : voici comment l'adoucir.",
  p1=polt(pol[:6],1),p2=polt(pol[6:],7)+'<h2>💡 Sorry ou Excuse me ?</h2><div class="ex2"><b>Excuse me</b> = <i>avant</i> de déranger quelqu\'un (pour attirer l\'attention, pour passer).<br><b>Sorry</b> = <i>après</i>, pour s\'excuser (tu as bousculé quelqu\'un, tu es en retard).</div>'))
+# ---- Semaine du 2 au 8 décembre 2026 ----
+sa1='''<h2>1️⃣ SOME : dans les phrases affirmatives</h2><p><b>Some</b> = « du, de la, des, quelques ». On l'utilise quand on <b>affirme</b> quelque chose.</p>
+<div class="ex2">I have <b>some</b> money. · There is <b>some</b> milk in the fridge. · She bought <b>some</b> apples.</div>
+<h2>2️⃣ ANY : dans les questions et les négations</h2><p><b>Any</b> = « du, des » dans une <b>question</b>, et « pas de, aucun » dans une phrase <b>négative</b>.</p>
+<div class="ex2">Do you have <b>any</b> questions? · There isn't <b>any</b> sugar. · I don't have <b>any</b> brothers.</div>
+<h2>3️⃣ L'exception à connaître : offrir et demander poliment</h2><p>Quand on <b>propose</b> ou qu'on <b>demande</b> quelque chose poliment, on garde <b>some</b>, même dans une question.</p>
+<div class="ex2">Would you like <b>some</b> tea? (proposer) · Could I have <b>some</b> water, please? (demander)</div>
+<p>🔊 <b>some</b> → seum · <b>any</b> → è-ni · <b>Would you like</b> → woud you laïk</p>
+<h2>🧩 Les mots de la même famille</h2><table>
+<tr><td><b>something</b> <span class="pr">🔊 seum-ssing</span><span class="fr2">quelque chose</span></td><td><b>anything</b> <span class="pr">🔊 è-ni-ssing</span><span class="fr2">quelque chose (?) / rien (–)</span></td></tr>
+<tr><td><b>someone</b> <span class="pr">🔊 seum-weun</span><span class="fr2">quelqu'un</span></td><td><b>anyone</b> <span class="pr">🔊 è-ni-weun</span><span class="fr2">quelqu'un (?) / personne (–)</span></td></tr>
+<tr><td><b>somewhere</b> <span class="pr">🔊 seum-wèr</span><span class="fr2">quelque part</span></td><td><b>anywhere</b> <span class="pr">🔊 è-ni-wèr</span><span class="fr2">quelque part (?) / nulle part (–)</span></td></tr></table>'''
+sa2='''<h2>🔎 Exemples avec la famille SOME / ANY</h2><div class="ex2">I want to eat <b>something</b>. · Is there <b>anything</b> to eat? · I didn't see <b>anyone</b>.<br><b>Someone</b> is at the door! · Let's go <b>somewhere</b> nice. · I can't find my keys <b>anywhere</b>.</div>
+<h2>✍️ À toi de jouer : some ou any ?</h2><table>
+<tr><td class="n">1</td><td>There is ______ bread on the table.</td></tr><tr><td class="n">2</td><td>Do you have ______ children?</td></tr>
+<tr><td class="n">3</td><td>We don't have ______ milk left.</td></tr><tr><td class="n">4</td><td>Would you like ______ coffee?</td></tr>
+<tr><td class="n">5</td><td>I bought ______ new shoes yesterday.</td></tr><tr><td class="n">6</td><td>Is there ______ problem?</td></tr>
+<tr><td class="n">7</td><td>Could I have ______ water, please?</td></tr><tr><td class="n">8</td><td>She didn't say ______thing.</td></tr></table>
+<p class="mu">Réponses : 1. some · 2. any · 3. any · 4. some · 5. some · 6. any · 7. some · 8. anything</p>'''
+D.append(dict(slug='some-any',date='2026-12-02',title="Some ou any ?",sub="la mini-leçon pour dire « du, des, quelques »",emoji='🧺',
+ tip="La règle de base : phrase affirmative → some · question ou négation → any. Et pour proposer ou demander poliment → some !",p1=sa1,p2=sa2))
+hot=[("Receptionist","Good evening. Welcome to the Grand Hotel.","goud îv-ning. wèl-keum tou zeu grènd ho-tèl","Bonsoir. Bienvenue au Grand Hotel."),
+("Mark","Hello. I have a reservation. My name is Mark Taylor.","hè-lo. aï hèv eu rè-zeur-véï-cheun. maï néïm iz mârk téï-leur","Bonjour. J'ai une réservation. Je m'appelle Mark Taylor."),
+("Receptionist","Yes, Mr Taylor. A single room for three nights?","yèss, miss-teur téï-leur. eu sin-gueul roum for ssrî naïts ?","Oui, M. Taylor. Une chambre simple pour trois nuits ?"),
+("Mark","That's right.","zèts raït","C'est exact."),
+("Receptionist","Can I see your passport, please?","kèn aï sî yor pâss-port, plîz ?","Puis-je voir votre passeport ?"),
+("Mark","Here you are. Is breakfast included?","hîr you âr. iz brèk-feust in-klou-did ?","Le voici. Le petit-déjeuner est-il compris ?"),
+("Receptionist","Yes, from 7 to 10 a.m., on the first floor.","yèss, from sè-veun tou tèn éï-èm, on zeu feurst flor","Oui, de 7 h à 10 h, au premier étage."),
+("Mark","What's the Wi-Fi password?","wots zeu waï-faï pâss-weurd ?","Quel est le mot de passe du Wi-Fi ?"),
+("Receptionist","It's on this card. Here is your key. Room 214.","its on ziss kârd. hîr iz yor kî. roum tou weun for","Il est sur cette carte. Voici votre clé. Chambre 214."),
+("Mark","Thank you. What time is check-out?","ssènk you. wot taïm iz tchèk-aout ?","Merci. À quelle heure faut-il libérer la chambre ?"),
+("Receptionist","At 11 a.m. Enjoy your stay!","èt i-lè-veun éï-èm. in-djoï yor stéï !","À 11 h. Bon séjour !")]
+D.append(dict(slug='dialogue-hotel',date='2026-12-03',title="À l'hôtel",sub="un dialogue complet, avec la prononciation",emoji='🏨',
+ tip="Lis le dialogue à deux : une personne fait Mark, l'autre fait la réceptionniste. Puis échangez les rôles et changez le nombre de nuits !",
+ p1=diat(hot[:6]),p2=diat(hot[6:])+'<h2>📌 Les mots à retenir</h2><table><tr><td><b>a reservation / a booking</b> = une réservation</td><td><b>a single / double room</b> = chambre simple / double</td></tr><tr><td><b>check-in / check-out</b> = arrivée / départ</td><td><b>the key</b> (kî) = la clé</td></tr><tr><td><b>breakfast included</b> = petit-déj. compris</td><td><b>the lift</b> (lift) = l\'ascenseur</td></tr><tr><td><b>a towel</b> (taou-eul) = une serviette</td><td><b>The air conditioning doesn\'t work.</b> = La clim ne marche pas.</td></tr></table>'))
+st1=[("Hi! How's it going?","haï ! haouz it go-ing ?","Salut ! Comment ça va ?"),
+("Nice to meet you.","naïss tou mît you","Ravi(e) de te rencontrer."),
+("What do you do?","wot dou you dou ?","Qu'est-ce que tu fais dans la vie ?"),
+("Where are you from?","wèr âr you from ?","D'où viens-tu ?"),
+("How do you know Tom?","haou dou you no tom ?","Comment connais-tu Tom ?"),
+("Lovely weather today, isn't it?","leuv-li wè-zeur tou-déï, i-zeunt it ?","Il fait beau aujourd'hui, non ?"),
+("What do you do in your free time?","wot dou you dou in yor frî taïm ?","Que fais-tu pendant ton temps libre ?"),
+("Did you have a good weekend?","did you hèv eu goud wîk-ènd ?","Tu as passé un bon week-end ?")]
+st2=[("Really? That's interesting!","rî-li ? zèts in-trèss-ting !","Vraiment ? C'est intéressant !"),
+("Me too! / Me neither.","mî tou ! / mî naï-zeur","Moi aussi ! / Moi non plus."),
+("Oh, I see.","o, aï sî","Ah, je vois."),
+("It was nice talking to you.","it woz naïss tô-king tou you","C'était sympa de parler avec toi."),
+("Let's keep in touch!","lèts kîp in teutch !","Restons en contact !"),
+("See you around!","sî you eu-raound !","À un de ces jours !")]
+D.append(dict(slug='small-talk',date='2026-12-04',title="Le small talk",sub="14 phrases pour lancer une conversation",emoji='☕',
+ tip="Le « small talk », c'est la petite conversation légère : au travail, à une fête, dans une file d'attente. Les anglophones adorent ça !",
+ p1='<h2>🚀 Pour lancer la conversation</h2>'+table(st1)+'<h2>👂 Pour réagir et garder le fil</h2>'+table(st2[:3],start=9),
+ p2='<h2>👋 Pour terminer poliment</h2>'+table(st2[3:],start=12)+'''<h2>💬 Mini-dialogue à une fête</h2><div class="ex2">🙋‍♀️ <b>Lucy:</b> Hi! I'm Lucy. Nice to meet you.<br>🙋 <b>Ben:</b> Nice to meet you too. I'm Ben. How do you know Tom?<br>🙋‍♀️ <b>Lucy:</b> We work together. What do you do, Ben?<br>🙋 <b>Ben:</b> I'm a nurse. And I love football.<br>🙋‍♀️ <b>Lucy:</b> Really? Me too! Let's keep in touch!</div>
+<h2>⚠️ Les sujets à éviter</h2><p>En small talk, on évite l'argent (salaire), la religion et la politique. On préfère : le travail, la météo, le week-end, les loisirs, le sport.</p>
+<h2>✍️ Traduis en anglais</h2><p>1. D'où viens-tu ? · 2. Moi aussi ! · 3. C'était sympa de parler avec toi.</p><p class="mu">Réponses : 1. Where are you from? · 2. Me too! · 3. It was nice talking to you.</p>'''))
+mai=[("🏠","house","haouss","maison"),("🏢","flat","flèt","appartement"),("🛋️","living room","li-ving roum","salon"),("🛏️","bedroom","bèd-roum","chambre"),("🛁","bathroom","bâss-roum","salle de bain"),("🍳","kitchen","kit-cheun","cuisine"),("🚽","toilet","toï-lit","toilettes"),("🚪","door","dor","porte"),("🪟","window","win-do","fenêtre"),("🧱","wall","wôl","mur"),("🪜","stairs","stèrz","escalier"),("🌳","garden","gâr-deun","jardin"),
+("🛋️","sofa","so-feu","canapé"),("🪑","chair","tchèr","chaise"),("🍽️","table","téï-beul","table"),("🛏️","bed","bèd","lit"),("🚿","shower","chaou-eur","douche"),("👔","wardrobe","wor-drob","armoire"),("📺","TV","tî-vî","télé"),("💡","lamp","lèmp","lampe"),("🪞","mirror","mi-reur","miroir"),("🖼️","picture","pik-tcheur","tableau / photo"),("🔑","key","kî","clé"),("❄️","air conditioner","èr keun-di-cheu-neur","climatiseur"),
+("🧹","to clean","tou klîn","nettoyer"),("🧺","to tidy up","tou taï-di eup","ranger"),("👕","to do the laundry","tou dou zeu lôn-dri","faire la lessive"),("🛏️","to make the bed","tou méïk zeu bèd","faire le lit"),("🍽️","to do the dishes","tou dou zeu di-chiz","faire la vaisselle"),("😴","to go to bed","tou go tou bèd","aller se coucher")]
+D.append(dict(slug='30-mots-maison',date='2026-12-05',title="30 mots de la maison",sub="pièces, meubles et tâches ménagères",emoji='🏠',
+ tip="Fais le tour de ta maison et nomme chaque pièce et chaque objet en anglais. Tu peux même coller des petits papiers dessus !",
+ p1=voct(mai[:24]),p2=voct(mai[24:])+'''<p class="mu">⚠️ Piège : <b>a flat</b> (UK) = <b>an apartment</b> (US) · <b>the toilet</b> (UK) = <b>the bathroom / restroom</b> (US)</p>
+<h2>🏠 Décris ta maison</h2><div class="ex2">I live in a small <b>flat</b>. There are two <b>bedrooms</b>, a <b>living room</b>, a <b>kitchen</b> and a <b>bathroom</b>. My favourite room is the <b>living room</b> because there is a big <b>sofa</b>. 😊</div>
+<p>🔊 <b>There is</b> (zèr iz) = il y a (1 chose) · <b>There are</b> (zèr âr) = il y a (plusieurs)</p>
+<h2>✍️ Complète !</h2><p>1. I sleep in my ______ (chambre) · 2. Can you ______ (faire la vaisselle)? · 3. Close the ______ (fenêtre), please. · 4. I take a ______ (douche) every morning.</p><p class="mu">Réponses : bedroom · do the dishes · window · shower</p>'''))
+qv=[("« Je suis d'accord » :","I am agree","I agree","I'm agreeing","B"),
+("« Un conseil » :","an advice","some advices","a piece of advice","C"),
+("« Actually » veut dire :","en réalité","actuellement","activement","A"),
+("« Une librairie » :","a library","a bookshop","a bookstore and library","B"),
+("« Je me suis levé tôt » :","I woke up early","I woked up early","I wake up early","A"),
+("« Je fais une erreur » :","I do a mistake","I make a mistake","I have a mistake","B"),
+("« J'ai faim » :","I have hunger","I am hungry","I have hungry","B"),
+("« Elle a 30 ans » :","She has 30 years","She is 30","She have 30","B"),
+("« Sensible » en anglais veut dire :","raisonnable","sensible","sensuel","A"),
+("« Assister à une réunion » :","to assist a meeting","to attend a meeting","to watch a meeting","B"),
+("« Je suis ici depuis 2 ans » :","I am here since 2 years","I have been here for 2 years","I am here for 2 years","B"),
+("« Combien d'argent ? » :","How many money?","How much money?","How lot money?","B"),
+("« Il ne travaille pas » :","He don't work","He doesn't works","He doesn't work","C"),
+("« Je vais à la maison » :","I go to the home","I'm going home","I'm going to home","B"),
+("« Explique-moi » :","Explain me","Explain to me","Explain it me","B")]
+qva=' · '.join(f'{i+1}. {r[4]}' for i,r in enumerate(qv))
+D.append(dict(slug='quiz-pieges',date='2026-12-06',title="Quiz : les 15 pièges",sub="évites-tu les erreurs des francophones ?",emoji='🧠',
+ tip="Pour chaque question, choisis A, B ou C sans regarder les réponses. Compte tes points à la fin, puis relis les explications.",
+ p1=quizt(qv[:9],1),p2=quizt(qv[9:],10)+f'''<p class="mu">Réponses : {qva}</p><h2>📊 Ton résultat</h2><table><tr><td><b>0 à 6</b></td><td class="fr">Les pièges du français te jouent des tours : c'est normal, on corrige ça ensemble 💪</td></tr><tr><td><b>7 à 11</b></td><td class="fr">Pas mal ! Encore quelques réflexes à prendre 🔥</td></tr><tr><td><b>12 à 15</b></td><td class="fr">Excellent ! Tu penses déjà en anglais 🏆</td></tr></table>
+<h2>💡 Les 3 règles à retenir</h2><div class="ex2">1. On <b>est</b> son âge et sa faim : <i>I am 30 · I am hungry</i>.<br>2. <b>Advice, money, information</b> : pas de pluriel.<br>3. Avec <b>he / she / it</b> : <i>doesn't</i> + verbe sans -s.</div>'''))
+rv=[("to wake up","tou wéïk eup","se réveiller","I wake up at 6."),("to get up","tou guèt eup","se lever","I get up at 6:15."),("to take a shower","tou téïk eu chaou-eur","prendre une douche","I take a shower."),("to get dressed","tou guèt drèst","s'habiller","I get dressed quickly."),("to brush my teeth","tou breuch maï tîss","me brosser les dents","I brush my teeth."),("to have breakfast","tou hèv brèk-feust","prendre le petit-déjeuner","I have breakfast at 7."),("to leave home","tou lîv hom","partir de chez moi","I leave home at 7:30."),("to take the bus","tou téïk zeu beuss","prendre le bus","I take the bus to work."),("to start work","tou stârt weurk","commencer le travail","I start work at 8."),("to have lunch","tou hèv leunch","déjeuner","I have lunch at 12:30."),
+("to finish work","tou fi-nich weurk","finir le travail","I finish work at 5."),("to come back home","tou keum bèk hom","rentrer à la maison","I come back home at 6."),("to cook dinner","tou kouk di-neur","préparer le dîner","I cook dinner."),("to have dinner","tou hèv di-neur","dîner","We have dinner at 8."),("to watch TV","tou wotch tî-vî","regarder la télé","I watch TV."),("to relax","tou ri-lèks","se détendre","I relax on the sofa."),("to check my phone","tou tchèk maï fon","regarder mon téléphone","I check my phone."),("to read","tou rîd","lire","I read a book."),("to go to bed","tou go tou bèd","aller se coucher","I go to bed at 10."),("to fall asleep","tou fôl eu-slîp","s'endormir","I fall asleep quickly.")]
+D.append(dict(slug='routine-20-verbes',date='2026-12-07',title="Ma journée en anglais",sub="20 verbes pour raconter ta routine",emoji='⏰',
+ tip="Raconte ta journée à voix haute, du réveil au coucher, avec ces 20 verbes. Et n'oublie pas : avec he / she, on ajoute un -s (she wakes up) !",
+ p1=pvt(rv[:11],1),p2=pvt(rv[11:],12)+'''<h2>🗣️ Les mots pour enchaîner</h2><p><b>First</b> (feurst) = d'abord · <b>Then</b> (zèn) = ensuite · <b>After that</b> (âf-teur zèt) = après ça · <b>Finally</b> (faï-neu-li) = enfin</p>
+<div class="ex2"><b>First</b>, I wake up at 6. <b>Then</b>, I take a shower and I have breakfast. <b>After that</b>, I take the bus to work. <b>Finally</b>, I go to bed at 10.</div>
+<h2>✍️ À toi !</h2><p>Raconte la journée de ta sœur ou de ton frère (attention au -s) : <i>She wakes up at…</i></p>'''))
+ms=[("Arriver en retard","Hi Tom, sorry, I'm running 10 minutes late. I'll be there soon.","Salut Tom, désolé, j'ai 10 minutes de retard. J'arrive bientôt."),
+("Annuler un rendez-vous","Hello Ms Brown, I'm afraid I have to cancel our meeting tomorrow. I'm very sorry.","Bonjour Mme Brown, je crains de devoir annuler notre réunion de demain. Je suis vraiment désolé(e)."),
+("Reporter","Could we move our meeting to Friday at 3 p.m.? Would that work for you?","Pourrait-on déplacer notre réunion à vendredi 15 h ? Cela vous conviendrait-il ?"),
+("Confirmer","Hi Anna, just to confirm: we're meeting on Monday at 10 a.m. See you then!","Salut Anna, juste pour confirmer : on se voit lundi à 10 h. À lundi !"),
+("Relancer","Hi James, just following up on my last email. Any news?","Salut James, je reviens vers toi au sujet de mon dernier email. Des nouvelles ?"),
+("Remercier","Thank you so much for your help today. I really appreciate it.","Merci beaucoup pour ton aide aujourd'hui. Je l'apprécie vraiment."),
+("Demander un service","Could you send me the file when you have a moment? Thanks!","Pourrais-tu m'envoyer le fichier quand tu as un moment ? Merci !"),
+("Être absent","Hi Sarah, I'm sick today, so I won't come to the office. I'll check my emails.","Salut Sarah, je suis malade aujourd'hui, je ne viendrai pas au bureau. Je regarderai mes emails."),
+("Répondre plus tard","Got your message, thanks! I'll get back to you this afternoon.","Bien reçu ton message, merci ! Je te réponds cet après-midi.")]
+def mst(rows,s):
+    h='<table>'
+    for k,(sit,en,fr) in enumerate(rows): h+=f'<tr><td class="n">{s+k}</td><td><span class="pr" style="font-weight:800">{sit}</span><b>{en}</b><span class="fr2">{fr}</span></td></tr>'
+    return h+'</table>'
+D.append(dict(slug='messages-courts-pro',date='2026-12-08',title="9 messages pros",sub="s'excuser, annuler, relancer… les modèles à copier",emoji='💬',
+ tip="Au travail, on écrit beaucoup de petits messages rapides. Copie ces modèles, change juste le nom et l'heure, et c'est envoyé !",
+ p1=mst(ms[:5],1),p2=mst(ms[5:],6)+'''<h2>🔊 Les expressions clés à prononcer</h2><table>
+<tr><td><b>I'm running late</b><span class="pr">🔊 aïm reu-ning léït</span><span class="fr2">je suis en retard</span></td><td><b>I'm afraid…</b><span class="pr">🔊 aïm eu-fréïd</span><span class="fr2">je crains que… (poli)</span></td></tr>
+<tr><td><b>Just following up</b><span class="pr">🔊 djeust fo-lo-ing eup</span><span class="fr2">je reviens vers toi</span></td><td><b>I'll get back to you</b><span class="pr">🔊 aïl guèt bèk tou you</span><span class="fr2">je te recontacte</span></td></tr></table>
+<h2>✍️ À toi !</h2><p>Écris un message à ton collègue Mike pour lui dire que tu as 15 minutes de retard.</p><p class="mu">Exemple : Hi Mike, sorry, I'm running 15 minutes late. I'll be there soon.</p>'''))

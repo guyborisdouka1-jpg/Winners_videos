@@ -194,5 +194,54 @@
   "title": "Être poli en anglais",
   "sub": "12 phrases trop directes… et la version polie",
   "emoji": "🎩"
+ },
+ {
+  "slug": "some-any",
+  "date": "2026-12-02",
+  "title": "Some ou any ?",
+  "sub": "la mini-leçon pour dire « du, des, quelques »",
+  "emoji": "🧺"
+ },
+ {
+  "slug": "dialogue-hotel",
+  "date": "2026-12-03",
+  "title": "À l'hôtel",
+  "sub": "un dialogue complet, avec la prononciation",
+  "emoji": "🏨"
+ },
+ {
+  "slug": "small-talk",
+  "date": "2026-12-04",
+  "title": "Le small talk",
+  "sub": "14 phrases pour lancer une conversation",
+  "emoji": "☕"
+ },
+ {
+  "slug": "30-mots-maison",
+  "date": "2026-12-05",
+  "title": "30 mots de la maison",
+  "sub": "pièces, meubles et tâches ménagères",
+  "emoji": "🏠"
+ },
+ {
+  "slug": "quiz-pieges",
+  "date": "2026-12-06",
+  "title": "Quiz : les 15 pièges",
+  "sub": "évites-tu les erreurs des francophones ?",
+  "emoji": "🧠"
+ },
+ {
+  "slug": "routine-20-verbes",
+  "date": "2026-12-07",
+  "title": "Ma journée en anglais",
+  "sub": "20 verbes pour raconter ta routine",
+  "emoji": "⏰"
+ },
+ {
+  "slug": "messages-courts-pro",
+  "date": "2026-12-08",
+  "title": "9 messages pros",
+  "sub": "s'excuser, annuler, relancer… les modèles à copier",
+  "emoji": "💬"
  }
 ]

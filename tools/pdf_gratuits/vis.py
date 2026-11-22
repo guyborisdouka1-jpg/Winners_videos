@@ -29,6 +29,13 @@ B={
 "mots-interrogatifs":("What, Where, When… ?","les mots pour poser tes questions",["❓ Les 9 mots à connaître","📌 How old, how long…","❌ « Where you live? »","✍️ Exercice + réponses"]),
 "dire-la-date":("Dire la date","jours, mois et ordinaux",["📅 Jours et mois","🥇 1st, 2nd, 3rd…","🗣️ « The first of December »","🔊 Prononciation en français"]),
 "etre-poli-anglais":("Être poli en anglais","12 phrases et leur version polie",["😬 « Give me water »","✅ « Could I have… ? »","💡 Sorry ou Excuse me ?","🔊 Prononciation en français"]),
+"some-any":("Some ou any ?","la mini-leçon de « du, des »",["🧺 La règle en 2 minutes","❓ Questions et négations","☕ « Would you like some… ? »","✍️ Exercice + réponses"]),
+"dialogue-hotel":("À l'hôtel","un dialogue complet en anglais",["🏨 Arriver à la réception","🔑 La clé, le Wi-Fi…","🍳 Petit-déjeuner compris ?","🔊 Prononciation en français"]),
+"small-talk":("Le small talk","14 phrases pour lancer la discussion",["☕ Briser la glace","👂 Réagir : « Me too! »","👋 Terminer poliment","🔊 Prononciation en français"]),
+"30-mots-maison":("30 mots de la maison","pièces, meubles, tâches",["🛋️ Les pièces et les meubles","🧹 Les tâches ménagères","🏠 Décris ta maison","🔊 Prononciation en français"]),
+"quiz-pieges":("Quiz : 15 pièges","évites-tu ces erreurs ?",["🧠 15 questions A, B, C","❌ Les erreurs des francophones","📊 Ton score à la fin","💡 Les 3 règles à retenir"]),
+"routine-20-verbes":("Ma journée en anglais","20 verbes de la routine",["⏰ wake up, get up…","🚌 Aller au travail","🗣️ First, then, finally","🔊 Prononciation en français"]),
+"messages-courts-pro":("9 messages pros","les modèles à copier",["⏳ « I'm running late »","❌ Annuler, reporter","📩 Relancer, remercier","🔊 Prononciation en français"]),
 }
 import sys
 NEW=sys.argv[1:] or list(B)
