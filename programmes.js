@@ -23,7 +23,7 @@ window.CENTRE = {
   // Programme Google (compte winnersenglish04) qui envoie l'email de relance à l'apprenant (laisser "" tant qu'il n'est pas installé)
   emailAutoURL: "https://script.google.com/macros/s/AKfycbwhqS3sr32r8JTgbVxUEjal9nl5kSDTV4PjSCZfjlXdt0kLJvSUFFKdTyNT5arvT_Tjmw/exec",
   // Clés d'accès des tests (le tableau Google « Winners – Admin du site » peut les changer)
-  cles: { rapide: "WIN2026", placement: "WIN2026" },
+  cles: { rapide: "WIN2026", placement: "WECINSCRIT" },
   brochure: "brochure.pdf",
   // Couleurs par défaut (celles du logo), utilisées quand aucun programme n'est en cours
   couleurs: { sombre: "#2F3480", principal: "#B83A35", accent: "#F2B33D" },

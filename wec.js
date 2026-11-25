@@ -7,7 +7,7 @@
 (function () {
   var SHEET = '12iKRmkDdlo7G2UYbGZajUZrnJ0jmcd0LyE1DsFmI1VU';
   var C = window.CENTRE || {};
-  var DEF_KEYS = (C.cles) || { rapide: 'WIN2026', placement: 'WIN2026' };
+  var DEF_KEYS = (C.cles) || { rapide: 'WIN2026', placement: 'WECINSCRIT' };
   var n = 0, mem = {};
 
   function cacheGet(k) { try { return JSON.parse(localStorage.getItem('wec_sh_' + k) || 'null'); } catch (e) { return null; } }
@@ -53,9 +53,11 @@
   function getSettings(cb) { load('Réglages', function (rows) { if (rows) settings = readSettings(rows); cb(settings || readSettings(null)); }); }
 
   function normKey(s) { return String(s || '').toUpperCase().replace(/\s+/g, ''); }
-  function unlocked(which) { try { return localStorage.getItem('wec_key_' + which) === '1'; } catch (e) { return false; } }
+  function sk(which){ return which==='placement' ? 'wec_key_placement2' : 'wec_key_' + which; }
+  function unlocked(which) { try { return localStorage.getItem(sk(which)) === '1'; } catch (e) { return false; } }
   function keyOk(which, val) {
-    var cur = (settings || readSettings(cacheGet('Réglages')))[which] || DEF_KEYS[which];
+    var st = (settings || readSettings(cacheGet('Réglages'))) || {};
+    var cur = which==='placement' ? (st.placement_inscrits || DEF_KEYS.placement) : (st[which] || DEF_KEYS[which]);
     return normKey(val) && (normKey(val) === normKey(cur));
   }
   function wa(t) { return 'https://wa.me/' + (C.whatsapp || '2250767037284') + '?text=' + encodeURIComponent(t); }
@@ -68,15 +70,17 @@
     return '<div class="wec-key" style="' + (style || '') + 'background:#FFF7E0;border:1px solid #F2B33D;border-radius:12px;padding:12px 14px;margin:10px 0">' +
       '<label for="wec-key-' + which + '" style="display:block;font-weight:700;margin-bottom:6px">🔑 Clé d\'accès au test</label>' +
       '<input id="wec-key-' + which + '" autocomplete="off" autocapitalize="characters" placeholder="Ex : ABC123" style="width:100%;box-sizing:border-box;padding:11px 12px;border:1px solid #d9cfa8;border-radius:10px;font:inherit;text-transform:uppercase">' +
-      '<div id="wec-key-err-' + which + '" style="display:none;color:#B83A35;font-size:14px;margin-top:6px">Clé incorrecte. Vérifie-la ou demande-la sur WhatsApp.</div>' +
-      '<p style="margin:8px 0 0;font-size:14px">Pas encore de clé ? Elle est <b>gratuite</b> : <a target="_blank" rel="noopener" href="' + wa(msg) + '" style="color:#1f9d55;font-weight:700">demande-la sur WhatsApp</a>.</p></div>';
+      '<div id="wec-key-err-' + which + '" style="display:none;color:#B83A35;font-size:14px;margin-top:6px">Clé incorrecte. Vérifie-la avec Coach Winner.</div>' +
+      (which==='placement'
+        ? '<p style="margin:8px 0 0;font-size:14px">🔒 Ce test est <b>réservé aux inscrits</b> : Coach Winner te donne la clé après ton inscription. Pas encore inscrit(e) ? <a href="' + (location.pathname.indexOf('/placement')>-1 ? '../' : '') + '#test" style="color:#1f9d55;font-weight:700">Fais le test rapide gratuit (5 min)</a>.</p></div>'
+        : '<p style="margin:8px 0 0;font-size:14px">Pas encore de clé ? Elle est <b>gratuite</b> : <a target="_blank" rel="noopener" href="' + wa(msg) + '" style="color:#1f9d55;font-weight:700">demande-la sur WhatsApp</a>.</p></div>');
   }
   /* À appeler au clic sur « Commencer » : renvoie true si on peut démarrer */
   function checkKey(which) {
     if (unlocked(which)) return true;
     var el = document.getElementById('wec-key-' + which), err = document.getElementById('wec-key-err-' + which);
     if (!el) return true;
-    if (keyOk(which, el.value)) { try { localStorage.setItem('wec_key_' + which, '1'); } catch (e) {} if (window.wecTrack) window.wecTrack('Lead', { content_name: 'cle_' + which }); return true; }
+    if (keyOk(which, el.value)) { try { localStorage.setItem(sk(which), '1'); } catch (e) {} if (window.wecTrack) window.wecTrack('Lead', { content_name: 'cle_' + which }); return true; }
     if (err) err.style.display = 'block';
     el.focus();
     return false;

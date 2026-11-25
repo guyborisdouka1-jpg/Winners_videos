@@ -85,7 +85,7 @@ $('f').addEventListener('submit',function(e){
   if(!ok) return;
   $('go').disabled=true; $('go').textContent='Envoi…';
   var pren=nom.split(' ')[0];
-  var msg="Bonjour "+pren+" 👋, ici Coach Winner de Winners' English Center.\nMerci pour votre inscription à la Promo Anglais Noël 🎄 ("+mode+").\n\nPour réserver votre place :\n💳 25 000 F à l'inscription, puis il reste 20 000 F à payer avant le 7 décembre.\n📚 Supports de cours : 10 000 F\n📲 Wave / Mobile Money : "+PAY.join(' · ')+"\nEnvoyez-moi la capture de votre paiement ici.\n\n📝 Si ce n'est pas encore fait, passez votre test de placement (30 min) : winnersenglishcenter.com/placement (code : "+KEY+")\n\nÀ très vite !\nCoach Winner";
+  var msg="Bonjour "+pren+" 👋, ici Coach Winner de Winners' English Center.\nMerci pour votre inscription à la Promo Anglais Noël 🎄 ("+mode+").\n\nPour réserver votre place :\n💳 25 000 F à l'inscription, puis il reste 20 000 F à payer avant le 7 décembre.\n📚 Supports de cours : 10 000 F\n📲 Wave / Mobile Money : "+PAY.join(' · ')+"\nEnvoyez-moi la capture de votre paiement ici.\n\n📝 Dès votre paiement, je vous envoie votre code pour le test de placement.\n\nÀ très vite !\nCoach Winner";
   var telI=td.length===10?'225'+td:td.replace(/^00/,'');
   var body={_subject:'🎄 Inscription Promo Noël : '+nom+' ('+mode+')',_template:'table',_captcha:'false','Nom':nom,'Téléphone':tel,'Email':email||'(non donné)','Formule':mode,'1 clic : message WhatsApp prêt':'https://wa.me/'+telI+'?text='+encodeURIComponent(msg)};
   if(email) body._replyto=email;
@@ -93,13 +93,12 @@ $('f').addEventListener('submit',function(e){
   if(C.resultatsURL) jobs.push(fetch(C.resultatsURL,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(body)}).catch(function(){}));
   if(C.emailAutoURL&&email) jobs.push(fetch(C.emailAutoURL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify({type:'inscription',nom:nom,email:email,mode:mode,tel:tel})}).catch(function(){}));
   try{ if(window.wecTrack) wecTrack('Lead',{content_name:'inscription_promo_noel'}); }catch(x){}
-  try{ localStorage.setItem('wec_key_placement','1'); }catch(x){}
   var done=function(){
     $('app').innerHTML='<span class="tag">✅ Inscription envoyée</span><h1>Merci '+esc(pren)+' !</h1>'+
     '<p>Coach Winner vous écrit sur WhatsApp pour confirmer votre place'+(email?' (un email vous a aussi été envoyé)':'')+'.</p>'+
-    '<div class="card"><b>📝 Dernière étape : votre test de placement</b><p class="muted">30 minutes, pour vous placer dans le groupe qui correspond à votre niveau. Faites-le maintenant, c\'est gratuit.</p>'+
+    '<div class="card"><b>📝 Dernière étape : votre test de placement</b><p class="muted">30 minutes, pour vous placer dans le bon groupe. Coach Winner vous envoie votre code d\'accès dès votre paiement.</p>'+
     '<a class="btn btn-red" href="../placement/">Faire mon test de placement</a>'+
-    '<p class="muted" style="margin:14px 0 4px">Votre code d\'accès (si le test vous le demande) :</p><div class="key">'+esc(KEY)+'</div></div>'+
+    '</div>'+
     '<div class="card"><b>💳 Pour réserver votre place</b><p class="price">25 000 F à l\'inscription, puis il reste 20 000 F à payer avant le 7 décembre. Supports de cours : 10 000 F.</p>'+
     '<ul class="pay">'+PAY.map(function(n){return '<li>Wave / Mobile Money : <b>'+esc(n)+'</b></li>';}).join('')+'</ul></div>'+
     '<a class="btn btn-ghost" href="../site/#promo-noel">Retour au programme</a>';
